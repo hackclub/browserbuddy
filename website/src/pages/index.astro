@@ -151,6 +151,7 @@ import SampleCard from "../components/samplecard.astro";
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		text-align: center;
 	}
 
 	.cta-text h2 {
@@ -188,6 +189,7 @@ import SampleCard from "../components/samplecard.astro";
 		margin: 0 0 2rem 0;
 		background-color: #ec3750;
 		z-index: 2;
+		display: inline;
 	}
 
 	main .cta-item-container {
@@ -367,4 +369,71 @@ import SampleCard from "../components/samplecard.astro";
 		transform: scale(0.8);
 	}
 
+	@media screen and (max-width: 500px) {
+		main {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+
+		.info-cards {
+			flex-direction: column;
+		}
+
+		.info-cards * {
+			margin: 0.5rem 0;
+			align-items: center;
+			justify-content: space-evenly;
+			width: 100%;
+		}
+
+		main h1 {
+			font-size: 3rem;
+		}
+
+		.cta-text h2 {
+			font-size: 1.4rem;
+		}
+
+		.cta-text h3 {
+			font-size: 1rem;
+		}
+
+		.cta-actions {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+		}
+
+		.cta-actions * {
+			margin: 0.2rem 0;
+		}
+
+		main form {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+		}
+
+		main form input, main form button {
+			width: 80%;
+		}
+
+		.info {
+			padding: 0;	
+			font-size: 1rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+
+		.faq {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+	}
 </style>

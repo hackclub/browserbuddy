@@ -17,6 +17,9 @@ const { icon, title, description, link, image, width, height } = Astro.props;
     a {
         text-decoration: none;
         color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .card {
@@ -44,5 +47,13 @@ const { icon, title, description, link, image, width, height } = Astro.props;
     .card img {
         width: 100%;
         height: auto;
+    }
+
+    @media screen and (max-width: 500px) {
+        .card {
+            width: 60%;
+            max-width: 60%;
+            height: 60%;
+        }
     }
 </style>

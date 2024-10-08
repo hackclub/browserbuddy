@@ -125,6 +125,11 @@ const { title } = Astro.props;
 		--hc-green: #33d6a6;
 		--hc-purple: #a633d6;
 	}
+
+	* {
+		word-wrap: break-word;
+	}
+
 	html {
 		font-family: system-ui, sans-serif;
 	}
@@ -189,5 +194,18 @@ const { title } = Astro.props;
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+
+	@media screen and (max-width: 500px) {
+		.page-content {
+			margin: 0;
+		}
+
+		header svg {
+			transform: scale(3);
+			position: relative;
+			left: 10%;
+			top: 20px;
+		}
 	}
 </style>
