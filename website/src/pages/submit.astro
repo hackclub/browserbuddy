@@ -8,7 +8,8 @@ import Card from "../components/card.astro";
         <div class="cta-text">
             <h2>Submitting your browser extension</h2>
         </div>
-
+    </main>
+    <div class="info">
         <ul role="list" class="link-card-grid">
             <Card
                 title="1. Fork the Repository"
@@ -31,19 +32,20 @@ import Card from "../components/card.astro";
             />
             <Card
                 title="4. Get your grant"
-                description="Once your Pull Request has been approved and merged, you'll receive a grant of $30 to get a Chrome Web Store license and launch your extension."
+                description="Once your Pull Request has been approved and merged, click this card to fill out the submission form. You'll receive a grant of $30 to get a Chrome Web Store license and launch your extension."
                 image="/screenshots/submitted.png"
+                link="https://airtable.com/appgtKZwZBoOeFU7O/pagyeS51zr2kC1rp0/form"
                 height="350px"
             />
         </ul>
-    </main>
+    </div>
 </Layout>
 
 <style>
     main {
         margin: auto;
         padding: 1.5rem;
-        max-width: 50vw;
+        max-width: 75vw;
     }
     h1 {
         font-size: 3rem;
@@ -88,5 +90,34 @@ import Card from "../components/card.astro";
         grid-template-columns: repeat(2, 1fr);
         gap: 2em;
         padding: 1em;
+    }
+
+    @media screen and (max-width: 500px) {
+        main {
+            height: 20vh;
+            margin: 0;
+            width: 100%;
+        }
+
+        .cta-text {
+            width: 100%;
+        }
+
+        .cta-text h2 {
+            font-size: 1.6rem;
+            width: 100%;
+        }
+
+        .link-card-grid {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .info {
+            width: 100%;
+            margin: 3em 0;
+        }
     }
 </style>

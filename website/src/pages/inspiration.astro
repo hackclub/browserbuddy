@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import SampleCard from "../components/samplecard.astro";
 import arrowRightIcon from "lucide-static/icons/arrow-right.svg";
-console.log("arrow right icon", arrowRightIcon);
 ---
 
 <Layout title="BrowserBuddy - Build your own Browser extension">
@@ -14,20 +13,6 @@ console.log("arrow right icon", arrowRightIcon);
 	</main>
 
 	<div class="info">
-		<h2>Your app must meet the following requirements?</h2>
-		<ul>
-			<li>
-				The extension must be unique and solve a problem or do something
-				reasonably useful.
-			</li>
-			<li>The extension must have been tested by at least 10 users.</li>
-			<li>The source code of your extension must be open-source.</li>
-			<li>
-				The extension must work properly in both Chrome-based browsers
-				and Firefox.
-			</li>
-		</ul>
-
 		<div class="sample-cards">
 			<SampleCard
 				name="ColorMancer"
@@ -293,43 +278,5 @@ console.log("arrow right icon", arrowRightIcon);
 		align-items: center;
 	}
 
-	@media screen and (max-width: 500px) {
-		main {
-			margin: 0;
-			padding: 0;
-			height: 180vh;
-		}
-
-		ain h1 {
-			font-size: 3rem;
-		}
-
-		.cta-text h2 {
-			font-size: 1.4rem;
-		}
-
-		.cta-text h3 {
-			font-size: 1rem;
-		}
-
-		.info {
-			padding: 0;
-			font-size: 1rem;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly;
-			align-items: center;
-		}
-
-		.info h2 {
-			width: 85%;
-		}
-
-		.sample-cards {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly;
-			align-items: center;
-		}
-	}
+	
 </style>
