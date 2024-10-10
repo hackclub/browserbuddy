@@ -15,6 +15,7 @@
     "airtable": "^0.12.2",
     "astro": "^4.15.10",
     "canvas-confetti": "^1.9.3",
+    "lucide-static": "^0.451.0",
     "typescript": "^5.6.2"
   }
 }
