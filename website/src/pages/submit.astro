@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/card.astro";
+import arrowRightIcon from "lucide-static/icons/arrow-right.svg";
 ---
 
 <Layout title="Submit Your Extension">
@@ -32,6 +33,7 @@ import Card from "../components/card.astro";
             />
             <Card
                 title="4. Get your grant"
+                icon2={`<img src="${arrowRightIcon.src}" alt="" />`}
                 description="Once your Pull Request has been approved and merged, click this card to fill out the submission form. You'll receive a grant of $30 to get a Chrome Web Store license and launch your extension."
                 image="/screenshots/submitted.png"
                 link="https://airtable.com/appgtKZwZBoOeFU7O/pagyeS51zr2kC1rp0/form"
@@ -92,6 +94,10 @@ import Card from "../components/card.astro";
         padding: 1em;
     }
 
+    .info {
+        margin: 3em 0;
+    }
+
     @media screen and (max-width: 500px) {
         main {
             height: 20vh;
@@ -117,7 +123,6 @@ import Card from "../components/card.astro";
 
         .info {
             width: 100%;
-            margin: 3em 0;
         }
     }
 </style>

@@ -1,10 +1,10 @@
 ---
-const { icon, title, description, link, image, width, height } = Astro.props;
+const { icon, icon2, title, description, link, image, width, height } = Astro.props;
 ---
 
 <a href={link} style=`width:${width ?? 300};height:${height ?? 300}`>
     <div class="card">
-        <h2>{icon} {title}</h2>
+        <h2>{icon} {title} <Fragment set:html={icon2} /></h2>
         <Fragment set:html={description}>
             <!-- <p class="card-content" set:html={description} /> -->
         </Fragment>
