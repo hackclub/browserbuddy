@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "cat-follow-mouse-real",
+  "version": "1.0",
+  "description": "A cat that follows your mouse!, real",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["catFollowMouse.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["cfm.gif"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
