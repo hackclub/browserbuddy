@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Rater</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Tab Rater</h1>
+      <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" />
+        <label for="theme-switch" class="theme-label">
+          <span class="light">🌞</span>
+          <span class="dark">🌜</span>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <h2>Rate this tab:</h2>
+      <div id="rating">
+        <!-- Keeping stars in a single row since there's more space -->
+        <button class="rate-btn" data-rating="1">⭐</button>
+        <button class="rate-btn" data-rating="2">⭐⭐</button>
+        <button class="rate-btn" data-rating="3">⭐⭐⭐</button>
+        <button class="rate-btn" data-rating="4">⭐⭐⭐⭐</button>
+        <button class="rate-btn" data-rating="5">⭐⭐⭐⭐⭐</button>
+      </div>
+      <p id="result-message"></p>
+      <button id="top-sites-btn">Top 10 Rated Sites</button>
+      <ul id="top-sites-list"></ul>
+    </main>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Rater",
+  "description": "Rate your tabs with a star rating.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "192": "icons/icon192.png",
+      "512": "icons/icon512.png"
+    }
+  },
+  "permissions": ["storage", "activeTab"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "192": "icons/icon192.png",
+    "512": "icons/icon512.png"
+  }
+}

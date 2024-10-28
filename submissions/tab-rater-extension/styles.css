@@ -1,0 +1,119 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --button-bg: #007BFF;
+  --button-text: #ffffff;
+}
+
+:root.dark-theme {
+  --bg-color: #333333;
+  --text-color: #ffffff;
+  --button-bg: #444444;
+  --button-text: #ffffff;
+}
+
+.container {
+  padding: 20px;
+  max-width: 400px; 
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.theme-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.light, .dark {
+  font-size: 18px;
+  margin: 0 5px;
+}
+
+main h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#rating {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap; /* Allow wrapping if the space isn't enough */
+}
+
+.rate-btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 5px;
+  min-width: 80px; /* Ensures buttons stay wide enough */
+}
+
+.rate-btn:hover {
+  background-color: #0056b3;
+}
+
+#top-sites-btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#top-sites-btn:hover {
+  background-color: #0056b3;
+}
+
+#top-sites-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+#top-sites-list li {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #333;
+    --text-color: #f5f5f5;
+  }
+}
