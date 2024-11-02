@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Tracker</title>
+    <script src="main.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            display: none;
+        }
+        #loginForm {
+            display: block;
+        }
+        #successMessage {
+            display: none;
+            color: green;
+        }
+        #toggleForm {
+            margin-top: 10px;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginForm" class="form-container">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button id="loginButton">Login</button>
+        <p id="toggleToSignup">Don't have an account? Sign up here.</p>
+    </div>
+
+    <div id="signupForm" class="form-container">
+        <h2>Sign Up</h2>
+        <input type="text" id="signupUsername" placeholder="Username" required>
+        <input type="password" id="signupPassword" placeholder="Password" required>
+        <button id="signupButton">Sign Up</button>
+        <p id="toggleToLogin">Already have an account? Login here.</p>
+    </div>
+
+    <div id="successMessage">
+        <h2>Welcome!</h2>
+        <p>You are now logged in and your activity is being tracked.</p>
+    </div>
+</body>
+</html>

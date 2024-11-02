@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "condition": {
+            "urlFilter": "harker.org",
+            "resourceTypes": ["main_frame"]
+        },
+        "action": {
+            "type": "allow"
+        }
+    },
+    {
+        "id": 2,
+        "condition": {
+            "urlFilter": "google.com",
+            "resourceTypes": ["main_frame"]
+        },
+        "action": {
+            "type": "allow"
+        }
+    },
+    {
+        "id": 3,
+        "condition": {
+            "urlFilter": "nytimes.com",
+            "resourceTypes": ["main_frame"]
+        },
+        "action": {
+            "type": "allow"
+        }
+    },
+    {
+        "id": 4,
+        "condition": {
+            "urlFilter": "replit.com",
+            "resourceTypes": ["main_frame"]
+        },
+        "action": {
+            "type": "block"
+        }
+    },
+    {
+        "id": 5,
+        "condition": {
+            "urlFilter": "membean.com",
+            "resourceTypes": ["main_frame"]
+        },
+        "action": {
+            "type": "block"
+        }
+    },
+    {
+        "id": 6,
+        "condition": {
+            "urlFilter": ".*",
+            "resourceTypes": ["main_frame"]
+        },
+        "action": {
+            "type": "block"
+        }
+    }
+]
