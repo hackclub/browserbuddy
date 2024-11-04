@@ -7,6 +7,7 @@ function setFilters(newFilters) {
 }
 
 blockImagePayload = {redirectUrl: "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEAAAAALAAAAAABAAEAAAI="};
+blockPagePayload = {redirectUrl: "about:blank"};
 cancelPayload = {cancel: true};
 
 function blockImage(details) {
