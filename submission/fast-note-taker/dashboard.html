@@ -24,9 +24,19 @@
       background-color: white;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s;
+      word-wrap: break-word; 
+      overflow: hidden;      
+      
+      text-overflow: ellipsis; 
     }
     .noteItem:hover {
       transform: scale(1.02);
+    }
+    .noteContent {
+      
+      overflow: hidden;  
+      text-overflow: ellipsis; 
+      white-space: pre-wrap; 
     }
     button {
       margin-top: 5px;
