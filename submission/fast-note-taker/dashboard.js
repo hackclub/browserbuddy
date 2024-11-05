@@ -1,8 +1,10 @@
-// dashboard.js
+
 
 document.addEventListener('DOMContentLoaded', function () {
+   
     loadAllNotes();
 
+    
     document.getElementById('exportButton').addEventListener('click', () => {
         chrome.storage.sync.get(['allNotes'], (result) => {
             const notes = result.allNotes || [];
@@ -19,10 +21,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    
     document.getElementById('importButton').addEventListener('click', () => {
         document.getElementById('importFile').click();
     });
 
+    
     document.getElementById('importFile').addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -40,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function importNotes(notes) {
+        
         if (!Array.isArray(notes)) {
             alert('Invalid notes format. Please ensure it is an array of notes.');
             return;
@@ -89,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 `;
                 allNotesListDiv.appendChild(noteItem);
 
+                // Event listeners for editing and removing notes
                 noteItem.querySelector('.removeButton').addEventListener('click', function () {
                     const confirmRemove = confirm('Are you sure you want to remove this note?');
                     if (confirmRemove) {
