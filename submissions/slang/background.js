@@ -9,7 +9,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === "lookupSlang" && info.selectionText) {
         const word = info.selectionText.trim();
-        const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+        const apiUrl = `https://api.urbandictionary.com/v0/define?term=${encodeURIComponent(word)}`;
 
         fetch(apiUrl)
             .then(response => {
@@ -19,10 +19,9 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
                 return response.json();
             })
             .then(data => {
-                if (data && data.length > 0) {
-                    
-                    chrome.storage.local.set({ lookupResult: data }, () => {
-                        
+                if (data && data.list && data.list.length > 0) {
+                    // Save the first definition in storage
+                    chrome.storage.local.set({ lookupResult: data.list[0].definition }, () => {
                         chrome.windows.create({
                             url: "lookup.html",
                             type: "popup",
@@ -31,11 +30,27 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
                         });
                     });
                 } else {
-                    console.error("No definitions found.");
+                    // Save a "no definition found" message in storage
+                    chrome.storage.local.set({ lookupResult: "No definitions found." }, () => {
+                        chrome.windows.create({
+                            url: "lookup.html",
+                            type: "popup",
+                            width: 600,
+                            height: 400
+                        });
+                    });
                 }
             })
             .catch(error => {
-                console.error("Error fetching the slang meaning:", error.message);
+                // Save the error message in storage to show it in the popup
+                chrome.storage.local.set({ lookupResult: `Error fetching the slang meaning: ${error.message}` }, () => {
+                    chrome.windows.create({
+                        url: "lookup.html",
+                        type: "popup",
+                        width: 600,
+                        height: 400
+                    });
+                });
             });
     }
 });
