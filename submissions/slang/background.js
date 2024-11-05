@@ -20,7 +20,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
             })
             .then(data => {
                 if (data && data.list && data.list.length > 0) {
-                    // Save the first definition in storage
+                    
                     chrome.storage.local.set({ lookupResult: data.list[0].definition }, () => {
                         chrome.windows.create({
                             url: "lookup.html",
@@ -30,7 +30,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
                         });
                     });
                 } else {
-                    // Save a "no definition found" message in storage
+                    
                     chrome.storage.local.set({ lookupResult: "No definitions found." }, () => {
                         chrome.windows.create({
                             url: "lookup.html",
@@ -42,7 +42,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
                 }
             })
             .catch(error => {
-                // Save the error message in storage to show it in the popup
+                
                 chrome.storage.local.set({ lookupResult: `Error fetching the slang meaning: ${error.message}` }, () => {
                     chrome.windows.create({
                         url: "lookup.html",
