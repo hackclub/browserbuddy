@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Note Manager</title>
   <style>
+    /* General body styles */
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
@@ -12,11 +13,15 @@
       color: #333;
       max-width: 600px;
     }
+    
+    /* Heading styles */
     h2 {
       font-size: 24px;
       color: #007BFF;
-      margin-bottom: 20px; 
+      margin-bottom: 20px;
     }
+
+    /* Styles for each note item */
     .noteItem {
       margin-bottom: 20px;
       padding: 15px;
@@ -25,21 +30,11 @@
       background-color: white;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s;
-      word-wrap: break-word; 
-      overflow: hidden;      
-      margin-left: 10px;     
-      margin-right: 10px;    
+      word-wrap: break-word;
+      overflow: hidden;
     }
-    .noteItem:hover {
-      transform: scale(1.02);
-    }
-    .noteContent {
-      margin-bottom: 10px; 
-      white-space: pre-wrap; 
-    }
-    .noteItem div {
-      margin-bottom: 8px; 
-    }
+
+    /* General button styles */
     button {
       margin-top: 5px;
       padding: 8px 12px;
@@ -50,10 +45,15 @@
       cursor: pointer;
       font-size: 14px;
       transition: background-color 0.3s;
+      height: 37px;
     }
+
+    /* Button hover effect */
     button:hover {
       background-color: #0056b3;
     }
+
+    /* Styles for the editor section */
     .editor {
       display: none;
       margin-top: 30px;
@@ -63,20 +63,25 @@
       background-color: #fff;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-    .editContainer {
-      margin-top: 15px;
+
+    /* Styles for the search input */
+    #searchInput {
+      flex: 1;
       padding: 10px;
+      margin-right: 5px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      background-color: #f9f9f9;
-      margin-bottom: 15px; 
     }
-    .noteItem a {
-      color: #007BFF;
-      text-decoration: none;
-    }
-    .noteItem a:hover {
-      text-decoration: underline;
+
+    /* Styles for the clear search button */
+    #clearSearch {
+      padding: 0 12px;
+      margin-left: 5px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -84,9 +89,9 @@
 
   <h2>All Notes</h2>
   <div style="margin-bottom: 20px; display: flex; align-items: center;">
-    <input type="text" id="searchInput" placeholder="Search notes..." style="flex: 1; padding: 5px; margin-right: 5px;">
+    <input type="text" id="searchInput" placeholder="Search notes...">
     <button id="searchButton">Search</button>
-    <button id="clearSearch" style="padding: 5px; margin-left: 5px; background-color: red; color: white; border: none; border-radius: 5px;">X</button>
+    <button id="clearSearch">X</button>
   </div>
 
   <div id="allNotesList"></div>
@@ -100,6 +105,11 @@
     <div id="websiteURL" style="margin-top: 5px;"></div>
   </div>
 
+  <button id="exportButton">Export Notes</button>
+  <input type="file" id="importFile" accept=".json" style="display: none;" />
+  <button id="importButton">Import Notes</button>
+
+  <!-- Link to the JavaScript file -->
   <script src="dashboard.js"></script>
 </body>
 </html>
