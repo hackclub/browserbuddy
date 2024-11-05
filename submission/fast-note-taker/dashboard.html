@@ -15,6 +15,7 @@
     h2 {
       font-size: 24px;
       color: #007BFF;
+      margin-bottom: 20px; 
     }
     .noteItem {
       margin-bottom: 20px;
@@ -26,17 +27,18 @@
       transition: transform 0.2s;
       word-wrap: break-word; 
       overflow: hidden;      
-      
-      text-overflow: ellipsis; 
+      margin-left: 10px;     
+      margin-right: 10px;    
     }
     .noteItem:hover {
       transform: scale(1.02);
     }
     .noteContent {
-      
-      overflow: hidden;  
-      text-overflow: ellipsis; 
+      margin-bottom: 10px; 
       white-space: pre-wrap; 
+    }
+    .noteItem div {
+      margin-bottom: 8px; 
     }
     button {
       margin-top: 5px;
@@ -67,10 +69,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       background-color: #f9f9f9;
-    }
-    .noteContent {
-      margin: 10px 0;
-      line-height: 1.5;
+      margin-bottom: 15px; 
     }
     .noteItem a {
       color: #007BFF;
@@ -85,8 +84,8 @@
 
   <h2>All Notes</h2>
   <div style="margin-bottom: 20px; display: flex; align-items: center;">
-    <input type="text" id="searchInput" placeholder="Search notes..." style="flex: 1; padding: 5px;">
-    <button id="searchButton" style="margin-left: 5px;">Search</button>
+    <input type="text" id="searchInput" placeholder="Search notes..." style="flex: 1; padding: 5px; margin-right: 5px;">
+    <button id="searchButton">Search</button>
     <button id="clearSearch" style="padding: 5px; margin-left: 5px; background-color: red; color: white; border: none; border-radius: 5px;">X</button>
   </div>
 
@@ -94,12 +93,11 @@
 
   <div id="editor" class="editor">
     <h3>Edit Note</h3>
-    <textarea id="noteText" rows="5" style="width: 100%;"></textarea>
-    <br>
+    <textarea id="noteText" rows="5" style="width: 100%; margin-bottom: 10px;"></textarea>
     <button id="saveNote">Save Note</button>
     <button id="cancelEdit">Cancel</button>
-    <div id="websiteTitle"></div>
-    <div id="websiteURL"></div>
+    <div id="websiteTitle" style="margin-top: 10px;"></div>
+    <div id="websiteURL" style="margin-top: 5px;"></div>
   </div>
 
   <script src="dashboard.js"></script>
