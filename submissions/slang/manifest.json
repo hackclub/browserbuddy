@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Slang Dictionary Lookup",
+  "name": "Slang Lookup",
   "version": "1.0",
   "description": "Look up Slang Terms With Single Click.",
   "permissions": [
