@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     searchButton.addEventListener("click", function () {
         const word = searchInput.value.trim();
         if (word) {
-            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+            fetch(`https://api.urbandictionary.com/v0/define?term=${encodeURIComponent(word)}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("Network response was not ok");
@@ -19,16 +19,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     return response.json();
                 })
                 .then(data => {
-                    if (data.length > 0 && data[0].meanings.length > 0) {
-                        const definitions = data[0].meanings.map(meaning => meaning.definitions[0].definition).join("<br><br>");
+                    if (data.list && data.list.length > 0) {
+                        const definitions = data.list.map(entry => entry.definition).join("<br><br>");
                         definitionElement.innerHTML = `<p>${definitions}</p>`;
                     } else {
-                        definitionElement.innerHTML = "<p>No definition found.</p>";
+                        definitionElement.innerHTML = "<p>No slang definition found.</p>";
                     }
                 })
                 .catch(error => {
                     console.error("Error fetching the slang meaning:", error);
-                    definitionElement.innerHTML = "<p>Error fetching definition.</p>";
+                    definitionElement.innerHTML = "<p>Error fetching slang definition.</p>";
                 });
         } else {
             definitionElement.innerHTML = "<p>Please enter a word to search.</p>";
