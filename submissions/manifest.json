@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Note Taking Extension",
+  "name": "Fast Note Taker",
   "version": "1.0",
   "permissions": [
     "storage",
@@ -16,7 +16,7 @@
   }],
   "browser_specific_settings": {
     "gecko": {
-      "id": "your_extension_id@example.com"  // Optional: provide a unique ID for Firefox
+      "id": "{12345678-1234-1234-1234-123456789abc}"  
     }
   }
 }
