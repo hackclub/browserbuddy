@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "HighSeas Shop Favourite Button",
+  "version": "1.0",
+  "description": "Adds a favourite button to the HighSeas Shop items.",
+  "permissions": ["storage", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://highseas.hackclub.com/shop"],
+      "js": ["content.js"]
+    }
+  ]
+}

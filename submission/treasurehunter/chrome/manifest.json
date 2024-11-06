@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "TreasureHunter",
+  "version": "1.0",
+  "description": "Adds a favourite button to the HighSeas Shop items",
+  "content_scripts": [
+    {
+      "matches": ["https://highseas.hackclub.com/shop"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ]
+}
