@@ -3,16 +3,8 @@
   "version": "1.0",
   "manifest_version": 3,
   "description": "Slices through ads, popups, and paywalls.",
-  "permissions": [
-    "declarativeNetRequest",
-    "storage",
-    "scripting",
-    "tabs"
-  ],
-  "host_permissions": [
-    "http://*/*",
-    "https://*/*"
-  ],
+  "permissions": ["declarativeNetRequest", "storage", "scripting", "tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"],
   "action": {
     "default_icon": "logo.png"
   },
