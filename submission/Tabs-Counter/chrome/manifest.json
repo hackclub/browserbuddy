@@ -1,0 +1,19 @@
+{
+    "name": "Tab Counter",
+    "version": "1.0.0",
+    "description": "Counts the Tabs",
+    "manifest_version": 3,
+    "author": "Shourya Wadhwa",
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Tab Counter",
+        "default_icon": {
+            "128":"icons/tab.png"
+    }},
+    "permissions": [
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
