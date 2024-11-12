@@ -1,13 +1,18 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "ContextTabs",
   "version": "1.0",
+  "description": "Organize and switch between tab groups for different contexts like Work, Personal, and Research.",
   "permissions": ["tabs", "storage"],
-  "action": {
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"
   },
-  "background": {
-    "service_worker": "background.js"
+  "icons": {
+    "48": "icon.png"
   }
 }
