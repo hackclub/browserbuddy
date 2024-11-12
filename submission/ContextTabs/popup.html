@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab Organizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 15px;
+            background-color: #f8f9fa;
+        }
+        h2 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .button {
+            width: 100%;
+            max-width: 250px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        #customize-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            color: #495057;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tab Organizer</h2>
+    <div class="button-group" id="context-buttons"></div>
+    
+    <div id="customize-section">
+        <label for="group-selection">Select Group to Add URL:</label>
+        <select id="group-selection">
+            <!-- Group options will be dynamically populated -->
+        </select>
+        
+        <label for="custom-urls">Enter URLs (comma-separated):</label>
+        <input type="text" id="custom-urls" placeholder="e.g., https://example.com, https://another.com">
+        
+        <button class="button" id="save-custom-urls">Add URLs to Selected Group</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
