@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <title>ContextTabs</title>
     <style>
-        /* Fixed width and height for optimized popup size */
         body {
             font-family: Arial, sans-serif;
             width: 360px;
-            height: 500px;
+            height: 600px;
             margin: 0;
             background-color: #f8f9fa;
             padding: 10px;
@@ -22,23 +21,22 @@
         }
         .button-group {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 5px;
         }
-        .button {
-            width: 100%;
-            padding: 8px;
+        .group-button {
             background-color: #007bff;
             color: white;
+            padding: 8px 12px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin: 5px 0;
+            font-size: 13px;
             transition: background-color 0.3s;
-            font-size: 14px;
         }
-        .button:hover {
+        .group-button:hover {
             background-color: #0056b3;
         }
         #customize-section {
@@ -64,25 +62,48 @@
             font-size: 13px;
             box-sizing: border-box;
         }
+        .url-item {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .url-text {
+            font-size: 13px;
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .url-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            color: #007bff;
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
     <h2>ContextTabs</h2>
     
-    <!-- Group context buttons -->
+    <!-- Quick access buttons to open groups -->
     <div class="button-group" id="context-buttons"></div>
     
-    <!-- Customization section for adding URLs -->
+    <!-- Customization section for adding, editing, and deleting URLs -->
     <div id="customize-section">
-        <label for="group-selection">Select Group to Add URL:</label>
-        <select id="group-selection">
-            <!-- Group options will be dynamically populated -->
-        </select>
+        <label for="group-selection">Select Group for Customization:</label>
+        <select id="group-selection"></select>
         
-        <label for="custom-urls">Enter URLs (comma-separated):</label>
-        <input type="text" id="custom-urls" placeholder="e.g., https://example.com, https://another.com">
+        <label for="custom-urls">Add URL:</label>
+        <input type="text" id="custom-urls" placeholder="e.g., https://example.com">
+        <button class="group-button" id="add-url">Add URL</button>
         
-        <button class="button" id="save-custom-urls">Add URLs to Selected Group</button>
+        <div class="url-list" id="url-list">
+            <!-- URLs within the selected group will be displayed here -->
+        </div>
     </div>
 
     <script src="popup.js"></script>
