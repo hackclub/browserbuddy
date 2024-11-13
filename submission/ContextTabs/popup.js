@@ -1,8 +1,10 @@
+const extensionAPI = typeof browser !== "undefined" ? browser : chrome;
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Popup script loaded");
 
     function loadContexts() {
-        chrome.storage.local.get(null, function(result) {
+        extensionAPI.storage.local.get(null, function(result) {
             const buttonContainer = document.getElementById('context-buttons');
             const groupSelect = document.getElementById('group-selection');
             buttonContainer.innerHTML = ''; // Clear previous buttons
@@ -26,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function switchContext(contextName) {
-        chrome.runtime.sendMessage({ type: "switchContext", context: contextName }, (response) => {
-            if (chrome.runtime.lastError) {
-                console.error("Runtime error:", chrome.runtime.lastError.message);
+        extensionAPI.runtime.sendMessage({ type: "switchContext", context: contextName }, (response) => {
+            if (extensionAPI.runtime.lastError) {
+                console.error("Runtime error:", extensionAPI.runtime.lastError.message);
             } else {
                 console.log("Switched to context:", response);
             }
@@ -43,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .map(url => url.trim())
             .filter(url => url.length > 0)
             .map(url => {
-                // Add "https://" if URL doesn't already have a protocol
                 if (!/^https?:\/\//i.test(url)) {
                     return `https://${url}`;
                 }
@@ -56,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if (customUrls.length > 0) {
-            chrome.storage.local.get([selectedGroup], (result) => {
+            extensionAPI.storage.local.get([selectedGroup], (result) => {
                 const existingUrls = result[selectedGroup] || [];
                 const updatedUrls = [...new Set([...existingUrls, ...customUrls])];
-                chrome.storage.local.set({ [selectedGroup]: updatedUrls }, () => {
+                extensionAPI.storage.local.set({ [selectedGroup]: updatedUrls }, () => {
                     console.log(`Saved URLs for ${selectedGroup}:`, updatedUrls);
                     alert(`URLs added to the "${selectedGroup}" group successfully!`);
                 });

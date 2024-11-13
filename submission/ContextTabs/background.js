@@ -1,4 +1,3 @@
-// Support both `chrome` and `browser` namespaces
 const extensionAPI = typeof browser !== "undefined" ? browser : chrome;
 
 console.log("Background script running...");
