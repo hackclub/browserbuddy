@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "EyeRest",
+  "description": "Przypomina o przerwie, umożliwia ustawienie czasu i dodawanie drzemek",
+  "version": "1.0",
+  "permissions": ["alarms", "notifications", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_height": 150,
+    "default_icon": "logo.png"
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}
