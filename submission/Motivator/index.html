@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivational Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="quote">
+      <p id="quote-text">Loading...</p>
+      <p id="quote-author">- Author</p>
+    </div>
+
+    <div class="tasks">
+      <h3>Today's Tasks</h3>
+      <ul id="task-list">
+        <!-- Task list will be dynamically filled here -->
+      </ul>
+      <input type="text" id="new-task" placeholder="Add new task" />
+      <button id="add-task">Add Task</button>
+    </div>
+
+    <div class="progress">
+      <h3>Progress Tracker</h3>
+      <div id="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+      <p id="progress-text">0/0 tasks completed</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

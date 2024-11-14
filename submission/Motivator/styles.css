@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .quote {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Task list styling */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 5px 0;
+  }
+  
+  input[type="text"] {
+    padding: 8px;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  #progress-bar {
+    background-color: #ddd;
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+  }
+  
+  #progress-fill {
+    background-color: #4CAF50;
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+  }
+  
+  .remove-task {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+  }
+  
+  .remove-task:hover {
+    background-color: darkred;
+  }

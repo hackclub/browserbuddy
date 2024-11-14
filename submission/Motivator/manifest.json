@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Motivational Dashboard",
+    "version": "1.0",
+    "description": "A simple motivational dashboard for daily inspiration and task management.",
+    "permissions": ["storage"],
+    "action": {
+      "default_popup": "index.html"
+    }
+  }
