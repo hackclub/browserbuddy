@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .emoji-flame-active {
+    color: rgba(255, 0, 0, 1);
+    display: inline-block;
+  }
+  .emoji-flame-inactive {
+    color: rgba(255, 255, 255, 0.4);
+    display: inline-block;
+  }
+}
+
+@layer base {
+  :root {
+    --color-primary: hsl(11, 100%, 30%);
+    --color-secondary: hsl(11, 79%, 48%);
+    --color-text-base: hsl(0, 0%, 90%);
+    --color-bg-primary: hsl(3, 0%, 17%);
+    --color-emoji-outline: hsl(0, 0%, 90%);
+  }
+}
