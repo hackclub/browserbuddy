@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Dictify",
+    "version": "1.0.0",
+    "description": "Get quick definition for any word on a web page",
+    "permissions": ["activeTab", "scripting"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_title": "Dictify",
+      "default_icon": "dictionary.png"
+    }
+  }
+  
