@@ -1,0 +1,17 @@
+{
+  "name": "Bitcoin price",
+  "version": "1.0.0",
+  "description": "Bitcoin calc extension",
+  "manifest_version": 3,
+  "author": "Eesa Zahed",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Check this out!"
+  },
+  "icons": {
+    "16": "btc.png",
+    "32": "btc.png",
+    "48": "btc.png",
+    "128": "btc.png"
+  }
+}

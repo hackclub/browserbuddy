@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: 400px;
+  text-align: center;
+}
+
+.container {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+h1 {
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  background-image: linear-gradient(to right, #4b0bff, #68b2ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h3 {
+  font-weight: normal;
+  padding-bottom: 0.5rem;
+}
+
+button {
+  padding: 0.3rem 0.5rem;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  margin-left: 0.25rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input[type="number"] {
+  margin: 0.3rem 0;
+  padding: 0.3rem;
+  border: none;
+  background-color: #e3e3e3;
+  border-radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+    color: white;
+  }
+
+  h1 {
+    background-image: linear-gradient(to right, #4facfe, #00f2fe);
+  }
+
+  .container {
+    background: #16022c;
+  }
+
+  input[type="number"] {
+    background-color: #33194d;
+  }
+}
+
+/*  */
