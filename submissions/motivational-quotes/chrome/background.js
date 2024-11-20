@@ -1,5 +1,7 @@
+const runtime = chrome.runtime
+
 // Log a message when the extension is installed
-chrome.runtime.onInstalled.addListener(() => {
+runtime.onInstalled.addListener(() => {
     console.log("Mood-Boosting Quotes extension installed!");
 });
 
@@ -17,7 +19,7 @@ async function getRandomQuote() {
 }
 
 // Listen for messages from other parts of the extension
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "getQuote") {
         getRandomQuote().then((quote) => {
             sendResponse({ quote: quote });

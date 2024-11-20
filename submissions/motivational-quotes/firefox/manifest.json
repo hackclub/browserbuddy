@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Mood-Boosting Quotes",
+    "version": "1.0",
+    "description": "A browser extension that displays random inspirational quotes to boost your mood while browsing.",
+    "icons": {
+        "128": "icons/icon128.png"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "browser_action": {
+        "default_popup": "newTab.html",
+        "default_icon": {
+            "128": "icons/icon128.png"
+        }
+        },
+        "background": {
+            "scripts": ["background.js"],
+            "persistent": true
+        },
+        "chrome_url_overrides": {
+            "newtab": "newTab.html"
+        },
+        "browser_specific_settings": {
+        "gecko": {
+            "id": "quotes-extension@ponderslime.com",
+            "strict_min_version": "91.0"
+        }
+    }
+}
