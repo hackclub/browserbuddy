@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Mood-Boosting Quotes",
+    "version": "1.0",
+    "description": "Displays random inspirational quotes to boost your mood while browsing.",
+    "permissions": ["storage"],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "chrome_url_overrides": {
+        "newtab": "newTab.html"
+    },
+    "host_permissions": ["<all_urls>"],
+    "icons": {
+        "128": "images/icon128.png"
+    }
+}
