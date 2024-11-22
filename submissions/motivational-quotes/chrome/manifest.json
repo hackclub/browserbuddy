@@ -7,6 +7,9 @@
         "128": "icons/icon128.png"
     },
     "permissions": ["storage"],
+    "host_permissions": [
+        "https://unpkg.com/*"
+    ],
     "action": {
         "default_popup": "newTab.html",
         "default_icon": {

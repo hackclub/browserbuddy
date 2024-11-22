@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const quoteText = document.getElementById('quote-text');
     const newQuoteBtn = document.getElementById('new-quote-btn')
