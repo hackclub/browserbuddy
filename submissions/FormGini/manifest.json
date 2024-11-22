@@ -1,0 +1,36 @@
+{
+    "name": "FormGini",
+    "version": "1.0.0",
+    "description": "FormGini is your trusted assistant for effortlessly tackling Google Forms.",
+    "manifest_version": 3,
+    "author": "KTS Hacx",
+    "action":{
+        "default_popup": "popup.html",
+        "default_title": "FormGini"
+    },
+    "icons": {
+        "16": "images/color.png",
+        "32": "images/color.png",
+        "48": "images/color.png",
+        "128": "images/color.png"
+    },
+    "content_scripts": [
+        {
+            "js": ["scripts/jquery.js","scripts/content.js"],
+            "css": ["styles/formgini.css"],
+            "matches": [
+                "*://docs.google.com/forms/*"
+            ]
+        }
+    ],
+    "web_accessible_resources": [{
+        "resources": ["images/color.png", "images/white.png"],
+        "matches": ["<all_urls>"]
+    }],
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "permissions": [
+        "storage"
+    ]
+}

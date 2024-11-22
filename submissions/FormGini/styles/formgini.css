@@ -1,0 +1,29 @@
+.btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: #ad28ff;
+    margin: 10px 10px 10px 0px;
+    padding: 10px;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    max-width: max-content;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #ad28ff;
+}
+
+.btn img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.answer {
+    color: #000;
+    margin: 10px 10px 10px 0px;
+}
