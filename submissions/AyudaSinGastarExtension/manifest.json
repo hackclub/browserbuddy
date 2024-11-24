@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Ayuda Sin Gastar",
+  "version": "3.5",
+  "description": "Automatic refferal tag adding to AmazonMX links, in order to contribute to AyudaSinGastar",
+  "permissions": [
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "*://*.amazon.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
