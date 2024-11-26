@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural Tone Filter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 10px;
+      width: 300px;
+      border-radius: 10px;
+      background-color: #2c2c2c;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: #ffaa00;
+    }
+
+    span {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Natural Tone Filter</h1>
+  <label for="strength">Filter Strength:</label>
+  <input type="range" id="strength" min="0" max="100" step="10">
+  <span id="strengthValue">50%</span>
+  <script src="popup.js"></script>
+</body>
+</html>

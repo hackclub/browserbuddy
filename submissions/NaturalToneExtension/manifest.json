@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Natural Tone Filter",
+    "version": "1.0",
+    "description": "Adds a natural filter to webpages with adjustable strength.",
+    "permissions": ["storage", "scripting"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_start"
+      }
+    ]
+  }
+  
