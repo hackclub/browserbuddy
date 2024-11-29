@@ -1,0 +1,43 @@
+{
+    "manifest_version": 3,
+    "name": "Open in Sci-Hub",
+    "version": "0.3",
+    "description": "Quickly open research paper URLs in Sci-Hub directly from your browser.",
+    "permissions": ["contextMenus", "tabs", "activeTab", "scripting", "storage"],
+    "background": {
+    "service_worker": "background.js"
+},
+"commands": {
+    "open-in-scihub": {
+    "suggested_key": {
+        "default": "Ctrl+Shift+H"
+},
+    "description": "Open current page in Sci-Hub"
+    }
+},
+"host_permissions": [
+    "*://*.scopus.com/*",
+    "*://*.webofknowledge.com/*",
+    "*://*.ncbi.nlm.nih.gov/*",
+    "*://*.eric.ed.gov/*",
+    "*://*.ieeexplore.ieee.org/*",
+    "*://*.sciencedirect.com/*",
+    "*://*.doaj.org/*",
+    "*://*.jstor.org/*",
+    "*://*.core.ac.uk/*",
+    "*://*.arxiv.org/*"
+],
+"action": {
+    "default_title": "Open in Sci-Hub"
+},
+
+"options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+},
+"icons": {
+    "16": "icons/open-in-scihub-icon.png",
+    "48": "icons/open-in-scihub-icon.png",
+    "128": "icons/open-in-scihub-icon.png"
+}
+}
