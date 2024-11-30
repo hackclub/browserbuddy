@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add URL</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-3" style="width: 450px;">
+    <button id="back-button">Back</button>
+    <button id="delete-button">Back</button>
+
+
+    <div class="modeTitleContainer ">
+        <input type="text" class="modeTitle" placeholder="Mode Name" autofocus>
+    </div>
+
+    <div id="URL-list">
+        <div class="URL">
+            <input type="url" class="urlInput" placeholder="URL" autofocus>
+        </div>
+        <div class="separation-line"></div>
+    </div>
+    <button id="addInput">+ Add website</button>
+    <button id="save-button">Save</button>
+</div>
+
+<script>
+const urlContainer = document.getElementById("URL-list");
+const addInputButton = document.getElementById("addInput");
+const urlParams = new URLSearchParams(window.location.search);
+let modeName = urlParams.get("mode") || "default";
+let storageKey = `savedURL_${modeName}`;
+const modeTitleInput = document.querySelector(".modeTitle");
+let savedURLs = JSON.parse(localStorage.getItem(storageKey)) || [];
+const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+        savedURL(event.target.value);
+        event.target.value = "";
+    }
+};
+const firstInput = document.querySelector(".urlInput");
+if (firstInput) {
+    firstInput.addEventListener("keydown", handleKeyPress);
+}
+
+document.getElementById("back-button").addEventListener("click", function() {
+    window.history.back();
+});
+document.getElementById("save-button").addEventListener("click", () => {
+    handleModeNameChange(); // Save the mode name
+    localStorage.setItem(storageKey, JSON.stringify(savedURLs)); // Save the URLs
+    alert(`Mode "${modeName}" and URLs saved successfully!`);
+});
+
+
+
+const savedURL = (url) => {
+    if (url.trim() && url.match(/^(http|https):\/\/[^ "]+$/)) {
+        savedURLs.push(url);
+        localStorage.setItem(storageKey, JSON.stringify(savedURLs));
+        alert(`Saved: ${url}`);
+    } else {
+        alert("Invalid URL");
+    }
+};
+
+const addInputField = () => {
+    const inputContainer = document.createElement("div");
+    inputContainer.className = "URL";
+    const newInput = document.createElement("input");
+    newInput.type = "url";
+    newInput.className = "urlInput";
+    newInput.placeholder = "URL";
+    newInput.addEventListener("keydown", handleKeyPress);
+    inputContainer.appendChild(newInput);
+    urlContainer.appendChild(inputContainer);
+
+    newInput.focus();
+};
+
+
+
+savedURLs.forEach((url) => {
+    const inputContainer = document.createElement("div");
+    inputContainer.className = "URL";
+    const input = document.createElement("input");
+    input.type = "url";
+    input.className = "urlInput";
+    input.value = url;
+    input.addEventListener("keydown", handleKeyPress);
+    inputContainer.appendChild(input);
+    urlContainer.appendChild(inputContainer);
+});
+
+const handleModeNameChange = () => {
+    const newModeName = modeTitleInput.value.trim();
+    if (newModeName && newModeName !== modeName) {
+        const newStorageKey = `savedURL_${newModeName}`;
+        localStorage.setItem(newStorageKey, JSON.stringify(savedURLs));
+        localStorage.removeItem(storageKey);
+        modeName = newModeName;
+        storageKey = newStorageKey;
+        alert(`Mode Name updated to ${newModeName}`);
+    }
+};
+
+modeTitleInput.value = modeName;
+modeTitleInput.addEventListener("blur", handleModeNameChange);
+modeTitleInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        modeTitleInput.blur();
+        alert("Mode name saved successfully");
+    }
+});
+
+addInputButton.addEventListener("click", addInputField);
+</script>
+
+</body>
+</html>
