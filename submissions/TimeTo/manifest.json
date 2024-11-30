@@ -1,0 +1,25 @@
+{
+    "name": "It's Time To...",
+    "version": "1.0.0",
+    "description": "Start working with only one click",
+    "manifest_version": 3,
+    "author": "Guebre Nadir Rayane",
+    "icons": {
+    "16": "icons/icon-16.svg"
+    
+  },
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Time to...",
+        "default_icon" :  {
+            "16": "icons/icon-16.svg"
+           
+          }
+    },
+    "permissions" : [
+        "tabs","activeTab", "scripting"
+    ],
+    "background" : {
+        "service_worker" : "background.js"
+    }
+}
