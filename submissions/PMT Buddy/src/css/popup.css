@@ -1,0 +1,136 @@
+/* it's a bit of a mess but hey it works or something */
+:root {
+	--hover-colour: #363a3d;
+}
+
+/* normalize css starts here */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* normalize css ends here */
+
+html {
+	font-family: sans-serif;
+	color: #ffffff;
+	font-size: 20px;
+	cursor: default;
+}
+
+body {
+	background-color: #2c3033;
+	min-width: 300px;
+	width: auto;
+	height: auto;
+	max-height: 20vh;
+}
+
+p {
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+input[type="checkbox"] {
+	/* accent-color: ; TODO: maybe a cool colour*/
+	box-sizing: border-box;
+	flex-shrink: 0;
+	margin: 0;
+	width: 16px;
+	height: 16px;
+}
+/*
+input[type="checkbox"]:checked {
+
+    }
+*/
+
+details {
+	font-size: 16px;
+}
+summary {
+	padding-left: 2px;
+}
+summary:hover {
+	background-color: var(--hover-colour);
+}
+
+.app {
+	height: 100%;
+	display: flex;
+	align-items: left;
+	justify-content: top;
+	flex-direction: column;
+	text-align: left;
+	padding: 10px;
+}
+
+.icon {
+	width: 32px;
+	height: 32px;
+	object-fit: cover;
+}
+
+.extension_title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.footer {
+	margin: 10px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer_icon {
+	width: 32px;
+	height: 32px;
+	margin-bottom: 10px;
+	float: right;
+	object-fit: cover;
+}
+.footer_icon:hover {
+	background-color: var(--hover-colour);
+}
+
+.gap {
+	margin-top: 10px;
+}
+
+.settings-category {
+	color: #adadad;
+}
+
+.setting {
+	border-left: 2px solid #454545;
+	margin-left: 6px;
+	padding: 3px;
+	padding-left: 10px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	font-size: 15px;
+	color: #ffffff;
+	height: auto;
+}
+.setting:hover {
+	background-color: var(--hover-colour);
+}
+
+.title {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.divider {
+	margin: 30px auto 25px;
+	width: 66%;
+	border: 1px dashed #848e96;
+	opacity: 0.1;
+}
