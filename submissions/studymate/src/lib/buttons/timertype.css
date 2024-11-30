@@ -1,0 +1,28 @@
+input[type="radio"] {
+    display: none;
+}
+
+form {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+input[type="radio"]:checked + span {
+    color: #747bff;
+}
+
+label span {
+    margin-left: 8px;
+}
