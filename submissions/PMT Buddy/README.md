@@ -23,6 +23,11 @@ This extension contains features intended to improve your experience on revision
 
 ---
 
+## For BrowserBuddy
+
+- Although there is a ready build in the `build` folder, this extension is already public on the Chrome Web Store!
+- For Firefox, visit `about:debugging#/runtime/this-firefox`, press `Load Temporary Add-on...`, and open `build/manifest.json`.
+
 ## Supported websites and features
 
 | Website                                                         | Features                                |
