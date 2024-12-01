@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Firefox Docs Auto Typer",
+  "version": "1.0",
+  "permissions": ["clipboardRead", "activeTab"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "commands": {
+    "startTyping": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Start typing clipboard content"
+    },
+    "stopTyping": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Stop typing"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
