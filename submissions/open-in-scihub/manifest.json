@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Open in Sci-Hub",
-    "version": "0.3",
+    "version": "0.1.2",
     "description": "Quickly open research paper URLs in Sci-Hub directly from your browser.",
     "permissions": ["contextMenus", "tabs", "activeTab", "scripting", "storage"],
     "background": {
@@ -9,10 +9,11 @@
 },
 "commands": {
     "open-in-scihub": {
-    "suggested_key": {
-        "default": "Ctrl+Shift+H"
-},
-    "description": "Open current page in Sci-Hub"
+        "suggested_key": {
+            "default": "Ctrl+Shift+H",
+            "mac": "Command+Shift+H"
+        },
+        "description": "Open current page in Sci-Hub"
     }
 },
 "host_permissions": [
