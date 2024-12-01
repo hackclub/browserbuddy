@@ -1,0 +1,192 @@
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+/* Containers */
+.container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* General styles for mode elements */
+.mode {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Align items vertically in the center */
+  justify-content: space-between; /* Ensure even spacing */
+  background-color: #e0f7fa;
+  color: #00796b;
+  font-weight: 700;
+  padding: 10px 15px;
+  border-radius: 1rem;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mode:hover {
+  background-color: #b2ebf2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mode name */
+.mode-name {
+  font-size: 20px;
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+#save-button {
+  background-color: green;
+  border: none;
+  color: white;
+  border-radius: 1rem;
+  height: 40px;
+  width: 100px;
+  margin-top: 10px;
+}
+
+#save-button:hover {
+  background-color: #4caf50;
+}
+
+#addInput {
+  background-color: #0288d1;
+  border-radius: 1rem;
+  height: 40px;
+  color: white;
+  border: none;
+  width: 120px;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+#back-button {
+  color: white;
+  border-radius: 1rem;
+  height: 30px;
+  width: 80px;
+  background-color: red;
+  border: none;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.delete-button {
+  color: white;
+  border-radius: 1rem;
+  height: 40px;
+  width: 120px;
+  background-color: red;
+  border: none;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#addMode {
+  background-color: #0288d1;
+  border: none;
+  color: white;
+  border-radius: 1rem;
+  height: 40px;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+
+
+/* Input fields */
+.urlInput:focus,
+urlInput:valid {
+  outline: none;
+  border: 1.5px solid black;
+}
+
+.modeTitle {
+  height: 40px;
+  border: solid 1.5px black;
+  border-radius: 1rem;
+  background: none;
+  padding: 1rem;
+  font-size: 1rem;
+  color: black;
+  transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 10px;
+}
+
+.modeTitle:focus,
+modeTitle:valid {
+  outline: none;
+  border: 1.5px solid #1a73e8;
+}
+
+.URL {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.urlInput {
+  border: solid 1.5px black;
+  border-radius: 1rem;
+  background: none;
+  padding: 1rem;
+  font-size: 1rem;
+  color: black;
+  padding-top: 20px;
+  height: 40px;
+  margin-top: 10px;
+  transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Specific styles for the icons */
+img.play-button,
+img.edit_icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+img.play-button {
+  margin-right: 10px;
+}
+
+img.edit_icon {
+  margin-left: 10px;
+}
+
+/* Hover effects for icons */
+img.play-button:hover,
+img.edit_icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* Others */
+.urlItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e0f7fa;
+  color: #00796b;
+  font-weight: 700;
+  padding: 10px 15px;
+  border-radius: 1rem;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}

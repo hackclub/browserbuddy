@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Links for Mode</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-
-<div class="container mt-3" style="width: 450px;">
-    
-    <h1>Links for <span id="mode-name"></span></h1>
-
-
-
-
-    <button id="back-button">Back</button>
-    <div id="link-list">
-        <!-- Links will be loaded here -->
-    </div>
-</div>
-
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
+const urlParams = new URLSearchParams(window.location.search);
     const modeName = urlParams.get("mode");
     document.getElementById("mode-name").textContent = modeName;
     const storageKey = `savedURL_${modeName}`;
@@ -44,7 +20,3 @@
 
     // Load links when the page loads
     loadLinks();
-</script>
-
-</body>
-</html>
