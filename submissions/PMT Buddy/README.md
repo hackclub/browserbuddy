@@ -23,8 +23,12 @@ This extension contains features intended to improve your experience on revision
 
 ## For BrowserBuddy
 
-- Although there is a build in the `build` folder, an older version of this extension is already public on the [Chrome Web Store](https://chromewebstore.google.com/detail/pmt-buddy/moepnndepfamgglegngndbagiobmhpop)! I started working on this before discovering the hackathon :P
-- For Firefox, visit `about:debugging#/runtime/this-firefox`, press `Load Temporary Add-on...`, and open `build/manifest.json`.
+- For Chromium-based browsers, a slightly older version of this extension is already public on the [Chrome Web Store](https://chromewebstore.google.com/detail/pmt-buddy/moepnndepfamgglegngndbagiobmhpop)! I started working on this before discovering the hackathon :P
+- For Firefox:
+  - Clone this repo.
+  - Download required libraries with `npm install`.
+  - Build the extension with `npm run build`.
+  - Visit `about:debugging#/runtime/this-firefox`, press `Load Temporary Add-on...`, and open `build/manifest.json`.
 
 ---
 
