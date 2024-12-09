@@ -1,0 +1,11 @@
+{
+  "name": "Scutoid QuikPost",
+  "version": "0.0.1",
+  "description": "ScutoidChat, but send only, in browser extension",
+  "manifest_version": 3,
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_icon": "scutoid.png"
+  }
+}
