@@ -1,0 +1,44 @@
+{
+    "manifest_version": 3,
+    "name": "Google Calendar Event Multiselector",
+    "version": "1.0",
+    "description": "Select and bulk move/delete multiple Google Calendar events.",
+    "permissions": [
+        "activeTab", 
+        "identity", 
+        "scripting",
+        "storage",
+        "webNavigation"
+    ],
+    "host_permissions": [
+        "https://www.googleapis.com/*", 
+        "https://calendar.google.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://calendar.google.com/calendar/*"
+            ],
+            "js": ["content.js"]
+        }
+    ],
+    "oauth2": {
+        "client_id": "426254219480-jrr4mhr18nos1fsfjsdehlssl09sej6q.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/calendar.events"
+        ]
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/icon-16.png",
+            "32": "images/icon-32.png",
+            "48": "images/icon-48.png",
+            "128": "images/icon-128.png"
+        }
+    },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnPlVFFTgbAbZkHfRGiTbZST26P0ro7mitvovVaslk/a2AF1Mp626G3S/EV4WoLQ2S3Oe6NCu6PpMgPlGznew20yQKgF9Ffd5S4YZWgH66/cJfG5FQi/IJTxAirH4KZ6sA/q8GNf9gSPqbNocwCfpfRYCEcohTFG2/yYnVKNFc6q4yxg6bazRQSvXtutPZp4Ek5NXDnmE4TygmNLW9PJf0UXOtmil7Wt1xGPY8jXJbvSmdVvzlSdSIWYNxX5JxQ/Q2mC7Pe2FbbqGJzEfdB6VHub/RSsZ4DfjojKJlNnpioiRumc72HjexcsAS0E9X2EEltFRP4mcIQX0vuZKGSpegQIDAQAB"
+}
