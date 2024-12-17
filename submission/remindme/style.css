@@ -1,0 +1,86 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffe4e6;
+    color: #333;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden; 
+    /* max-height: 600px; */
+  }
+  
+  body {
+    width: 300px;
+ }
+
+  .header h1 {
+    font-size: 18px;
+    color: #ff6392;
+    text-align: center;
+    margin-bottom: 7px;
+  }
+  
+  .content input,
+  .content textarea,
+  .content button {
+    display: block;
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .content input, .content textarea {
+    background-color: #fffafc;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .content button {
+    background-color: #ff6392;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .content button:hover {
+    background-color: #ff4c78;
+  }
+  
+  #scholarshipList {
+    background: #fefefe;
+    padding: 8px;
+    border-radius: 5px;
+    /* max-height: 200px; */
+    overflow-y: auto;
+  }
+  
+  .scrollable-list {
+    background: #fefefe;
+    padding: 8px;
+    border-radius: 5px;
+    /* max-height: 250px;  */
+    overflow-y: auto; 
+    border: 1px solid #ffb6c1;
+  }
+
+  .scholarship {
+    border-bottom: 1px solid #ffb6c1;
+    padding: 8px 0;
+  }
+  
+
+  .scholarship:last-child {
+    border-bottom: none;
+  }
+  
+  .scholarship h3 {
+    font-size: 16px;
+    color: #ff6392;
+    margin: 0;
+  }
+  
+  .scholarship p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
