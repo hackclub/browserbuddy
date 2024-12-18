@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Snowy",
+  "version": "1.0",
+  "description": "Adds a minimalist snow effect to any webpage.",
+  "permissions": ["activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["snow.css"]
+    }
+  ]
+}
