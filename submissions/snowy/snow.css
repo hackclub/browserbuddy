@@ -1,0 +1,29 @@
+.snow {
+  position: fixed;
+  top: -20px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.9;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: 
+      translateY(100vh) 
+      translateX(var(--drift, 0)) 
+      rotate(360deg);
+  }
+}
+
+.holiday-light {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+  transition: opacity 0.1s;
+  z-index: 10000;
+}
