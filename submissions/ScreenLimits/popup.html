@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Screen Time Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="time-display">
+      <div>Today's Screen Time:</div>
+      <div id="timeSpent">Loading...</div>
+    </div>
+
+    <div class="section">
+      <h3>Daily Time Limit</h3>
+      <input type="number" id="dailyLimit" min="1" max="1440"> minutes
+      <button id="updateLimit">Update</button>
+    </div>
+
+    <div class="section">
+      <h3>Blocked Sites</h3>
+      <div>
+        <input type="text" id="newSite" placeholder="Enter domain (e.g., facebook.com)">
+        <button id="addSite">Add</button>
+      </div>
+      <div class="site-list" id="siteList"></div>
+    </div>
+
+    <div class="section">
+        <h3>Unblock List</h3>
+        <input type="text" id="unblockSiteInput" placeholder="e.g., *.google.com">
+        <button id="addUnblockSite">Add</button>
+        <ul id="unblockList"></ul>
+    </div>
+      
+
+    <div class="section">
+      <h3>Notifications</h3>
+      <label>
+        <input type="checkbox" id="notifications">
+        Show time limit warnings
+      </label>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
