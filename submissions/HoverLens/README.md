@@ -28,5 +28,3 @@ HoverLens is a Chrome extension that enhances the user experience by magnifying 
 ## Contributing
 Feel free to fork this repository and submit pull requests for new features or improvements.
 
-## License
-This project is licensed under the MIT License.
