@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Options</title>
+</head>
+
+<body class="light-mode">
+    <header>
+        <div class="icon">
+            <img src="icons/open-in-scihub-icon.png" alt="Sci-Hub Logo">
+        </div>
+        <div>
+            <h1>Customize</h1>
+        </div>
+        <div class="dark-mode-coffee-container">
+            <label class="dark-mode-toggle" for="dark-mode-toggle">
+                Dark Modeㅤ
+                <input type="checkbox" id="dark-mode-toggle">
+                <span class="slider"></span>
+            </label>
+            <a href="https://www.buymeacoffee.com/heramb" target="_blank" class="coffee-button">
+                ☕ㅤBuy Me a Coffee
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <label>
+                <input type="checkbox" id="enable-icon-click">
+                Open by clicking pinned extension icon
+            </label>
+        </section>
+
+        <section>
+            <label>
+                <input type="checkbox" id="enable-hotkey">
+                Open by hitting 'Ctrl+Shift+H'
+            </label>
+        </section>
+
+        <section>
+            <label for="scihub-domain">Sci-Hub Domain Preference:</label>
+            <input type="text" id="scihub-domain" placeholder="https://www.sci-hub.wf/">
+            <p><a href="https://sci-hub.se" target="_blank">Check mirror-links of Sci-Hub here</a></p>
+        </section>
+    </main>
+
+    <script src="options.js"></script>
+</body>
+
+</html>
