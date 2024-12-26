@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Direct Search",
+  "version": "1.0",
+  "description": "Press a shortcut to search YouTube directly or right-click to search selected text.",
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "activate-spotlight": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Activate YouTube Direct search"
+    }
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/new16.png",
+      "48": "icons/new48.png",
+      "128": "icons/new128.png"
+    }
+  }
+}
