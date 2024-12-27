@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Christmasify Web Extension",
+  "version": "1.0",
+  "description": "Make your web browsing festive for Christmas!",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*.png", "music/*.mp3"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "icons": {
+    "48": "icons/icon.png"
+  },
+  "storage": {
+    "service_worker": "background.js"
+  }
+}
