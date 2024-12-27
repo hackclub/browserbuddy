@@ -1,0 +1,26 @@
+.snowflake {
+    position: absolute;
+    top: 0;
+    animation: fall linear infinite;
+}
+  
+@keyframes fall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+}
+
+/* Festive settings buttons */
+.btn {
+    padding: 10px;
+    background: #d12c4f;
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+  
+.btn:hover {
+    background: #c02044;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
