@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Christmasify Web Extension",
+  "name": "Snowfall",
   "version": "1.0",
   "description": "Make your web browsing festive for Christmas!",
   "permissions": ["storage", "activeTab"],
