@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize state variable
-    let isSoundEnabled = true; // Default state
+    let isSoundEnabled; // Default state
 
     // Get the button element
     const toggleSoundButton = document.getElementById("toggleSound");

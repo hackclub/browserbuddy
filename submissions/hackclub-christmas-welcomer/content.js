@@ -1,3 +1,51 @@
+const cursorPng = chrome.runtime.getURL("images/cursor.png");
+const cursorClickedPng = chrome.runtime.getURL("images/cursorclicked.png");
+const cursorGrabbedPng = chrome.runtime.getURL("images/cursorgrabbed.png");
+
+const style = document.createElement("style");
+style.textContent = `
+    * {
+        cursor: url(${cursorPng}) , auto !important;
+    }
+
+    body:active, *:active {
+        cursor: url(${cursorClickedPng}), auto !important;
+    }
+`;
+document.head.appendChild(style);
+
+
+document.addEventListener("click", () => {
+    document.querySelectorAll("*").forEach(el => {
+        el.style.cursor = `url(${cursorClickedPng}), auto`;
+    });
+});
+
+document.addEventListener("dragstart", (event) => {
+    if (event.target.tagName === "IMG" || event.target.draggable) {
+        document.querySelectorAll("*").forEach(el => {
+            el.style.cursor = `url(${cursorGrabbedPng}), grabbing`;
+        });
+    };
+});
+document.addEventListener("dragend", (event) => {
+        document.querySelectorAll("*").forEach(el => {
+            el.style.cursor = `url(${cursorPng}), grabbing`;
+        });
+});
+document.addEventListener("mouseup", () => {
+    document.querySelectorAll("*").forEach(el => {
+        el.style.cursor = `url(${cursorPng}), auto`;
+    });
+});
+
+document.addEventListener("mouseout", () => {
+    document.querySelectorAll("*").forEach(el => {
+        el.style.cursor = `url(${cursorPng}), auto`;  // Reset to original cursor
+    });
+});
+
+alert(cursorPng);
 (() => {
     const today = new Date();
     const december25th = new Date(today.getFullYear(), 11, 25);
@@ -53,4 +101,6 @@
             updateSoundState(); // Recheck and update event listener when sound setting changes
         }
     });
+
+
 })();
