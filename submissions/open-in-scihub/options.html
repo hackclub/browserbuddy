@@ -12,26 +12,28 @@
 </head>
 
 <body class="light-mode">
-    <header>
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
         <div class="icon">
-            <img src="icons/open-in-scihub-icon.png" alt="Sci-Hub Logo">
+            <img src="icons/open-in-scihub-icon-48x48.png" alt="Sci-Hub Logo">
         </div>
         <div>
             <h1>Customize</h1>
         </div>
-        <div class="dark-mode-coffee-container">
-            <label class="dark-mode-toggle" for="dark-mode-toggle">
-                Dark Modeㅤ
+        <div>
+            <label class="toggle-switch">
                 <input type="checkbox" id="dark-mode-toggle">
                 <span class="slider"></span>
             </label>
-            <a href="https://www.buymeacoffee.com/heramb" target="_blank" class="coffee-button">
-                ☕ㅤBuy Me a Coffee
-            </a>
+            <span style="display: inline;  padding-right: 35px; ">Dark Mode</span>
+            <button class="betterwork.ai-button">
+                <a class="betterwork.ai" style="text-decoration: none; color: black;"
+                    href="https://betterwork-ai.dino.icu" target="_blank">
+                    betterwork.ai
+                </a>
+            </button>
         </div>
     </header>
-
-    <main>
+    <main class="container">
         <section>
             <label>
                 <input type="checkbox" id="enable-icon-click">
