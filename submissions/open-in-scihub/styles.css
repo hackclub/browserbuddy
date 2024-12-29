@@ -1,8 +1,8 @@
 
 body {
     font-family: "Outfit", sans-serif;
+    font-size: 18px;
     margin: 0;
-    padding: 0;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -44,6 +44,8 @@ main {
 section {
     margin-bottom: 20px;
 }
+
+
 
 label {
     display: flex;
@@ -132,4 +134,80 @@ body.dark-mode input[type="text"] {
 .coffee-button:hover {
     background-color: #ffc107;
     transform: scale(1.05);
+}
+
+
+.betterwork.ai-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    color: #3D3D3D;
+    background: #fff;
+    border: none;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.betterwork.ai-button:focus {
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+    outline: 0;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ddd;
+    border-radius: 12px;
+    transition: background-color 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    background-color: white;
+    border-radius: 50%;
+    bottom: 3px;
+    left: 3px;
+    transition: transform 0.4s, background-color 0.4s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px); /* Adjust to move the slider circle */
+}
+
+.betterwork.ai{
+    color: black;
+    padding-top: 6px;
+    font-size: 10px;
+    text-decoration: none;
+
 }
