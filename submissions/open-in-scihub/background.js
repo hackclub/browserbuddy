@@ -5,19 +5,14 @@ const defaultSettings = {
     arxivDomain: "https://arxiv.org/pdf/"
 };
 
+
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.sync.set(defaultSettings);
 
     chrome.contextMenus.create({
-        id: "open-in-scihub",
-        title: "Open in Sci-Hub",
-        contexts: ["link", "page", "selection"]
-    });
-
-    chrome.contextMenus.create({
-        id: "options",
-        title: "Options",
-        contexts: ["action"]
+        id: "Open-in-Sci-Hub",
+        title: "Open-in-Sci-Hub",
+        contexts: ["page", "link", "selection"]
     });
 });
 
