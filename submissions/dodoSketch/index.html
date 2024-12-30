@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dodo SketchBoard</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="images/icon-svg.svg">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Pangolin&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <img src="images/icon-svg.svg">
+            <div class="header-content">
+                <h1><span>Dodo SketchBoard:</span> New Way for Notes/References</h1>
+                <div id="button-container">
+                    <button id="mock-spawn">Spawn a SketchBoard</button>
+                    <button onclick="window.open('https://github.com/codingkatty/extension', '_blank')">Download Extension</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="preview">
+                <img src="preview.gif" alt="Preview GIF">
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h2>Jot down stuff</h2>
+                    <p>Cool and easy way to scribble down your notes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h2>Change Colors</h2>
+                    <p>The website is in dark mode? Click on toggle to change color!</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h2>Drawing References</h2>
+                    <p>Drag and drop images to add em'</p>
+                </div>
+            </div>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            min-width: 400px;
+            min-height: 250px;
+            margin: 0;
+            padding: 0;
+            background-color: #fffff8;
+        }
+
+        h1 {
+            font-family: 'Cabin Sketch', cursive;
+            font-size: 3em;
+            text-align: center;
+            margin-top: 20vh;
+            cursor: pointer;
+        }
+
+        span {
+            transition: all 0.2s ease-in-out;
+        }
+
+        span:nth-child(even):hover {
+            display: inline-block;
+            transform: rotate(10deg);
+        }
+
+        span:nth-child(odd):hover {
+            display: inline-block;
+            transform: rotate(-10deg);
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #FF7676;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 150px;
+        }
+
+        button:hover {
+            background-color: #FF5C5C;
+            transform: rotate(3deg);
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <span>D</span><span>o</span><span>d</span><span>o</span> <span>B</span><span>o</span><span>a</span><span>r</span><span>d</span>
+    </h1>
+    <div class="button-container">
+        <button id="open">Toggle Sketch</button>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
