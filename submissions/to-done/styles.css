@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(250, 172, 210);
+  }
+  
+  #todo-app {
+    padding: 20px 10px;
+  }
+  
+  #todo-background{
+    padding:20px;
+    background-image: url('heartbackground.jpeg');
+    background-size:cover;
+    background-position:center;
+  }
+  h1 {
+    font-size: 24px;
+    font-family: "Press Start 2P", serif;
+    color:white
+  }
+  
+  #todo-form {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  #addbutton{
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    }
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
+}
+  
+  #todo-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius:50px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  #todo-list {
+    list-style: none;
+    padding: 0;
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    margin: 5px 0;
+    width:90%;
+    background-color: #fff;
+    border-radius: 4px;
+    font-family: "Sour Gummy", serif;
+    font-size: 20px;
+
+    /* border-bottom: 1px solid #ddd; */
+    
+  }
+  
+  .todo-item button {
+    background: pink;
+    border: none;
+    color: red;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  
