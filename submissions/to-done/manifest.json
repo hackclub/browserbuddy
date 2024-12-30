@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "To-Do List",
+    "name": "To-Done",
     "version": "1.0",
     "description": "A simple to-do list extension. Created by Adishree Das.",
     "permissions": ["storage"],
