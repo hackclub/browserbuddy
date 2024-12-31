@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Hack Club Audio Player",
+    "version": "1.1",
+    "permissions": ["storage"
+        ],
+    "host_permissions": [
+        "*://hackclub.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.hackclub.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "type": "module",
+            "world": "ISOLATED"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "audio/christmas.mp3",
+                "audio/welcometohackclub.mp3",
+                "images/cursor.png",
+                "images/cursorclicked.png",
+                "images/cursorgrabbed.png",
+                "images/rocketclicked.png",
+                "images/rocketcursor.png",
+                "images/cursor3d.png",
+                "images/retrocursor.png",
+                "images/retroclicked.png"
+            ],
+            "matches": [
+                "*://*.hackclub.com/*"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "512": "icons/hackclub-512.png"
+        }
+    },
+    "icons":{
+        "512": "icons/hackclub-512.png"
+    }
+}
