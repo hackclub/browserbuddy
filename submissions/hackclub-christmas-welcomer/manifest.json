@@ -2,7 +2,8 @@
     "manifest_version": 3,
     "name": "Hack Club Audio Player",
     "version": "1.1",
-    "permissions": ["storage"],
+    "permissions": ["storage"
+        ],
     "host_permissions": [
         "*://hackclub.com/*"
     ],
@@ -14,6 +15,7 @@
             "js": [
                 "content.js"
             ],
+            "type": "module",
             "world": "ISOLATED"
         }
     ],
@@ -24,7 +26,12 @@
                 "audio/welcometohackclub.mp3",
                 "images/cursor.png",
                 "images/cursorclicked.png",
-                "images/cursorgrabbed.png"
+                "images/cursorgrabbed.png",
+                "images/rocketclicked.png",
+                "images/rocketcursor.png",
+                "images/cursor3d.png",
+                "images/retrocursor.png",
+                "images/retroclicked.png"
             ],
             "matches": [
                 "*://*.hackclub.com/*"

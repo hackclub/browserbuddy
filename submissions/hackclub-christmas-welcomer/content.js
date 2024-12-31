@@ -1,51 +1,84 @@
-const cursorPng = chrome.runtime.getURL("images/cursor.png");
-const cursorClickedPng = chrome.runtime.getURL("images/cursorclicked.png");
-const cursorGrabbedPng = chrome.runtime.getURL("images/cursorgrabbed.png");
-
-const style = document.createElement("style");
-style.textContent = `
-    * {
-        cursor: url(${cursorPng}) , auto !important;
+const cursorThemes = {
+    hackClubTheme: {
+        cursor: "images/cursor.png",
+        click: "images/cursorclicked.png"
+    },
+    retroTheme: {
+        cursor: "images/retrocursor.png",
+        click: "images/retroclicked.png"
+    },
+    rocketTheme: {
+        cursor: "images/rocketcursor.png",
+        click: "images/rocketclicked.png"
+    },
+    "3dTheme": {
+        cursor: "images/cursor3d.png",
+        click: "images/cursor3d.png"
     }
+}
+function updateThemeState() {
+    chrome.storage.local.get("selectedTheme", (result) => {
+        const selectedTheme = result.selectedTheme || "hackClubTheme"; // Default theme
+        const cursorPng = chrome.runtime.getURL(cursorThemes[selectedTheme].cursor);
+        const cursorClickedPng = chrome.runtime.getURL(cursorThemes[selectedTheme].click);
+        const cursorGrabbedPng = chrome.runtime.getURL("images/cursorgrabbed.png");
 
-    body:active, *:active {
-        cursor: url(${cursorClickedPng}), auto !important;
-    }
-`;
-document.head.appendChild(style);
+        const style = document.createElement("style");
+        style.textContent = `
+        * {
+            cursor: url(${cursorPng}), auto !important;
+        }
 
+        body:active, *:active {
+            cursor: url(${cursorClickedPng}), auto !important;
+        }
+    `;
+        document.head.appendChild(style);
 
-document.addEventListener("click", () => {
-    document.querySelectorAll("*").forEach(el => {
-        el.style.cursor = `url(${cursorClickedPng}), auto`;
-    });
-});
-
-document.addEventListener("dragstart", (event) => {
-    if (event.target.tagName === "IMG" || event.target.draggable) {
-        document.querySelectorAll("*").forEach(el => {
-            el.style.cursor = `url(${cursorGrabbedPng}), grabbing`;
+        // Set cursor to clicked when any element is clicked
+        document.addEventListener("click", () => {
+            document.querySelectorAll("*").forEach(el => {
+                el.style.cursor = `url(${cursorClickedPng}), auto`;
+            });
         });
-    };
-});
-document.addEventListener("dragend", (event) => {
-        document.querySelectorAll("*").forEach(el => {
-            el.style.cursor = `url(${cursorPng}), grabbing`;
+
+        // Set cursor to grabbed when dragging an image or draggable element
+        document.addEventListener("dragstart", (event) => {
+            if (event.target.tagName === "IMG" || event.target.draggable) {
+                document.querySelectorAll("*").forEach(el => {
+                    el.style.cursor = `url(${cursorGrabbedPng}), grabbing`;
+                });
+            };
         });
-});
-document.addEventListener("mouseup", () => {
-    document.querySelectorAll("*").forEach(el => {
-        el.style.cursor = `url(${cursorPng}), auto`;
-    });
-});
 
-document.addEventListener("mouseout", () => {
-    document.querySelectorAll("*").forEach(el => {
-        el.style.cursor = `url(${cursorPng}), auto`;  // Reset to original cursor
-    });
-});
+        // Reset cursor style when drag ends
+        document.addEventListener("dragend", (event) => {
+            document.querySelectorAll("*").forEach(el => {
+                el.style.cursor = `url(${cursorPng}), auto`;
+            });
+        });
 
-alert(cursorPng);
+        // Reset cursor when mouse is released
+        document.addEventListener("mouseup", () => {
+            document.querySelectorAll("*").forEach(el => {
+                el.style.cursor = `url(${cursorPng}), auto`;
+            });
+        });
+
+        // Reset cursor when mouse leaves an element
+        document.addEventListener("mouseout", () => {
+            document.querySelectorAll("*").forEach(el => {
+                el.style.cursor = `url(${cursorPng}), auto`;  // Reset to original cursor
+            });
+        });
+
+        console.log("Selected theme:", selectedTheme);
+        console.log("Cursor URL:", cursorPng);
+        console.log("Cursor clicked URL:", cursorClickedPng);
+    })
+};
+
+// Audio feature logic
 (() => {
     const today = new Date();
     const december25th = new Date(today.getFullYear(), 11, 25);
@@ -100,7 +133,8 @@ alert(cursorPng);
         if (changes.isSoundEnabled) {
             updateSoundState(); // Recheck and update event listener when sound setting changes
         }
+        if (changes.selectedTheme) {
+            updateThemeState(); // Update the theme dynamically when it changes
+        }
     });
-
-
 })();

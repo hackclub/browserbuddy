@@ -5,25 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HackClub Welcomer Ext</title>
     <style>
-        body{
+    body{
             background: linear-gradient(250deg,#e43d3d,#fa6c14);
-        }
+    }
+    ::-webkit-scrollbar {
+        width: 10px; /* Set the width of the scrollbar */
+        background: transparent; /* Make scrollbar track transparent */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: transparent; /* Make scrollbar thumb transparent */
+        border-radius: 5px; /* Optional: round scrollbar thumb */
+    }
+    ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.15); /* Slightly visible on hover */
+    }
+
         .body{
-            width: auto;
-            height:100px;
+            width: 410px;
+            height:150px;
             border-radius: 25px; /* Make the whole popup rounded */
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow around the popup */
             padding:20px;
             background: linear-gradient(250deg,#e43d3d,#fa6c14);
             margin:0;
-            overflow: hidden;
+            overflow-x: hidden;
             justify-content: center;
             align-items: center;
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, 2fr);
+            gap: 10px;
             font-family: sans-serif;
         }
         h3{
             color: #ffffff;
+            margin: 25px;
+
         }
         button{
             box-sizing: border-box;
@@ -31,20 +48,30 @@
             min-height: 100px;
             padding: 10px;
             margin: 15px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease-out;
             font-size: 16px;
+            font-display: center;
             border-radius: 15%;
             background-color: #ffffff;
             cursor: pointer;
             border: none;
+            overflow: visible;
         }
         button:hover {
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 1), /* Neon glow */
-                0 0 20px 10px rgba(0, 0, 0, 0.5), /* Stronger neon glow */
-                0 0 40px 15px rgba(0, 0, 0, 0.3), /* Even stronger glow for depth */
-                0 0 80px 25px rgba(0, 0, 0, 0.2); /* Soft outer glow */
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 1), /* Neon glow */
+                0 0 30px 10px rgba(0, 0, 0, 0.6), /* Stronger neon glow */
+                0 0 50px 15px rgba(0, 0, 0, 0.3), /* Even stronger glow for depth */
+                0 0 100px 30px rgba(0, 0, 0, 0.2); /* Soft outer glow */
     transform: scale(1.05); /* Slightly enlarge the button on hover */
+        /*
+            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 1), 
+                    0 0 20px 10px rgba(0, 0, 0, 0.5),
+                    0 0 40px 15px rgba(0, 0, 0, 0.3),
+                    0 0 80px 25px rgba(0, 0, 0, 0.2);
+                    */
 }
-
     </style>
 </head>
 <body>
@@ -52,7 +79,19 @@
     <h3>Hackclub Welcomer Ext</h3>
     <a href="https://www.hackclub.com" target="_blank"><button class="link">Visit HackClub Now</button></a>
     <button id="toggleSound">Disable Sound</button>
-    <script src="popup.js"></script>
+    <script type="module" src="popup.js"></script>
+    <button class="cursor-button" data-theme="hackClubTheme">
+        <img src="images/cursor.png" alt="Theme 1">
+    </button>
+    <button class="cursor-button" data-theme="retroTheme">
+        <img src="images/retrocursor.png" alt="Theme 2">
+    </button>
+    <button class="cursor-button" data-theme="3dTheme">
+        <img src="images/cursor3d.png" alt="Theme 3">
+    </button>
+    <button class="cursor-button" data-theme="rocketTheme">
+        <img src="images/rocketcursor.png" alt="Theme 4">
+    </button>
     </div>
 </body>
 </html>
