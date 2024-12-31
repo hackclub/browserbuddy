@@ -1,9 +1,15 @@
 const body = document.querySelector("body");
 
-const link = document.createElement('link');
-link.href = 'https://fonts.googleapis.com/css2?family=Pangolin&display=swap';
-link.rel = 'stylesheet';
-document.head.appendChild(link);
+const styles = document.createElement('style');
+styles.textContent = `
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pangolin&display=swap');
+
+    .font-select:focus {
+        outline: 2px solid #e44848;
+        box-shadow: none;
+    }
+`;
+document.head.appendChild(styles);
 
 function createFloatingWindow() {
     const floatingWindow = document.createElement("div");
@@ -40,10 +46,18 @@ function createFloatingWindow() {
     header.innerHTML = `
         <span style="cursor:move;">Dodo Sketch</span>
         <div style="display:flex;gap:10px;align-items:center;">
+            <select class="font-select" style="background-color:#FA9393;color:#FFFDD4;border:none;cursor:pointer;font-family:'Pangolin',cursive;padding:5px;border-radius:5px;">
+                <option value="Pangolin">Default</option>
+                <option value="Inter" style="font-family:'Inter',sans-serif;">Inter</option>
+                <option value="Times New Roman" style="font-family:'Times New Roman',serif;">Times New Roman</option>
+                <option value="Helvetica" style="font-family:'Helvetica',sans-serif;">Helvetica</option>
+            </select>
             <label class="switch" style="position:relative;display:inline-block;width:30px;height:17px;">
                 <input type="checkbox" style="opacity:0;width:0;height:0;">
                 <span class="slider" style="position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#FFFDD4;border-radius:17px;transition:.4s;">
-                    <span style="position:absolute;content:'';height:13px;width:13px;left:2px;bottom:2px;background-color:#FF7676;border-radius:50%;transition:.4s;"></span>
+                    <span style="position:absolute;content:'';height:13px;width:13px;left:2px;bottom:2px;background-color:#FF7676;border-radius:50%;transition:.4s;display:flex;align-items:center;justify-content:center;font-size:10px;">
+                        <span style="position:absolute;color:#FFFDD4;">☪</span>
+                    </span>
                 </span>
             </label>
             <button style="cursor:pointer;border:none;background:none;font-size:20px;color:#FFFDD4;padding:0;margin:0;">×</button>
@@ -222,7 +236,13 @@ function createFloatingWindow() {
         });
     });
 
-    chrome.storage.sync.get(['content', 'color'], (result) => {
+    const fontSelect = header.querySelector('.font-select');
+    fontSelect.addEventListener('change', function() {
+        editableArea.style.fontFamily = this.value;
+        chrome.storage.sync.set({ 'font': this.value });
+    });
+
+    chrome.storage.sync.get(['content', 'color', 'font'], (result) => {
         if (result.content) {
             editableArea.innerHTML = result.content;
         }
@@ -230,6 +250,10 @@ function createFloatingWindow() {
             editableArea.style.color = result.color;
             colorToggle.checked = result.color === '#FFFDD4';
             slider.style.transform = colorToggle.checked ? 'translateX(13px)' : 'translateX(0)';
+        }
+        if (result.font) {
+            editableArea.style.fontFamily = result.font;
+            fontSelect.value = result.font;
         }
     });
 
@@ -246,13 +270,18 @@ function createFloatingWindow() {
 
 if (body) {
     chrome.runtime.onMessage.addListener((request) => {
+        const existingWindow = document.querySelector('.floating-window');
         if (request.action === 'createFloatingWindow') {
-            const existingWindow = document.querySelector('.floating-window');
             if (!existingWindow) {
                 body.appendChild(createFloatingWindow());
             } else if (existingWindow.style.display === 'none') {
                 existingWindow.style.display = 'block';
             }
+        } else if (request.action === 'clearWindow') {
+            if (existingWindow) {
+                existingWindow.querySelector('#interface').innerHTML = '';
+            }
+            chrome.storage.sync.set({ 'content': '', 'color': '#333', 'font': 'Pangolin' });
         }
     });
 }
