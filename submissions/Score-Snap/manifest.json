@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "ScoreSnap",
+    "description": "download musescore files",
+    "version": "1.0",
+    "action": {
+      "default_popup": "main.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+
+    },
+    "content_scripts": [
+        {
+          "js": ["scripts/attack.js"],
+          "matches": [
+            "https://musescore.com/*"
+          ],
+          "type": "module"
+        }
+      ],
+    "host_permissions": [
+      "https://musescore.com/*"
+    ],
+    "web_accessible_resources": [{
+      "resources": ["https://cdn.jsdelivr.net/npm/@vercel/blob@0.27.0/+esm"],
+      "matches": ["https://musescore.com/*"]
+    }],
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "webRequest",
+        "declarativeContent"
+   ]
+
+
+   
+  }
