@@ -1,0 +1,23 @@
+{ "version": 2, 
+"rewrites": [
+    { 
+    "source": "/(.*)", 
+    "destination": "/api"
+ }
+],
+"headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/vercel_app_domain_name/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }  
+]
+
+}
