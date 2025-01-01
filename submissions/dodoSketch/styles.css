@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    cursor: url('pen.svg') 35 35, auto;
+}
+
+header {
+    width: 100%;
+    height: 50vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fffff8;
+    padding: 0 4rem;
+    gap: 3rem;
+    max-width: 1400px;
+}
+
+header img {
+    height: 300px;
+    width: auto;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h1 {
+    max-width: 500px;
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 3.3rem;
+    text-align: left;
+    margin-top: 3rem;
+    word-wrap: break-word;
+}
+
+h1 span {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #FF7676;
+    text-decoration-skip-ink: none;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    font-size: 0.9rem;
+    font-family: 'Pangolin', sans-serif;
+    padding: 12px 24px;
+    background-color: #FF7676;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+    cursor: url('pointer.svg') 35 35, auto;
+}
+
+button:hover {
+    background-color: #FF5C5C;
+    transform: rotate(3deg);
+}
+
+main {
+    padding: 4rem 2rem;
+    background: #fff;
+    display: flex;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+    max-width: 1400px;
+    justify-content: center;
+}
+
+.preview {
+    flex: 1;
+    max-width: 800px;
+    margin: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 118, 118, 0.2);
+}
+
+.preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 300px;
+}
+
+.feature-card {
+    background-color: #FFFDD4;
+    padding: 2rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: rotate(5deg);
+}
+
+.feature-card h2 {
+    font-family: 'Cabin Sketch', cursive;
+    color: #583535;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.feature-card p {
+    font-family: 'Pangolin', sans-serif;
+    color: #333333;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 2rem 1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features-grid {
+        width: 100%;
+        max-width: 800px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFE5E5;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF7676;
+    border-radius: 10px;
+    border: 2px solid #FFE5E5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FF5C5C;
+}
