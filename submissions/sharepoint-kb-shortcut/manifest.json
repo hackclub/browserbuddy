@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Sharepoint Keyboard Shortcuts",
+    "description": "More sensible keyboard shortcuts for SharePoint Stream video player",
+    "version": "1.0",
+    "permissions": ["scripting"],
+    "host_permissions": ["*://*.sharepoint.com/*"],
+    "action": {},
+    "content_scripts": [
+        {
+            "matches": ["*://*.sharepoint.com/*/stream.aspx*"],
+            "js": ["content.js"]
+        }
+    ]
+}
