@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Direct Search",
+  "version": "1.1",
+  "description": "Search across 4 major sites (Reddit, DuckDuckGo, Youtube, Github) using keyboard shortcuts.",
+  "permissions": ["activeTab", "contextMenus"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "search_youtube": {
+      "suggested_key": {
+        "default": "Alt+Shift+Y"
+      },
+      "description": "Search YouTube"
+    },
+    "search_github": {
+      "suggested_key": {
+        "default": "Alt+Shift+G"
+      },
+      "description": "Search GitHub"
+    },
+    "search_reddit": {
+      "suggested_key": {
+        "default": "Alt+Shift+R"
+      },
+      "description": "Search Reddit"
+    },
+    "search_duckduckgo": {
+      "suggested_key": {
+        "default": "Alt+Shift+D"
+      },
+      "description": "Search DuckDuckGo"
+    }
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/blueicon/16.png",
+      "48": "icons/blueicon/48.png",
+      "128": "icons/blueicon/128.png"
+    }
+  }
+}
