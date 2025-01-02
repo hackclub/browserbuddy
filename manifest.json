@@ -13,7 +13,7 @@
       }
     },
     "background": {
-      "service_worker": "background.js"
+      "service_worker": "background1.js"
     },
     "icons": {
       "16": "icons/note16.png",
