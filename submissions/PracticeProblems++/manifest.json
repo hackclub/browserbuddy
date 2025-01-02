@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "PracticeProblems++",
+    "description": "Find practice problems for any topic",
+    "version": "1.0",
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "permissions": ["scripting", "activeTab", "tabs", "tabGroups"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": ["https://www.youtube.com/*", "https://www.google.com/*"],
+    "icons": {
+        "128": "icon.png"
+      }
+  }
+  
