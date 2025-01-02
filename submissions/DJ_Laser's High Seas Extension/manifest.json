@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json.schemastore.org/chrome-manifest.json",
+  "manifest_version": 3,
+  "name": "High Seas Tracker",
+  "author": "DJ_Laser",
+  "version": "0.3.1",
+  "description": "A cross-browser extension to enhance the high seas website.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage", "tabs"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "high_seas_tracker@djlaser.dev"
+    }
+  },
+  "action": {
+    "default_popup": "pages/popup/popup.html"
+  },
+  "background": {
+    "chromium:service_worker": "scripts/background.ts",
+    "firefox:scripts": ["scripts/background.ts"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://highseas.hackclub.com/*",
+        "https://high-seas.hackclub.dev/*"
+      ],
+      "js": ["scripts/harbor.ts"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["scripts/storageListener.js", "icons/*"],
+      "matches": [
+        "https://highseas.hackclub.com/*",
+        "https://high-seas.hackclub.dev/*"
+      ]
+    }
+  ],
+
+  "chromium:externally_connectable": {
+    "matches": [
+      "https://highseas.hackclub.com/*",
+      "https://high-seas.hackclub.dev/*"
+    ]
+  }
+}
