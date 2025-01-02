@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Festive Reading Time",
+  "version": "1.0",
+  "description": "Shows estimated reading time with seasonal themes",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_icon": {
+      "16": "icons/regular16.png",
+      "48": "icons/regular48.png",
+      "128": "icons/regular128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/regular16.png",
+    "48": "icons/regular48.png",
+    "128": "icons/regular128.png"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "css": ["styles.css"]
+  }],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
