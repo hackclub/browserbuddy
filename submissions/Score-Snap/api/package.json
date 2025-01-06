@@ -1,0 +1,35 @@
+{
+    "name": "new-express-project",
+    "version": "1.0.0",
+    "main": "api/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@vercel/blob": "^0.27.0",
+        "cheerio": "^1.0.0-rc.11",
+        "convert-svg-to-png": "^0.6.4",
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "multer": "^1.4.5-lts.1",
+        "pdf-lib": "^1.17.1",
+        "pdfkit": "^0.15.1",
+        "request": "^2.88.2",
+        "sharp": "^0.33.5",
+        "svg-to-pdfkit": "^0.1.8",
+        "xmldom": "^0.6.0",
+        "xmlhttprequest": "^1.8.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.9"
+    },
+    "pnpm": {
+        "overrides": {
+            "cheerio": "1.0.0-rc.11"
+        }
+    }
+}
