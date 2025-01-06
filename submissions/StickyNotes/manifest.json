@@ -10,5 +10,11 @@
     "service_worker": "background.js"
   },
   "permissions": ["tabs", "scripting", "activeTab"],
-  "host_permissions": ["https://api.phyotp.dev/*"]
+  "host_permissions": ["https://api.phyotp.dev/*"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "stickynotes@phyotp.dev",
+      "strict_min_version": "109.0"
+    }
+  }
 }

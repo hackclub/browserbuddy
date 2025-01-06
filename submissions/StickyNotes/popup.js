@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         // Extract coupon codes using regex
-        const couponCodes = [...couponText.matchAll(/\b[A-Z0-9]{5,10}\b/g)].map(match => match[0]);
+        const couponCodes = [...couponText.matchAll(/\b[A-Z0-9]{5,}\b/g)].map(match => match[0]);
 		console.log(couponCodes);
         // Send coupon codes to the content script
         chrome.tabs.sendMessage(currentTab.id, { coupons: couponCodes });
