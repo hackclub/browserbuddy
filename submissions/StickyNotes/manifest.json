@@ -1,0 +1,20 @@
+{
+  "name": "StickyNotes",
+  "description": "Free coupon finder",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["tabs", "scripting", "activeTab"],
+  "host_permissions": ["https://api.phyotp.dev/*"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "stickynotes@phyotp.dev",
+      "strict_min_version": "109.0"
+    }
+  }
+}
