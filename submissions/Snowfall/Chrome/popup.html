@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Snowfall</title>
+        <style>
+            html, body {
+                width: 450px;
+                padding: 0;
+                margin: 0 auto;
+                border: #fff;
+            }
+
+            body {
+                text-align: center;
+                /* font-family: 'Mountains of Christmas', cursive; */
+                margin: 20px;
+                background: url('https://wallpapers.com/images/hd/snowy-christmas-1600-x-1167-background-42tmutdplzli519v.jpg') no-repeat center center fixed;
+                background-size: cover;
+                color: #fff;
+            }
+            h1 {
+                font-family: 'Mountains of Christmas', cursive;
+                font-size: 3em;
+                margin: 0;
+            }
+            p {
+                color: #2e2e2e;
+            }
+            #countdown {
+                text-align: center;
+                font-size: 2.2em;
+                margin: 20px 0;
+            }
+            .btn {
+                display: block;
+                padding: 10px;
+                margin: 10px auto;
+                background: #d12c4f;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 10px;
+                font-size: 1.2em;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            .btn:hover {
+                background: #c02044;
+            }
+            .settings {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Snow</h1>
+        <br>
+        <div id="countdown"></div>
+        <h3>till Christmas!</h3>
+        <br>
+        <button class="btn" id="toggleButton">Toggle Snow</button>
+        <p>If snow doesn't start falling, try reloading the page</p>
+        <br>
+        <!-- <div class="settings"> -->
+            <!-- <h3>Settings</h3>
+            <label for="musicType">Music:</label>
+            <select id="musicType">
+                <option value="traditional">Traditional</option>
+                <option value="modern">Modern</option>
+            </select>
+            <br><br> -->
+            <!-- <input type="checkbox" id="toggleLights" checked>Lights<br>
+            <input type="checkbox" id="toggleSnow" checked>Snow<br>
+            <input type="checkbox" id="toggleMusic" checked>Music<br> -->
+            <!-- <div style="text-align: center; padding: 10px; background-color: #f7d9e0;">
+                <h2 style="color: #d12c4f;">Christmasify Music</h2>
+                <button id="playButton" style="margin: 5px; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Play Music</button>
+                <button id="stopButton" style="margin: 5px; padding: 10px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Stop Music</button>
+            </div> -->
+        <!-- </div> -->
+        <script src="popup.js"></script>
+    </body>
+</html>

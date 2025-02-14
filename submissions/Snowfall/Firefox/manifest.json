@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Snowfall",
+  "version": "1.0",
+  "description": "Make your web browsing festive for Christmas!",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  // "web_accessible_resources": [
+  //   "images/*.png", 
+  //   "music/*.mp3"
+  // ],
+  // "browser_action": {
+  //   "default_popup": "popup.html",
+  //   "default_icon": "icons/icon.png",
+  //   "default_title": "Snowfall"
+  // },
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*.png", "music/*.mp3"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+    // "service_worker": "background.js",
+    // "type": "module"
+  },
+  // "background": {
+  //   "scripts": ["background.js"],
+  //   "persistent": true
+  // },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "icons": {
+    "48": "icons/icon.png"
+  },
+  "storage": {
+    "service_worker": "background.js"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "snowfall@browser-extension.com"
+    }
+}
+}
