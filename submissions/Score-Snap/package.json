@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "jspdf": "^2.5.2",
+    "pdf-merge": "^1.2.0",
+    "svg-to-pdfkit": "^0.1.8",
+    "svg2pdf": "^1.1.1",
+    "svg2pdf.js": "^2.2.4"
+  }
+}
