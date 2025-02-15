@@ -1,0 +1,25 @@
+
+
+Privacy Policy
+Introduction
+Search Port is a browser extension that provides a customizable homepage with quick search options. This privacy policy explains how we handle your data when you use our extension.
+
+Data Collection and Usage
+Storage
+Search Port uses browser storage to save your custom search engines and the positions of your search boxes. This data is stored locally on your device and is not transmitted to any external servers.
+
+Permissions
+The extension requires the following permissions:
+
+Storage: To save your custom search engines and search box positions.
+Data Sharing
+We do not share, sell, or distribute your data to any third parties. All data is stored locally on your device and is only accessible by the Search Port extension.
+
+Security
+We take reasonable measures to protect your data from unauthorized access or disclosure. However, please be aware that no security measures are perfect or impenetrable.
+
+Changes to This Privacy Policy
+We may update this privacy policy from time to time. Any changes will be posted on this page, and we encourage you to review this policy periodically.
+
+Contact Us
+If you have any questions or concerns about this privacy policy, please contact us at searchport@whirlxd.xyz

@@ -1,0 +1,305 @@
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	background: conic-gradient(
+		from 180deg at 50% 56.95%,
+		#222831 0deg,
+		#393e46 360deg
+	);
+	color: #eeeeee;
+	overflow: hidden;
+}
+
+.container {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	padding: 2rem;
+	box-sizing: border-box;
+}
+
+.search-box {
+	position: absolute;
+	background: rgba(47, 53, 59, 0.85);
+	border-radius: 12px;
+	padding: 1rem;
+	width: 400px;
+	cursor: move;
+	user-select: none;
+	transition: all 0.2s ease;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.search-box:hover {
+	background: rgba(47, 53, 59, 0.95);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.search-box .header {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 0.75rem;
+	padding: 0 0.5rem;
+}
+
+.search-box .header img {
+	width: 20px;
+	height: 20px;
+	opacity: 0.9;
+}
+
+.search-box .header span {
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 0.95rem;
+}
+
+.search-box input {
+	width: 90%;
+	padding: 0.75rem 1rem;
+	border: none;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.08);
+	color: #ffffff;
+	font-size: 0.95rem;
+	outline: none;
+	transition: background 0.2s;
+}
+
+.search-box input:focus {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.search-box input::placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.search-box .drag-hint {
+	position: absolute;
+	top: -50px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgba(47, 53, 59, 0.95);
+	color: rgba(255, 255, 255, 0.8);
+	padding: 0.4rem 0.8rem;
+	border-radius: 6px;
+	font-size: 0.8rem;
+	opacity: 0;
+	transition: opacity 0.2s;
+	pointer-events: none;
+	white-space: nowrap;
+}
+
+.search-box:hover .drag-hint {
+	opacity: 1;
+}
+
+.add-button {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	background: #00adb5;
+	color: white;
+	border: none;
+	padding: 1rem;
+	border-radius: 50%;
+	width: 56px;
+	height: 56px;
+	cursor: pointer;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.add-button:hover {
+	transform: scale(1.05);
+	background: rgba(47, 53, 59, 1);
+}
+
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(47, 53, 59, 0.95);
+	padding: 2rem;
+	border-radius: 16px;
+	width: 90%;
+	max-width: 600px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+	display: none;
+	backdrop-filter: blur(10px);
+	overflow-y: auto;
+}
+
+.modal.active {
+	display: block;
+}
+
+.modal h2 {
+	margin-top: 0;
+	color: #eeeeee;
+	font-weight: 500;
+	margin-bottom: 1.5rem;
+}
+
+.search-engines-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.engine-option {
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 12px;
+	padding: 1rem;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.engine-option:hover {
+	background: rgba(255, 255, 255, 0.12);
+	transform: translateY(-2px);
+}
+
+.engine-option img {
+	width: 32px;
+	height: 32px;
+	margin-bottom: 0.5rem;
+	opacity: 0.9;
+}
+
+.engine-option span {
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.custom-engine-form {
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 12px;
+	padding: 1.5rem;
+}
+
+.custom-engine-form h3 {
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.form-group {
+	margin-bottom: 1rem;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 0.5rem;
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 0.9rem;
+}
+
+.form-group input {
+	width: 90%;
+	padding: 0.75rem 1rem;
+	border: none;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.08);
+	color: #ffffff;
+	font-size: 0.95rem;
+	outline: none;
+	transition: background 0.2s;
+}
+
+.form-group input:focus {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.form-group .hint {
+	margin-top: 0.5rem;
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.form-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.btn {
+	padding: 0.75rem 1.5rem;
+	border: none;
+	border-radius: 8px;
+	font-size: 0.95rem;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.btn-primary {
+	background: rgba(255, 255, 255, 0.9);
+	color: #2f353b;
+}
+
+.btn-primary:hover {
+	background: #ffffff;
+}
+
+.btn-secondary {
+	background: rgba(255, 255, 255, 0.08);
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-secondary:hover {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(4px);
+	display: none;
+}
+
+.overlay.active {
+	display: block;
+}
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+.context-menu {
+	position: absolute;
+	background: rgba(47, 53, 59, 0.95);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	padding: 5px 0;
+	width: 150px;
+	border-radius: 8px;
+	backdrop-filter: blur(10px);
+}
+
+.context-menu-item {
+	padding: 8px 12px;
+	cursor: pointer;
+	color: rgba(255, 255, 255, 0.9);
+	transition: background 0.2s ease;
+}
+
+.context-menu-item:hover {
+	background: rgba(255, 0, 0, 0.8);
+}

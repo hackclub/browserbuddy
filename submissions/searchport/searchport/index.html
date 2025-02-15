@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Port</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="header">Search Port</h1>
+        <h4 class="header">A modern, customizable homepage with quick search options</h4>
+        
+    <div class="container"></div>
+    
+    <button class="add-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+    </button>
+
+    <div class="overlay"></div>
+    
+    <div class="modal">
+        <h2>Add Search Engine</h2>
+        <div class="search-engines-grid"></div>
+        
+        <div class="custom-engine-form">
+            <h3>Add Custom Search Engine</h3>
+            <div class="form-group">
+                <label for="engineName">Search Engine Name</label>
+                <input type="text" id="engineName" placeholder="e.g., DuckDuckGo">
+            </div>
+            <div class="form-group">
+                <label for="engineUrl">Search URL</label>
+                <input type="text" id="engineUrl" placeholder="e.g., https://duckduckgo.com/?q=%s">
+                <div class="hint">Use %s where the search query should go</div>
+            </div>
+            <div class="form-group">
+                <label for="engineIcon">Icon URL (optional)</label>
+                <input type="text" id="engineIcon" placeholder="e.g., https://duckduckgo.com/favicon.ico">
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-secondary" id="cancelCustom">Cancel</button>
+                <button class="btn btn-primary" id="addCustom">Add Engine</button>
+            </div>
+        </div>
+    </div>
+<script src="polyfill.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+
+
