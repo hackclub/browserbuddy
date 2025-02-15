@@ -1,0 +1,97 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: whitesmoke;
+    background-color: black;
+    margin: 0;
+
+    min-width: 280px;
+    padding: 6px 8px;
+}
+
+h1 {
+    font-size: 1em;
+    line-height: 1em;
+    margin: 0 0 2px;
+    width: 100%;
+    text-align: center;
+}
+
+div {
+    background: #eee;
+    border-radius: 5px;
+    
+    box-sizing: border-box;
+    padding: 2px 4px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    gap: 4px;
+}
+
+div > button#unhide-all {
+    font-size: .76em;
+    line-height: 1.1em;
+
+    padding-block: 3px;
+    width: 100px;
+    
+    background: #fc6d00;
+    color: #000;
+    border-radius: 6px;
+    
+    border: 1px black;
+    cursor: pointer;
+    
+    text-transform: uppercase;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    max-height: 140px;
+    overflow-y: auto;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    
+    width: 100%;
+}
+
+ul > li {
+    color: black;
+
+    list-style-type: none;
+    padding: 0 0 0 7px;
+
+    line-height: 1.4;
+    font-size: .9rem;
+
+    display: flex;
+    justify-content: space-between;
+    
+    background: #fff;
+    border-radius: 9px;
+}
+
+ul > li > button {
+    background: #fc6d00;
+    color: black;
+    display: block;
+
+    border: none;
+    border-radius: 6px;
+    
+    font-size: .7em;
+    align-self: center;
+
+    margin: 0 10px 0 5px;
+    padding-inline: 4px;
+    cursor: pointer;
+}
