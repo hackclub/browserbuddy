@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "My HighSeas Shop",
+  "version": "1.0.2",
+  "description": "An extension that allows you which items you want to see or not in the shop of HighSeas.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "browser_action": {
+    "default_title": "My HighSeas Shop",
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "myhsshop@reloia.it",
+      "strict_min_version": "58.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://highseas.hackclub.com/*"
+      ],
+      "js": [
+        "scripts/content.js"
+      ]
+    }
+  ],
+  "icons": {
+    "96": "icons/icon96.png"
+  }
+}
