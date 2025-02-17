@@ -1,0 +1,72 @@
+const browser = chrome || browser;
+
+browser.webRequest.onBeforeRequest.addListener(
+    function(details) {
+        return { cancel: true };
+    },
+    {
+        urls: [
+            "*://*.doubleclick.net/*",
+            "*://*.googlesyndication.com/*",
+            "*://*.googleadservices.com/*",
+            "*://*.adsafeprotected.com/*",
+            "*://*.adnxs.com/*",
+            "*://*.adsrvr.org/*",
+            "*://*.adform.net/*",
+            "*://*.advertising.com/*",
+            "*://*.adtech.de/*",
+            "*://*.exponential.com/*",
+            "*://*.media.net/*",
+            "*://*.zedo.com/*",
+            "*://*.yieldmanager.com/*",
+            "*://*.pubmatic.com/*",
+            "*://*.openx.net/*",
+            "*://*.rubiconproject.com/*",
+            "*://*.criteo.com/*",
+            "*://*.outbrain.com/*",
+            "*://*.taboola.com/*",
+            "*://*.revcontent.com/*",
+            "*://*.mgid.com/*",
+            "*://*.adblade.com/*",
+            "*://*.adroll.com/*",
+            "*://*.quantserve.com/*",
+            "*://*.scorecardresearch.com/*",
+            "*://*.bluekai.com/*",
+            "*://*.mathtag.com/*",
+            "*://*.tradedoubler.com/*",
+            "*://*.adzerk.net/*",
+            "*://*.adbrite.com/*",
+            "*://*.admob.com/*",
+            "*://*.adcolony.com/*",
+            "*://*.adf.ly/*",
+            "*://*.adfly.com/*",
+            "*://*.adk2.com/*",
+            "*://*.admarketplace.net/*",
+            "*://*.adscale.de/*",
+            "*://*.adserverplus.com/*",
+            "*://*.adtechus.com/*",
+            "*://*.advertserve.com/*",
+            "*://*.adzerk.com/*",
+            "*://*.adzerk.org/*",
+            "*://*.adzerk.us/*",
+            "*://*.adzerk.xyz/*",
+            "*://*.adzerk.biz/*",
+            "*://*.adzerk.co/*",
+            "*://*.adzerk.info/*",
+            "*://*.adzerk.io/*",
+            "*://*.adzerk.me/*",
+            "*://*.adzerk.mobi/*",
+            "*://*.adzerk.name/*",
+            "*://*.adzerk.pro/*",
+            "*://*.adzerk.site/*",
+            "*://*.adzerk.space/*",
+            "*://*.adzerk.tech/*",
+            "*://*.adzerk.tv/*",
+            "*://*.adzerk.website/*"
+        ],
+        types: ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket", "other"]
+    },
+    ["blocking"]
+);
+
+console.log('Background script loaded');
