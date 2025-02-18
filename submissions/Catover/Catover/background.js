@@ -1,8 +1,30 @@
 const browser = chrome || browser;
+let blockingEnabled = true;
+let catReplacementEnabled = true;
+let positivityBubbleEnabled = true;
+let adsBlocked = 0;
 
+// Load saved settings
+chrome.storage.local.get(
+    ['blockingEnabled', 'catReplacementEnabled', 'positivityBubbleEnabled', 'adsBlocked'], 
+    function(result) {
+        blockingEnabled = result.blockingEnabled !== undefined ? result.blockingEnabled : true;
+        catReplacementEnabled = result.catReplacementEnabled !== undefined ? result.catReplacementEnabled : true;
+        positivityBubbleEnabled = result.positivityBubbleEnabled !== undefined ? result.positivityBubbleEnabled : true;
+        adsBlocked = result.adsBlocked || 0;
+    }
+);
+
+// Listen for web requests and block ads if enabled
 browser.webRequest.onBeforeRequest.addListener(
     function(details) {
-        return { cancel: true };
+        if (blockingEnabled === true) {
+            adsBlocked++;
+            // Save updated count
+            chrome.storage.local.set({ adsBlocked: adsBlocked });
+            return { cancel: true };
+        }
+        return { cancel: false };
     },
     {
         urls: [
@@ -34,7 +56,6 @@ browser.webRequest.onBeforeRequest.addListener(
             "*://*.bluekai.com/*",
             "*://*.mathtag.com/*",
             "*://*.tradedoubler.com/*",
-            "*://*.adzerk.net/*",
             "*://*.adbrite.com/*",
             "*://*.admob.com/*",
             "*://*.adcolony.com/*",
@@ -46,27 +67,47 @@ browser.webRequest.onBeforeRequest.addListener(
             "*://*.adserverplus.com/*",
             "*://*.adtechus.com/*",
             "*://*.advertserve.com/*",
-            "*://*.adzerk.com/*",
-            "*://*.adzerk.org/*",
-            "*://*.adzerk.us/*",
-            "*://*.adzerk.xyz/*",
-            "*://*.adzerk.biz/*",
-            "*://*.adzerk.co/*",
-            "*://*.adzerk.info/*",
-            "*://*.adzerk.io/*",
-            "*://*.adzerk.me/*",
-            "*://*.adzerk.mobi/*",
-            "*://*.adzerk.name/*",
-            "*://*.adzerk.pro/*",
-            "*://*.adzerk.site/*",
-            "*://*.adzerk.space/*",
-            "*://*.adzerk.tech/*",
-            "*://*.adzerk.tv/*",
-            "*://*.adzerk.website/*"
+            "*://*.adzerk.*/*" // adzerk regex
         ],
         types: ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket", "other"]
     },
     ["blocking"]
+);
+
+// Handle messages from popup
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if (request.action === 'toggleBlocking') {
+            blockingEnabled = request.enabled;
+            chrome.storage.local.set({ blockingEnabled: blockingEnabled });
+            sendResponse({ enabled: blockingEnabled });
+            return true;
+        }
+        
+        if (request.action === 'toggleCatReplacement') {
+            catReplacementEnabled = request.enabled;
+            chrome.storage.local.set({ catReplacementEnabled: catReplacementEnabled });
+            sendResponse({ enabled: catReplacementEnabled });
+            return true;
+        }
+        
+        if (request.action === 'togglePositivityBubble') {
+            positivityBubbleEnabled = request.enabled;
+            chrome.storage.local.set({ positivityBubbleEnabled: positivityBubbleEnabled });
+            sendResponse({ enabled: positivityBubbleEnabled });
+            return true;
+        }
+        
+        if (request.action === 'getStatus') {
+            sendResponse({
+                adsBlocked: adsBlocked,
+                blockingEnabled: blockingEnabled,
+                catReplacementEnabled: catReplacementEnabled,
+                positivityBubbleEnabled: positivityBubbleEnabled
+            });
+            return true;
+        }
+    }
 );
 
 console.log('Background script loaded');
