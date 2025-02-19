@@ -20,9 +20,3 @@ This Web Extension removes ads and replaces images with cat images so you stay a
 6. You're good to go!
 
 *Note:* This extension will be applied automatically to each website. To turn it off, you need to either disable or delete the extension.
-
-## Usage
-
-This extension will take effect automatically on all the pages. You will need to disable or delete it to turn the extension off. 
-
-*Note:* This extension is made on manifest version 2 so it will lose functionality on Chrome soon but not Firefox.

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const adsBlockedElement = document.getElementById('adsBlocked');
     const toggleBlockingCheckbox = document.getElementById('toggleBlocking');
     const toggleCatReplacementCheckbox = document.getElementById('toggleCatReplacement');
@@ -25,35 +25,68 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Normal initialization for non-CATAAS sites
-        chrome.runtime.sendMessage({action: 'getStatus'}, function(response) {
-            adsBlockedElement.textContent = `Ads Blocked: ${response.adsBlocked}`;
-            toggleBlockingCheckbox.checked = response.blockingEnabled;
-            toggleCatReplacementCheckbox.checked = response.catReplacementEnabled;
-            togglePositivityBubbleCheckbox.checked = response.positivityBubbleEnabled;
-        });
+        (async function() {
+            try {
+                const settings = await chrome.storage.local.get([
+                    'blockingEnabled',
+                    'catReplacementEnabled',
+                    'positivityBubbleEnabled',
+                    'adsBlocked'
+                ]);
+
+                toggleBlockingCheckbox.checked = settings.blockingEnabled ?? true;
+                toggleCatReplacementCheckbox.checked = settings.catReplacementEnabled ?? true;
+                togglePositivityBubbleCheckbox.checked = settings.positivityBubbleEnabled ?? true;
+                adsBlockedElement.textContent = `Ads Blocked: ${settings.adsBlocked || 0}`;
+            } catch (error) {
+                console.error('Failed to load settings:', error);
+            }
+        })();
 
         // Add event listeners for all toggles
-        toggleBlockingCheckbox.addEventListener('change', function() {
-            chrome.runtime.sendMessage({
-                action: 'toggleBlocking',
-                enabled: this.checked
-            });
+        toggleBlockingCheckbox.addEventListener('change', async function() {
+            try {
+                await Promise.all([
+                    chrome.storage.local.set({ blockingEnabled: this.checked }),
+                    chrome.runtime.sendMessage({
+                        action: 'toggleBlocking',
+                        enabled: this.checked
+                    })
+                ]);
+            } catch (error) {
+                console.error('Failed to save blocking setting:', error);
+                this.checked = !this.checked; // Revert on error
+            }
         });
 
-        toggleCatReplacementCheckbox.addEventListener('change', function() {
-            chrome.runtime.sendMessage({
-                action: 'toggleCatReplacement',
-                enabled: this.checked
-            });
+        toggleCatReplacementCheckbox.addEventListener('change', async function() {
+            try {
+                await Promise.all([
+                    chrome.storage.local.set({ catReplacementEnabled: this.checked }),
+                    chrome.runtime.sendMessage({
+                        action: 'toggleCatReplacement',
+                        enabled: this.checked
+                    })
+                ]);
+            } catch (error) {
+                console.error('Failed to save cat replacement setting:', error);
+                this.checked = !this.checked;
+            }
         });
 
-        togglePositivityBubbleCheckbox.addEventListener('change', function() {
-            chrome.runtime.sendMessage({
-                action: 'togglePositivityBubble',
-                enabled: this.checked
-            });
-            // Save to storage
-            chrome.storage.local.set({ positivityBubbleEnabled: this.checked });
+        togglePositivityBubbleCheckbox.addEventListener('change', async function() {
+            try {
+                await Promise.all([
+                    chrome.storage.local.set({ positivityBubbleEnabled: this.checked }),
+                    chrome.runtime.sendMessage({
+                        action: 'togglePositivityBubble',
+                        enabled: this.checked
+                    })
+                ]);
+            } catch (error) {
+                console.error('Failed to save positivity bubble setting:', error);
+                this.checked = !this.checked;
+            }
         });
     });
 });

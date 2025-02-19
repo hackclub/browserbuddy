@@ -1,17 +1,21 @@
 {
     "name": "Catover",
-    "version": "1.0",
+    "version": "2.0",
     "description": "Catover is a browser extension that replaces all images with cat images and blocks ads.",
+    "manifest_version": 3,
     "permissions": [
         "storage",
-        "webRequest",
-        "webRequestBlocking",
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback",
         "tabs",
+        "activeTab"
+    ],
+    "host_permissions": [
         "<all_urls>"
     ],
     "background": {
-        "scripts": ["background.js"],
-        "persistent": false
+        "service_worker": "background.js",
+        "scripts": ["background.js"]
     },
     "icons": {
         "16": "icons/logo_16x16.png",
@@ -21,23 +25,15 @@
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
+            "exclude_matches": ["*://*.cataas.com/*"],
             "js": ["content.js"],
             "run_at": "document_end"
         }
     ],
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "catover@example.com",
-            "strict_min_version": "42.0"
-        }
-    },
-    "manifest_version": 2,
-    "browser_action": {
+    "action": {
         "default_popup": "popup.html",
-        "default_icon": {
-            "16": "icons/icon16.png",
-            "48": "icons/icon48.png",
-            "128": "icons/icon128.png"
-        }
+        "16": "icons/logo_16x16.png",
+        "48": "icons/logo_48x48.png",
+        "128": "icons/logo_128x128.png"
     }
 }

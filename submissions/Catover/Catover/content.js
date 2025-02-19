@@ -1,3 +1,8 @@
+let catReplacementEnabled = true;
+let positivityBubbleEnabled = true;
+let observer;
+let positivityBubbleTimer;
+
 const EXCLUDED_DOMAINS = [
     'cataas.com',
     'api.cataas.com'
@@ -28,8 +33,6 @@ if (isExcludedDomain) {
     throw new Error('Extension disabled on excluded site');
 }
 
-let catReplacementEnabled = true;
-let positivityBubbleEnabled = true; // Add at the top with other state variables
 const BORDER_COLOR = '#4b2e83'; // Purple border color
 const BATCH_SIZE = 15; // Increased batch size
 const MOTIVATIONAL_QUOTES = [
@@ -85,8 +88,6 @@ const MOTIVATIONAL_QUOTES = [
 "The sky’s the limit when you keep going!"
 ];
 
-let positivityBubbleTimer; // Timer for positivity bubble
-
 function generateUniqueSeed() {
     return Math.random().toString(36).substring(2) + Date.now().toString(36);
 }
@@ -121,15 +122,15 @@ async function preloadCatImage(width, height) {
     });
 }
 
+// Modified image replacement function
 async function replaceImage(img) {
     if (isCatImage(img) || img.hasAttribute('data-processing')) return;
 
     img.setAttribute('data-processing', 'true');
-
-    const width = Math.max(img.naturalWidth || img.width || 300, 100);
-    const height = Math.max(img.naturalHeight || img.height || 300, 100);
-
+    
     try {
+        const width = Math.max(img.naturalWidth || img.width || 300, 100);
+        const height = Math.max(img.naturalHeight || img.height || 300, 100);
         const newSrc = await preloadCatImage(width, height);
 
         if (catReplacementEnabled && !isCatImage(img)) {
@@ -140,7 +141,7 @@ async function replaceImage(img) {
             img.style.borderRadius = '8px';
         }
     } catch (error) {
-        console.error('Failed to load cat image:', error);
+        console.error('Failed to replace image:', error);
     } finally {
         img.removeAttribute('data-processing');
     }
@@ -156,54 +157,127 @@ async function processBatch(images) {
     }
 }
 
-const observer = new MutationObserver((mutations) => {
-    if (!catReplacementEnabled) return;
+// Initialize the mutation observer with error handling
+function initializeObserver() {
+    try {
+        if (observer) {
+            observer.disconnect();
+        }
 
-    const newImages = new Set();
+        observer = new MutationObserver((mutations) => {
+            if (!catReplacementEnabled) return;
 
-    mutations.forEach(mutation => {
-        mutation.addedNodes.forEach(node => {
-            if (node.tagName === 'IMG' && !isCatImage(node)) {
-                newImages.add(node);
-            } else if (node.getElementsByTagName) {
-                const images = node.getElementsByTagName('img');
-                Array.from(images)
-                    .filter(img => !isCatImage(img))
-                    .forEach(img => newImages.add(img));
+            const newImages = new Set();
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (node.tagName === 'IMG' && !isCatImage(node)) {
+                        newImages.add(node);
+                    } else if (node.getElementsByTagName) {
+                        const images = node.getElementsByTagName('img');
+                        Array.from(images)
+                            .filter(img => !isCatImage(img))
+                            .forEach(img => newImages.add(img));
+                    }
+                });
+
+                if (mutation.type === 'attributes' && 
+                    mutation.attributeName === 'src' && 
+                    mutation.target.tagName === 'IMG' && 
+                    !isCatImage(mutation.target)) {
+                    newImages.add(mutation.target);
+                }
+            });
+
+            if (newImages.size > 0) {
+                processBatch(Array.from(newImages));
             }
         });
 
-        if (mutation.type === 'attributes' && 
-            mutation.attributeName === 'src' && 
-            mutation.target.tagName === 'IMG' && 
-            !isCatImage(mutation.target)) {
-            newImages.add(mutation.target);
-        }
-    });
-
-    if (newImages.size > 0) {
-        processBatch(Array.from(newImages));
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['src']
+        });
+    } catch (error) {
+        console.error('Failed to initialize observer:', error);
     }
-});
-
-observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: ['src']
-});
+}
 
 function initializeImages() {
     const images = document.getElementsByTagName('img');
     processBatch(Array.from(images));
 }
 
-chrome.runtime.sendMessage({action: 'getStatus'}, function(response) {
-    catReplacementEnabled = response.catReplacementEnabled;
-    if (catReplacementEnabled) {
-        initializeImages();
+// Initialize extension state
+async function initializeExtension() {
+    try {
+        const result = await chrome.storage.local.get([
+            'catReplacementEnabled',
+            'positivityBubbleEnabled'
+        ]);
+        
+        catReplacementEnabled = result.catReplacementEnabled ?? true;
+        positivityBubbleEnabled = result.positivityBubbleEnabled ?? true;
+
+        if (catReplacementEnabled) {
+            initializeImages();
+        }
+        if (positivityBubbleEnabled) {
+            schedulePositivityCircle();
+        }
+    } catch (error) {
+        console.error('Failed to initialize extension:', error);
     }
+}
+
+// Update message listener to use async/await
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    const handleMessage = async () => {
+        switch (request.action) {
+            case 'toggleCatReplacement':
+                catReplacementEnabled = request.enabled;
+                if (catReplacementEnabled) {
+                    await initializeImages();
+                } else {
+                    restoreOriginalImages();
+                }
+                return { success: true };
+
+            case 'togglePositivityBubble':
+                positivityBubbleEnabled = request.enabled;
+                if (positivityBubbleEnabled) {
+                    schedulePositivityCircle();
+                } else {
+                    clearTimeout(positivityBubbleTimer);
+                }
+                return { success: true };
+
+            case 'getStatus':
+                return {
+                    catReplacementEnabled,
+                    positivityBubbleEnabled
+                };
+        }
+    };
+
+    // Handle async response
+    handleMessage().then(sendResponse);
+    return true; // Keep message channel open for async response
 });
+
+// Function to restore original images
+function restoreOriginalImages() {
+    document.querySelectorAll('img[data-cat-replaced]').forEach(img => {
+        if (img.hasAttribute('data-original-src')) {
+            img.src = img.getAttribute('data-original-src');
+            img.removeAttribute('data-cat-replaced');
+            img.removeAttribute('data-original-src');
+            img.style.border = '';
+            img.style.borderRadius = '';
+        }
+    });
+}
 
 // Load initial state
 chrome.storage.local.get(['positivityBubbleEnabled'], function(result) {
@@ -211,42 +285,6 @@ chrome.storage.local.get(['positivityBubbleEnabled'], function(result) {
         result.positivityBubbleEnabled : true;
     if (positivityBubbleEnabled) {
         schedulePositivityCircle();
-    }
-});
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.action === 'toggleCatReplacement') {
-        catReplacementEnabled = request.enabled;
-        if (catReplacementEnabled) {
-            initializeImages();
-        } else {
-            document.querySelectorAll('img[data-cat-replaced]').forEach(img => {
-                if (img.hasAttribute('data-original-src')) {
-                    img.src = img.getAttribute('data-original-src');
-                    img.removeAttribute('data-cat-replaced');
-                    img.removeAttribute('data-original-src');
-                    img.style.border = '';
-                    img.style.borderRadius = '';
-                }
-            });
-        }
-        sendResponse({success: true});
-        return true;
-    } else if (request.action === 'togglePositivityBubble') {
-        positivityBubbleEnabled = request.enabled;
-        if (positivityBubbleEnabled) {
-            schedulePositivityCircle();
-        } else {
-            clearTimeout(positivityBubbleTimer);
-        }
-        sendResponse({success: true});
-        return true;
-    } else if (request.action === 'getStatus') {
-        sendResponse({
-            catReplacementEnabled: catReplacementEnabled,
-            positivityBubbleEnabled: positivityBubbleEnabled
-        });
-        return true;
     }
 });
 
@@ -333,6 +371,14 @@ function schedulePositivityCircle() {
 // Start the circle scheduling
 if (positivityBubbleEnabled) {
     schedulePositivityCircle();
+}
+
+// Check for excluded domains first
+if (!isExcludedDomain) {
+    initializeExtension();
+    initializeObserver();
+} else {
+    console.log('Extension deactivated on excluded site');
 }
 
 console.log('Content script loaded');

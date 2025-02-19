@@ -1,0 +1,33 @@
+{
+    "id": 1,
+    "priority": 1,
+    "action": { 
+        "type": "block"
+    },
+    "condition": {
+        "urlFilter": "||*",
+        "domains": [
+            "doubleclick.net",
+            "googlesyndication.com",
+            "googleadservices.com",
+            "adsafeprotected.com",
+            "adnxs.com",
+            "adsrvr.org"
+        ],
+        "resourceTypes": [
+            "main_frame",
+            "sub_frame",
+            "stylesheet",
+            "script",
+            "image",
+            "font",
+            "object",
+            "xmlhttprequest",
+            "ping",
+            "csp_report",
+            "media",
+            "websocket",
+            "other"
+        ]
+    }
+}
