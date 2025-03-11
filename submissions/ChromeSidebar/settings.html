@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Settings</title>
+        <script src="./settings.js"></script>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+<body class="settingsbod">  
+    <nav>
+      
+        <h1>Gemini</h1>
+        <a href="index.html"><p>⚙️</p></a>
+      </nav>
+    <form id="settingsForm"> 
+        <input type="text" id="name" name="name" placeholder="Enter Your Name">
+
+        <input type="text" id="APIKEY" name="APIKEY" placeholder="Enter API Key">
+
+        <textarea id="prompt" name="prompt" placeholder="Default prompt for the AI" rows="4" cols="50"></textarea>
+
+        <select id="model-type" name="Model">
+            <option value="gemini-1.5-flash">Gemini-1.5-Flash</option>
+            <option value="gemini-1.5-pro">Gemini-1.5-Pro</option>
+            <option value="gemini-1.0-pro">Gemini-1.0-Pro</option>
+        </select>
+
+    <button type="submit" id="subbtn">Save</button>
+   </form> 
+</body>
+</html>
