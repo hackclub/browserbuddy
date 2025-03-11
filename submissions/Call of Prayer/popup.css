@@ -1,0 +1,32 @@
+body{
+    background-image: url("bgp.jpg");
+    background-size: cover;
+    width: 500px;
+    height: 600px;
+    text-align: center !important;
+    color:crimson !important;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+.header{
+    text-align: center;
+    color: gold;
+}
+.GPS_Location{
+    button{
+        display: inline-block;
+        padding: 15px 32px;
+        border-radius: 3cm;
+        background-color:gold;
+        color: black;
+    }
+    button:hover{
+        background-color: black;
+        color: white;
+    }
+    #Setup_Location{
+        margin-top:2cm;
+        margin-bottom:0.5cm;
+    }
+}
