@@ -1,0 +1,12 @@
+nav {
+    padding: 10px 0;
+    border-bottom: 1px solid #252429;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .nav-links .nav-link {
+    color: #cbcbcb;
+    cursor: pointer;
+}

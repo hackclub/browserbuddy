@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "AiGini",
+    "version": "1.0",
+    "description": "Your homework helper AI, direcly ask questions from the tab.",
+    "permissions": ["storage", "tabs", "sidePanel"],
+    "icons": {
+      "16": "aigini.png",
+      "32": "aigini.png",
+      "48": "aigini.png",
+      "128": "aigini.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "index.html"
+    },
+    "side_panel": {
+        "default_path": "index.html"
+    },
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ]
+}

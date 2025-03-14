@@ -1,0 +1,35 @@
+.add-token {
+    padding: 10px;
+}
+
+.add-token a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.add-token input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+}
+
+.add-token button {
+    width: 100%;
+    padding: 10px;
+    margin: 0px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+}
+
+.add-token button:hover {
+    background-color: #0056b3;
+}
