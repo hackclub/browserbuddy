@@ -1,0 +1,38 @@
+.accuracy-color {
+  background-color: #101010;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 21px;
+  height: max-content;
+  width: 90px;
+  padding: 5px;
+  margin: 10px;
+}
+#accuracy-heading {
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  width: 135px;
+  transition: all 0.3s ease-in-out;
+}
+
+#black-accuracy {
+  font-weight: 600;
+}
+#white-accuracy {
+  background-color: #f9f9f9;
+  color: #101010;
+  font-weight: 700;
+}
+.accuracy {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  height: 70px;
+  padding: 5px 2px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  justify-self: center;
+  margin-bottom: 20px;
+}

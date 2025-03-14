@@ -1,0 +1,52 @@
+.moves_card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  background-color: rgba(169, 169, 169, 0.1);
+  border: 1px solid white;
+  border-radius: 5px;
+  justify-self: center;
+  width: 400px;
+  margin-bottom: 30px;
+
+}
+.moves_card > h2 {
+  text-align: center;
+  padding: 10px;
+}
+.moves {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 200px;
+  overflow: auto;
+  margin: 20px;
+  margin-top: 10px;
+}
+.move > *:nth-child(1) {
+  justify-self: start;
+}
+
+.move > *:nth-child(2) {
+  justify-self: center;
+}
+
+.move > *:nth-child(3) {
+  justify-self: end;
+}
+.move {
+  border: 1px solid white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  width: 315px;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  background-color: darkslategrey;
+}
+.move_item {
+  font-size: 18px;
+}

@@ -1,0 +1,41 @@
+.move_quality_img {
+  height: 21px;
+  margin: 1px 10px;
+}
+.move_quality_item {
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+.right_value {
+  margin-left: 40px;
+}
+.left_value {
+  margin-right: 45px;
+}
+.quality_value {
+  background-color: darkslategrey;
+  width: 25px;
+  height: min-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+#move-info-name {
+  width: 100px;
+  text-align: left;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 14px;
+}
+.quality_text {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 180px;
+  margin: 0 10px;
+}
