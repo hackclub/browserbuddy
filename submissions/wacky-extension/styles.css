@@ -1,0 +1,25 @@
+.image-effects-applied {
+    filter: grayscale(100%);
+    transform-origin: center center;
+  }
+  
+  .image-effects-wrapper {
+    display: inline-block;
+    animation: spin 8s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  #pixel-filter-svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
