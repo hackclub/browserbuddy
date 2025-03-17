@@ -145,7 +145,6 @@ h2 {
   transition: width 0.3s ease;
 }
 
-/* Custom scrollbar */
 .stats-container::-webkit-scrollbar {
   width: 8px;
 }
@@ -164,7 +163,6 @@ h2 {
   background: #a8a8a8;
 }
 
-/* Chart styles */
 #weeklyChart {
   margin-top: 16px;
   border-radius: 8px;
