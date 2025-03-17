@@ -1,1 +1,35 @@
-lol
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Screen Time Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Screen Time Tracker</h1>
+    
+    <div class="tabs">
+      <button id="todayTab" class="tab-button active">Today</button>
+      <button id="historyTab" class="tab-button">History</button>
+    </div>
+    
+    <div id="todayView" class="tab-content active">
+      <h2>Today's Activity</h2>
+      <div class="total-time">
+        <span>Total screen time: </span>
+        <span id="totalTime">0m</span>
+      </div>
+      <div id="todayStats" class="stats-container"></div>
+    </div>
+    
+    <div id="historyView" class="tab-content">
+      <h2>Last 7 Days</h2>
+      <div id="historyStats" class="stats-container"></div>
+      <canvas id="weeklyChart" width="300" height="200"></canvas>
+    </div>
+  </div>
+  
+  <script src="chart.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html> 
