@@ -1,0 +1,392 @@
+/* popup_styles.css */
+
+/* =======================================
+   VARIABLES AND BASE STYLES
+   ======================================= */
+:root {
+    --primary-color: #60f5ac;
+    --secondary-color: #60f5f5;
+    --background-color: #202124;
+    --text-color: #ffffff;
+    --danger-color: #cc0000;
+    --danger-hover: #ff0000;
+    --inactive-color: #f56060;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --error-color: #f44336;
+    --processing-color: #2196f3;
+
+    --disabled-opacity: 0.6;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+
+    --gradient-bg: linear-gradient(135deg, #181818 0%, #202124 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-hover: rgba(255, 255, 255, 0.1);
+    --accent-pink: #ff5c8d;
+    --accent-green: #60f5ac;
+    --accent-blue: #60d5f5;
+}
+
+/* =======================================
+   GENERAL LAYOUT
+   ======================================= */
+body {
+    width: 320px;
+    font-family: 'Poppins', sans-serif;
+    background: var(--gradient-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: all var(--transition-speed) ease;
+}
+
+.container {
+    padding: 20px;
+    transition: all var(--transition-speed) ease;
+}
+
+button, input[type="checkbox"] {
+    transition: all 0.2s ease;
+}
+
+/* =======================================
+   HEADER STYLING
+   ======================================= */
+/* =======================================
+   HEADER STYLING
+   ======================================= */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+.header-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.header-icon:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.header-text {
+    z-index: 1;
+}
+
+.header-title {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.header-version {
+    font-size: 12px;
+    opacity: 0.7;
+    margin: 2px 0 0;
+}
+
+
+.settings-icon {
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth rotation */
+    fill: var(--accent-blue); /* Match feature card SVGs */
+}
+
+.settings-icon:hover {
+    transform: rotate(360deg);
+}
+
+/* =======================================
+   FEATURE CARDS
+   ======================================= */
+.feature-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+    background: var(--card-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card svg {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 8px;
+    fill: var(--accent-blue);
+}
+
+.feature-title {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* =======================================
+   TOGGLE CONTAINER
+   ======================================= */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-container:hover {
+    background: var(--card-hover);
+}
+
+#toggle-label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* =======================================
+   STATUS TEXT
+   ======================================= */
+#statusText {
+    text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    color: var(--text-color); /* Ensure text is visible */
+}
+
+/* Status Indicators */
+.status-active {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.status-inactive {
+    color: var(--inactive-color);
+}
+
+.status-warning {
+    color: var(--warning-color);
+    font-style: italic;
+}
+
+.status-error {
+    color: var(--error-color);
+    font-weight: bold;
+}
+
+.status-success {
+    color: var(--success-color);
+}
+
+.status-processing {
+    color: var(--processing-color);
+    font-style: italic;
+}
+
+#statusText.status-active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-green), var(--accent-blue));
+    animation: pulse 2s infinite;
+}
+
+/* =======================================
+   ACTION BUTTONS
+   ======================================= */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.action-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+    background: var(--card-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* =======================================
+   FOOTER
+   ======================================= */
+footer {
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--accent-green);
+    text-decoration: underline;
+}
+/* =======================================
+   ENHANCED TOGGLE SWITCH
+   ======================================= */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444; /* Default/off state */
+    transition: background-color 0.4s; /* Smooth color transition */
+    border-radius: 34px;
+    overflow: hidden;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: transform 0.4s; /* Smooth knob movement */
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+input:checked + .slider {
+    background-color: var(--accent-green, #28a745); /* On state with fallback */
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px); /* Move knob to the right */
+}
+
+/* Hover effect for better UX */
+.switch:hover .slider {
+    opacity: 0.9;
+}
+
+/* Disabled controls */
+input:disabled + .slider,
+.disabled {
+    opacity: var(--disabled-opacity, 0.5); /* Fallback opacity */
+    cursor: not-allowed;
+}
+
+/* Ensure input is hidden but functional */
+input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+/* =======================================
+   ANIMATIONS
+   ======================================= */
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    50% { transform: translateX(100%) rotate(45deg); }
+    100% { transform: translateX(-100%) rotate(45deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Pulse animation for container */
+.pulse {
+    animation: pulse-scale 0.3s
