@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tab Saver</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+    #savedLists {
+      margin-top: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .list-item {
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <h2>Tab Saver</h2>
+  <button id="saveTabs">Save All Tabs</button>
+  <button id="saveCurrentWindow">Save Current Window Tabs</button>
+  <button id="exportTabs">Export as Text File</button>
+  
+  <div>
+    <h3>Saved Lists</h3>
+    <div id="savedLists"></div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
