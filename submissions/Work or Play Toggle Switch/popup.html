@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Work/Play Toggle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Work/Play Toggle</h1>
+    
+    <div class="toggle-container">
+      <span class="work-label">Work</span>
+      <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider"></span>
+      </label>
+      <span class="play-label">Play</span>
+    </div>
+    
+    <div class="status">
+      <p>Current mode: <span id="currentMode">Work</span></p>
+      <p>Time spent: <span id="timeSpent">0 minutes</span></p>
+    </div>
+    
+    <div class="analytics">
+      <h2>Analytics</h2>
+      <div class="tabs">
+        <button class="tab-button active" data-tab="work">Work Stats</button>
+        <button class="tab-button" data-tab="play">Play Stats</button>
+      </div>
+      
+      <div class="tab-content" id="workStats">
+        <p>Total time: <span id="workTotalTime">0 minutes</span></p>
+        <p>Sessions: <span id="workSessions">0</span></p>
+        <h3>Top Work Sites</h3>
+        <ul id="workTopSites"></ul>
+      </div>
+      
+      <div class="tab-content" id="playStats" style="display: none;">
+        <p>Total time: <span id="playTotalTime">0 minutes</span></p>
+        <p>Sessions: <span id="playSessions">0</span></p>
+        <h3>Top Play Sites</h3>
+        <ul id="playTopSites"></ul>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
