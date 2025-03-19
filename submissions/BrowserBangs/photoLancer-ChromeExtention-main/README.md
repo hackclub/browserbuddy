@@ -22,7 +22,7 @@
 ### **🔹 Manual Installation (For Developers & Testing)**
 1. **Download the repository**  
    ```sh
-   git clone https://github.com/nurahmed123/photoLancer-ChromeExtention.git
+   git clone https://github.com/0mahi11/photoLancer-ChromeExtention.git
    ```
 2. **Open Chrome** and go to `chrome://extensions/`.  
 3. **Enable Developer Mode** (top right corner).  
