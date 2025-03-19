@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Timer - Pixel UI</title>
+  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+  <link rel="stylesheet" href="/css/pixel-popup.css">
+</head>
+<body>
+  <div class="pixel-ui">
+    <div class="main-interface" id="main-interface">
+      <!-- Header -->
+      <div class="header">
+        <button id="ui-switcher" class="ui-switcher-btn">
+          <div class="ui-switcher-icon"></div>
+        </button>
+        <h1 class="title">VISUAL TIMER</h1>
+        <button id="settings-btn" class="settings-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        </button>
+      </div>
+      
+      <!-- Timer Display -->
+      <div class="timer-display" id="timer-display">
+        <span id="timer-text" class="timer-text">00:00</span>
+      </div>
+      
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      
+      <!-- Timer Toggle -->
+      <div class="timer-toggle">
+        <span class="toggle-label">TIMER:</span>
+        <button id="toggle-btn" class="toggle-btn toggle-off"></button>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button id="pause-btn" class="action-btn pause-btn" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="4" height="16" x="6" y="4"></rect><rect width="4" height="16" x="14" y="4"></rect></svg>
+          <span>PAUSE</span>
+        </button>
+        <button id="reset-btn" class="action-btn reset-btn" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.44-4.5M22 12.5a10 10 0 0 1-18.44 4.5"></path></svg>
+          <span>RESET</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settings-panel">
+      <!-- Settings Header -->
+      <div class="header">
+        <button id="back-btn" class="back-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+        </button>
+        <h1 class="title">SETTINGS</h1>
+      </div>
+      
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" data-tab="time">TIME</button>
+        <button class="tab" data-tab="colors">COLORS</button>
+        <button class="tab" data-tab="display">DISPLAY</button>
+      </div>
+      
+      <!-- Tab Contents -->
+      <div class="tab-content">
+        <!-- Time Settings Tab -->
+        <div class="tab-pane active" id="time-tab">
+          <h2 class="section-title">Time Settings</h2>
+          <div class="time-inputs">
+            <div class="time-input-group">
+              <input type="number" id="hours-input" min="0" max="24" value="2">
+              <span class="time-label">HOURS</span>
+            </div>
+            <div class="time-input-group">
+              <input type="number" id="minutes-input" min="0" max="59" value="0">
+              <span class="time-label">MINUTES</span>
+            </div>
+          </div>
+          <button id="save-time-btn" class="save-btn">SAVE TIME</button>
+        </div>
+        
+        <!-- Colors Settings Tab -->
+        <div class="tab-pane" id="colors-tab">
+          <h2 class="section-title">Color Settings</h2>
+          <div class="color-pickers">
+            <div class="color-picker">
+              <input type="color" id="color-start" value="#3B82F6">
+              <span class="color-label">START</span>
+            </div>
+            <div class="color-picker">
+              <input type="color" id="color-33" value="#10B981">
+              <span class="color-label">33%</span>
+            </div>
+            <div class="color-picker">
+              <input type="color" id="color-66" value="#8B5CF6">
+              <span class="color-label">66%</span>
+            </div>
+            <div class="color-picker">
+              <input type="color" id="color-end" value="#EF4444">
+              <span class="color-label">END</span>
+            </div>
+          </div>
+          <div class="color-preview">
+            <div class="color-segment" id="color-segment-1"></div>
+            <div class="color-segment" id="color-segment-2"></div>
+            <div class="color-segment" id="color-segment-3"></div>
+            <div class="color-segment" id="color-segment-4"></div>
+          </div>
+          <button id="reset-colors-btn" class="save-btn">RESET COLORS</button>
+        </div>
+        
+        <!-- Display Settings Tab -->
+        <div class="tab-pane" id="display-tab">
+          <h2 class="section-title">Display Settings</h2>
+          <div class="display-setting">
+            <span class="setting-label">SHOW TIME:</span>
+            <button id="show-time-toggle" class="toggle-btn toggle-on"></button>
+          </div>
+          <div class="display-setting opacity-setting">
+            <span class="setting-label">OPACITY: <span id="opacity-value">70</span>%</span>
+            <div class="slider-container">
+              <input type="range" id="opacity-slider" min="10" max="100" value="70" class="slider">
+              <div id="opacity-fill" class="slider-fill"></div>
+              <div id="slider-knob" class="slider-knob"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/pixel-popup.js"></script>
+</body>
+</html>
