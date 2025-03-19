@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Browser Theme Customizer</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .theme-option {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+    .color-preview {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin-left: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2>Browser Theme Customizer</h2>
+  
+  <div class="theme-option">
+    <label for="background-color">Background Color:</label>
+    <input type="color" id="background-color" value="#ffffff">
+  </div>
+  
+  <div class="theme-option">
+    <label for="text-color">Text Color:</label>
+    <input type="color" id="text-color" value="#000000">
+  </div>
+  
+  <div class="theme-option">
+    <label for="link-color">Link Color:</label>
+    <input type="color" id="link-color" value="#0000ff">
+  </div>
+  
+  <div class="theme-option">
+    <label for="font-family">Font Family:</label>
+    <select id="font-family">
+      <option value="Arial, sans-serif">Arial</option>
+      <option value="'Times New Roman', Times, serif">Times New Roman</option>
+      <option value="Georgia, serif">Georgia</option>
+      <option value="'Courier New', Courier, monospace">Courier New</option>
+      <option value="Verdana, Geneva, sans-serif">Verdana</option>
+    </select>
+  </div>
+  
+  <div class="theme-option">
+    <label for="font-size">Font Size:</label>
+    <select id="font-size">
+      <option value="small">Small</option>
+      <option value="medium" selected>Medium</option>
+      <option value="large">Large</option>
+      <option value="x-large">Extra Large</option>
+    </select>
+  </div>
+  
+  <button id="apply-theme">Apply Theme</button>
+  <button id="reset-theme">Reset to Default</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
