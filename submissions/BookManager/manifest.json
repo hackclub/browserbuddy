@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Book Reading Manager",
+  "version": "1.0",
+  "description": "Track and manage your book reading progress",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

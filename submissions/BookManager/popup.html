@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Reading Manager</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Book Reading Manager</h1>
+    
+    <div class="stats-container">
+      <div class="stat">
+        <span id="total-books">0</span>
+        <label>Total Books</label>
+      </div>
+      <div class="stat">
+        <span id="completed-books">0</span>
+        <label>Completed</label>
+      </div>
+      <div class="stat">
+        <span id="in-progress-books">0</span>
+        <label>In Progress</label>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h2>Add New Book</h2>
+      <form id="add-book-form">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" required>
+        </div>
+        <div class="form-group">
+          <label for="author">Author:</label>
+          <input type="text" id="author" required>
+        </div>
+        <div class="form-group">
+          <label for="total-pages">Total Pages:</label>
+          <input type="number" id="total-pages" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="current-page">Current Page:</label>
+          <input type="number" id="current-page" min="0" required>
+        </div>
+        <button type="submit">Add Book</button>
+      </form>
+    </div>
+
+    <div class="books-container">
+      <h2>Your Books</h2>
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="in-progress">In Progress</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+      <ul id="books-list"></ul>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
