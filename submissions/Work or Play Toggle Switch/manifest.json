@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Work/Play Toggle",
+  "version": "1.0",
+  "description": "Toggle between work and play browsing sessions with analytics",
+  "permissions": [
+    "storage",
+    "tabs",
+    "history",
+    "alarms"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Work/Play Toggle"
+  }
+}
