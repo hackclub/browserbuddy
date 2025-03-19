@@ -22,7 +22,7 @@
 ### **🔹 Manual Installation (For Developers & Testing)**
 1. **Download the repository**  
    ```sh
-   git clone https://github.com/0mahi11/photoLancer-ChromeExtention.git
+   https://github.com/0mahi11/PhotoLancer.git
    ```
 2. **Open Chrome** and go to `chrome://extensions/`.  
 3. **Enable Developer Mode** (top right corner).  
@@ -79,9 +79,5 @@ We welcome contributions! 🚀
 **PhotoLancer** is **open-source** under the **MIT License**.  
 
 ---
-
-## 📬 **Feedback & Support**
-💬 **Got suggestions?** Open an [issue](https://github.com/yourusername/photolancer/issues)  
-📢 **Follow updates on Twitter:** [@yourhandle](https://twitter.com/yourhandle)  
 
 🔥 **Enjoy browsing without blur!** 🚀
