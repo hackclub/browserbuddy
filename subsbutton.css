@@ -1,0 +1,29 @@
+:root {
+    --sub-red-btn: #cc0000;
+    --sub-white-text-btn: #f2f2f2;
+    --sub-black-bg-btn: #303030;
+}
+
+/* General Subscribe Button Styling */
+#subscribe yt-button-shape button,
+#subscribe-button yt-button-shape button,
+ytd-subscribe-button-renderer yt-button-shape button,
+#subscribe yt-button-shape a[aria-label*="Subscribe"],
+#subscribe-button yt-button-shape a[aria-label*="Subscribe"],
+ytd-subscribe-button-renderer yt-button-shape a[aria-label*="Subscribe"] {
+    color: var(--yt-spec-static-brand-white) !important;
+    background-color: var(--yt-spec-brand-button-background) !important;
+}
+
+/* Dark Mode - Unsubscribe Button */
+html[dark] ytd-shorts #subscribe-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+    color: var(--yt-spec-text-secondary) !important;
+    background-color: var(--yt-spec-badge-chip-background) !important;
+}
+
+/* Subscribed Button on Channels - Optimized */
+[page-subtype="channels"] #subscribe yt-button-shape button[aria-label],
+#channel.ytd-grid-channel-renderer #subscribe yt-button-shape button[aria-label] {
+    color: var(--yt-spec-static-brand-white) !important;
+    background-color: var(--yt-spec-brand-button-background) !important;
+}

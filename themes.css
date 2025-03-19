@@ -1,0 +1,32 @@
+/* Theme system with CSS variables */
+:root {
+  /* Default theme (light) */
+  --theme-bg: #f9f9f9;
+  --theme-card: #ffffff;
+  --theme-text: #212121;
+  --theme-border: #e0e0e0;
+}
+
+/* Dark theme */
+.theme-dark {
+  --theme-bg: #202124;
+  --theme-card: #303134;
+  --theme-text: #e8eaed;
+  --theme-border: #5f6368;
+}
+
+/* Accent colors */
+.accent-green {
+  --enhancer-primary: #60f5ac;
+  --enhancer-secondary: #4acf8f;
+}
+
+.accent-blue {
+  --enhancer-primary: #60d5f5;
+  --enhancer-secondary: #4ab3cf;
+}
+
+.accent-pink {
+  --enhancer-primary: #ff5c8d;
+  --enhancer-secondary: #d84a74;
+} 
