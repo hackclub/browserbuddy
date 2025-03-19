@@ -1,0 +1,23 @@
+/* Apply blur to the gallery container tag instead of an img tag */
+div.rtIMgb {
+    filter: blur(5px) !important;
+    transition: filter 0.3s ease;
+  }
+  
+  /* Modern Gallery Layout: style the main photo grid as a responsive grid.
+     This assumes the gallery container uses role="grid" */
+  div[role="grid"] {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  /* Optional: give each gallery item a modern “card” look */
+  div[role="grid"] > div {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
