@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Tabflow",
+  "version": "1.0",
+  "description": "An intuitive and efficient way to manage your open tabs.",
+  "permissions": ["tabs", "windows", "commands"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "128": "src/icons/icon128.png"
+    }
+  },
+  "commands": {
+    "move-tab-to-new-window": {
+      "suggested_key": {
+        "default": "Ctrl+M"
+      },
+      "description": "Move current tab to new window"
+    },
+    "open-gui": {
+      "suggested_key": {
+        "default": "Alt+Shift+M"
+      },
+      "description": "Open Tabflow GUI: Move multiple tabs to new window"
+    },
+    "duplicate-tab": {
+      "suggested_key": {
+        "default": "Ctrl+Q"
+      },
+      "description": "Duplicate current tab"
+    },
+    "duplicate-tab-to-new-window": {
+        "suggested_key": {
+        "default": "Ctrl+Shift+Q"
+        },
+        "description": "Duplicate current tab into new window"
+    }
+  },
+  "icons": {
+    "128": "src/icons/icon128.png"
+  }
+}

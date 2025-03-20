@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabflow</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="../src/icons/tabflow-icon.png" alt="Tabflow Icon" />
+        <h1>Tabflow</h1>
+      </div>
+      <div class="lists">
+        <div class="list" id="all-tabs">
+          <h2>All Tabs</h2>
+          <ul id="all-tabs-list"></ul>
+        </div>
+        <div class="list" id="move-to-window">
+          <h2>Move to this Window</h2>
+          <ul id="move-to-window-list"></ul>
+        </div>
+      </div>
+      <button id="move-tabs-button">Move 0 tabs</button>
+      <!-- The number of tabs is changed adaptively in script.js -->
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
