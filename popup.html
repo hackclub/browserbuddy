@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Enhancer</title>
+    <link rel="stylesheet" href="popup_styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="icons/icon128.png" alt="YouTube Enhancer" class="header-icon">
+        <div class="header-text">
+            <h1 class="header-title">YouTube Enhancer</h1>
+            <p class="header-version">v1.0.2</p>
+        </div>
+        <svg id="openSettings" class="settings-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6, 12,15.6z"/>
+        </svg>
+    </div>
+
+    <!-- Settings Panel (hidden by default) -->
+    <div id="settings" class="feature-cards">
+        <div class="feature-card subsComment">
+            <p class="feature-title">Subs Comment</p>
+            <label class="switch">
+                <input type="checkbox" class="feature-toggle" data-feature="subsComment" disabled>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="feature-card sblock">
+            <p class="feature-title">Shortz Block</p>
+            <label class="switch">
+                <input type="checkbox" class="feature-toggle" data-feature="sblock">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="feature-card shorts2long">
+            <!-- Changed div class from s2l to shorts2long -->
+            <p class="feature-title">Shortz 2.Long</p>
+            <label class="switch">
+                <input type="checkbox" class="feature-toggle" data-feature="shorts2long" disabled>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="feature-card vid">
+            <p class="feature-title">VidPlayz</p>
+            <label class="switch">
+                <input type="checkbox" class="feature-toggle" data-feature="vid" >
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="feature-card subsbutton">
+            <p class="feature-title">Sub Button</p>
+            <label class="switch">
+                <input type="checkbox" class="feature-toggle" data-feature="subsbutton" disabled>
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="toggle-container" role="group" aria-labelledby="toggle-label">
+            <span id="toggle-label" class="toggle-label">Extension Status</span>
+            <label class="switch" aria-label="Toggle extension">
+                <input type="checkbox" id="toggleSwitch" aria-describedby="statusText">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div id="statusText" role="status" aria-live="polite">Loading status...</div>
+    </div>
+
+    <footer>
+        &copy; <span id="currentYear"></span>
+        <a href="https://github.com/Prarambha369/YouTube_Enhancer" target="_blank" rel="noopener noreferrer">Mister Bashyal</a>
+    </footer>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
