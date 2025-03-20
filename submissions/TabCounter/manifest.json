@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Counter & Code Tracker",
+  "version": "1.0",
+  "description": "Tracks the number of open tabs, their duration, and counts code files",
+  "permissions": [
+    "tabs",
+    "storage",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
