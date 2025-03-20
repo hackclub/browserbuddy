@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Favicon & Title Tester",
+    "version": "1.0",
+    "description": "Testez le titre et le favicon de votre site dans un onglet dédié.",
+    "permissions": ["tabs", "storage"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "iconeExtension.png"
+    },
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "favipeek@mon-extension.com",
+        "strict_min_version": "109.0"
+      }
+    }
+  }
+  
+  
