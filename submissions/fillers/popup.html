@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Form Filler</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    .saved-items {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 10px;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .active {
+      color: green;
+    }
+    .inactive {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h2>Smart Form Filler</h2>
+  
+  <div class="container">
+    <div>
+      <input type="text" id="item-input" placeholder="Add a new text item to save">
+      <button id="save-btn">Save</button>
+    </div>
+    
+    <div class="status" id="status">
+      Status: <span id="extension-status" class="inactive">Inactive</span>
+    </div>
+    
+    <button id="toggle-btn">Activate Extension</button>
+    
+    <h3>Saved Text Items:</h3>
+    <div class="saved-items" id="saved-items">
+      <!-- Saved items will be added here dynamically -->
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
