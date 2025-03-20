@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Saver",
+  "version": "1.0",
+  "description": "Save all open tabs URLs with a keyboard shortcut",
+  "permissions": ["tabs", "storage", "downloads"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "save-tabs": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Save all open tabs"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
