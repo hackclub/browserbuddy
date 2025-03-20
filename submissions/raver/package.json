@@ -1,0 +1,7 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chrome": "^0.0.309",
+    "@types/firefox-webext-browser": "^120.0.4"
+  }
+}
