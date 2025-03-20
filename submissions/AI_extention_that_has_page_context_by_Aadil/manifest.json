@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Buddy",
+  "version": "1.0",
+  "description": "Chat with an AI assistant that knows what you're browsing",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "host_permissions": [
+    "https://ai.hackclub.com/*"
+  ]
+}
