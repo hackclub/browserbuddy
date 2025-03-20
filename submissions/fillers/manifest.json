@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Form Filler",
+  "version": "1.0",
+  "description": "Fill forms quickly by hovering over input fields",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
