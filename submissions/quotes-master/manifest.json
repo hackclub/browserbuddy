@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Motivational Quotes",
+  "version": "1.0",
+  "description": "Displays motivational quotes every 7 seconds",
+  "permissions": ["notifications"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
