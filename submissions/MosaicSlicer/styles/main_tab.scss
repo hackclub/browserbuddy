@@ -1,0 +1,279 @@
+#viewer {
+  overflow: hidden;
+  flex-grow: 1;
+  height: calc(100vh - var(--tab-height));
+  background-color: var(--background-3);
+}
+
+#controls {
+  position: absolute;
+  left: 0rem;
+  bottom: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: 1px var(--grey-2) solid;
+
+  padding: 0.25rem;
+
+  height: 12rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--background-2);
+
+  .control {
+    height: 3rem;
+    width: 3rem;
+    padding: 0.625rem;
+    font-size: 1.75rem;
+
+    border-radius: 1.5rem;
+
+    transition: 0.1s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--grey-2);
+    }
+  }
+}
+
+#options-bar {
+  position: absolute;
+  left: 0rem;
+  right: var(--sidebar-width);
+  top: var(--tab-height);
+
+  padding: 0.5rem;
+
+  display: grid;
+  grid-template-columns: auto 1fr 1.5fr;
+  grid-gap: 0.5rem;
+
+  & > div {
+    align-self: self-start;
+    background-color: var(--background-2);
+    border: 1px var(--grey-2) solid;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+
+  .options-button {
+    display: flex;
+    flex-direction: column;
+
+    .options-button-clickable {
+      height: 2.75rem;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .options-button-clickable:hover {
+      background-color: var(--grey-2);
+    }
+
+    .options-dropdown {
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem;
+    }
+    .options-dropdown[data-hidden="true"] {
+      display: none;
+    }
+
+    cura-icon[icon-name="ionicons_chevron_down_outline"] {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  #file-div {
+    #stl-file {
+      display: none;
+    }
+
+    #file-label {
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+
+      cura-icon {
+        padding: 0.5rem;
+        width: 2.75rem;
+        height: 2.75rem;
+      }
+      cura-icon:hover {
+        background-color: var(--grey-2);
+      }
+    }
+  }
+
+  #printers-div {
+    #printer-button {
+      font-size: 0.9rem;
+    }
+
+    #manage-printers-div {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+      grid-gap: 0.5rem;
+    }
+  }
+
+  #extruders-div {
+    #extruders-button {
+      gap: 0.5rem;
+
+      cura-icon[icon-name="Spool"] {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+      span {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+#actions {
+  position: relative;
+  height: 6rem;
+  left: 0rem;
+  bottom: 6.25rem;
+  padding: 0.5rem;
+
+  display: flex;
+  align-items: end;
+  pointer-events: none;
+
+  .right {
+    pointer-events: auto;
+    padding: 0.5rem;
+    width: 15rem;
+
+    background-color: var(--background-2);
+    border: 1px var(--grey-2) solid;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    & > div[data-active="false"] {
+      display: none;
+    }
+
+    button {
+      font-size: 1rem;
+    }
+
+    #slice-progress-container {
+      #slice-progress {
+        height: 0.5rem;
+        background-color: grey;
+      }
+
+      #slice-progress-bar {
+        height: 100%;
+        transition: width 0.2s ease-in-out;
+        background-color: var(--primary);
+      }
+    }
+
+    #slice-export-container {
+      cura-icon {
+        height: 1.25rem;
+        width: 1.25rem;
+      }
+
+      .icon-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .icon-row-small {
+        font-size: 0.8rem;
+        cura-icon {
+          height: 1.1rem;
+          width: 1.1rem;
+        }
+      }
+
+      #gcode-time-estimate {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+#notifications {
+  position: absolute;
+  top: calc(var(--tab-height) + 0.5rem);
+  right: calc(var(--sidebar-width) + 0.5rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .notification {
+    background-color: var(--background-2);
+    border: 1px var(--grey-2) solid;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+
+    height: 5rem;
+    width: 15rem;
+    padding: 0.5rem;
+
+    .title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      width: 100%;
+
+      cura-icon {
+        color: var(--grey);
+
+        &:hover {
+          color: var(--text);
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .description {
+      font-weight: 400;
+      color: var(--grey);
+      font-size: 0.9rem;
+    }
+  }
+}
+
+#drop-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  display: none;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}

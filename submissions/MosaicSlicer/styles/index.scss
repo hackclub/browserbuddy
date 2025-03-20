@@ -1,0 +1,93 @@
+@use "./base.scss";
+@use "./main_tab.scss";
+@use "./settings.scss";
+@use "./sidebar.scss";
+@use "./preferences.scss";
+
+body, html {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+#tab-strip {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--tab-height);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-bottom: 1px solid var(--grey-2);
+  user-select: none;
+
+  #logo_svg {
+    height: 2.5rem;
+  }
+
+  h1 {
+    margin: 0px;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .tab {
+    margin-top: auto;
+    padding: 0.3rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: var(--background-2);
+    clip-path: polygon(0.4rem 0%, calc(100% - 0.4rem) 0%, 100% 100%, 0% 100%);
+  }
+  .tab[data-active="true"] {
+    background-color: var(--grey-2);
+  }
+
+  .info-link {
+    font-size: 0.9rem;
+    margin-left: 1rem;
+  }
+
+  a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.tab-content {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  overflow: auto;
+}
+.tab-content[data-active="false"] {
+  display: none;
+}
+
+#loading {
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fullscreen {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+@keyframes blur-out {
+  0% {
+    filter: opacity(100%);
+  }
+
+  100% {
+    filter: opacity(0%);
+  }
+}

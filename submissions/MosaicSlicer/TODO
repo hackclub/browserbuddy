@@ -1,0 +1,41 @@
+We should remove this once we have a decently working app
+UI:
+[ ] Sidebar
+  [x] Populate values
+  [x] Styles
+  [ ] Save settings to object
+[ ] Viewer
+  [x] Allow moving/scaling/rotating objects
+  [x] Render printer build volume
+  [x] When importing STLs, center them
+  [x] Merge all objects into single STL for slicing
+  [ ] Support 3mf files
+  [ ] Materials
+  [ ] GCode viewer
+Misc:
+  [x] Branding
+    [x] Make name
+  [ ] GCode Export options (eg. name, bgcode)
+    [ ] Some metadata? Do specific printers have special metadata we can add?
+
+Functionality:
+[x] Slicer
+  [x] Fix slicer to work (not sure what tasks are here you can just add here)
+[ ] Configs
+  [x] Load .ini files
+  [x] Load material files
+  [ ] Importable files
+  [ ] Importable machine definitions
+  [x] Pass loaded configs into slicer
+  [x] Apply settings to slicer
+
+3rd Party Integration
+[ ] Octoprint
+[ ] Fluidd / Mainsail
+[ ] PrusaLink
+[ ] Prusa Connect
+
+Web Extension:
+[x] Manifest and Packaging
+[ ] Userscripts
+[ ] Page for displaying saved STLs and importing them

@@ -1,0 +1,92 @@
+@import "@fontsource-variable/inter/opsz.css";
+@import "@fontsource-variable/inter/opsz-italic.css";
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --text: #ffffff;
+  --background: #1c1b1d;
+  --background-2: #262528;
+  --background-3: #171618;
+
+  --grey: #acacac;
+  --grey-2: #333333;
+
+  --primary: #37d79c;
+  --secondary: #1a5f5a;
+  --accent: #37d2d7;
+
+  --sidebar-width: max(30vw, 25rem);
+  --tab-height: 2.25rem;
+
+  font-size: 1rem;
+  font-family: "Inter Variable", sans-serif;
+  color-scheme: dark;
+}
+
+body,
+html {
+  height: 100vh;
+  width: 100vw;
+
+  //work around a bug in chromium's injected stylesheet
+  //https://stackoverflow.com/questions/71480433
+  font-size: inherit;
+  font-family: inherit;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
+
+  background-color: transparent;
+  border: 2px solid var(--text);
+  padding: 0.25rem;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--primary);
+    background-color: var(--primary);
+    color: var(--background);
+  }
+}
+
+/* Inputs */
+input {
+  &:focus {
+    outline: 1px solid white;
+  }
+
+  border: none;
+  font: inherit;
+  color: var(--text);
+
+  padding: 0.25rem;
+
+  background-color: var(--grey-2);
+  border-bottom: 1px solid var(--grey);
+}
+
+/* svg icons */
+cura-icon {
+  color: white;
+  display: block;
+  svg {
+    height: 100%;
+  }
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
