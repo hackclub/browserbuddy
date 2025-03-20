@@ -1,0 +1,49 @@
+.error-banner {
+  background-color: #ffebee;
+  border-left: 4px solid #f44336;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.error-icon {
+  color: #f44336;
+  font-size: 20px;
+}
+
+.error-content {
+  flex: 1;
+}
+
+.error-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #d32f2f;
+}
+
+.error-content p {
+  font-size: 14px;
+  margin: 0;
+  color: #616161;
+}
+
+.error-retry {
+  background-color: transparent;
+  border: 1px solid #f44336;
+  color: #f44336;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.error-retry:hover {
+  background-color: #f44336;
+  color: white;
+}
