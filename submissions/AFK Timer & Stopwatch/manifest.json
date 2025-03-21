@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "AFK Timer & Stopwatch",
+    "version": "1.0",
+    "description": "A simple timer and stopwatch extension",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "128": "icon.png"
+      }
+    },
+    "icons": {
+      "256": "icon.png"
+    },
+    "permissions": [],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "timer@yourdomain.com"
+      }
+    }
+  }
+
