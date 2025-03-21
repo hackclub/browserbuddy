@@ -1,0 +1,117 @@
+html,:host {
+    line-height: 1.5;
+}
+
+body {
+    margin: 0;
+    line-height: inherit
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit
+}
+
+a:hover {
+    color: rgb(255, 228, 196);
+}
+
+blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre {
+    margin: 0
+}
+
+ol,ul,menu {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+:root {
+    --ctp-rosewater: 245, 224, 220;
+    --ctp-flamingo: 242, 205, 205;
+    --ctp-pink: 245, 194, 231;
+    --ctp-mauve: 203, 166, 247;
+    --ctp-red: 243, 139, 168;
+    --ctp-maroon: 235, 160, 172;
+    --ctp-peach: 250, 179, 135;
+    --ctp-yellow: 249, 226, 175;
+    --ctp-green: 166, 227, 161;
+    --ctp-teal: 148, 226, 213;
+    --ctp-sky: 137, 220, 235;
+    --ctp-sapphire: 116, 199, 236;
+    --ctp-blue: 137, 180, 250;
+    --ctp-lavender: 180, 190, 254;
+    --ctp-bisque: 255, 228, 196;
+    --ctp-text: 205, 214, 244;
+    --ctp-subtext1: 164, 172, 222;
+    --ctp-subtext0: 166, 173, 200;
+    --ctp-overlay2: 147, 153, 178;
+    --ctp-overlay1: 127, 132, 156;
+    --ctp-overlay0: 108, 112, 134;
+    --ctp-surface2: 88, 91, 112;
+    --ctp-surface1: 69, 71, 90;
+    --ctp-surface0: 49, 50, 68;
+    --ctp-base: 30, 30, 46;
+    --ctp-mantle: 24, 24, 37;
+    --ctp-crust: 17, 17, 27
+}
+
+.bg-base {
+    --tw-bg-opacity: 1;
+    background-color: #29293b;
+}
+
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem
+}
+
+.font-mono {
+    font-family: Consolas, monospace
+}
+
+.font-sans {
+    font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+    
+}
+
+.text-1 {
+    font-size: 1.1rem;
+    line-height: 1.8rem
+}
+
+.text-2 {
+    font-size: 1.1rem;
+    line-height: 2rem
+}
+
+.text-xl {
+    font-size: 1rem;
+    line-height: 1.3rem
+}
+
+.text-2xl {
+    font-size: 2.2rem;
+    line-height: 2.5rem
+}
+
+.text-3xl {
+    font-size: 2.3769rem;
+    line-height: 2.25rem
+}
+
+.font-semibold {
+    font-weight: 600
+}
+
+.text-overlay2 {
+    font-size: 1rem;
+    line-height: 1.7rem;
+    --tw-text-opacity: 1;
+    color: rgba(var(--ctp-overlay2),var(--tw-text-opacity, 1))
+}
+
+.text-text {
+    --tw-text-opacity: 1;
+    color: rgba(var(--ctp-text),var(--tw-text-opacity, 1))
+}
