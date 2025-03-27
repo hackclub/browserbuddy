@@ -1,0 +1,19 @@
+.subscriber-count {
+    font-size: 1.1rem;
+    line-height: normal;
+    color: var(--yt-text-secondary);
+    background-color: var(--yt-secondary);
+    margin-left: var(--spacing-xs);
+    padding: 1px 3px;
+    border-radius: var(--border-radius-sm);
+}
+.youtube-enhancer-comments {
+    background: var(--feature-subscomment-bg) !important;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md) !important;
+}
+
+.youtube-enhancer-pinned-comment {
+    border-left: 3px solid var(--feature-subscomment-pinned-border) !important;
+    background: rgba(96, 245, 172, 0.1) !important;
+}
