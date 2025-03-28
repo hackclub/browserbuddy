@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cursor Effects</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>Cursor Effects</h1>
+  
+  <div class="section">
+    <h2>Cursor Skin</h2>
+    <div class="options">
+      <button id="default" class="skin-btn">Default</button>
+      <button id="pointer" class="skin-btn">Pointer</button>
+      <button id="heart" class="skin-btn">Heart</button>
+      <button id="star" class="skin-btn">Star</button>
+      <button id="sword" class="skin-btn">Sword</button>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>Cursor Effects</h2>
+    <div class="options">
+      <button id="none" class="effect-btn selected">None</button>
+      <button id="trail" class="effect-btn">Trail</button>
+      <button id="sparkle" class="effect-btn">Sparkle</button>
+      <button id="rainbow" class="effect-btn">Rainbow</button>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>Effect Settings</h2>
+    <div class="settings">
+      <label for="size">Size:</label>
+      <input type="range" id="size" min="1" max="20" value="5">
+      
+      <label for="color">Color:</label>
+      <input type="color" id="color" value="#ff5722">
+      
+      <label for="opacity">Opacity:</label>
+      <input type="range" id="opacity" min="10" max="100" value="80">
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
+
+// popup.css
+body {
+  width: 300px;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 0;
+  color: #333;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.section {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: #e0e0e0;
+}
+
+button.selected {
+  background: #4285f4;
+  color: white;
+  border-color: #2b6abc;
+}
+
+.settings {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+input[type="range"] {
+  width: 100%;
+}
