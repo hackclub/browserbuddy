@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Aerosol",
+    "version": "1.0.1",
+    "author": "Raghav Karn",
+    "description": "Aerosol helps you worry about the air quality in your city by converting the AQI to equivalent cigarettes.",
+    "action": {
+        "default_title": "Aerosol",
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        }
+    },
+    "permissions": ["activeTab"],
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    }
+}
