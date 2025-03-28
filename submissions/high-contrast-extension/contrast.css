@@ -1,0 +1,126 @@
+/* Global high contrast styles */
+html.high-contrast {
+  /* Important flags to override site styles */
+  filter: none !important;
+  transition: none !important;
+}
+
+/* WHITE ON BLACK THEME */
+html.high-contrast.white-on-black,
+html.high-contrast.white-on-black * {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html.high-contrast.white-on-black a {
+  color: #00ffff !important;
+  text-decoration: underline !important;
+}
+
+html.high-contrast.white-on-black img,
+html.high-contrast.white-on-black video,
+html.high-contrast.white-on-black canvas,
+html.high-contrast.white-on-black svg {
+  /* Preserve images but add a border */
+  filter: none !important;
+  border: 1px solid #fff !important;
+}
+
+/* BLACK ON WHITE THEME */
+html.high-contrast.black-on-white,
+html.high-contrast.black-on-white * {
+  background-color: #fff !important;
+  color: #000 !important;
+  border-color: #000 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html.high-contrast.black-on-white a {
+  color: #0000CC !important;
+  text-decoration: underline !important;
+}
+
+html.high-contrast.black-on-white img,
+html.high-contrast.black-on-white video,
+html.high-contrast.black-on-white canvas,
+html.high-contrast.black-on-white svg {
+  filter: none !important;
+  border: 1px solid #000 !important;
+}
+
+/* YELLOW ON BLACK THEME */
+html.high-contrast.yellow-on-black,
+html.high-contrast.yellow-on-black * {
+  background-color: #000 !important;
+  color: #ff0 !important;
+  border-color: #ff0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html.high-contrast.yellow-on-black a {
+  color: #0ff !important;
+  text-decoration: underline !important;
+}
+
+html.high-contrast.yellow-on-black img,
+html.high-contrast.yellow-on-black video,
+html.high-contrast.yellow-on-black canvas,
+html.high-contrast.yellow-on-black svg {
+  filter: none !important;
+  border: 1px solid #ff0 !important;
+}
+
+/* BLUE ON WHITE THEME */
+html.high-contrast.blue-on-white,
+html.high-contrast.blue-on-white * {
+  background-color: #fff !important;
+  color: #00008B !important;
+  border-color: #00008B !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html.high-contrast.blue-on-white a {
+  color: #9900CC !important;
+  text-decoration: underline !important;
+}
+
+html.high-contrast.blue-on-white img,
+html.high-contrast.blue-on-white video,
+html.high-contrast.blue-on-white canvas,
+html.high-contrast.blue-on-white svg {
+  filter: none !important;
+  border: 1px solid #00008B !important;
+}
+
+/* Focus indication for all themes */
+html.high-contrast button:focus,
+html.high-contrast a:focus,
+html.high-contrast input:focus,
+html.high-contrast select:focus,
+html.high-contrast textarea:focus {
+  outline: 2px solid #f00 !important;
+  outline-offset: 2px !important;
+}
+
+/* Override any transition and animation effects */
+html.high-contrast *,
+html.high-contrast *::before,
+html.high-contrast *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Ensure form controls maintain visibility */
+html.high-contrast input,
+html.high-contrast textarea,
+html.high-contrast select,
+html.high-contrast button {
+  opacity: 1 !important;
+  font-size: 16px !important;
+}
