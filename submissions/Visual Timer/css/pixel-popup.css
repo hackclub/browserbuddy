@@ -1,0 +1,572 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 340px;
+  height: 500px;
+  overflow: hidden;
+  font-family: 'Minecraft', sans-serif;
+  background: #333333;
+  color: white;
+}
+
+/* UI Container */
+.pixel-ui {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* CSS-based texture patterns */
+.main-interface, .settings-panel {
+  /* Dirt texture - brown with noise pattern */
+  background-color: #866043;
+  background-image: 
+    linear-gradient(45deg, #705236 25%, transparent 25%),
+    linear-gradient(-45deg, #705236 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #705236 75%),
+    linear-gradient(-45deg, transparent 75%, #705236 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-interface {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(0);
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  left: 100%;
+  transform: translateX(0);
+}
+
+/* When settings are active */
+.main-interface.show-settings {
+  transform: translateX(-100%);
+}
+
+.settings-panel.show {
+  transform: translateX(-100%);
+}
+
+/* Header styles - uses plank texture */
+.header {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #9e7c5a;
+  background-image: 
+    linear-gradient(90deg, #876a4c 2px, transparent 2px),
+    linear-gradient(0deg, #876a4c 2px, transparent 2px);
+  background-size: 16px 16px;
+  border-bottom: 2px solid black;
+  position: relative;
+}
+
+.title {
+  font-size: 22px;
+  text-align: center;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+.ui-switcher-btn, .settings-btn, .back-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 4px;
+  /* Stone texture - gray with noise */
+  background-color: #888888;
+  background-image: 
+    linear-gradient(45deg, #7a7a7a 25%, transparent 25%),
+    linear-gradient(-45deg, #7a7a7a 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #7a7a7a 75%),
+    linear-gradient(-45deg, transparent 75%, #7a7a7a 75%);
+  background-size: 6px 6px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.ui-switcher-btn {
+  left: 8px;
+}
+
+.settings-btn {
+  right: 8px;
+}
+
+.back-btn {
+  left: 8px;
+}
+
+.ui-switcher-btn:hover, .settings-btn:hover, .back-btn:hover {
+  filter: brightness(1.1);
+}
+
+.ui-switcher-icon {
+  width: 24px;
+  height: 24px;
+  /* Checkerboard pattern for UI switcher icon */
+  background-color: #8BC34A;
+  background-image: 
+    linear-gradient(45deg, #5b9630 25%, transparent 25%),
+    linear-gradient(-45deg, #5b9630 25%, transparent 25%);
+  background-size: 8px 8px;
+  border: 2px solid #000;
+}
+
+.settings-btn svg, .back-btn svg {
+  stroke: white;
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 1));
+}
+
+/* Timer Display - uses dark obsidian texture */
+.timer-display {
+  width: 280px;
+  height: 100px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #15151b;
+  background-image: 
+    radial-gradient(#252531 15%, transparent 16%),
+    radial-gradient(#252531 15%, transparent 16%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  border: 2px solid black;
+}
+
+.timer-text {
+  font-size: 36px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+/* Progress Bar - uses bedrock texture */
+.progress-container {
+  width: 280px;
+  height: 30px;
+  margin-top: 16px;
+  background-color: #535353;
+  background-image: 
+    linear-gradient(45deg, #414141 25%, transparent 25%),
+    linear-gradient(-45deg, #414141 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #414141 75%),
+    linear-gradient(-45deg, transparent 75%, #414141 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+  border: 2px solid black;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 100%;
+  /* Water texture - blue with waves */
+  background-color: #3498db;
+  background-image: 
+    linear-gradient(90deg, #2980b9 2px, transparent 2px),
+    linear-gradient(0deg, #2980b9 2px, transparent 2px);
+  background-size: 10px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.3s linear;
+}
+
+/* Timer Toggle */
+.timer-toggle {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-label {
+  font-size: 18px;
+  margin-right: 8px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+.toggle-btn {
+  width: 48px;
+  height: 48px;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.toggle-on {
+  /* Lever ON texture - on state with lit redstone */
+  background-color: #9e9e9e;
+  position: relative;
+}
+
+.toggle-on::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 8px;
+  height: 25px;
+  background-color: #8BC34A;
+  transform: rotate(-30deg);
+}
+
+.toggle-off {
+  /* Lever OFF texture */
+  background-color: #7a7a7a;
+  position: relative;
+}
+
+.toggle-off::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 8px;
+  height: 25px;
+  background-color: #555555;
+  transform: rotate(30deg);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.action-btn {
+  width: 130px;
+  height: 40px;
+  font-family: 'Minecraft', sans-serif;
+  font-size: 16px;
+  color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+.pause-btn {
+  /* Stone button texture */
+  background-color: #888888;
+  background-image: 
+    linear-gradient(45deg, #7a7a7a 25%, transparent 25%),
+    linear-gradient(-45deg, #7a7a7a 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #7a7a7a 75%),
+    linear-gradient(-45deg, transparent 75%, #7a7a7a 75%);
+  background-size: 6px 6px;
+}
+
+.resume-btn {
+  /* Grass texture for Resume button */
+  background-color: #5d9c3d;
+  background-image: 
+    radial-gradient(#4a8a2a 15%, transparent 16%),
+    radial-gradient(#4a8a2a 15%, transparent 16%);
+  background-size: 6px 6px;
+  background-position: 0 0, 3px 3px;
+}
+
+.reset-btn {
+  /* Redstone texture for Reset button */
+  background-color: #c01818;
+  background-image: 
+    radial-gradient(#8e1010 15%, transparent 16%),
+    radial-gradient(#8e1010 15%, transparent 16%);
+  background-size: 6px 6px;
+  background-position: 0 0, 3px 3px;
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.action-btn svg {
+  stroke: white;
+}
+
+/* Settings Panel Styles */
+/* Tabs */
+.tabs {
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+
+.tab {
+  flex: 1;
+  height: 48px;
+  font-family: 'Minecraft', sans-serif;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-right: 2px solid black;
+  cursor: pointer;
+  /* Stone texture */
+  background-color: #888888;
+  background-image: 
+    linear-gradient(45deg, #7a7a7a 25%, transparent 25%),
+    linear-gradient(-45deg, #7a7a7a 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #7a7a7a 75%),
+    linear-gradient(-45deg, transparent 75%, #7a7a7a 75%);
+  background-size: 6px 6px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+.tab:last-child {
+  border-right: none;
+}
+
+.tab.active {
+  /* Plank texture for active tabs */
+  background-color: #9e7c5a;
+  background-image: 
+    linear-gradient(90deg, #876a4c 2px, transparent 2px),
+    linear-gradient(0deg, #876a4c 2px, transparent 2px);
+  background-size: 16px 16px;
+}
+
+/* Tab Content */
+.tab-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #FBA945;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+/* Time Settings */
+.time-inputs {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.time-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-input-group input {
+  width: 100%;
+  height: 48px;
+  font-family: 'Minecraft', sans-serif;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  border: 2px solid black;
+  /* Obsidian texture */
+  background-color: #15151b;
+  background-image: 
+    radial-gradient(#252531 15%, transparent 16%),
+    radial-gradient(#252531 15%, transparent 16%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+}
+
+.time-label {
+  margin-top: 8px;
+  font-size: 14px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+/* Hide number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Save Button */
+.save-btn {
+  width: 200px;
+  height: 40px;
+  margin: 32px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Minecraft', sans-serif;
+  font-size: 16px;
+  color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  /* Plank texture */
+  background-color: #9e7c5a;
+  background-image: 
+    linear-gradient(90deg, #876a4c 2px, transparent 2px),
+    linear-gradient(0deg, #876a4c 2px, transparent 2px);
+  background-size: 16px 16px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+.save-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Colors Tab */
+.color-pickers {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.color-picker input[type="color"] {
+  width: 48px;
+  height: 48px;
+  border: 2px solid black;
+  background: transparent;
+  cursor: pointer;
+}
+
+.color-label {
+  font-size: 12px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+.color-preview {
+  width: 100%;
+  height: 32px;
+  margin-top: 16px;
+  display: flex;
+  border: 2px solid black;
+  overflow: hidden;
+}
+
+.color-segment {
+  flex: 1;
+  height: 100%;
+}
+
+/* Display Tab */
+.display-setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.setting-label {
+  font-size: 18px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+.opacity-setting {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  /* Bedrock texture */
+  background-color: #535353;
+  background-image: 
+    linear-gradient(45deg, #414141 25%, transparent 25%),
+    linear-gradient(-45deg, #414141 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #414141 75%),
+    linear-gradient(-45deg, transparent 75%, #414141 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+  border: 2px solid black;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  /* Water texture */
+  background-color: #3498db;
+  background-image: 
+    linear-gradient(90deg, #2980b9 2px, transparent 2px),
+    linear-gradient(0deg, #2980b9 2px, transparent 2px);
+  background-size: 10px 10px;
+  pointer-events: none;
+}
+
+.slider-knob {
+  position: absolute;
+  top: 0;
+  width: 16px;
+  height: 100%;
+  /* Diamond texture - blue with shine */
+  background-color: #38c6f4;
+  background-image: 
+    linear-gradient(45deg, #29a7d1 25%, transparent 25%),
+    linear-gradient(-45deg, #29a7d1 25%, transparent 25%);
+  background-size: 6px 6px;
+  pointer-events: none;
+}
