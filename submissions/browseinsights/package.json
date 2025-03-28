@@ -1,0 +1,37 @@
+{
+  "name": "browse-insight",
+  "version": "1.1.0",
+  "type": "module",
+  "description": "A privacy-focused browser extension that provides analytics on the sites you visit",
+  "author": "JasonLovesDoggo",
+  "license": "MIT",
+  "scripts": {
+    "process-categories": "node scripts/process-categories.ts",
+    "build": "webpack",
+    "dev": "webpack --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "chart.js": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.246",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "csv-parser": "^3.0.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

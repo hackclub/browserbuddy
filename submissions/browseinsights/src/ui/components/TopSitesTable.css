@@ -1,0 +1,67 @@
+.top-sites-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.top-sites-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.top-sites-table th {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 2px solid var(--border-color);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.top-sites-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.site-row:hover {
+  background-color: var(--primary-light);
+}
+
+.site-rank {
+  font-weight: 600;
+  color: var(--text-secondary);
+  width: 40px;
+}
+
+.site-domain {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.favicon-placeholder {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.site-category {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.top-sites-empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+}
