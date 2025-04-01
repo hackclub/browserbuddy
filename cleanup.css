@@ -1,0 +1,9 @@
+/* Hide video thumbnail timestamps */
+ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail.style-scope {
+  display: none !important;
+}
+
+/* Hide rich sections in the grid (often contains shorts, ads or promoted content) */
+ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope {
+  display: none !important;
+} 
