@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Color Picker Extension",
+  "version": "1.0",
+  "description": "Shows the color that your cursor is pointing at",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
