@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zoom Helper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Zoom Helper</h1>
+    <div class="zoom-controls">
+      <button id="zoom-out">-</button>
+      <span id="zoom-level">100%</span>
+      <button id="zoom-in">+</button>
+    </div>
+    <div class="preset-buttons">
+      <button id="reset-zoom">Reset</button>
+      <button id="fit-width">Fit Width</button>
+    </div>
+    <div class="options">
+      <label>
+        <input type="checkbox" id="remember-zoom">
+        Remember zoom level per site
+      </label>
+    </div>
+    <div class="keyboard-shortcuts">
+      <h2>Keyboard Shortcuts</h2>
+      <ul>
+        <li>Zoom In: Ctrl + +</li>
+        <li>Zoom Out: Ctrl + -</li>
+        <li>Reset: Ctrl + 0</li>
+      </ul>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
