@@ -1,0 +1,66 @@
+/* Shorts Blocker Feature */
+
+/* Hide Shorts in sidebar */
+ytd-guide-entry-renderer[aria-label="Shorts"] {
+  display: none !important;
+}
+
+/* Hide Shorts tab (3rd tab) */
+yt-tab-shape.yt-tab-shape-wiz--host-clickable.yt-tab-shape-wiz:nth-of-type(3) {
+  display: none !important;
+}
+
+/* Hide Shorts chip in the filter chips bar */
+yt-chip-cloud-chip-renderer[chip-style="STYLE_DEFAULT"][title="Shorts"] {
+  display: none !important;
+}
+
+/* Hide Shorts shelf on homepage */
+ytd-rich-shelf-renderer[is-shorts] {
+  display: none !important;
+}
+
+/* Hide Shorts in search results */
+ytd-video-renderer:has(a[href^="/shorts/"]) {
+  display: none !important;
+}
+
+/* Hide the Shorts button in the main navigation */
+ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+ytd-guide-entry-renderer[aria-label="Shorts"] {
+  display: none !important;
+}
+
+/* Hide Shorts sections in recommendations */
+ytd-reel-shelf-renderer {
+  display: none !important;
+}
+
+/* Hide video thumbnail timestamps */
+ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail.style-scope {
+  display: none !important;
+}
+
+/* Hide rich sections in the grid (often contains shorts, ads or promoted content) */
+ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope {
+  display: none !important;
+}
+
+/* Hide shorts player when accessed directly */
+ytd-shorts, ytd-reel-video-renderer {
+  display: none !important;
+}
+
+/* Show message instead */
+ytd-shorts:after {
+  content: "Shorts have been blocked by YouTube Enhancer";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  font-size: 18px;
+  color: var(--yt-text-primary, #fff);
+  background: var(--enhancer-bg-dark, #202124);
+  border-radius: var(--border-radius-md, 8px);
+  margin: 20px 0;
+}

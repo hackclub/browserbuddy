@@ -1,0 +1,686 @@
+/* features/vidplayer.css */
+#movie_player {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 360px !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+
+.html5-video-container {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+}
+
+.video-stream {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 10px !important;
+}
+
+ytd-watch-flexy[theater] #player-theater-container {
+    height: 100vh !important;
+    border-radius: 10px !important;
+}
+
+.ytp-chrome-bottom {
+    width: 100% !important;
+    border-radius: 0 0 10px 10px !important;
+}
+
+.ytp-progress-bar-container {
+    width: 100% !important;
+    height: 8px !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.ytp-progress-bar {
+    width: 100% !important;
+    height: 8px !important;
+    border-radius: 10px !important;
+}
+
+.ytp-scrubber-button {
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50% !important;
+    background-color: #ff0000 !important;
+}
+
+::-webkit-scrollbar {
+    display: none !important;
+}
+
+html, body {
+    overflow-x: hidden !important;
+}
+
+/* Hide YouTube elements */
+ytd-app #header > ytd-rich-grid-renderer,
+ytd-app ytd-mini-guide-renderer,
+ytd-rich-section-renderer > ytd-rich-shelf-renderer,
+ytd-masthead #end,
+ytd-menu-renderer > .yt-spec-icon-shape > div,
+#voice-search-button > yt-button-shape,
+#guide-button,
+#country-code,
+#logo-icon > .yt-spec-icon-shape > div,
+ytd-comment-view-model > .yt-img-shadow,
+ytd-comment-view-model,
+#author-thumbnail > .yt-img-shadow,
+ytd-comment-simplebox-renderer,
+#avatar > .yt-img-shadow,
+ytd-video-owner-renderer,
+#like-button,
+#dislike-button,
+#menu > ytd-watch-metadata,
+#subscribe-button-shape,
+ytd-comments-header-renderer #title,
+ytd-merch-shelf-renderer,
+ytd-reel-shelf-renderer,
+.yt-chip-cloud-renderer,
+.YtVideoMetadataCarouselViewModelHost,
+#pinned-comment-badge,
+.ytd-live-chat-frame > yt-button-shape,
+#show-hide-button > .ytd-live-chat-frame,
+ytd-comment-view-model #published-time-text,
+#creator-heart-button,
+#actions,
+#foreground-content,
+ytd-reel-shelf-renderer,
+ytd-video-description-infocards-section-renderer,
+a.bold.yt-formatted-string,
+.ytp-next-button,
+.ytp-autonav-toggle-button,
+#playlist-actions,
+.ytd-playlist-panel-renderer.publisher,
+#header-top-row,
+ytd-comment-replies-renderer > .yt-img-shadow,
+ytd-comment-replies-renderer,
+.yt-spec-avatar-shape--cairo-refresh,
+#avatar-section,
+ytd-watch-next-secondary-results-renderer > ytd-item-section-renderer,
+#secondary,
+.YtSearchboxComponentClearButton,
+.yt-lockup-view-model-wiz--collection-stack-2 > .yt-lockup-view-model-wiz__content-image > .yt-collection-thumbnail-view-model > .collections-stack-wiz > div > .collections-stack-wiz__collection-stack2 {
+    display: none !important;
+}
+
+/* VidPlayz - Enhanced Video Player CSS */
+
+/* Make masthead semi-transparent */
+#movie_player.vidplayz-enhanced ~ ytd-app #masthead > .ytd-masthead.style-scope {
+  background-color: rgba(33, 33, 33, 0.4) !important; /* 40% opacity */
+  box-shadow: none !important;
+  transition: background-color 0.3s ease !important;
+}
+
+#movie_player.vidplayz-enhanced ~ ytd-app #masthead:hover > .ytd-masthead.style-scope {
+  background-color: rgba(33, 33, 33, 0.6) !important; /* Slightly more visible on hover */
+}
+
+/* Center the player controls and make them semi-transparent */
+#movie_player.vidplayz-enhanced .ytp-chrome-bottom {
+  display: flex !important;
+  justify-content: center !important;
+  width: 80% !important; /* Not 100% so it's centered */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background-color: rgba(0, 0, 0, 0.4) !important; /* 40% opacity */
+  border-radius: var(--border-radius-md) !important;
+  margin-bottom: 10px !important;
+}
+
+/* Make controls hover effect subtle */
+#movie_player.vidplayz-enhanced .ytp-chrome-bottom:hover {
+  background-color: rgba(0, 0, 0, 0.6) !important; /* Slightly more visible on hover */
+}
+
+/* Center the progress bar */
+#movie_player.vidplayz-enhanced .ytp-progress-bar-container {
+  width: 85% !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Make thumbnail overlays semi-transparent */
+.ytp-ce-element, 
+.ytp-ce-covering-overlay, 
+.ytp-ce-element-shadow,
+.ytp-ce-covering-image,
+.ytp-ce-expanding-image,
+.ytp-ce-element.ytp-ce-channel.ytp-ce-channel-this,
+.ytp-ce-element.ytp-ce-video.ytp-ce-element-show {
+  opacity: 0.4 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+/* Increase opacity on hover */
+.ytp-ce-element:hover {
+  opacity: 0.8 !important;
+}
+
+/* Hide guide/sidebar when video player is enhanced */
+#movie_player.vidplayz-enhanced ~ ytd-app #guide-inner-content,
+#movie_player.vidplayz-enhanced ~ ytd-app tp-yt-app-drawer,
+#movie_player.vidplayz-enhanced ~ ytd-app ytd-mini-guide-renderer {
+  display: none !important;
+}
+
+/* Adjust the main content when guide is hidden */
+#movie_player.vidplayz-enhanced ~ ytd-app #contentContainer {
+  margin-left: 0 !important;
+}
+
+#movie_player.vidplayz-enhanced ~ ytd-app #page-manager {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+/* Center the player in the page */
+#movie_player.vidplayz-enhanced ~ ytd-app ytd-watch-flexy:not([theater]) #primary-inner {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Video container enhancements */
+#movie_player.vidplayz-enhanced {
+  --vidplayZ-primary: var(--enhancer-primary, #60f5ac);
+  --vidplayZ-secondary: var(--enhancer-secondary, #60f5f5);
+  --vidplayZ-background: rgba(0, 0, 0, 0.4); /* Set to 40% opacity */
+  --vidplayZ-radius: var(--border-radius-video, 10px);
+  --vidplayZ-controls-height: 48px;
+  
+  border-radius: var(--vidplayZ-radius) !important;
+  overflow: hidden !important;
+  transition: all var(--transition-medium, 0.3s ease) !important;
+}
+
+/* Video element enhancements */
+#movie_player.vidplayz-enhanced .html5-video-container,
+#movie_player.vidplayz-enhanced .html5-main-video {
+  border-radius: var(--vidplayZ-radius) !important;
+}
+
+/* Controls visibility */
+#movie_player.vidplayz-enhanced.vidplayz-controls-hidden .ytp-chrome-bottom {
+  opacity: 0 !important;
+  transform: translateX(-50%) translateY(100%) !important;
+}
+
+/* Enhanced progress bar */
+#movie_player.vidplayz-enhanced .ytp-progress-bar-container {
+  height: 8px !important;
+  padding: 0 !important;
+  transition: height 0.2s ease !important;
+}
+
+#movie_player.vidplayz-enhanced:hover .ytp-progress-bar-container {
+  height: 12px !important;
+}
+
+#movie_player.vidplayz-enhanced .ytp-progress-bar {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+#movie_player.vidplayz-enhanced .ytp-progress-bar .ytp-play-progress {
+  background-color: var(--vidplayZ-primary) !important;
+}
+
+#movie_player.vidplayz-enhanced .ytp-scrubber-button {
+  background-color: var(--vidplayZ-primary) !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 50% !important;
+  transform: scale(0.8) !important;
+  transition: transform 0.2s ease !important;
+}
+
+#movie_player.vidplayz-enhanced:hover .ytp-scrubber-button {
+  transform: scale(1) !important;
+}
+
+/* Center all control panel buttons */
+#movie_player.vidplayz-enhanced .ytp-left-controls,
+#movie_player.vidplayz-enhanced .ytp-right-controls {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Preview thumbnail */
+.vidplayz-preview-container {
+  position: absolute;
+  bottom: 50px;
+  padding: 4px;
+  background-color: var(--vidplayZ-background);
+  border-radius: var(--border-radius, 8px);
+  display: none;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.vidplayz-preview-thumbnail {
+  width: 160px;
+  height: 90px;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+.vidplayz-preview-timestamp {
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 0;
+}
+
+/* Volume display */
+.vidplayz-volume-display {
+  position: absolute;
+  background-color: var(--vidplayZ-background);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: #fff;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.ytp-volume-panel:hover .vidplayz-volume-display {
+  opacity: 1;
+}
+
+/* Custom buttons */
+.vidplayz-screenshot-button,
+.vidplayz-loop-button,
+.vidplayz-speed-button {
+  opacity: 0.9;
+  transition: opacity 0.2s ease !important;
+}
+
+.vidplayz-screenshot-button:hover,
+.vidplayz-loop-button:hover,
+.vidplayz-speed-button:hover {
+  opacity: 1;
+}
+
+.vidplayz-screenshot-button svg,
+.vidplayz-loop-button svg {
+  fill: #fff;
+}
+
+.vidplayz-loop-button.active svg {
+  fill: var(--vidplayZ-primary) !important;
+}
+
+.vidplayz-speed-button span {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Speed menu */
+.vidplayz-speed-menu {
+  position: fixed;
+  display: none;
+  background-color: var(--vidplayZ-background);
+  border-radius: var(--border-radius, 8px);
+  padding: 8px 0;
+  z-index: 1000;
+  min-width: 80px;
+}
+
+.vidplayz-speed-option {
+  padding: 6px 12px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.vidplayz-speed-option:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Quality badge */
+.vidplayz-quality-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: var(--vidplayZ-background);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Notifications */
+.vidplayz-notification {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: var(--vidplayZ-background);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: var(--border-radius, 8px);
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-left: 3px solid var(--vidplayZ-primary);
+}
+
+.vidplayz-notification.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.vidplayz-notification.error {
+  border-left: 3px solid var(--status-error, #f44336);
+}
+
+/* Video end overlay */
+.vidplayz-end-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.vidplayz-replay-button {
+  background-color: var(--vidplayZ-primary);
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.vidplayz-replay-button:hover {
+  transform: scale(1.05);
+  background-color: var(--vidplayZ-secondary);
+}
+
+/* Theater mode enhancements */
+ytd-watch-flexy[theater] #movie_player.vidplayz-enhanced {
+  max-height: calc(100vh - var(--ytd-watch-flexy-masthead-height)) !important;
+  margin: 0 auto !important;
+  border-radius: 0 !important;
+}
+
+/* Additional theater mode enhancements with sidebar/guide removed */
+ytd-watch-flexy[theater] #movie_player.vidplayz-enhanced ~ ytd-app {
+  --ytd-watch-flexy-sidebar-width: 0px !important;
+}
+
+ytd-watch-flexy[theater] #movie_player.vidplayz-enhanced ~ ytd-app ytd-watch-flexy #columns {
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* Fullscreen enhancements */
+#movie_player.vidplayz-enhanced.ytp-fullscreen {
+  border-radius: 0 !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .vidplayz-quality-badge {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+  
+  .vidplayz-notification {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  
+  .vidplayz-replay-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  #movie_player.vidplayz-enhanced .ytp-chrome-bottom {
+    width: 90% !important;
+  }
+}
+
+/* Center YouTube search bar */
+#masthead-container #search-container.ytd-searchbox {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 640px;
+  width: 100%;
+}
+
+/* Ensure the search input takes appropriate space */
+#masthead #search-container.ytd-searchbox #search-form {
+  width: 100%;
+}
+
+/* Ensure avatar and all its components are fully visible */
+.page-header-view-model-wiz__page-header-headline-image.yt-decorated-avatar-view-model-wiz,
+#avatar-link,
+#avatar-section,
+.ytd-topbar-menu-button-renderer,
+ytd-topbar-menu-button-renderer,
+ytd-masthead .ytd-masthead[slot="avatar-button"],
+#avatar,
+#img.yt-img-shadow,
+#avatar > img,
+.yt-img-shadow,
+ytd-topbar-menu-button-renderer > .yt-decorated-avatar-view-model-wiz,
+#avatar.ytd-masthead {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Force avatar image to be visible with correct dimensions */
+#avatar > img.yt-img-shadow {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Make sure the avatar container is properly sized */
+#avatar {
+  width: 32px !important;
+  height: 32px !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+/* Ensure all parents of avatar are visible */
+#buttons.ytd-masthead, 
+#end.ytd-masthead {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Optional: adjust search container positioning on the page */
+#masthead #center {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  #masthead-container #search-container.ytd-searchbox {
+    max-width: 90%;
+  }
+}
+
+/* Restore thumbnail hover overlay elements */
+.ytThumbnailHoverOverlayViewModelHost,
+.ytThumbnailHoverOverlayViewModelStyleCover.ytThumbnailHoverOverlayViewModelScrim,
+.yt-spec-avatar-shape__button--button-giant.yt-spec-avatar-shape__button.yt-spec-avatar-shape > .yt-spec-avatar-shape--cairo-refresh {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Enhance hover effects */
+.ytThumbnailHoverOverlayViewModelHost {
+  transition: opacity 0.2s ease !important;
+}
+
+/* Make video player respect video dimensions */
+#movie_player.vidplayz-enhanced,
+#movie_player.vidplayz-enhanced .html5-video-container,
+#movie_player.vidplayz-enhanced .html5-main-video {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: calc(100vh - 120px) !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+}
+
+/* Center the video in the player */
+#movie_player.vidplayz-enhanced .html5-video-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Maintain aspect ratio for theater mode */
+ytd-watch-flexy[theater] #movie_player.vidplayz-enhanced {
+  max-height: calc(100vh - var(--ytd-watch-flexy-masthead-height) - 20px) !important;
+  margin: 0 auto !important;
+}
+
+/* Center YouTube search bar */
+#masthead-container #search-container.ytd-searchbox {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 640px;
+  width: 100%;
+}
+
+/* Ensure the search input takes appropriate space */
+#masthead #search-container.ytd-searchbox #search-form {
+  width: 100%;
+}
+
+/* Ensure avatar and all its components are fully visible */
+.page-header-view-model-wiz__page-header-headline-image.yt-decorated-avatar-view-model-wiz,
+#avatar-link,
+#avatar-section,
+.ytd-topbar-menu-button-renderer,
+ytd-topbar-menu-button-renderer,
+ytd-masthead .ytd-masthead[slot="avatar-button"],
+#avatar,
+#img.yt-img-shadow,
+#avatar > img,
+.yt-img-shadow,
+ytd-topbar-menu-button-renderer > .yt-decorated-avatar-view-model-wiz,
+#avatar.ytd-masthead {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Force avatar image to be visible with correct dimensions */
+#avatar > img.yt-img-shadow {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Make sure the avatar container is properly sized */
+#avatar {
+  width: 32px !important;
+  height: 32px !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+/* Ensure all parents of avatar are visible */
+#buttons.ytd-masthead, 
+#end.ytd-masthead {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Optional: adjust search container positioning on the page */
+#masthead #center {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  #masthead-container #search-container.ytd-searchbox {
+    max-width: 90%;
+  }
+}
+
+/* Perfect video fit in container */
+.html5-main-video.video-stream {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  max-height: 100vh !important;
+  position: relative !important;
+  left: 0 !important;
+  top: 0 !important;
+}
+
+/* Hide rich shelf headers */
+#rich-shelf-header,
+ytd-rich-shelf-renderer #rich-shelf-header,
+#rich-section-header,
+.ytd-rich-shelf-renderer #rich-shelf-header,
+ytd-rich-grid-renderer #rich-shelf-header {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
