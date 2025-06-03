@@ -1,0 +1,10 @@
+{
+  "name": "FunHacks",
+  "description": "A memes generator and fun facts for the hackclub",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "./hello_extensions.png"
+  }
+}
