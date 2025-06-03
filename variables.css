@@ -1,0 +1,74 @@
+/* YouTube Enhancer - CSS Variables */
+:root {
+  /* Color Palette */
+  --yt-primary: #f00;
+  --yt-primary-hover: #c00;
+  --yt-secondary: #606060;
+  --yt-bg-dark: #181818;
+  --yt-bg-light: #f9f9f9;
+  --yt-text-primary: #fff;
+  --yt-text-secondary: #aaa;
+  
+  /* Extension Theme Colors */
+  --enhancer-primary: #60f5ac;
+  --enhancer-secondary: #60f5f5;
+  --enhancer-accent: #ff5c8d;
+  --enhancer-bg-dark: #202124;
+  --enhancer-bg-card: rgba(255, 255, 255, 0.05);
+  --enhancer-bg-card-hover: rgba(255, 255, 255, 0.1);
+  
+  /* UI Elements */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-video: 10px;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Animations */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  
+  /* Status Colors */
+  --status-success: #4caf50;
+  --status-warning: #ff9800;
+  --status-error: #f44336;
+  --status-info: #2196f3;
+  
+  /* Z-index layers */
+  --z-below: -1;
+  --z-normal: 1;
+  --z-above: 10;
+  --z-modal: 100;
+  --z-tooltip: 1000;
+  
+  /* Feature-specific */
+  --feature-vidplayer-progress-height: 8px;
+  --feature-vidplayer-scrubber-size: 16px;
+  --feature-subscomment-bg: #1a1a1a;
+  --feature-subscomment-pinned-border: #60f5ac;
+}
+
+/* Dark theme specific variables */
+html[dark] {
+  --yt-bg: var(--yt-bg-dark);
+  --yt-text: var(--yt-text-primary);
+}
+
+/* Light theme specific variables */
+html:not([dark]) {
+  --yt-bg: var(--yt-bg-light);
+  --yt-text: var(--yt-secondary);
+} 

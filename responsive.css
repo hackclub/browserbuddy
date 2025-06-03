@@ -1,0 +1,31 @@
+/* Responsive breakpoints using CSS variables */
+:root {
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+  
+  /* Responsive adjustments */
+  --video-radius-mobile: 6px;
+  --video-radius-desktop: 10px;
+}
+
+/* Apply different styles based on viewport */
+@media (max-width: 768px) {
+  :root {
+    --border-radius-video: var(--video-radius-mobile);
+    --feature-vidplayer-progress-height: 6px;
+    --feature-vidplayer-scrubber-size: 12px;
+  }
+  
+  /* Mobile-specific styles */
+  .ytp-chrome-bottom {
+    padding-bottom: var(--spacing-xs) !important;
+  }
+}
+
+@media (min-width: 769px) {
+  :root {
+    --border-radius-video: var(--video-radius-desktop);
+  }
+} 
