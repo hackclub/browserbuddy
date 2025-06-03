@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tab-buse</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:wght@300..800&display=swap"
+		rel="stylesheet">
+	
+	<style>
+		/* Basic styling for the popup */
+		body {
+			margin: 10px;
+			width: 300px;
+			min-height: 200px;
+			width: 400px;
+			padding: 20px 20px;
+		}
+
+		* {
+			font-family: "Inter", Verdana, Geneva, Tahoma, sans-serif;
+		}
+
+		#roast {
+			font-size: 16px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		#tab-count {
+			margin-bottom: 10px;
+		}
+
+		#category-breakdown {
+			cursor: pointer;
+			color: blue;
+			text-decoration: underline;
+			margin-bottom: 10px;
+		}
+
+		#category-list {
+			display: none;
+			margin-left: 20px;
+		}
+
+		#category-management {
+			margin-top: 20px;
+		}
+
+		hr {
+			height: .7px;
+			background-color: black;
+			border-radius: .5px;
+		}
+	</style>
+</head>
+<body>
+	<h1> Welcome to the <br>Tabloid </h1>
+	<div id="roast"></div>
+	<div id="stats"></div>
+
+	<hr style="margin-bottom: 20px;">
+	
+	<div id="current-tab-section">
+		<h3 id="current-tab-h3">Current Tab</h3>
+		<p id="current-tab-category">Loading...</p>
+		<span id="current-tab-categorization-changes">
+			<select id="category-dropdown"></select>
+			<input type="text" id="new-category-input" placeholder="Enter new category">
+			<button id="change-category">Change Category</button><br>
+			<button id="uncategorize-tab">Uncategorize this tab</button>
+		</span>
+	</div>
+
+	<hr style="margin-bottom: 20px;">
+
+	<div id="tab-count"></div>
+	<div id="category-breakdown">Toggle category breakdown</div>
+	<div id="breakdown-list" style="display: none;"></div>
+
+	<div id="category-management">
+		<hr style="margin-bottom: 20px;">
+
+		<h3>Manage Categories</h3>
+		<div id="category-list" style="display: block"></div><br>
+
+		<hr style="margin-bottom: 20px;">
+	</div>
+
+	<div id="toggle-ignored" style="text-decoration: underline;">Toggle ignored domain management</div>
+	<div id="ignored-list" style="display: none;"></div>
+
+	<br><br><hr>
+	<p>Made by Neil Dembla</p>
+
+	<!-- <br> -->
+	<!-- <button id="close" onclick="closePopup()">Close</button> -->
+
+	<script src="popup.js"></script>
+</body>
+</html>
