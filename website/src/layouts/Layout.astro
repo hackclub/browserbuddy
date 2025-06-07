@@ -96,153 +96,14 @@ const { title } = Astro.props;
       </a>
     </header>
     <div class="page-content">
-      <div id="particles-js"></div>
       <slot />
-      <div id="blinking-tree">
-        <img
-          src="https://media.tenor.com/Sog3qstYZPgAAAAj/christmas-tree-christmas-lights.gif"
-        />
-      </div>
     </div>
     <Footer />
   </body>
 </html>
 <script>
-  // @ts-ignore
-  particlesJS("particles-js", {
-    particles: {
-      number: {
-        value: 400,
-        density: {
-          enable: true,
-          value_area: 800,
-        },
-      },
-      color: {
-        value: "#d7d7d9",
-      },
-      shape: {
-        type: "circle",
-        stroke: {
-          width: 0,
-          color: "#000000",
-        },
-        polygon: {
-          nb_sides: 5,
-        },
-        image: {
-          src: "img/github.svg",
-          width: 100,
-          height: 100,
-        },
-      },
-      opacity: {
-        value: 0.5,
-        random: true,
-        anim: {
-          enable: false,
-          speed: 1,
-          opacity_min: 0.1,
-          sync: false,
-        },
-      },
-      size: {
-        value: 10,
-        random: true,
-        anim: {
-          enable: false,
-          speed: 40,
-          size_min: 0.1,
-          sync: false,
-        },
-      },
-      line_linked: {
-        enable: false,
-        distance: 500,
-        color: "#ffffff",
-        opacity: 0.4,
-        width: 2,
-      },
-      move: {
-        enable: true,
-        speed: 6,
-        direction: "bottom",
-        random: false,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200,
-        },
-      },
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: {
-          enable: true,
-          mode: "bubble",
-        },
-        onclick: {
-          enable: true,
-          mode: "repulse",
-        },
-        resize: true,
-      },
-      modes: {
-        grab: {
-          distance: 400,
-          line_linked: {
-            opacity: 0.5,
-          },
-        },
-        bubble: {
-          distance: 400,
-          size: 4,
-          duration: 0.3,
-          opacity: 1,
-          speed: 3,
-        },
-        repulse: {
-          distance: 200,
-          duration: 0.4,
-        },
-        push: {
-          particles_nb: 4,
-        },
-        remove: {
-          particles_nb: 2,
-        },
-      },
-    },
-    retina_detect: true,
-  });
-
   document.addEventListener("DOMContentLoaded", () => {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === "childList") {
-          const blinkingTreeEl = document.getElementById("blinking-tree");
-          if (blinkingTreeEl) {
-            document.addEventListener("scroll", () => {
-              const scrollTop =
-                document.documentElement.scrollTop || document.body.scrollTop;
-              const maxScroll =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
-              const opacity = 1 - scrollTop / maxScroll;
-              // @ts-ignore
-              blinkingTreeEl.style.opacity = opacity;
-            });
-            observer.disconnect(); // Stop observing once the element is found
-          }
-        }
-      });
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
+    // No additional event listeners needed
   });
 </script>
 <style is:global>
@@ -379,30 +240,6 @@ const { title } = Astro.props;
     justify-content: center;
     align-items: center;
     width: fit-content;
-  }
-
-  #particles-js {
-    position: fixed;
-    top: 0;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-  }
-
-  #blinking-tree {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  #blinking-tree img {
-    align-self: flex-end;
-    width: 70px;
   }
 
   .cta-text {
