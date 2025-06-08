@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Bored Button, But Worse™",
+  "description": "Opens a truly cursed corner of the internet.",
+  "version": "1.0",
+  "permissions": ["tabs"],
+  "action": {
+    "default_icon": {
+      "128": "icons/wtf128.png"
+    },
+    "default_title": "I'm bored... confuse me"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icons/wtf128.png"
+  }
+}
