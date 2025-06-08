@@ -1,0 +1,26 @@
+{
+  "name": "Raver",
+  "description": "Rave on any website with Raver!!",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_icon": "assets/raver.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["activeTab", "tabCapture", "scripting", "offscreen"],
+  "icons": {
+    "128": "assets/raver.png",
+    "256": "assets/raver@256w.png",
+    "512": "assets/raver@512w.png",
+    "1024": "assets/raver@1024w.png"
+  }
+}

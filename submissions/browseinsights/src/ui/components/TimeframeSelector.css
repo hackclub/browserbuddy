@@ -1,0 +1,30 @@
+.timeframe-selector {
+  display: flex;
+  gap: 8px;
+  background-color: var(--background-color);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.timeframe-button {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timeframe-button:hover {
+  color: var(--text-color);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.timeframe-button.active {
+  background-color: var(--card-background);
+  color: var(--primary-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,61 @@
+  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Aerosol</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Major+Mono+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Aerosol</h1>
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Search city...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+        </header>
+
+        <div class="results-container" id="resultsContainer">
+            <div class="loader" id="loader"></div>
+            <div class="error" id="error"></div>
+            <div class="status-message" id="statusMessage">Enter a city name to learn about its Air Quality Index (AQI) and the equivalent number of cigarettes</div>
+
+            <div class="results" id="results">
+                <div class="city-name" id="cityName"></div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card aqi">
+                        <div class="metric-label">Air Quality Index</div>
+                        <div class="metric-value" id="aqiValue"></div>
+                        <div class="aqi-description" id="aqiDescription">Good</div>
+                    </div>
+                    
+                    <div class="metric-card cigarettes">
+                        <div class="metric-label">Equivalent Cigarettes</div>
+                        <div class="cigarettes-value-container">
+                            <div class="metric-value" id="cigarettesValue"></div>
+                            <div class="cigarettes-unit">cigarettes</div>
+                        </div>
+                        <div class="cigarettes-icon">
+                            <i class="fas fa-smoking" style="color: #23203b; font-size: 28px; margin-top: 5px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a> API
+            <br>
+            Made by <a href="https://github.com/raghav-karn" target="_blank">Raghav Karn</a>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

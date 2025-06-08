@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Slang Translator",
+    "version": "1.0",
+    "description": "Quickly look up slang words on Urban Dictionary",
+    "permissions": [
+      "contextMenus",
+      "storage"
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }]
+  }

@@ -1,0 +1,13 @@
+{
+   "action": {
+      "default_popup": "index.html"
+   },
+   "content_scripts": [ {
+      "js": [ "scripts/content.js" ],
+      "matches": [ "https://www.robotevents.com/teams/V5RC/*" ]
+   } ],
+   "description": "A detailed overview of team stats directly embedded into RobotEvents.",
+   "manifest_version": 3,
+   "name": "RobotEvents Scout",
+   "version": "1.0"
+}

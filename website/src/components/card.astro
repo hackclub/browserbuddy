@@ -1,0 +1,171 @@
+---
+const { icon, title, description, link, image } = Astro.props;
+---
+
+<a href={link}>
+  <div class=`card`>
+    <h2>
+      {icon}
+      {title}
+      {
+        link ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-square-arrow-out-up-right"
+          >
+            <>
+              <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+              <path d="m21 3-9 9" />
+              <path d="M15 3h6v6" />
+            </>
+          </svg>
+        ) : (
+          ""
+        )
+      }
+    </h2>
+    <div>
+      <Fragment set:html={description}>
+        <!-- <p class="card-content" set:html={description} /> -->
+      </Fragment>
+    </div>
+    {
+      image ? (
+        <div class="card-image">
+          {image ? <img src={image} alt={title} /> : ""}
+        </div>
+      ) : (
+        ""
+      )
+    }
+  </div>
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white;
+    padding: 2rem;
+    width: 300px;
+    max-width: 300px;
+    height: 90%;
+    background-color: var(--hc-red);
+    /* position: relative; */
+    z-index: 5;
+    transition: all 0.2s ease-in-out;
+    border-radius: 25px;
+    padding-bottom: 50px;
+  }
+
+  .card:hover {
+    transform: translateY(-10px) translateX(10px) scale(1.1);
+  }
+  .card-content a {
+    color: white;
+  }
+  .card .card-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card .card-image img {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
+
+  .card h2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .card h2 svg {
+    margin-left: 0.5rem;
+  }
+
+  .underline h2 {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 1365px) {
+    a {
+      width: 100%;
+    }
+    .card {
+      padding: 0;
+      background-color: transparent;
+      width: 100%;
+      max-width: 100%;
+      color: var(--hc-red);
+    }
+
+    .card h2 {
+      color: white;
+      background-color: var(--hc-red);
+      /* padding: 1rem; */
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    a {
+      margin: 1.5rem 0;
+    }
+    .card {
+      background-color: var(--hc-red);
+      color: white;
+      padding: 1rem;
+      /* padding: 1rem 0 1rem 1rem; */
+      width: 90%;
+      height: 100%;
+      border-radius: 8px;
+    }
+
+    .card h2 {
+      width: 100%;
+    }
+
+    .card div:not(.card-image) {
+      max-width: 70%;
+    }
+  }
+</style>
+<script>
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach((card) => {
+    const cardElement = card as HTMLElement;
+
+    cardElement.addEventListener("mouseover", () => {
+      const randomRotate = Math.floor(Math.random() * 11) - 5;
+      cardElement.style.transform = `translateY(-10px) scale(1.1) rotate(${randomRotate}deg)`;
+    });
+
+    cardElement.addEventListener("mouseleave", () => {
+      cardElement.style.transform = "";
+    });
+  });
+</script>

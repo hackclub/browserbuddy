@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tabagotchi Settings</title>
+  <script src="popup.js" defer></script>
+  <style>
+    body {
+      width: 300px;
+      min-height: 380px;
+      max-height: 600px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding-top: 10px;
+      position: relative;
+      transition: height 0.2s ease-in-out;
+    }
+
+ #infoContent {
+  display: none;
+    }
+
+    #buttonContainer {
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      top: -5px;
+      right: 5px;
+      gap: 5px;
+    }
+
+    .iconButton {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .iconButton img {
+      width: 20px;
+      height: 20px;
+    }
+
+    #mainContent {
+      margin-top: 10px;
+    }
+
+    #actionButtons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    .actionButton {
+      padding: 8px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #sleepButton { background-color: gray; color: white; }
+    #foodButton { background-color: green; color: white; }
+    #playButton { background-color: blue; color: white; }
+
+    #excludeMenu {
+      display: none;
+      margin-top: 10px;
+      width: 90%;
+      text-align: center;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+
+    #excludedWebsitesList {
+      max-height: 150px;
+      overflow-y: auto;
+      width: 100%;
+      text-align: left;
+      padding: 0;
+      list-style: none;
+    }
+
+    #excludedWebsitesList li {
+      padding: 5px;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #moodGif {
+      width: 100%;
+      max-width: 200px;
+    }
+
+    #needMessage {
+      font-weight: bold;
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="buttonContainer">
+    <button id="reloadExtension" class="iconButton">
+      <img src="reload.png" alt="Reload">
+    </button>
+    <button id="toggleButton" class="iconButton">
+      <img src="toggle.png" alt="Toggle">
+    </button>
+    <button id="infoButton" class="iconButton">
+      <img src="info.png" alt="Info">
+    </button>
+  </div>
+
+  <h1>Your Tabagotchi</h1>
+  <div id="mainContent">
+    <div id="mood">Loading Tabagotchi mood...</div>
+    <img id="moodGif" style="display: none;" />
+    <p id="needMessage"></p>
+  </div>
+
+  <div id="actionButtons">
+    <button id="sleepButton" class="actionButton">Sleep</button>
+    <button id="foodButton" class="actionButton">Food</button>
+    <button id="playButton" class="actionButton">Play</button>
+  </div>
+
+  <div id="excludeMenu">
+    <label for="websiteInput">Add a website to exclude:</label>
+    <input type="text" id="websiteInput" placeholder="example.com" />
+    <button id="addWebsiteButton">Add</button>
+    <h3>Excluded Websites:</h3>
+    <ul id="excludedWebsitesList"></ul>
+  </div>
+  <div id="infoContent" style="display: none;">
+  <h2>About Your Tabagotchi</h2>
+  <p>Your Tabagotchi is a companion that helps you control your habit of opening tabs without noticing how much resources its taking. The Tabagotchi is going to remind you with the fun activites of the popular toy Tamagotchi.</p>
+  <ul>
+    <li><strong>Mood:</strong> Reflects the state of your Tabagotchi based on your activity, it is affected by the amount of tabs open and open for how long.</li>
+    <br><li><strong>Actions:</strong> Feed or play with your Tabagotchi to keep it happy, sleeping disables all functions for 10 mins.</li></br>
+    <li><strong>Exclusions:</strong> Manage websites where you want the tabagotchi not to get grumpy if open for too long. Example: Youtube.</li>
+  </ul>
+  <button id="backButton">Back</button>
+</div>
+</body>
+</html>

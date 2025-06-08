@@ -1,0 +1,330 @@
+/* General body styling for a minimalist, soft Sakura vibe */
+body {
+  font-family: 'Yu Gothic', 'Meiryo', sans-serif; /* Soft Japanese-inspired font */
+  background-color: #FFF1F6; /* Very light pink background */
+  color: #333333; /* Darker gray text for contrast */
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  border-radius: 12px;
+  width: 320px;
+  height: auto;
+  box-shadow: 0 6px 25px rgba(255, 192, 203, 0.4); /* Soft sakura-like glow */
+}
+
+/* Title styling with Sakura-inspired font style */
+h3 {
+  font-size: 1.7em;
+  margin-bottom: 15px;
+  color: #D35B8C; /* Warm pastel pink */
+  text-shadow: 0 0 8px rgba(211, 91, 140, 0.5); /* Subtle glowing pink effect */
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Search input box styling */
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #FFD6E0; /* Very light pink */
+  color: #333333; /* Soft dark gray text */
+  border: 1px solid #D35B8C; /* Warm pink border */
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  text-align: center;
+  font-weight: 300;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  background-color: #FFFFFF; /* White on focus for clean look */
+  outline: none;
+  border: 1px solid #D35B8C; /* Maintain pink border */
+  box-shadow: 0 0 10px rgba(211, 91, 140, 0.5); /* Focus glow effect */
+}
+
+/* Button styling (save/restore tabs) */
+button {
+  background-color: #A6D9F7; /* Soft pastel blue */
+  color: white;
+  padding: 8px 14px;
+  border-radius: 25px; /* Round buttons */
+  margin-top: 12px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #81C4E3; /* Slightly darker blue on hover */
+}
+
+/* Button for pinning tabs */
+.pin-btn {
+  background-color: #D9A6F7; /* Soft pastel purple */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.pin-btn:hover {
+  background-color: #B784D9; /* Darker purple on hover */
+}
+
+/* Button for muting tabs */
+.mute-btn {
+  background-color: #FFF176; /* Soft yellow */
+  color: #000000;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.mute-btn:hover {
+  background-color: #FFEB3B; /* Darker yellow on hover */
+}
+
+/* List styling for tabs (muted pastel colors) */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  font-size: 1em;
+  margin-top: 15px;
+}
+
+/* List item (tabs) styling */
+li {
+  padding: 12px;
+  margin: 7px 0;
+  background-color: #FFFFFF; /* White background for tabs */
+  border-radius: 10px;
+  color: #333333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+li:hover {
+  background-color: #FFD6E0; /* Light pink on hover */
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #D35B8C;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF1F6;
+}
+
+/* Buttons for Select/Deselect All */
+button#select-all, button#deselect-all {
+  background-color: #CEA6F7; /* Light purple */
+  color: white;
+  font-size: 1em;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#select-all:hover, button#deselect-all:hover {
+  background-color: #B784D9; /* Darker purple on hover */
+}
+
+/* Close All Button */
+button#close-all {
+  background-color: #FFAB91; /* Light peachy orange */
+  color: white;
+  font-size: 1em;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+button#close-all:hover {
+  background-color: #FF7043; /* Darker peachy color */
+}
+/* General body styling for a minimalist, soft Sakura vibe */
+body {
+  font-family: 'Yu Gothic', 'Meiryo', sans-serif; /* Soft Japanese-inspired font */
+  background-color: #FFF1F6; /* Very light pink background */
+  color: #333333; /* Darker gray text for contrast */
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  border-radius: 12px;
+  width: 320px;
+  height: auto;
+  box-shadow: 0 6px 25px rgba(255, 192, 203, 0.4); /* Soft sakura-like glow */
+}
+
+/* Title styling with Sakura-inspired font style */
+h3 {
+  font-size: 1.7em;
+  margin-bottom: 15px;
+  color: #D35B8C; /* Warm pastel pink */
+  text-shadow: 0 0 8px rgba(211, 91, 140, 0.5); /* Subtle glowing pink effect */
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Search input box styling */
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #FFD6E0; /* Very light pink */
+  color: #333333; /* Soft dark gray text */
+  border: 1px solid #D35B8C; /* Warm pink border */
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  text-align: center;
+  font-weight: 300;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  background-color: #FFFFFF; /* White on focus for clean look */
+  outline: none;
+  border: 1px solid #D35B8C; /* Maintain pink border */
+  box-shadow: 0 0 10px rgba(211, 91, 140, 0.5); /* Focus glow effect */
+}
+
+/* Button styling (save/restore tabs) */
+button {
+  background-color: #A6D9F7; /* Soft pastel blue */
+  color: white;
+  padding: 8px 14px;
+  border-radius: 25px; /* Round buttons */
+  margin-top: 12px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #81C4E3; /* Slightly darker blue on hover */
+}
+
+/* Button for pinning tabs */
+.pin-btn {
+  background-color: #D9A6F7; /* Soft pastel purple */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.pin-btn:hover {
+  background-color: #B784D9; /* Darker purple on hover */
+}
+
+/* Button for muting tabs */
+.mute-btn {
+  background-color: #FFF176; /* Soft yellow */
+  color: #000000;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.mute-btn:hover {
+  background-color: #FFEB3B; /* Darker yellow on hover */
+}
+
+/* List styling for tabs (muted pastel colors) */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  font-size: 1em;
+  margin-top: 15px;
+}
+
+/* List item (tabs) styling */
+li {
+  padding: 12px;
+  margin: 7px 0;
+  background-color: #FFFFFF; /* White background for tabs */
+  border-radius: 10px;
+  color: #333333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+li:hover {
+  background-color: #FFD6E0; /* Light pink on hover */
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #D35B8C;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF1F6;
+}
+
+/* Buttons for Select/Deselect All */
+button#select-all, button#deselect-all {
+  background-color: #CEA6F7; /* Light purple */
+  color: white;
+  font-size: 1em;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#select-all:hover, button#deselect-all:hover {
+  background-color: #B784D9; /* Darker purple on hover */
+}
+
+/* Close All Button */
+button#close-all {
+  background-color: #FFAB91; /* Light peachy orange */
+  color: white;
+  font-size: 1em;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+button#close-all:hover {
+  background-color: #FF7043; /* Darker peachy color */
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raver Popup</title>
+
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button id="fromTab" class="button">Start</button>
+      <br />
+      <div>
+        <input type="checkbox" id="visibility" />
+        <label for="visibility">Visibility</label>
+
+        <div>
+          <label for="treble">Treble freq:</label>
+          <input type="range" id="treble" min="5000" max="20000" value="20000" />
+          <span id="trebleValue">20000</span>
+        </div>
+        <div>
+          <label for="bass">Bass freq:</label>
+          <input type="range" id="bass" min="0" max="8000" value="0" />
+          <span id="bassValue">0</span>
+        </div>
+        <div>
+          <label for="smoothing">Smoothing:</label>
+          <input type="range" id="smoothing" min="0" max="100" value="80" />
+          <span id="smoothingValue">0.8</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Copyright © <span id="year">2025</span> toby@vsus.app | GitHub: <a href="https://github.com/tobycm/raver-ext">tobycm/raver-ext</a> | Web
+      version: <a href="https://raver.tobycm.dev">raver.tobycm.dev</a>
+    </footer>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "kamadorueda.alejandra",
+    "formulahendry.auto-rename-tag",
+    "mkhl.direnv",
+    "dbaeumer.vscode-eslint",
+    "bbenoist.nix",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode"
+  ]
+}

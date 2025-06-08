@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noraku</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Oxanium:wght@300;500&display=swap');
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            text-align: center;
+            background-color: #1A1A2E;
+            color: #FFFFFF;
+            width: 320px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-family: 'Oxanium', cursive;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #FFFFFF;
+            text-shadow: 0 0 8px rgba(8, 217, 214, 0.8);
+            margin-bottom: 5px;
+        }
+
+        .description {
+            font-size: 13px;
+            font-family: 'Rajdhani', sans-serif;
+            color: #C3ACFF;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-family: 'Oxanium', sans-serif;
+            color: #08D9D6;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .action-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #16213E;
+            margin-bottom: 5px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .action-header:hover {
+            background-color: rgba(8, 217, 214, 0.3);
+            box-shadow: 0 0 8px rgba(8, 217, 214, 0.5);
+        }
+
+        .arrow {
+            cursor: pointer;
+            font-size: 16px;
+            color: #F72585;
+            transition: transform 0.2s ease;
+        }
+
+        .volume-slider {
+            display: none;
+            padding: 10px;
+            background-color: #16213E;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(8, 217, 214, 0.3);
+        }
+
+        .slider {
+            width: 80%;
+            accent-color: #FF2E63;
+        }
+
+        .expand-toggle {
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'Rajdhani', sans-serif;
+            color: #C3ACFF;
+            transition: all 0.3s ease;
+        }
+
+        .expand-toggle:hover {
+            color: #F72585;
+            text-shadow: 0 0 8px rgba(247, 37, 133, 0.8);
+        }
+
+        .more-actions {
+            display: none;
+        }
+
+        .coming-soon {
+            background-color: #FF2E63;
+            border: none;
+            padding: 12px;
+            color: white;
+            font-size: 14px;
+            font-family: 'Oxanium', cursive;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .coming-soon span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .coming-soon .default-text {
+            opacity: 1;
+        }
+
+        .coming-soon .hover-text {
+            opacity: 0;
+        }
+
+        .coming-soon:hover .default-text {
+            opacity: 0;
+        }
+
+        .coming-soon:hover .hover-text {
+            opacity: 1;
+        }
+
+        .keypress-subcategories {
+            display: none;
+            margin-left: 12px;
+            padding-left: 10px;
+            border-left: 2px solid #08D9D6;
+        }
+
+        .sub-action {
+            background-color: #16213E;
+        }
+
+        .action-header:active,
+        .coming-soon:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 10px rgba(255, 46, 99, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>NORAKU</h1>
+        <p class="description">Enhance your browsing with sound effects</p>
+
+        <h2 class="volume-heading">Volume Area</h2>
+
+        <!-- Action List -->
+        <div class="action-container">
+            <div class="action-header">
+                <span>Tab Open</span>
+                <span class="arrow right-arrow" data-action="tab_open">▶</span>
+            </div>
+            <div id="slider-container-tab_open" class="volume-slider" data-action="tab_open">
+                <input type="range" min="0" max="100" value="50" class="slider" data-action="tab_open">
+            </div>
+
+            <div class="action-header">
+                <span>Tab Close</span>
+                <span class="arrow right-arrow" data-action="tab_close">▶</span>
+            </div>
+            <div id="slider-container-tab_close" class="volume-slider" data-action="tab_close">
+                <input type="range" min="0" max="100" value="50" class="slider" data-action="tab_close">
+            </div>
+
+            <!-- Hidden Actions -->
+            <div class="more-actions">
+                <div class="action-header">
+                    <span>Tab Dragging</span>
+                    <span class="arrow right-arrow" data-action="tab_dragging">▶</span>
+                </div>
+                <div id="slider-container-tab_dragging" class="volume-slider" data-action="tab_dragging">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="tab_dragging">
+                </div>
+
+                <div class="action-header">
+                    <span>Bookmark Page</span>
+                    <span class="arrow right-arrow" data-action="bookmark_page">▶</span>
+                </div>
+                <div id="slider-container-bookmark_page" class="volume-slider" data-action="bookmark_page">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="bookmark_page">
+                </div>
+
+                <div class="action-header">
+                    <span>Tab Mute</span>
+                    <span class="arrow right-arrow" data-action="tab_mute">▶</span>
+                </div>
+                <div id="slider-container-tab_mute" class="volume-slider" data-action="tab_mute">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="tab_mute">
+                </div>
+
+                <div class="action-header">
+                    <span>Tab Unmute</span>
+                    <span class="arrow right-arrow" data-action="tab_unmute">▶</span>
+                </div>
+                <div id="slider-container-tab_unmute" class="volume-slider" data-action="tab_unmute">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="tab_unmute">
+                </div>
+
+                <div class="action-header">
+                    <span>Download Start</span>
+                    <span class="arrow right-arrow" data-action="download_start">▶</span>
+                </div>
+                <div id="slider-container-download_start" class="volume-slider" data-action="download_start">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="download_start">
+                </div>
+
+                <div class="action-header">
+                    <span>Download Complete</span>
+                    <span class="arrow right-arrow" data-action="download_complete">▶</span>
+                </div>
+                <div id="slider-container-download_complete" class="volume-slider" data-action="download_complete">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="download_complete">
+                </div>
+
+                <div class="action-header">
+                    <span>Scroll</span>
+                    <span class="arrow right-arrow" data-action="scroll">▶</span>
+                </div>
+                <div id="slider-container-scroll" class="volume-slider" data-action="scroll">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="scroll">
+                </div>
+
+                <div class="action-header">
+                    <span>Click</span>
+                    <span class="arrow right-arrow" data-action="click">▶</span>
+                </div>
+                <div id="slider-container-click" class="volume-slider" data-action="click">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="click">
+                </div>
+
+                <div class="action-header">
+                    <span>Hover</span>
+                    <span class="arrow right-arrow" data-action="hover">▶</span>
+                </div>
+                <div id="slider-container-hover" class="volume-slider" data-action="hover">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="hover">
+                </div>
+
+                <div class="action-header">
+                    <span>Search Focus</span>
+                    <span class="arrow right-arrow" data-action="search_focus">▶</span>
+                </div>
+                <div id="slider-container-search_focus" class="volume-slider" data-action="search_focus">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="search_focus">
+                </div>
+
+                <div class="action-header">
+                    <span>Video Play</span>
+                    <span class="arrow right-arrow" data-action="video_play">▶</span>
+                </div>
+                <div id="slider-container-video_play" class="volume-slider" data-action="video_play">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="video_play">
+                </div>
+
+                <div class="action-header">
+                    <span>Video Pause</span>
+                    <span class="arrow right-arrow" data-action="video_pause">▶</span>
+                </div>
+                <div id="slider-container-video_pause" class="volume-slider" data-action="video_pause">
+                    <input type="range" min="0" max="100" value="50" class="slider" data-action="video_pause">
+                </div>
+
+                <div class="action-header">
+                    <span>Keypress</span>
+                    <span class="arrow right-arrow" data-action="keypress">▶</span>
+                </div>
+
+                <!-- Keypress Subcategory List -->
+                <div class="keypress-subcategories">
+                    <div class="action-header sub-action">
+                        <span>Enter Key</span>
+                        <span class="arrow right-arrow" data-action="enter">▶</span>
+                    </div>
+                    <div id="slider-container-enter" class="volume-slider" data-action="enter">
+                        <input type="range" min="0" max="100" value="50" class="slider" data-action="enter">
+                    </div>
+
+                    <div class="action-header sub-action">
+                        <span>A-Z Keys</span>
+                        <span class="arrow right-arrow" data-action="A_Z">▶</span>
+                    </div>
+                    <div id="slider-container-A_Z" class="volume-slider" data-action="A_Z">
+                        <input type="range" min="0" max="100" value="50" class="slider" data-action="A_Z">
+                    </div>
+
+                    <div class="action-header sub-action">
+                        <span>Number Keys</span>
+                        <span class="arrow right-arrow" data-action="num-keys">▶</span>
+                    </div>
+                    <div id="slider-container-num-keys" class="volume-slider" data-action="num-keys">
+                        <input type="range" min="0" max="100" value="50" class="slider" data-action="num-keys">
+                    </div>
+
+                    <div class="action-header sub-action">
+                        <span>Backspace</span>
+                        <span class="arrow right-arrow" data-action="backspace">▶</span>
+                    </div>
+                    <div id="slider-container-backspace" class="volume-slider" data-action="backspace">
+                        <input type="range" min="0" max="100" value="50" class="slider" data-action="backspace">
+                    </div>
+
+                    <div class="action-header sub-action">
+                        <span>Shift/Ctrl/Tab/Alt Keys</span>
+                        <span class="arrow right-arrow" data-action="special-keys">▶</span>
+                    </div>
+                    <div id="slider-container-special-keys" class="volume-slider" data-action="special-keys">
+                        <input type="range" min="0" max="100" value="50" class="slider" data-action="special-keys">
+                    </div>
+
+                    <div class="action-header sub-action">
+                        <span>Escape Key</span>
+                        <span class="arrow right-arrow" data-action="escape">▶</span>
+                    </div>
+                    <div id="slider-container-escape" class="volume-slider" data-action="escape">
+                        <input type="range" min="0" max="100" value="50" class="slider" data-action="escape">
+                    </div>
+
+                    <div class="action-header sub-action">
+                        <span>Arrow Keys</span>
+                        <span class="arrow right-arrow" data-action="arrow-keys">▶</span>
+                    </div>
+                    <div id="slider-container-arrow-keys" class="volume-slider" data-action="arrow-keys">
+                        <input type="range" min="0" max="100" value="50" class="slider" data-action="arrow-keys">
+                    </div>
+
+                    <div class="action-header sub-action">
+                        <span>Spacebar</span>
+                        <span class="arrow right-arrow" data-action="spacebar">▶</span>
+                    </div>
+                    <div id="slider-container-spacebar" class="volume-slider" data-action="spacebar">
+                        <input type="range" min="0" max="100" value="50" class="slider" data-action="spacebar">
+                    </div>
+
+                    <div class="action-header sub-action">
+                        <span>Function Keys (F1-F12)</span>
+                        <span class="arrow right-arrow" data-action="function-keys">▶</span>
+                    </div>
+                    <div id="slider-container-function-keys" class="volume-slider" data-action="function-keys">
+                        <input type="range" min="0" max="100" value="50" class="slider" data-action="function-keys">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="expand-toggle">
+            <span class="arrow down-arrow">▼ Show More</span>
+        </div>
+
+        <button class="coming-soon">
+            <span class="default-text">More Config</span>
+            <span class="hover-text">Adding Soon</span>
+        </button>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

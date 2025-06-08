@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+  <title>Slate</title>
+</head>
+<body>
+  <!-- Logo container at the top -->
+  <div id="logo-container" style="text-align: center; margin-bottom: 15px; padding-top: 10px;">
+    <img src="images/slate-logo-full.jpg" alt="Slate" style="max-width: 80%; height: auto;">
+  </div>
+
+  <div id="overview">
+    <h2>Overview</h2>
+    <p>Add items to slate to see your overview</p>
+  </div>
+  
+  <div id="alarms-container">
+    <h2>Alarms</h2>
+    <p>No upcoming alarms</p>
+  </div>
+  
+  <div id="calendar">
+    <h2>Calendar</h2>
+    <p>No upcoming marked calendar events for now</p>
+  </div>
+
+  <div id="clear-container" style="text-align: center; margin-top: 20px; padding-bottom: 15px;">
+    <button id="clear-all-button">Clear All</button>
+  </div>
+  <br>
+  <div id="footer" style="text-align: center; margin-top: 10px; font-size: 12px; color: #666;">
+    <h6>built with ❤️ by aryan pathak</h6>
+  </div>
+
+  <style>
+  .alarms-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .alarm-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .alarm-name {
+    font-weight: bold;
+  }
+
+  .alarm-time {
+    color: #666;
+    font-size: 0.9em;
+  }
+  </style>
+
+  <script src="popup.js"></script>
+</body>
+</html>

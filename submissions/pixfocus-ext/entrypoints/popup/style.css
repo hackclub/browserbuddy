@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: PixelCodeMedium;
+  src: url("/assets/fonts/PixelCode-Medium.ttf");
+}
+
+@theme {
+  --font-pixelmed: PixelCodeMedium;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

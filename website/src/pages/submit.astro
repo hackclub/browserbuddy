@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/card.astro";
+---
+
+<Layout title="Submit Your Extension">
+  <main>
+    <div class="cta-text">
+      <h1>Submitting your browser extension</h1>
+    </div>
+  </main>
+  <ul role="list" class="link-card-grid">
+    <li>
+      <Card
+        title="1. Fork the Repository"
+        link="https://github.com/hackclub/browserbuddy/fork"
+        description="Visit our GitHub respository and click the <b>Fork</b> button in the top-right corner to create your own copy."
+        image="/screenshots/fork-repo.png"
+        height="350px"
+      />
+    </li>
+
+    <Card
+      title="2. Add Your Extension"
+      description="In your forked repository, open the <b>submissions</b> folder and add your extension."
+      image="/screenshots/add-file.png"
+      height="350px"
+    />
+    <Card
+      title="3. Create a Pull Request"
+      description="Create a new pull request from your fork to the main repository. We'll review and merge your submission once approved."
+      image="/screenshots/fork-contribute.png"
+      height="350px"
+    />
+    <Card
+      title="4. Get your grant"
+      description="Once your Pull Request has been approved and merged, click this card to fill out the submission form. You'll receive a grant of $30 to get a Chrome Web Store license and launch your extension."
+      image="/screenshots/submitted.png"
+      link="https://airtable.com/appgtKZwZBoOeFU7O/pagyeS51zr2kC1rp0/form"
+      height="350px"
+    />
+  </ul>
+</Layout>
+
+<style>
+  @media screen and (max-width: 500px) {
+    main {
+      height: 20vh;
+      margin-top: 8rem;
+      width: 100%;
+    }
+
+    .cta-text {
+      width: 100%;
+    }
+
+    .cta-text h2 {
+      font-size: 1.6rem;
+      width: 100%;
+    }
+
+    .link-card-grid {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .info {
+      width: 100%;
+    }
+  }
+</style>

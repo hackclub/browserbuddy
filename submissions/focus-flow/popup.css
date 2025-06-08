@@ -1,0 +1,303 @@
+body {
+  width: 380px;
+  padding: 16px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2d3748;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #48bb78;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #4a5568;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  color: #667eea;
+  border-bottom: 2px solid #667eea;
+}
+
+.tab-content {
+  display: none;
+  padding: 16px 0;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Timer */
+.timer {
+  text-align: center;
+}
+
+.time-display {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.timer-settings {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.timer-settings input {
+  width: 50px;
+  padding: 4px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+}
+
+/* Task List */
+.task-list {
+  margin-top: 16px;
+}
+
+.tasks-container {
+  min-height: 100px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  cursor: move;
+}
+
+.task-item input[type="checkbox"] {
+  margin: 0;
+}
+
+.task-item .pin-button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.task-item .pin-button.pinned {
+  color: #667eea;
+}
+
+.task-item .delete-button {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 18px;
+}
+
+.task-item .delete-button:hover {
+  color: #e53e3e;
+}
+
+/* Buttons */
+.primary-btn,
+.secondary-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.primary-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+}
+
+.secondary-btn {
+  background: white;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+}
+
+.primary-btn:hover {
+  background: #5a67d8;
+}
+
+.secondary-btn:hover {
+  background: #f7fafc;
+}
+
+.status {
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.status.active {
+  background: #c6f6d5;
+  color: #2f855a;
+}
+
+.status.inactive {
+  background: #fed7d7;
+  color: #9b2c2c;
+}
+
+.settings-container {
+  padding: 16px;
+}
+
+.api-key-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+}
+
+.api-key-error {
+  color: #e53e3e;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.api-key-instructions {
+  background: #f7fafc;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.api-key-instructions ol {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.api-key-instructions li {
+  margin-bottom: 4px;
+}
+
+.api-key-instructions a {
+  color: #4299e1;
+  text-decoration: none;
+}
+
+.api-key-instructions a:hover {
+  text-decoration: underline;
+}
+
+.api-key-instructions .note {
+  color: #718096;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.api-key-status {
+  color: #4a5568;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.settings-container button {
+  margin-bottom: 8px;
+  width: 100%;
+}

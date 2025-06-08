@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Search Buddy",
+  "version": "1.0",
+  "description": "An extension that enhances your search experience by providing instant previews of search results!",
+  "permissions": ["storage"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["img/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "sb@ft.is-a.dev",
+      "strict_min_version": "109.0"
+    }
+  }
+}

@@ -1,0 +1,198 @@
+.focus-flow-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.focus-flow-overlay.explanation {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.focus-flow-content {
+  background: white;
+  padding: 2.5rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  max-width: 90%;
+  width: 400px;
+}
+
+.focus-flow-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.focus-flow-content h1,
+.focus-flow-content h2 {
+  color: #1a202c;
+  font-size: 1.875rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.focus-flow-content p {
+  color: #4a5568;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.focus-flow-content textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.focus-flow-content button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.focus-flow-content button.secondary {
+  background: transparent;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+}
+
+.focus-flow-content button:hover {
+  background: #5a67d8;
+  transform: translateY(-1px);
+}
+
+.focus-flow-content button.secondary:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
+
+.focus-flow-notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #48bb78;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 999999;
+  animation: slideIn 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.focus-flow-notification.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.mindmap-node {
+  position: absolute;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 2px solid #667eea;
+  cursor: move;
+  user-select: none;
+}
+
+.mindmap-node.dragging {
+  opacity: 0.5;
+  border-style: dashed;
+}
+
+.task-item {
+  background: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: move;
+}
+
+.task-item.dragging {
+  opacity: 0.5;
+  border-style: dashed;
+}
+
+.task-item .delete-task {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  padding: 0 4px;
+  font-size: 18px;
+}
+
+.task-item .delete-task:hover {
+  color: #e53e3e;
+}
+
+.focus-flow-notification.timer {
+  background: #9f7aea;
+}
+
+.focus-flow-notification.timer span:first-child {
+  font-size: 1.2em;
+  margin-right: 0.5rem;
+}
+
+.timer-status {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Blade",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Slices through ads, popups, and paywalls.",
+  "permissions": ["declarativeNetRequest", "storage", "scripting", "tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "action": {
+    "default_icon": "logo.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "blocklist",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "incognito": "spanning"
+}

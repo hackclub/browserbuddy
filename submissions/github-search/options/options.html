@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Extension Settings</title>
+  <link rel="stylesheet" href="options.css">
+  <meta name="color-scheme" content="light dark">
+</head>
+
+<body>
+  <h2>Personal Access Token</h2>
+  <input type="password" id="github-token" placeholder="Enter your Github token" autocomplete="off" />
+  <p class="field-description">
+    Token requires <span class="tooltip-text" title="Required to list personal repositories">repo</span> and <span
+      class="tooltip-text" title="Required to list starred repositories">read:user</span>
+    permissions. Generate a token <a
+      href="https://github.com/settings/tokens/new?scopes=repo,read:user&description=Github%20Search%20Browser%20Extension"
+      target="_blank">here</a>.
+  </p>
+
+  <div class="sections-container">
+    <div class="section">
+      <h2>Search Settings</h2>
+      <div class="checkbox-row">
+        <label class="checkbox-container">
+          <input type="checkbox" id="personal-repos">
+          <span>Personal Repos</span>
+        </label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="starred-repos">
+          <span>Starred Repos</span>
+        </label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="recent-repos">
+          <span>Recent Repos</span>
+        </label>
+      </div>
+
+      <h2>Update Frequency</h2>
+      <div class="frequency-container">
+        <span>Update every:</span>
+        <select id="update-frequency">
+          <option value="0" selected>Do not update</option>
+          <option value="15">15 minutes</option>
+          <option value="30">30 minutes</option>
+          <option value="60">1 hour</option>
+          <option value="120">2 hours</option>
+        </select>
+      </div>
+      <p class="field-description">
+        How often the stored repository list is refreshed.
+      </p>
+    </div>
+  </div>
+
+  <div class="save-container">
+    <span id="validation-message"></span>
+    <button class="save-button" id="save-settings" disabled>Save Settings</button>
+  </div>
+
+  <hr>
+
+  <p class="footer-text">
+    This extension is open source. View the code on
+    <a href="https://github.com/not-first/github-search" target="_blank">GitHub</a>
+  </p>
+
+  <script src="options.js"></script>
+</body>
+
+</html>
