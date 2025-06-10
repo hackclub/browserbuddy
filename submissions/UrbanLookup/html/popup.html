@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Urban Lookup Chrome Extension"
+    />
+    <title>Urban Lookup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="../css/popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Urban Lookup</h1>
+        <div class="toggle-container" aria-label="Theme toggle">
+          <span aria-hidden="true">🌙</span>
+          <label class="switch">
+            <input
+              type="checkbox"
+              id="darkModeToggle"
+              aria-label="Toggle dark mode"
+            />
+            <span class="slider round"></span>
+          </label>
+          <span aria-hidden="true">☀️</span>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for a word or phrase..."
+            aria-label="Search term"
+          />
+          <button id="searchBtn" aria-label="Search">Search</button>
+        </div>
+
+        <div id="results" class="results" aria-live="polite">
+          <div class="placeholder">Search for a word to see its definition</div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <button id="optionsBtn">Settings</button>
+      </footer>
+    </div>
+    <script src="../js/popup.js" type="module"></script>
+  </body>
+</html>

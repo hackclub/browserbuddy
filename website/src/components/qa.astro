@@ -1,0 +1,148 @@
+---
+const { title, content } = Astro.props;
+---
+
+<li onclick="">
+  <span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-badge-info"
+      ><path
+        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+      ></path><line x1="12" x2="12" y1="16" y2="12"></line><line
+        x1="12"
+        x2="12.01"
+        y1="8"
+        y2="8"></line></svg
+    >
+    <h3>{title}</h3>
+  </span>
+  <p>
+    <Fragment set:html={content} />
+  </p>
+</li>
+
+<style>
+  li {
+    background-color: var(--hc-red);
+    color: white;
+    padding: 1em;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+    height: 80px;
+    overflow-y: hidden;
+    width: 90%;
+    /* animation-name: faq-close;
+		animation-duration: 0.5s;
+		animation-direction: forwards;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards; */
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  li span {
+    height: 20px;
+    font-size: 1.3rem;
+  }
+
+  li p {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+  }
+
+  li:hover {
+    /* animation-name: faq-open;
+		animation-duration: 0.5s;
+		animation-direction: forwards;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards; */
+    /* height: fit-content; */
+    animation: hoverEffect 0.3s forwards;
+  }
+
+  @keyframes hoverEffect {
+    0% {
+      transform: scale(1) rotate(0deg);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+    /* 100% {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.3);
+  } */
+  }
+
+  li h3 {
+    margin-left: 0.3rem;
+  }
+
+  li > span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 1560px) {
+    li {
+      margin-right: 0;
+      height: 100px;
+      animation-name: faq-close-2;
+      animation-duration: 0.5s;
+      animation-direction: forwards;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      padding: 0.8em 1em;
+    }
+
+    li:hover {
+      animation-name: faq-open-2;
+      animation-duration: 0.5s;
+      animation-direction: forwards;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      /* height: fit-content; */
+    }
+
+    @keyframes faq-open-2 {
+      from {
+        height: 100px;
+      }
+      to {
+        height: 350px;
+      }
+    }
+
+    @keyframes faq-close-2 {
+      from {
+        height: 350px;
+      }
+      to {
+        height: 100px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    li {
+      height: 100px;
+      animation: none;
+    }
+
+    li span {
+      padding: 1.5rem 0;
+    }
+  }
+</style>

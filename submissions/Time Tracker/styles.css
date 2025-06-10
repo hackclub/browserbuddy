@@ -1,0 +1,57 @@
+.reading-time-badge {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  z-index: 9999;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  font-size: 14px;
+  line-height: 1.4;
+  user-select: none;
+}
+
+.regular-theme {
+  background: #2c3e50;
+  color: white;
+}
+
+.christmas-theme {
+  background: linear-gradient(135deg, #d42426 0%, #8c0b0b 100%);
+  color: white;
+  border: 2px solid #0f5;
+  animation: twinkle 2s infinite;
+}
+
+.christmas-theme::before {
+  content: '🎄';
+  margin-right: 8px;
+}
+
+.christmas-theme::after {
+  content: '🎅';
+  margin-left: 8px;
+}
+
+@keyframes twinkle {
+  0% { border-color: #0f5; }
+  50% { border-color: #f00; }
+  100% { border-color: #0f5; }
+}
+
+.snowflake {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  animation: fall linear forwards;
+  color: white;
+  text-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}

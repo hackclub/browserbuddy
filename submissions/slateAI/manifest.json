@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Slate",
+  "version": "1.0",
+  "description": "A browser extension for saving and organizing content",
+  "icons": {
+    "16": "images/slate-logo-btn.png",
+    "32": "images/slate-logo-btn.png",
+    "48": "images/slate-logo-btn.png",
+    "128": "images/slate-logo-btn.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/slate-logo-btn.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": [
+      "images/slate-logo-btn.png",
+      "images/slate-logo-full.jpg"
+    ],
+    "matches": ["<all_urls>"]
+  }]
+}

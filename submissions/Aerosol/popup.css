@@ -1,0 +1,225 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #32313b;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.container {
+  width: 340px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+header {
+  padding: 20px 24px 16px;
+  position: relative;
+  background: radial-gradient(circle at 100%, #809aaf, #140f2b 50%, #383057 75%, #585477 75%);
+  color: white;
+  border-radius: 0;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+  font-family: "Major Mono Display";
+}
+
+a {
+  color: #86868b;
+  text-decoration: underline;
+}
+
+.search-container {
+  display: flex;
+  margin-bottom: 18px;
+  padding: 0 8px;
+}
+
+#cityInput {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  background: rgba(255, 255, 255, 0.16);
+  color: rgb(212, 210, 238);
+  font-family: monospace;
+  border-radius: 10px 0 0 10px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+#cityInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#cityInput:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+#searchButton {
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.22);
+  color: white;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+#searchButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.results-container {
+  padding: 20px 24px;
+  background: #2d2b41;
+  color: #fff;
+  font-family: monospace;
+}
+
+.loader {
+  border: 3px solid rgba(0, 0, 0, 0.05);
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  margin: 25px auto;
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  color: #ff3b30;
+  text-align: center;
+  margin: 20px 0;
+  display: none;
+  font-size: 14px;
+  background: rgba(255, 59, 48, 0.08);
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+.results {
+  display: none;
+  color: #fff;
+}
+
+.city-name {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #cac9ff;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.metric-card {
+  background: rgba(174, 184, 218, 0.6);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+}
+
+.metric-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #16151d;
+  margin-bottom: 6px;
+  font-family: "Doto";
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.metric-value {
+  font-family: "Doto";
+  font-size: 28px;
+  font-weight: 600;
+  margin: 4px 0;
+  line-height: 1;
+  color: #242033;
+}
+
+.metric-card.aqi .metric-value {
+  color: #00f500;
+}
+
+.aqi-description {
+  font-size: 12px;
+  font-weight: 500;
+  color: #404044;
+  margin-top: 4px;
+}
+
+.cigarettes-icon {
+  margin-top: 6px;
+  height: 36px;
+  opacity: 0.7;
+}
+
+.cigarettes-value-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.cigarettes-unit {
+  font-size: 14px;
+  font-weight: 500;
+  color: #404044;
+  margin-left: 4px;
+}
+
+.footer {
+  padding: 12px 24px;
+  text-align: center;
+  font-size: 11px;
+  color: #86868b;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background: #2d2b41;
+}
+
+.aqi-good { color: #00ec00 !important; }
+.aqi-moderate { color: #dfdf00 !important; }
+.aqi-sensitive { color: #ff7e00 !important; }
+.aqi-unhealthy { color: #ff0000 !important; }
+.aqi-very-unhealthy { color: #99004c !important; }
+.aqi-hazardous { color: #7e0023 !important; }
+
+.status-message {
+  text-align: center;
+  margin: 16px 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+}

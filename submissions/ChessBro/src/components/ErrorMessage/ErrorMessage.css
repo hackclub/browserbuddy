@@ -1,0 +1,58 @@
+.error-message {
+  position: fixed;
+  bottom: 20px;
+  right: -320px; /* Start off-screen */
+  background-color: #ff4136;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 300px;
+  transition: right 0.3s ease-in-out;
+}
+
+.error-message.visible {
+  right: 1.5rem; /* Add gap from the right edge */
+}
+
+.error-message p {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.slider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background-color: white;
+  transition: width 0.1s linear;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.error-message {
+  animation: slideOut 0.3s ease-in-out forwards;
+}
+
+.error-message.visible {
+  animation: slideIn 0.3s ease-in-out forwards;
+}

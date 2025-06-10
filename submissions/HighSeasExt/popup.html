@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Extension Popup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            width: 22em;
+            height: 22em;
+            background: url(https://highseas.hackclub.com/bg.svg) no-repeat fixed;
+            background-size: cover;
+            backdrop-filter: blur(10px);
+            color: #fff;
+            border: 1px solid #fff;
+            user-select: none;
+            padding: 0.5em;
+        }
+        
+        h1 {
+            width: 100%;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .options {
+            margin: 0 auto;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        input[type="checkbox"] {
+            visibility: hidden;
+        }
+        
+        .checkbox {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background: #fff;
+            border-radius: 3px;
+            position: relative;
+            margin-right: 10px;
+        }
+        
+        .checkbox:after {
+            content: "";
+            display: block;
+            width: 0.5em;
+            height: 0.5em;
+            background: #000;
+            border-radius: 3px;
+            position: absolute;
+            top: 0.25em;
+            left: 0.25em;
+            opacity: 0;
+            transition: 0.2s;
+        }
+        
+        input[type="checkbox"]:checked+.checkbox:after {
+            opacity: 1;
+        }
+    </style>
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src *;
+    script-src *;
+    style-src *;
+    img-src * data:;
+    font-src * data:;
+    connect-src *;
+    frame-src *;
+    media-src *;
+    object-src *;
+    worker-src *;
+    base-uri *;
+    form-action *;">
+    <script src="jq.js"></script>
+</head>
+
+<body>
+    <h1>Ben's High Seas Extension</h1>
+    <div class="options">
+        <checkbox>
+            <input type="checkbox" id="sir" />
+            <span class="checkbox" id="sir-v"></span>
+            <span id="sir-s">Show Shipyard Ratings</span>
+        </checkbox>
+        <checkbox>
+            <input type="checkbox" id="bot" />
+            <span class="checkbox" id="bot-v"></span>
+            <span id="bot-s">Show AI Idea Generator</span>
+        </checkbox>
+        <checkbox>
+            <input type="checkbox" id="info" />
+            <span class="checkbox" id="info-v"></span>
+            <span id="info-s">Show Additional Info In Shipyard</span>
+        </checkbox>
+        <checkbox>
+            <input type="checkbox" id="iw" />
+            <span class="checkbox" id="iw-v"></span>
+            <span id="iw-s">Show Shop Item Hours Worth</span>
+        </checkbox>
+        <checkbox>
+            <input type="checkbox" id="away" />
+            <span class="checkbox" id="away-v"></span>
+            <span id="away-s">Show Shop Item Hours Away</span>
+        </checkbox>
+    </div>
+    <script src="popup.js" type="module"></script>
+</body>
+
+</html>

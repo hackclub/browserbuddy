@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      font-size: 18px;
+      color: #333;
+      margin-top: 0;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      background-color: #4285F4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3367D6;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+    .info {
+      background-color: #e2f3fd;
+      color: #0c5460;
+    }
+    .footer {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      font-style: italic;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI CHATBOT(has context of the current page)</h1>
+  <p>Send the current webpage content to Browser Buddy for AI context</p>
+  <button id="sendPageContent">Send Page Content</button>
+  <div id="status" class="status" style="display:none;"></div>
+  
+  <div class="footer">Made by AADIL NOUFAL</div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

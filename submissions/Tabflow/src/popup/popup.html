@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabflow</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="../icons/tabflow-icon.png" alt="Tabflow Icon" />
+        <h1>Tabflow</h1>
+      </div>
+      <div class="actions">
+        <h2>Actions</h2>
+        <button id="move-tab-to-new-window">
+          <img
+            class="icon"
+            src="../icons/move-tab-to-new-window.png"
+            alt="Move Tab"
+          />
+          <span class="description">Move tab to new window</span>
+          <span class="shortcut">Ctrl+M</span>
+          <!-- This is the default shortcut but can change if the user sets a different one -->
+        </button>
+        <button id="open-gui">
+          <img class="icon" src="../icons/open-gui.png" alt="Open GUI" />
+          <span class="description">Move multiple tabs to new window</span>
+          <span class="shortcut">Alt+Shift+M</span>
+        </button>
+        <button id="duplicate-tab">
+          <img
+            class="icon"
+            src="../icons/duplicate-tab.png"
+            alt="Duplicate Tab"
+          />
+          <span class="description">Duplicate tab</span>
+          <span class="shortcut">Ctrl+Q</span>
+        </button>
+        <button id="duplicate-tab-to-new-window">
+          <img
+            class="icon"
+            src="../icons/duplicate-tab-to-new-window.png"
+            alt="Duplicate Tab to New Window"
+          />
+          <span class="description">Duplicate tab into new window</span>
+          <span class="shortcut">Ctrl+Shift+Q</span>
+        </button>
+      </div>
+      <div class="settings">
+        <h2>Settings</h2>
+        <button id="edit-shortcuts">
+          <img class="icon" src="../icons/settings.png" alt="Settings" />
+          <span class="description">Edit keyboard shortcuts</span>
+        </button>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

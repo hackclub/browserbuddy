@@ -1,0 +1,20 @@
+* {
+    display: none !important;
+  }
+  
+  html,
+  body,
+  *:has(article),
+  article,
+  article * {
+    display: revert !important;
+  }
+  
+  [role='navigation'] {
+    display: none !important;
+  }
+  
+  article {
+    margin: auto;
+    max-width: 700px;
+  }

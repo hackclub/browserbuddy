@@ -1,0 +1,62 @@
+<html lang="en">
+    <head>
+        <title>TweakTube</title>
+        <link rel="stylesheet" type="text/css" href="popup.css">
+    </head>
+    <body>
+        
+        <div style="display:flex;flex-direction:column;width:250px;height:300px; justify-content: center;">
+            <div style="display:flex;flex-direction:row; align-items: center; justify-content: center;width:100%;margin-bottom:1rem;">
+                <img src="../assets/logo_32.png" style="width:auto;margin-right:0.5rem;" alt="Logo">
+                <h1 style="display:flex;flex-direction:row;text-align: center;width:auto;margin:0;">
+                    TweakTube</h1>
+            </div>
+                
+                
+            <div class="optionContainer">
+                <h3>Disable yt shorts</h3>
+                <label id="switch">
+                    <input type="checkbox" checked="true" id="hideshorts">
+                    <span id="slider"></span>
+                </label>
+            </div>
+
+            <div class="optionContainer">
+                <h3>Remove Sidebar</h3>
+                <label id="switch">
+                    
+                    <input type="checkbox" checked="true" id="hidesidebar">
+                    <span id="slider"></span>
+                </label>
+            </div>
+
+            <div class="optionContainer">
+                <h3>Remove categories</h3>
+                <label id="switch">
+                    
+                    <input type="checkbox" checked="true" id="hidecategories">
+                    <span id="slider"></span>
+                </label>
+            </div>
+
+            <div class="themeCont" style="display:flex;flex-direction:row;">
+                <h3>Theme: </h3>
+                <label for="theme"></label>
+                    <select id="theme">
+                        <option value="default">Default</option>
+                        <option value="mocha">Catppuccin Mocha</option>
+                        <option value="latte">Catppuccin Latte</option>
+                        <option value="macchiato">Catppuccin Macchiato</option>
+                        <option value="frappe">Catppuccin Frappe</option>
+                        <option value="gruvbox">Gruvbox</option>
+                        <option value="nord">Nord</option>
+                        <option value="rosepine">Rosepine</option>
+                        <option value="solar-dark">Solarized Dark</option>
+                        <option value="solar-light">Solarized Light</option>
+
+                    </select>
+            </div>    
+        </div>
+        <script src="popup.js"></script>
+    </body>
+</html>

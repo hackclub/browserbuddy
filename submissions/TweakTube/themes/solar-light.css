@@ -1,0 +1,112 @@
+*{
+    --bg2: #fdf6e3;
+	--bg: #eee8d5;
+	--fg: #002B36;
+	--fg2: #073642;
+  --primary:#268bd2;
+  --secondary: #859900;
+}
+div#content{
+    background-color:var(--bg);
+}
+div#container.ytd-masthead{
+    background-color:var(--bg);
+}
+div.ytSearchboxComponentInputBox{
+    background-color:var(--bg2);
+    color:var(--fg2);
+}
+div.ytSearchboxComponentInputBoxHasFocus{
+    transition: all 0.5s ease-in-out;
+    border-color: var(--primary) !important;
+    border-width:2px;
+}
+yt-formatted-string#video-title{
+    color:var(--fg) !important;
+}
+a.yt-formatted-string{
+    color:var(--fg2) !important;
+}
+span.inline-metadata-item{
+    color:var(--fg2) !important;
+}
+button.ytSearchboxComponentSearchButton{
+    background-color:var(--bg2) !important;
+    color:var(--fg) !important;
+}
+yt-attributed-string#content-text{
+    color:var(--fg) !important;
+}
+a#author-text span{
+    color:var(--primary) !important;
+}
+.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text{
+    color:var(--primary) !important;
+}
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text{
+    color:var(--fg2) !important;
+}
+div#description{
+    background-color:(--bg2);
+    color:var(--fg2);
+}
+span.yt-core-attributed-string--link-inherit-color{
+    color:var(--fg) !important;
+}
+.yt-core-attributed-string--link-inherit-color .yt-core-attributed-string__link--call-to-action-color{
+    color:var(--primary) !important;
+}
+div#contentContainer.tp-yt-app-drawer{
+    background-color:var(--bg) !important;
+}
+
+g[id^="youtube-paths_yt"]{
+    color:var(--fg) !important;
+}
+
+yt-icon{
+    color:var(--fg) !important;
+    fill:var(--fg) !important;
+}
+.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal{
+    background-color:var(--bg2) !important;
+    color:var(--fg) !important;    
+}
+.yt-formatted-string{
+    color:var(--fg) !important;
+}
+yt-formatted-string{
+    color:var(--fg) !important;
+}
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal{
+    color:var(--fg) !important;
+    background:var(--bg2) !important;
+}
+span#video-title{
+    color:var(--fg) !important;
+}
+.yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill{
+    color:var(--fg) !important;
+}
+div#title{
+    color:var(--fg) !important;
+}
+tp-yt-paper-button{
+    color:var(--fg) !important;
+}
+p.video-summary-content-view-model-wiz__paragraph{
+    color:var(--fg) !important;
+}
+h3#title{
+    color:var(--fg) !important;
+}
+.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline{
+    color:var(--fg2) !important;
+    border-color:var(--bg2) !important;
+}
+div#icon-label{
+    color:var(--fg) !important;
+}
+div#voice-search-button{
+    background-color:var(--bg2) !important;
+}

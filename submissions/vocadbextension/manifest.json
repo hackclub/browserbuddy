@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "VocaDB extension",
+    "description": "Gives you info on the vocaloid song you're listening to (data from vocadb.net)",
+    "version": "1.0",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "extension.png"
+    },
+    "icons": {
+      "48": "extension.png"
+    },
+    "permissions": [
+        "activeTab"
+    ]
+  }

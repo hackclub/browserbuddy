@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duplicate Tabs</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --danger: #ef4444;
+      --danger-hover: #dc2626;
+      --success: #22c55e;
+      --success-hover: #16a34a;
+      --background: #ffffff;
+      --surface: #f8fafc;
+      --surface-hover: #f1f5f9;
+      --text: #1e293b;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --radius: 8px;
+      --transition: all 0.2s ease;
+    }
+
+    [data-theme="dark"] {
+      --primary: #3b82f6;
+      --primary-light: #60a5fa;
+      --primary-dark: #2563eb;
+      --danger: #f87171;
+      --danger-hover: #ef4444;
+      --success: #4ade80;
+      --success-hover: #22c55e;
+      --background: #0f172a;
+      --surface: #1e293b;
+      --surface-hover: #334155;
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #334155;
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 16px;
+      min-width: 480px;
+      max-width: 600px;
+      background: var(--background);
+      color: var(--text);
+      transition: var(--transition);
+      line-height: 1.5;
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .search-box {
+      flex: 1;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+
+    .theme-toggle {
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .stats-panel {
+      background: var(--surface);
+      padding: 16px;
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    #total-stats {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    #domain-stats {
+      color: var(--text-secondary);
+      font-size: 0.9em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin: 0 0 16px 0;
+      color: var(--text);
+    }
+
+    #tab-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #tab-list > li {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .url-info {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .url {
+      font-weight: 500;
+      color: var(--primary);
+      word-break: break-all;
+      font-size: 0.9em;
+    }
+
+    .duplicate-count {
+      font-size: 0.8em;
+      padding: 4px 8px;
+      background: var(--surface-hover);
+      border-radius: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .tab-list {
+      padding: 8px;
+    }
+
+    .tab-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      gap: 12px;
+      transition: var(--transition);
+      cursor: pointer;
+      margin-bottom: 2px;
+    }
+
+    .tab-item:hover {
+      background: var(--surface-hover);
+    }
+
+    .tab-item img {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .tab-title {
+      flex: 1;
+      font-size: 0.9em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .keep-tab, .close-tab {
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.85em;
+      font-weight: 500;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .keep-tab {
+      background: var(--success);
+      color: white;
+    }
+
+    .keep-tab:hover {
+      background: var(--success-hover);
+    }
+
+    .close-tab {
+      background: var(--danger);
+      color: white;
+    }
+
+    .close-tab:hover {
+      background: var(--danger-hover);
+    }
+
+    .close-all {
+      padding: 8px 16px;
+      background: var(--danger);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+      font-size: 0.9em;
+      margin: 8px 12px;
+      width: calc(100% - 24px);
+    }
+
+    .close-all:hover {
+      background: var(--danger-hover);
+    }
+
+    .settings-panel {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .settings-panel label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-size: 0.9em;
+      padding: 2px 0;
+    }
+
+    .settings-panel input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 2px solid var(--border);
+      cursor: pointer;
+    }
+
+    .settings-panel button {
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-right: 12px;
+      margin-bottom: 8px;
+      font-size: 0.9em;
+    }
+
+    .settings-panel button:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .keyboard-shortcuts {
+      margin-top: 20px;
+      padding: 16px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      font-size: 0.85em;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      border: 1px solid var(--border);
+    }
+
+    .domain-header {
+      background: var(--surface-hover);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .domain-header h3 {
+      margin: 0;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1em;
+      gap: 12px;
+    }
+
+    .domain-count {
+      font-size: 0.85em;
+      color: var(--text-secondary);
+      font-weight: normal;
+    }
+
+    .url-group {
+      margin: 12px;
+      padding: 12px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .url-group + .url-group {
+      margin-top: 12px;
+    }
+
+    .no-duplicates {
+      text-align: center;
+      padding: 32px;
+      color: var(--text-secondary);
+      font-size: 0.9em;
+    }
+
+    .domain-tabs-container {
+      padding: 4px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--surface);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--text-secondary);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <input type="text" class="search-box" placeholder="Search duplicates...">
+    <button class="theme-toggle">Toggle Dark Mode</button>
+  </div>
+  
+  <div class="stats-panel" style="display: none">
+    <div id="total-stats"></div>
+    <div id="domain-stats"></div>
+  </div>
+
+  <h2>Duplicate Tabs</h2>
+  <ul id="tab-list"></ul>
+
+  <div class="settings-panel">
+    <label>
+      <input type="checkbox" id="auto-close">
+      Auto-close new duplicates
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" id="group-by-domain">
+      Group by domain
+    </label>
+    <br>
+    <button id="export-settings">Export Settings</button>
+    <button id="import-settings">Import Settings</button>
+
+    <div class="keyboard-shortcuts">
+      Keyboard Shortcuts:<br>
+      <div id="shortcuts-list"></div>
+      <small>(You can customize these in your browser's Extensions/Add-ons Shortcuts settings)</small>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

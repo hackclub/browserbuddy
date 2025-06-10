@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .insight-icon {
+      font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+      font-size: 1.5rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Dashboard View -->
+  <div id="dashboardView" class="container">
+    <header>
+      <h1>ScreenSage</h1>
+      <div class="header-controls">
+        <div class="info-icon" id="infoIcon" title="About">ⓘ</div>
+        <button id="resetData" class="reset-btn">Reset Data</button>
+      </div>
+      <div class="wave-container">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+      </div>
+    </header>
+    
+    <div class="dashboard-content">
+      <div id="totalTimeCard" class="total-time-card">
+        <h2>Detailed Screen Time &rarr;</h2>
+        <div class="time-container">
+          <div id="dashboardTotalTime" class="time-display">0h 0m</div>
+          <div class="trend-indicator">
+            <span class="trend-arrow">↑</span>
+            <span class="trend-percent">12%</span>
+          </div>
+        </div>
+        <span class="tap-hint">Click to view details</span>
+      </div>
+
+      <div class="summary-stats">
+        <div class="stat-card">
+          <div class="stat-label">Daily Avg</div>
+          <div class="stat-value">1h 24m</div>
+          <div class="stat-chart"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Productive</div>
+          <div class="stat-value">72%</div>
+          <div class="progress-circle">
+            <div class="progress-circle-overlay"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-apps-section">
+        <h3>Most Used Apps</h3>
+        <div id="topAppsContainer"></div>
+      </div>
+
+      <button id="dashboardGenerateReport" class="report-btn dashboard-report-btn">
+        <span class="btn-text">Generate Report</span>
+        <div class="btn-loader"></div>
+      </button>
+      <div id="dashboardError" class="error-message"></div>
+
+    </div>
+  </div>
+
+  <!-- Detail View -->
+  <div id="detailView" class="container" style="display: none;">
+    <header>
+      <button id="backToDashboard" class="back-btn">&larr;</button>
+      <h1>ScreenSage</h1>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="toggleSwitch" checked>
+          <span class="slider"></span>
+        </label>
+        <span id="toggleLabel">Daily</span>
+      </div>
+      <div class="wave-container">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+      </div>
+    </header>
+    
+    <div class="tabs-container">
+      <div class="tab active" data-tab="list">Apps</div>
+      <div class="tab" data-tab="chart">Charts</div>
+      <div class="tab" data-tab="insights">Insights</div>
+    </div>
+    
+    <div id="mainView">
+      <div id="listContainer" class="list-container tab-content active" data-tab-content="list"></div>
+      <div id="chartContainer" class="chart-container tab-content" data-tab-content="chart">
+        <canvas id="dailyTrendChart"></canvas>
+      </div>
+      <div id="insightsContainer" class="insights-container tab-content" data-tab-content="insights">
+        <div class="insight-card">
+          <div class="insight-icon">💡</div>
+          <div class="insight-content">
+            <h4>Peak Usage Times</h4>
+            <p>You tend to be most active between 2PM and 4PM daily.</p>
+          </div>
+        </div>
+        <!-- Report button for insights tab will be added dynamically -->
+        <button id="insightsGenerateReport" class="insights-report-btn">
+          <span class="btn-text">Generate New Report</span>
+          <div class="btn-loader"></div>
+        </button>
+      </div>
+      
+      <div class="actions">
+        <button id="generateReport" class="report-btn">
+          <span class="btn-text">Generate Report</span>
+          <div class="btn-loader"></div>
+        </button>
+        <div id="error" class="error-message"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for chart view -->
+  <div id="chartModal">
+    <div class="chart-container">
+      <button id="closeModal">&times;</button>
+      <canvas id="usageChartModal"></canvas>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+  <script src="background.js"></script>
+  <script src="details.js"></script>
+  <script src="chart.min.js"></script>
+</body>
+</html>

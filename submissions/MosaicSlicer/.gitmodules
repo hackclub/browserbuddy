@@ -1,0 +1,12 @@
+[submodule "Cura"]
+	path = third_party/Cura
+	url = https://github.com/Ultimaker/Cura
+[submodule "third_party/conan-config"]
+	path = third_party/conan-config
+	url = https://github.com/ultimaker/conan-config.git
+[submodule "third_party/fdm_materials"]
+	path = third_party/fdm_materials
+	url = https://github.com/Ultimaker/fdm_materials
+[submodule "third_party/CuraEngine"]
+	path = third_party/CuraEngine
+	url = https://github.com/ading2210/CuraEngine

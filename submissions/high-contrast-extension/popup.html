@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>High Contrast Mode</title>
+  <style>
+    body {
+      width: 200px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+    .contrast-label {
+      font-weight: bold;
+    }
+    .theme-selector {
+      margin-top: 15px;
+      width: 100%;
+    }
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>High Contrast Mode</h1>
+  
+  <div class="toggle-container">
+    <span class="contrast-label">Enable High Contrast:</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="contrast-toggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="theme-selector">
+    <label for="theme-select">Contrast Theme:</label>
+    <select id="theme-select">
+      <option value="white-on-black">White on Black</option>
+      <option value="black-on-white">Black on White</option>
+      <option value="yellow-on-black">Yellow on Black</option>
+      <option value="blue-on-white">Blue on White</option>
+    </select>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

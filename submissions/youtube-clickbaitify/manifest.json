@@ -1,0 +1,39 @@
+{
+
+	"manifest_version": 3,
+	"name": "Youtube Clickbaitify",
+	"version": "1.1",
+
+	"description": "Adds clickbait to all YouTube thumbnails.",
+
+	"icons": {
+		"48": "icons/Clickbaitify48.png",
+		"96": "icons/Clickbaitify96.png",
+		"128": "Clickbaitify128.png"
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["*://*.youtube.com/*"],
+			"js": ["clickbaitify.js"]
+		}
+	],
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "mrbeastify@derkrassehacker.de"
+		}
+	},
+
+	"web_accessible_resources": [
+    {
+      "resources": [
+        "images/*"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }]
+    
+}
+

@@ -1,0 +1,120 @@
+.fontSize16 {
+  font-size: 16px;
+}
+
+.fontWeight700 {
+  font-weight: 700;
+}
+
+.fontWeight600 {
+  font-weight: 600;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  padding: 10px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  width: 240px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.divider {
+  height: 1.2px;
+  background-color: #E0E0E0;
+}
+
+.filter-container {
+  margin-top: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(to right, #057BFF, #00B7FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 35px; /* Match icon height */
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+button {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn {
+  background-color: #F4F4F4;
+  color: #0088FF;
+}
+
+.filter-btn:hover {
+  background-color: #E0E0E0;
+}
+
+.filter-btn:active {
+  background-color: #C0C0C0;
+}
+
+.reset-btn {
+  background-color: #0088FF;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #0077E6;
+}
+
+.reset-btn:active {
+  background-color: #0055AA;
+}
+
+@media (max-width: 300px) {
+  .container {
+    width: 200px;
+    padding: 15px;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  button {
+    font-size: 12px;
+  }
+}

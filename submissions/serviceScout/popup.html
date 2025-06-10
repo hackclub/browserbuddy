@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Scout</title>
+</head>
+<style>
+    body{
+        background-color: #85A947;
+    }
+    #mainContainer{
+        width: 100%;
+        justify-items: center;
+    }
+    #seachBar{
+        display: flex;
+        gap: 10px;
+        margin-top: 30px;
+        width: 80%;
+    }
+    #pingContainer{
+        display: flex;
+        gap: 5px;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+    #url {
+        flex: 5;
+        min-width: 0;
+    }
+    #pingButton{
+        flex: 1;
+        min-width: 0;
+    }
+    body {
+        width: 250px;
+    }
+    #result {
+        flex: 1;
+        text-align: right;
+        white-space: nowrap;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #pingColor{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgb(115, 115, 115);
+    }
+    .pingListColor{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgb(115, 115, 115);
+    }
+    #pingResult{
+        height: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+    #serviceList{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 120px;
+        width: 80%;
+        margin-top: 30px;
+        background-color: #123524;
+        margin-bottom: 30px;
+        padding: 10px;
+        border-radius: 15px;
+    }
+    .serviceItem{
+        flex: 1;
+        display: flex;
+        gap: 10px;
+    }
+    .urlList{
+        flex: 9;
+        min-width: 0;
+        border: none;
+        outline: none;
+        background-color: rgba(0, 0, 0, 0);
+        font-size: medium;
+        color: #85A947;
+        font-weight: bold;
+    }
+    .urlList:focus{
+        outline: 2px #3E7B27 solid;
+        border-radius: 10px;
+    }
+    .pingListContainer{
+        flex: 1;
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+        padding-right: 10px;
+    }
+    #url{
+        background-color: #123524;
+        color: #85A947;
+        border: none;
+        font-size: medium;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 10px; 
+    }
+    #url:focus{
+        outline: 2px solid #3E7B27;
+    }
+    #pingButton {
+        background-color: #123524;
+        color: #85A947;
+        border: none;
+        font-size: medium;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 10px; 
+        display: flex;
+        align-content: center;
+    }
+    #pingResult{
+        background-color: #123524;
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 10px;
+        font-weight: bold;
+        color: #85A947;
+    }
+</style>
+<body>
+    <div style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: large; display:inline-block; color:#85A947; background-color: #123524; border-radius: 10px; padding: 10px;">Service Scout</div>
+    <div id="mainContainer">
+        <div id="seachBar">
+            <input type="text" id="url" placeholder="Enter URL"/>
+            <button id="pingButton"><img src="icon2.png" width="25px"></button>
+        </div>
+        <div id="pingContainer">
+            <div id="pingResult">
+                <div id="result">Waiting</div>
+                <div style="flex: 1;">
+                    <div id="pingColor"></div>
+                </div>
+                
+            </div>
+        </div>
+        <div id="serviceList">
+            <div class="serviceItem">
+                <input type="text" class="urlList"/>
+                <div class="pingListContainer">
+                    <div class="pingListColor"></div>
+                </div>
+            </div>
+            <div class="serviceItem">
+                <input type="text" class="urlList"/>
+                <div class="pingListContainer">
+                    <div class="pingListColor"></div>
+                </div>
+            </div>
+            <div class="serviceItem">
+                <input type="text" class="urlList"/>
+                <div class="pingListContainer">
+                    <div class="pingListColor"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

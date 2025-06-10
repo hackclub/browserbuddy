@@ -1,0 +1,97 @@
+@font-face {
+  font-family: "Mont-Heavy";
+  src: url("../fonts/Mont-Heavy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "ZTGatha-SemiBold";
+  src: url("../fonts/ZTGatha-SemiBold.otf") format("opentype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "ZTGatha-SemiBold", Arial, sans-serif;
+  background: linear-gradient(135deg, #1d1924, #1a1a1a);
+  color: #f0def7;
+  min-width: 520px;
+}
+
+.container {
+  padding: 25px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  width: 64px;
+  height: 64px;
+  margin-right: 10px;
+}
+
+.header h1 {
+  font-family: "Mont-Heavy", Arial, sans-serif;
+  font-size: 32px;
+  color: #bb86fc;
+  margin: 0;
+}
+
+h2 {
+  font-family: "Mont-Heavy", Arial, sans-serif;
+  font-size: 20px;
+  color: #bb86fc;
+  margin-bottom: 16px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(20 17 27 / 89%);
+  border: none;
+  color: #f0def7;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.1s;
+  font-family: "ZTGatha-SemiBold", Arial, sans-serif;
+}
+
+button:hover {
+  background-color: #372d43;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.description {
+  flex-grow: 1;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.shortcut {
+  font-size: 14px;
+  color: #bb86fc;
+  background-color: rgb(41 25 55 / 80%);
+  padding: 4px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

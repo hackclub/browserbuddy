@@ -1,0 +1,12 @@
+{
+  "include": ["src/**/*.js", "node_modules/**/*.js", "node_modules/**/*.ts"],
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "checkJs": true,
+    "allowJs": true,
+    "noEmit": true
+  }
+}

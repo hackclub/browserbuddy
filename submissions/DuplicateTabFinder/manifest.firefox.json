@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Duplicate Tab Finder",
+  "version": "1.0",
+  "description": "Finds and alerts you about duplicate tabs in your browser.",
+  "permissions": [
+    "tabs",
+    "notifications",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "description": "Open duplicate tab finder"
+    },
+    "close_all_duplicates": {
+      "description": "Close all duplicate tabs"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pawix@pawix.dev"
+    }
+  }
+}

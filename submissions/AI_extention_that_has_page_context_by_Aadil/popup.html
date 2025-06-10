@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI CHATBOT(has context of the current page)</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>AI Chatbot </h1>
+      <button id="resetButton">Reset Chat</button>
+    </div>
+    
+    <div id="chatHistory" class="chat-history">
+      <!-- Chat messages will appear here -->
+    </div>
+    
+    <div class="input-area">
+      <textarea id="userInput" placeholder="Type your message here..."></textarea>
+      <button id="sendButton"><i class="fas fa-paper-plane"></i></button>
+    </div>
+    
+    <div class="footer">
+      <p>Made by AADIL NOUFAL</p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

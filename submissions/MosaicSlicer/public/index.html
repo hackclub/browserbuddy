@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MosaicSlicer</title>
+    <link rel="icon" type="image/png" href="img/logo_128.png">
+
+    <style>
+      body {
+        overflow: hidden;
+      }
+    </style>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="js/app.mjs" defer></script>
+  </head>
+
+  <body>
+    <div id="tab-strip">
+      <img id="logo_svg" src="img/logo.svg">
+      <h1>MosaicSlicer</h1>
+      <a id="prepare-tab-button" class="tab">Prepare</a>
+      <a id="preview-tab-button" class="tab">Preview</a>
+      <a id="settings-tab-button" class="tab">Settings</a>
+      <div class="flex-spacer"></div>
+      <a class="info-link" href="https://github.com/ading2210/MosaicSlicer" target="_blank">
+        Source Code
+      </a>
+    </div>
+
+    <div id="main-tab" class="tab-content">
+      <div id="viewer">
+        <canvas id="stl-viewer"></canvas>
+
+        <div id="options-bar">
+          <div id="file-div">
+            <input type="file" id="stl-file" accept=".stl">
+            <label for="stl-file" id="file-label">
+              <cura-icon icon-name="ionicons_folder_outline"></cura-icon>
+            </label>
+          </div>
+
+          <div id="printers-div" class="options-button">
+            <div id="printer-button" class="options-button-clickable">
+              <span id="printer-name"></span>
+              <div class="flex-spacer"></div>
+              <cura-icon icon-name="ionicons_chevron_down_outline"></cura-icon>
+            </div>
+            <div id="printers-dropdown" class="options-dropdown">
+              <div id="printers-list">
+                <p>This is hardcoded for now.</p>
+                <template id="printer-item-template"></template>
+              </div>
+              <div id="manage-printers-div">
+                <button id="add-printer-button">Add Printer</button>
+                <button id="manage-printers-button">Manage Printers</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="extruders-div" class="options-button">
+            <div id="extruders-button" class="options-button-clickable">
+              <cura-icon icon-name="Spool"></cura-icon>
+              <div>
+                <span id="filament-name"></span>
+                <span id="nozzle-name"></span>
+              </div>
+              <div class="flex-spacer"></div>
+              <cura-icon icon-name="ionicons_chevron_down_outline"></cura-icon>
+            </div>
+            <div id="extruders-dropdown" class="setting options-dropdown">
+              <div class="setting-bar">
+                <span class="setting-name">Material Brand</span>
+                <span class="setting-value">
+                  <select id="material-brand-select"></select>
+                </span>
+              </div>
+              <div class="setting-bar">
+                <span class="setting-name">Material Type</span>
+                <span class="setting-value">
+                  <select id="material-select"></select>
+                </span>
+              </div>
+              <div class="setting-bar">
+                <span class="setting-name">Nozzle Size</span>
+                <span class="setting-value">
+                  <select id="nozzle-select"></select>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="controls">
+          <div class="control" id="movement-button">
+            <cura-icon icon-name="ionicons_move_outline" title="Move"></cura-icon>
+          </div>
+          <div class="control" id="rotate-button">
+            <cura-icon icon-name="ionicons_reload_outline" title="Rotate"></cura-icon>
+          </div>
+
+          <div class="control" id="scale-button">
+            <cura-icon icon-name="ionicons_resize_outline" title="Scale"></cura-icon>
+          </div>
+        </div>
+
+        <div id="actions">
+          <div class="flex-spacer"></div>
+          <div class="right">
+            <div id="slice-button-container">
+              <button id="slice-button">Slice</button>
+            </div>
+            <div id="slice-progress-container">
+              <span>Slicing...</span>
+              <div id="slice-progress">
+                <div id="slice-progress-bar"></div>
+              </div>
+              <button id="cancel-button">Cancel</button>
+            </div>
+            <div id="slice-export-container">
+              <div class="icon-row">
+                <cura-icon icon-name="Clock"></cura-icon>
+                <span id="gcode-time-estimate"></span>
+              </div>
+              <div class="icon-row icon-row-small">
+                <cura-icon icon-name="Spool"></cura-icon>
+                <span id="material-estimate">69g</span>
+              </div>
+              <button id="export-gcode-button">Export G-code</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sidebar-container">
+        <div id="sidebar">
+          <h3>Print Settings</h3>
+          <div id="profile-selector-div">
+            <span>Profile</span>
+            <span id="profile-selector-span" class="setting-value">
+              <select id="profile-selector"></select>
+            </span>
+          </div>
+          <span id="searchbar">
+            <input type="text" name="setting-search" id="setting-search" placeholder="Search settings">
+          </span>
+          <div id="sections">
+            <template id="section-template">
+              <div class="section" slot="section" data-closed="true">
+                <span class="section-title-container" slot="title-container">
+                  <span class="left">
+                    <cura-icon slot="section-icon"></cura-icon>
+                    <span slot="section-title">Quality</span>
+                  </span>
+                  <span class="right">
+                    <cura-icon icon-name="ionicons_chevron_down_outline" class="section-status-icon"></cura-icon>
+                  </span>
+                </span>
+                <div class="settings-group" slot="settings-group"></div>
+              </div>
+            </template>
+
+            <template id="setting-template">
+              <div class="setting" slot="setting-container">
+                <div class="setting-bar">
+                  <span class="setting-name" slot="setting-name">Layer Height</span>
+                  <span class="setting-value" slot="setting-value">
+                    <input slot="value" type="text">
+                    <span class="unit-text" slot="unit">mm</span>
+                  </span>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+
+      <div id="notifications">
+        <template id="notification-template">
+          <div class="notification" slot="notification">
+            <span class="title-bar">
+              <span class="title" slot="title">Title Here</span>
+              <span class="close-icon">
+                <cura-icon name="close_outline" slot="close"></cura-icon>
+              </span>
+            </span>
+            <span class="description" slot="description">Description Here</span>
+          </div>
+        </template>
+      </div>
+
+      <div class="fullscreen" id="drop-zone">
+        <h1>Drop STL Here</h1>
+      </div>
+
+      <div class="fullscreen" id="loading">
+        <div class="flex-spacer"></div>
+        <p>Loading...</p>
+        <div class="flex-spacer"></div>
+      </div>
+    </div>
+
+    <div id="settings-tab" class="tab-content">
+      <div id="prefs-container">
+        <div id="prefs-sections-container">
+          <div id="prefs-printer-section">Printers</div>
+        </div>
+        <div id="prefs-contents-container">
+          <div id="prefs-printer">
+            <div class="prefs-title-bar">
+              <span>Printers</span>
+              <div class="flex-spacer"></div>
+              <button>Add Printer</button>
+            </div>
+            <div id="prefs-printer-contents" class="prefs-contents">
+              <div id="prefs-printers-list">
+                <div>Creality Ender 3</div>
+              </div>
+              <div id="prefs-printer-options" class="flex-spacer">
+                <template id="printer-options-template">
+                  <h2 slot="printer-name"></h2>
+                  <button slot="remove-button">Remove Printer</button>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

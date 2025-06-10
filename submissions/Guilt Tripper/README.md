@@ -1,0 +1,1 @@
+Hello! This is my first ever Chrome extension and one of my first ever use cases of JS. It's currently 4 am on a Tuesday, and I did struggle with the deadline, hence the rather "simplistic" features. Thanks for reading!

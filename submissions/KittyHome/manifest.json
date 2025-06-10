@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Kitty Home",
+    "version": "1.0",
+    "description":"This extension will change the new tab page to show a random cat image and cat fact",
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "permissions": [
+        "topSites",
+        "favicon",
+        "sidePanel"
+    ],
+    "icons": {
+        "16": "assets/icon-16.PNG",
+        "32": "assets/icon-32.PNG",
+        "48": "assets/icon-48.PNG",
+        "128": "assets/icon-128.PNG"
+      },
+    "action": {
+        "default_popup": "pop.html"
+    },
+    "side_panel": {
+        "default_path": "pop.html"
+    }
+}

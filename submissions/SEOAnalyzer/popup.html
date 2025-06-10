@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SEO Analyzer</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #FFC107;
+            --success-color: #4CAF50;
+            --error-color: #F44336;
+            --text-color: #333;
+            --border-color: #E0E0E0;
+            --background-color: #F5F5F5;
+            --card-background: #FFFFFF;
+        }
+
+        body {
+            width: 900px;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            margin-right: 15px;
+        }
+
+        .title {
+            flex-grow: 1;
+            margin: 0;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .score-card {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        .card {
+            background: var(--card-background);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meta-section {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #FAFAFA;
+        }
+
+        .meta-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .meta-score {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .meta-content {
+            margin: 10px 0;
+            padding: 10px;
+            background: #FFFFFF;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .meta-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .recommendation {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 15px;
+            background: #FAFAFA;
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            background: rgba(33, 150, 243, 0.1);
+        }
+
+        .tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .social-preview {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .preview-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .preview-content {
+            padding: 15px;
+        }
+
+        .preview-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #1a0dab;
+        }
+
+        .preview-description {
+            font-size: 14px;
+            color: #545454;
+            margin-bottom: 8px;
+        }
+
+        .preview-url {
+            font-size: 14px;
+            color: #006621;
+        }
+
+        .recommendations {
+            margin-top: 15px;
+        }
+
+        .recommendations h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .recommendations ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .recommendations li {
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .export-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .export-button:hover {
+            background: #1976D2;
+        }
+
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            color: var(--error-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: #FFEBEE;
+            border-radius: 4px;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #FAFAFA;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            color: #666;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="icons/icon48.png" alt="SEO Analyzer Logo" class="logo">
+        <h1 class="title">SEO Analyzer</h1>
+        <button id="export-csv" class="export-button">
+            <span class="material-icons">download</span>
+            Export Report
+        </button>
+    </div>
+
+    <div class="score-card">
+        <h2>Overall SEO Score</h2>
+        <div class="score">0</div>
+        <p>Based on title, description, headings, images, and technical factors</p>
+    </div>
+
+    <div class="card">
+        <h2>
+            <span class="material-icons">title</span>
+            Meta Information
+        </h2>
+        
+        <div class="meta-section">
+            <div class="meta-header">
+                <h3>Title Tag</h3>
+                <span id="meta-title-score" class="meta-score">0/10</span>
+            </div>
+            <div class="meta-content">
+                <div id="meta-title-content">Loading...</div>
+                <div class="meta-stats">
+                    <span id="meta-title-length">Length: 0 characters</span>
+                </div>
+            </div>
+            <div id="meta-title-recommendation" class="recommendation"></div>
+        </div>
+
+        <div class="meta-section">
+            <div class="meta-header">
+                <h3>Meta Description</h3>
+                <span id="meta-desc-score" class="meta-score">0/10</span>
+            </div>
+            <div class="meta-content">
+                <div id="meta-desc-content">Loading...</div>
+                <div class="meta-stats">
+                    <span id="meta-desc-length">Length: 0 characters</span>
+                </div>
+            </div>
+            <div id="meta-desc-recommendation" class="recommendation"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>
+            <span class="material-icons">format_list_bulleted</span>
+            Heading Structure
+        </h2>
+        <div id="heading-analysis">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>
+            <span class="material-icons">image</span>
+            Image Analysis
+        </h2>
+        <div id="image-analysis">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>
+            <span class="material-icons">share</span>
+            Social Media Preview
+        </h2>
+        <div class="tabs">
+            <div class="tab active" data-platform="facebook">
+                <span class="material-icons">facebook</span>
+                Facebook
+            </div>
+            <div class="tab" data-platform="twitter">
+                <span class="material-icons">flutter_dash</span>
+                Twitter
+            </div>
+            <div class="tab" data-platform="linkedin">
+                <span class="material-icons">work</span>
+                LinkedIn
+            </div>
+        </div>
+        <div id="social-preview-container"></div>
+    </div>
+
+    <div class="card">
+        <h2>
+            <span class="material-icons">account_tree</span>
+            Sitemap Analysis
+        </h2>
+        <div id="sitemap-status">Waiting to analyze sitemap...</div>
+        <div id="sitemap-metrics"></div>
+        <div id="sitemap-recommendations"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

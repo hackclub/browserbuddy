@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Apply a base style to ensure the popup has proper dimensions */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a;
+  font-family: Arial, sans-serif;
+}
+
+/* Set a minimum width and height for the popup */
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px; /* Ensures the popup isn't too thin */
+  max-width: 320px;
+  min-height: 350px; /* Ensures sufficient space for buttons */
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}

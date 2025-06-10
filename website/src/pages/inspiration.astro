@@ -1,0 +1,222 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Samplecard from "../components/samplecard.astro";
+import { projects } from "../content";
+---
+
+<Layout title="BrowserBuddy - Build your own Browser extension">
+  <main>
+    <div class="cta-text">
+      <h1>Looking for inspiration?</h1>
+      <h2>Check out what other Hack Clubbers are making.</h2>
+      <h3>Let's help you come up with an extension idea</h3>
+    </div>
+    <div></div>
+
+    <form id="ideas-form">
+      <input
+        id="problem"
+        name="problem"
+        placeholder="Write the problem you're facing here"
+      />
+      <button id="generate-ideas-btn" type="submit"> Generate Ideas </button>
+    </form>
+
+    <svg
+      class="chevron-down"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#ec3750"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-chevron-down"
+      ><path fill="" d="m6 9 6 6 6-6"></path></svg
+    >
+  </main>
+
+  <div class="info">
+    <div id="suggestions-placeholder">
+      <h2>Suggestions will appear here...</h2>
+    </div>
+    <div id="responses"></div>
+
+    <h2>Checkout Amazing Projects other Hack Clubbers have made</h2>
+    <div class="showcase">
+      {projects.map(project => (
+        <Samplecard 
+          name={project.name}
+          description={project.description}
+          authorName={project.authorName}
+          authorGitHub={project.authorGitHub}
+          pullRequest={project.pullRequest}
+          image={project.bannerImage}
+        />
+      ))}
+    </div>
+
+    <div class="inspiration-cta">
+      <h3>
+        Looking for more inspiration? Join <a
+          style="display:inline;"
+          href="https://hackclub.slack.com/archives/C07MQBTNVRU"
+          >#browser-buddy</a
+        > to chat with other Hack Clubbers.
+      </h3>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  interface Extension {
+    name: string;
+    description: string;
+    features: string[];
+    uniqueTwist: string;
+  }
+
+  const ideasForm = document.getElementById("ideas-form") as HTMLFormElement;
+
+  ideasForm.addEventListener("submit", submitHandler);
+
+  function showButtonLoading() {
+    const text = "Generate Ideas";
+    let loadCount = 1;
+
+    const generateIdeasBtn = document.getElementById(
+      "generate-ideas-btn",
+    ) as HTMLButtonElement;
+
+    const loadInterval = setInterval(() => {
+      loadCount = (loadCount + 1) % 4;
+
+      generateIdeasBtn.innerText =
+        text + new Array(loadCount).fill(".").join("");
+    }, 500);
+    const stopLoading = () => {
+      clearInterval(loadInterval);
+      generateIdeasBtn.innerText = text;
+    };
+    return stopLoading;
+  }
+
+  async function submitHandler(event: SubmitEvent) {
+    event.preventDefault();
+
+    const problemStatement = (
+      document.getElementById("problem") as HTMLInputElement
+    ).value;
+
+    const stopLoadingFn = showButtonLoading();
+    fetch("/api/ideas", {
+      method: "POST",
+      body: JSON.stringify({
+        problem: problemStatement,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const extensions = data.extensions;
+        displayResponses(extensions);
+        stopLoadingFn();
+      });
+  }
+
+  function displayResponses(responses: Extension[]) {
+    const responsesParent = document.getElementById(
+      "responses",
+    ) as HTMLDivElement;
+
+    // clear the contents to put in the new suggestions
+    responsesParent.innerHTML = "";
+
+    responses.forEach((response) => {
+      let responseEl = document.createElement("div");
+      responseEl.classList.add("suggestion");
+
+      let title = document.createElement("h3");
+      title.innerText = response.name;
+      responseEl.appendChild(title);
+
+      let description = document.createElement("p");
+      description.innerText = response.description;
+      responseEl.appendChild(description);
+
+      let features = document.createElement("ul");
+      response.features.forEach((feature) => {
+        let featureEl = document.createElement("li");
+        featureEl.innerText = feature;
+
+        features.appendChild(featureEl);
+      });
+      responseEl.appendChild(features);
+
+      let twist = document.createElement("em");
+      twist.innerText = `Twist: ${response.uniqueTwist}`;
+      responseEl.appendChild(twist);
+
+      responsesParent.appendChild(responseEl);
+    });
+
+    (
+      document.getElementById("suggestions-placeholder") as HTMLDivElement
+    ).style.display = "none";
+  }
+</script>
+
+<style>
+  .cta-text {
+    margin-top: 5rem;
+  }
+
+  #suggestions-placeholder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .chevron-down {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    main {
+      height: 80vh;
+    }
+
+    #ideas-form {
+      /* margin-top: 2rem; */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 90%;
+    }
+
+    #ideas-form > * {
+      width: 100%;
+    }
+
+    #responses, .showcase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .info {
+      margin-top: 10em;
+    }
+  }
+</style>
