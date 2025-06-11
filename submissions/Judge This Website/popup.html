@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Judge This Website</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <h1>Judge This Website</h1>
+    <div id="site"></div>
+    <label for="rating">Your Judgment:</label>
+    <select id="rating">
+        <option value="good">Good</option>
+        <option value="bad">Bad</option>
+        <option value="neutral">Neutral</option>
+    </select>
+    <br><br>
+    <textarea id="comment" placeholder="Leave a comment..." rows="4" cols="30"></textarea>
+    <br><br>
+    <button id="submit">Submit</button>
+
+    <h2>Previous Judgment</h2>
+    <div id="previous"></div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
