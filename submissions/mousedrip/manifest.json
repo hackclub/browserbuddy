@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "MouseDrip",
+  "version": "1.0",
+  "description": "Create super cool mouse trails with emojis!",
+  "keywords": ["mouse trail", "emoji cursor", "accessibility", "chrome extension", "fun cursor", "custom cursor", "live update", "animation", "polished", "productivity"],
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["trail.js"],
+    "run_at": "document_start",
+    "all_frames": true
+  }],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MouseDrip Settings"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
+
+

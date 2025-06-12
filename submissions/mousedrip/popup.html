@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseDrip </title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+          width: 360px;
+          height: 460px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+          color: #fff;
+          overflow: hidden;
+        }
+
+        .container {
+          padding: 20px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .section {
+          margin-bottom: 15px;
+        }
+
+        .emoji-picker {
+          position: absolute;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          padding: 10px;
+          display: none;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 5px;
+          z-index: 1000;
+          max-height: 200px;
+          overflow-y: auto;
+          width: 100%;
+        }
+
+        .emoji-picker.visible {
+          display: grid;
+        }
+
+        .emoji-item {
+          font-size: 20px;
+          padding: 5px;
+          cursor: pointer;
+          text-align: center;
+          border-radius: 4px;
+          transition: background 0.2s;
+        }
+
+        .emoji-item:hover {
+          background: #f0f0f0;
+        }
+
+        .footer {
+          margin-top: auto;
+          text-align: center;
+          padding: 10px 0;
+        }
+
+        .header {
+          text-align: center;
+          margin-bottom: 25px;
+        }
+
+        .logo {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .subtitle {
+          font-size: 14px;
+          opacity: 0.9;
+        }
+
+        .section-title {
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 12px;
+        }
+
+        .toggle-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: rgba(255,255,255,0.1);
+          padding: 12px 15px;
+          border-radius: 8px;
+        }
+
+        .toggle-switch {
+          width: 50px;
+          height: 26px;
+          background: rgba(255,255,255,0.2);
+          border-radius: 13px;
+          padding: 3px;
+          cursor: pointer;
+          position: relative;
+          transition: background 0.3s;
+        }
+
+        .toggle-switch.active {
+          background: #4CAF50;
+        }
+
+        .toggle-slider {
+          width: 20px;
+          height: 20px;
+          background: white;
+          border-radius: 50%;
+          transition: transform 0.3s;
+        }
+
+        .toggle-switch.active .toggle-slider {
+          transform: translateX(24px);
+        }
+
+        .emoji-input {
+          position: relative;
+        }
+
+        .emoji-display {
+          background: rgba(255,255,255,0.1);
+          padding: 12px;
+          border-radius: 8px;
+          font-size: 20px;
+          cursor: pointer;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+          width: 100%;
+          padding: 10px 12px;
+          border: none;
+          border-radius: 8px;
+          background: rgba(255,255,255,0.1);
+          color: white;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+
+        input[type="text"]::placeholder {
+          color: rgba(255,255,255,0.5);
+        }
+
+        .speed-control {
+          background: rgba(255,255,255,0.1);
+          padding: 15px;
+          border-radius: 8px;
+        }
+
+        .speed-label {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+
+        .slider {
+          width: 100%;
+          height: 6px;
+          background: rgba(255,255,255,0.15);
+          border-radius: 3px;
+          outline: none;
+          -webkit-appearance: none;
+          transition: background 0.3s;
+        }
+
+        .slider:hover {
+          background: rgba(255,255,255,0.25);
+        }
+
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 22px;
+          height: 22px;
+          background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+          border-radius: 50%;
+          cursor: pointer;
+          transition: all 0.2s;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+          transform: scale(1.15);
+          box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .speed-control {
+          background: rgba(255,255,255,0.12);
+          padding: 20px;
+          border-radius: 12px;
+          transition: background 0.3s;
+        }
+
+        .speed-control:hover {
+          background: rgba(255,255,255,0.15);
+        }
+
+        .speed-label {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+          font-weight: 500;
+        }
+
+        .speed-value {
+          font-size: 14px;
+          padding: 6px 12px;
+          background: rgba(255,255,255,0.1);
+          border-radius: 15px;
+          transition: all 0.3s;
+        }
+
+        .slider {
+          width: 100%;
+          height: 4px;
+          background: rgba(255,255,255,0.2);
+          border-radius: 2px;
+          outline: none;
+          -webkit-appearance: none;
+          transition: background 0.3s;
+        }
+
+        .slider:hover {
+          background: rgba(255,255,255,0.25);
+        }
+
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 18px;
+          height: 18px;
+          background: white;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: transform 0.2s;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+          transform: scale(1.15);
+          box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+          transform: scale(1.1);
+        }
+
+        .site-input {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 15px;
+          align-items: center;
+          background: rgba(255,255,255,0.08);
+          border-radius: 14px;
+          padding: 10px 12px;
+          box-shadow: none;
+          backdrop-filter: none;
+          position: relative;
+        }
+
+        .site-input input[type="text"] {
+          border-radius: 8px;
+          background: rgba(255,255,255,0.13);
+          border: 1px solid rgba(255,255,255,0.22);
+          color: #fff;
+          font-size: 15px;
+          padding: 8px 14px;
+          outline: none;
+          transition: border 0.2s, background 0.2s;
+          box-shadow: none;
+        }
+
+        .site-input input[type="text"]:focus {
+          background: rgba(255,255,255,0.18);
+          border: 1.5px solid #b3b3ff;
+        }
+
+        .site-input #siteEmoji {
+          width: 48px;
+          text-align: center;
+          font-size: 18px;
+          position: relative;
+        }
+
+        .site-input #emojiPreview {
+          display: none;
+        }
+
+        .add-btn {
+          background: none;
+          color: #7f53ac;
+          border: 1.5px solid #b3b3ff;
+          border-radius: 50%;
+          padding: 0;
+          width: 36px;
+          height: 36px;
+          font-size: 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: none;
+          cursor: pointer;
+          transition: background 0.15s, border 0.15s;
+        }
+
+        .add-btn:hover {
+          background: #ececff;
+          border-color: #7f53ac;
+        }
+
+        .add-btn .add-icon {
+          margin: 0;
+          font-size: 22px;
+        }
+
+        .site-list {
+          max-height: 150px;
+          overflow-y: auto;
+          margin-bottom: 20px;
+          padding-right: 5px;
+        }
+
+        .site-list::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .site-list::-webkit-scrollbar-track {
+          background: rgba(255,255,255,0.1);
+          border-radius: 3px;
+        }
+
+        .site-list::-webkit-scrollbar-thumb {
+          background: rgba(255,255,255,0.3);
+          border-radius: 3px;
+        }
+        .site-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: rgba(255,255,255,0.1);
+          padding: 12px 15px;
+          border-radius: 8px;
+          margin-bottom: 10px;
+          transform: translateX(0);
+          transition: all 0.3s ease;
+          animation: slideIn 0.3s ease;
+        }
+    
+        @keyframes slideIn {
+          from { transform: translateX(-100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+    
+        .site-item:hover {
+          background: rgba(255,255,255,0.15);
+          transform: translateX(5px);
+        }
+    
+        .site-info {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+    
+        .remove-btn {
+          background: rgba(255,255,255,0.1);
+          border: none;
+          color: white;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          transition: all 0.2s;
+        }
+    
+        .remove-btn:hover {
+          background: rgba(255,0,0,0.2);
+          transform: scale(1.1);
+        }
+
+        .site-item button {
+          background: none;
+          border: none;
+          color: rgba(255,255,255,0.7);
+          cursor: pointer;
+          padding: 4px;
+          font-size: 16px;
+          transition: color 0.2s;
+        }
+
+        .site-item button:hover {
+          color: white;
+        }
+
+        #feedbackBtn {
+          color: white;
+          text-decoration: none;
+          opacity: 0.8;
+          transition: opacity 0.2s;
+        }
+
+        #feedbackBtn:hover {
+          opacity: 1;
+        }
+
+        .feedback-btn {
+          background: none;
+          color: #7f53ac;
+          border: 1.5px solid #b3b3ff;
+          border-radius: 8px;
+          padding: 10px 22px;
+          font-size: 15px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background 0.15s, border 0.15s, color 0.15s;
+          margin: 0 auto;
+          display: block;
+        }
+
+        .feedback-btn:hover {
+          background: #ececff;
+          color: #4b2e83;
+          border-color: #7f53ac;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">MouseDrip</div>
+            <div class="subtitle">Make your cursor legendary</div>
+            <div style="font-size:12px;opacity:0.8;margin-top:4px;">Settings update instantly, no reload needed!</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🎯 Enable MouseDrip</div>
+            <div class="toggle-container" title="Toggle mouse trail effects">
+                <span>Trail Effects</span>
+                <div class="toggle-switch" id="enableToggle" aria-label="Enable MouseDrip" tabindex="0" title="Enable or disable mouse trail">
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">✨ Default Trail Emoji</div>
+            <div class="emoji-input">
+                <div class="emoji-display" id="emojiDisplay" aria-label="Current trail emoji" title="Click to change emoji">✨</div>
+                <div class="emoji-picker" id="emojiPicker" aria-label="Emoji picker" title="Pick an emoji for your trail">
+                    <div class="emoji-item">✨</div>
+                    <div class="emoji-item">🌟</div>
+                    <div class="emoji-item">⭐</div>
+                    <div class="emoji-item">💫</div>
+                    <div class="emoji-item">🌈</div>
+                    <div class="emoji-item">🎨</div>
+                    <div class="emoji-item">🚀</div>
+                    <div class="emoji-item">💖</div>
+                    <div class="emoji-item">🌸</div>
+                    <div class="emoji-item">🎯</div>
+                    <div class="emoji-item">🎮</div>
+                    <div class="emoji-item">🎪</div>
+                    <div class="emoji-item">🌺</div>
+                    <div class="emoji-item">🎵</div>
+                    <div class="emoji-item">🎶</div>
+                    <div class="emoji-item">💎</div>
+                    <div class="emoji-item">🔮</div>
+                    <div class="emoji-item">⚡</div>
+                    <div class="emoji-item">🔥</div>
+                    <div class="emoji-item">❄️</div>
+                    <div class="emoji-item">🌙</div>
+                    <div class="emoji-item">☀️</div>
+                    <div class="emoji-item">🌍</div>
+                    <div class="emoji-item">🌌</div>
+                    <div class="emoji-item">🎇</div>
+                    <div class="emoji-item">🎆</div>
+                    <div class="emoji-item">🎄</div>
+                    <div class="emoji-item">🎃</div>
+                    <div class="emoji-item">🎡</div>
+                    <div class="emoji-item">🎠</div>
+                    <div class="emoji-item">🎪</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">⚡ Trail Speed</div>
+            <div class="speed-control" title="Adjust the animation speed of the trail">
+                <div class="speed-label">
+                    <span>Animation Speed</span>
+                    <span class="speed-value" id="speedValue">Medium</span>
+                </div>
+                <div class="slider-container">
+                    <input type="range" id="speedSlider" class="slider" min="100" max="1000" value="500" step="50" aria-label="Trail speed slider" title="Drag to change trail speed">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Site-Specific Emojis</div>
+            <div class="site-input">
+                <input type="text" id="siteInput" placeholder="Enter website (e.g. twitter.com)" aria-label="Website" title="Enter website for custom emoji">
+                <input type="text" id="siteEmoji" placeholder="Emoji" aria-label="Emoji" title="Enter emoji for this site">
+                <button id="addSite" class="add-btn" aria-label="Add site-specific emoji" title="Add site-specific emoji">
+                    <span class="add-icon">+</span>
+                </button>
+            </div>
+            <div id="siteList" class="site-list"></div>
+        </div>
+
+        <div class="footer">
+            <button id="feedbackBtn" class="feedback-btn" aria-label="Send Feedback" title="Send feedback or report a bug">Send Feedback 💭</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
