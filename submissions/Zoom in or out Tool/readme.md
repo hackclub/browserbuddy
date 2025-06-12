@@ -1,0 +1,7 @@
+- Simple popup interface with zoom in/out buttons
+- Current zoom level display
+- "Reset" and "Fit Width" options
+- Option to remember zoom settings per website
+- Keyboard shortcuts (Ctrl+Plus, Ctrl+Minus, Ctrl+0)
+- Works on all websites
+- Zoom range from 25% to 400%
