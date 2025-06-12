@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Iansui&display=swap');
+
+        .iansui {
+            font-family: "Iansui", cursive;
+        }
+
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures full coverage inside the box */
+            transform: scaleX(-1);
+            /* Mirrors the video for a natural webcam experience */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen p-4">
+
+    <h1 class="iansui text-4xl font-bold mb-6 text-center animate-bounce">Study Time Tracker 📚</h1>
+
+    <!-- Video Container -->
+    <div class="relative w-[600px] h-[400px] rounded-lg overflow-hidden shadow-lg">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="canva" class="absolute top-0 left-0 w-full h-full"></canvas>
+    </div>
+
+    <h2 id="status"
+        class="iansui text-3xl font-semibold text-green-500 mt-4 hidden opacity-0 transition-opacity duration-500">
+        I am studying... 📖
+    </h2>
+
+    <div class="bg-gray-800 p-6 rounded-lg mt-6 shadow-lg text-center w-96">
+        <h3 class="text-xl font-semibold">Study Time Today:</h3>
+        <span id="study-time" class="iansui text-3xl font-bold text-blue-400 mt-2 block">00:00:00</span>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-lg mt-6 shadow-lg text-center w-96">
+        <h3 class="text-xl font-semibold">Last 7 Days:</h3>
+        <ul id="history" class="mt-3 space-y-1 text-gray-300"></ul>
+    </div>
+
+</body>
+
+<script>
+    let video = document.getElementById("video");
+    let canvas = document.getElementById("canva");
+    let ctx = canvas.getContext("2d");
+    let statusText = document.getElementById("status");
+    let studyTimeEl = document.getElementById("study-time");
+    let historyEl = document.getElementById("history");
+    let model;
+
+    let isStudying = false;
+    let lastUpdate = Date.now();
+
+    const getToday = () => new Date().toISOString().split('T')[0];
+
+    const loadStudyData = () => JSON.parse(localStorage.getItem("studyData")) || {};
+
+    const saveStudyData = (data) => localStorage.setItem("studyData", JSON.stringify(data));
+
+    const formatTime = (seconds) => {
+        let h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+        let m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+        let s = (seconds % 60).toString().padStart(2, '0');
+        return `${h}:${m}:${s}`;
+    };
+
+    const updateHistory = () => {
+        let data = loadStudyData();
+        let days = Object.keys(data).sort().slice(-7);
+        historyEl.innerHTML = days.map(day => `<li>${day}: <span class="font-bold text-green-400">${formatTime(data[day])}</span></li>`).join('');
+    };
+
+    let studyData = loadStudyData();
+    let today = getToday();
+    if (!studyData[today]) {
+        studyData[today] = 0;
+        saveStudyData(studyData);
+    }
+    let studyTimeToday = studyData[today];
+    studyTimeEl.textContent = formatTime(studyTimeToday);
+    updateHistory();
+
+    // Setup camera with proper video size
+    const setupCamera = async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 600, height: 400 }, audio: false });
+            video.srcObject = stream;
+
+            video.onloadedmetadata = () => {
+                video.play();
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+            };
+        } catch (err) {
+            console.error("Error accessing camera: ", err);
+        }
+    };
+
+    // Detect faces
+    const detectFaces = async () => {
+        if (!model) return;
+
+        const predictions = await model.estimateFaces(video, false);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        if (predictions.length > 0) {
+            if (!isStudying) {
+                isStudying = true;
+                lastUpdate = Date.now();
+                gsap.to(statusText, { opacity: 1, duration: 0.5, display: "block" });
+            }
+        } else {
+            if (isStudying) {
+                isStudying = false;
+                gsap.to(statusText, { opacity: 0, duration: 0.5, onComplete: () => statusText.style.display = "none" });
+            }
+        }
+
+        predictions.forEach((pred) => {
+            ctx.beginPath();
+            ctx.lineWidth = "4";
+            ctx.strokeStyle = "blue";
+            ctx.rect(
+                pred.topLeft[0],
+                pred.topLeft[1],
+                pred.bottomRight[0] - pred.topLeft[0],
+                pred.bottomRight[1] - pred.topLeft[1]
+            );
+            ctx.stroke();
+        });
+    };
+
+    // Update study time
+    const updateTime = () => {
+        if (isStudying) {
+            let now = Date.now();
+            let elapsedSeconds = Math.floor((now - lastUpdate) / 1000);
+
+            if (elapsedSeconds > 0) {
+                studyTimeToday += elapsedSeconds;
+                lastUpdate = now;
+                studyData[today] = studyTimeToday;
+                saveStudyData(studyData);
+                studyTimeEl.textContent = formatTime(studyTimeToday);
+                updateHistory();
+            }
+        }
+    };
+
+    video.addEventListener("loadeddata", async () => {
+        model = await blazeface.load();
+        setInterval(detectFaces, 40);
+        setInterval(updateTime, 1000);
+    });
+
+    setupCamera();
+</script>
+
+</html>
