@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Tabituary",
+  "version": "1.0.0",
+  "description": "An extension that generates obituaries for closed tabs",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "notifications",
+    "scripting",
+    "webNavigation",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "web_accessible_resources": [{
+    "resources": ["icons/*.png", "js/*.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Tabituary"
+  }
+} 

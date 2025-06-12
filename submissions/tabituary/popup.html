@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabituary</title>
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Tabituary</h1>
+        <p class="subtitle">Honoring the fallen tabs of the web</p>
+    </header>
+
+    <div class="container">
+        <div id="obituary-list" class="obituary-list">
+            <div class="loading">
+                <p>Loading obituaries...</p>
+            </div>
+        </div>
+
+        <div class="empty-state" id="empty-state">
+            <p>No tabs have perished during your session.</p>
+            <p class="small">Close a tab to generate its obituary.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="settings">
+            <label class="sound-toggle">
+                <input type="checkbox" id="sound-toggle" checked>
+                <span>Enable Sound Effects</span>
+            </label>
+            <label class="popup-toggle">
+                <input type="checkbox" id="popup-toggle" checked>
+                <span>Show In-Page Popups</span>
+            </label>
+        </div>
+        <button id="clear-all-btn" class="btn-clear">Clear All Obituaries</button>
+    </footer>
+
+    <template id="obituary-template">
+        <div class="obituary-card">
+            <div class="obituary-header">
+                <h2 class="obituary-title"></h2>
+                <button class="toggle-details">▼</button>
+            </div>
+            <div class="obituary-details">
+                <p class="obituary-date"></p>
+                <p class="obituary-message"></p>
+                <div class="obituary-actions">
+                    <button class="reopen-tab">Resurrect Tab</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="js/popup.js"></script>
+</body>
+</html> 

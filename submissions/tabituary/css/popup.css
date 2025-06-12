@@ -1,0 +1,305 @@
+:root {
+  --color-bg: #282533;
+  --color-bg-card: #342f41;
+  --color-text: #f8f8f2;
+  --color-accent: #b39ddb;
+  --color-accent-dark: #673ab7;
+  --color-gold: #ffcc80;
+  --color-red: #ff5252;
+  --font-serif: 'EB Garamond', serif;
+  --font-display: 'Playfair Display', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 380px;
+  max-height: 580px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+header {
+  padding: 16px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(to bottom, rgba(103, 58, 183, 0.3), rgba(103, 58, 183, 0));
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  margin: 0;
+  letter-spacing: 0.03em;
+  color: var(--color-gold);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.container {
+  padding: 16px;
+  min-height: 200px;
+}
+
+.obituary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.obituary-card {
+  background: var(--color-bg-card);
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-out;
+  border: 1px solid rgba(179, 157, 219, 0.2);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.obituary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border-color: rgba(179, 157, 219, 0.5);
+}
+
+.obituary-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--color-accent);
+}
+
+.obituary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.obituary-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin-bottom: 0;
+  color: var(--color-gold);
+  line-height: 1.2;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toggle-details {
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 5px;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+  opacity: 0.8;
+}
+
+.toggle-details:hover {
+  opacity: 1;
+}
+
+.toggle-details.expanded {
+  transform: rotate(180deg);
+}
+
+.obituary-details {
+  display: none;
+  margin-top: 8px;
+  animation: fade-in 0.3s ease-out;
+}
+
+.obituary-details.expanded {
+  display: block;
+  border-top: 1px dotted rgba(255, 255, 255, 0.1);
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.obituary-date {
+  font-size: 14px;
+  margin-bottom: 8px;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.obituary-message {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.obituary-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reopen-tab {
+  background-color: var(--color-accent-dark);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.reopen-tab:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.reopen-tab::before {
+  content: "†";
+  font-size: 16px;
+  margin-right: 6px;
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 32px 16px;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.empty-state p.small {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+footer {
+  padding: 16px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.settings {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.sound-toggle,
+.popup-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  width: 100%;
+  justify-content: center;
+}
+
+.sound-toggle:hover,
+.popup-toggle:hover {
+  opacity: 1;
+}
+
+.sound-toggle input,
+.popup-toggle input {
+  margin-right: 8px;
+  accent-color: var(--color-accent);
+}
+
+.btn-clear {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-clear:hover {
+  background-color: rgba(179, 157, 219, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+} 
