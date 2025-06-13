@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Healthy Food",
+  "description": "Explore healthy food options and daily wellness tips.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "permissions": ["storage"],
+  "icons": {
+    "128": "icon.png"
+  }
+}
