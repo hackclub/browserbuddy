@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartoonify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cartoonify</h1>
+        <div class="color-section">
+            <div class="color-picker">
+                <label for="mainColor">Main Color:</label>
+                <input type="color" id="mainColor" value="#ef5350">
+            </div>
+            <div class="color-presets" id="presetColors"></div>
+        </div>
+        <div class="options">
+            <label><input type="checkbox" id="enableSoundEffects" checked> Sound Effects</label>
+            <label><input type="checkbox" id="enableSpeechBubbles" checked> Speech Bubbles</label>
+            <label><input type="checkbox" id="enableTurtle" checked> Moving Turtle</label>
+            <label><input type="checkbox" id="enablePong" checked> Pong Game</label>
+            <label><input type="checkbox" id="enableinvert" checked> Invert Color</label>
+            <label><input type="checkbox" id="enablePigRoaster" checked> Pig Roaster</label>
+            <label><input type="checkbox" id="enableNerdSummarizer" checked> Nerd Summarizer</label>
+            <label><input type="checkbox" id="enableRGB" checked> RGB</label>
+        </div>
+        <button id="applyStyles" class="main-button">Toggle Comic Mode</button>
+        <div class="status">
+            <p id="outputText">Ready to cartoonify!</p>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
