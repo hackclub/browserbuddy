@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "Noraku",
+  "version": "1.0",
+  "description": "Plays sounds on browser actions.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "offscreen",
+    "downloads",
+    "storage",
+    "bookmarks",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "sounds/*.mp3"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/noraku_16.png",
+      "48": "icons/noraku_48.png",
+      "128": "icons/noraku_128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/noraku_16.png",
+    "48": "icons/noraku_48.png",
+    "128": "icons/noraku_128.png"
+  }
+}

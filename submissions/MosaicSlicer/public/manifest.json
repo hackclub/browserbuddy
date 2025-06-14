@@ -1,0 +1,29 @@
+{
+  "name": "MosaicSlicer",
+  "description": "",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "permissions": ["scripting", "tabs"],
+  "background": {
+    "service_worker": "extension/background.js"
+  },
+  "action": {
+    "default_title": "Open MosaicSlicer"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.printables.com/*"],
+      "js": ["extension/content.js"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval';"
+  },
+  "icons": {
+    "128": "img/logo_128.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["img/*"],
+    "matches": ["https://*.printables.com/*"]
+  }]
+}

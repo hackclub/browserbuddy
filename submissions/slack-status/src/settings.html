@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="pico.css" />
+    <title>Settings</title>
+    <script src="settingsPage.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Settings</h1>
+      <div>
+        <fieldset>
+          <label>
+            <input
+              name="enable"
+              id="enable"
+              type="checkbox"
+              role="switch"
+              checked
+            />
+            Enable extension
+          </label>
+        </fieldset>
+
+        <label for="workspace">Workspace</label>
+        <select
+          name="workspace"
+          id="workspace-select"
+          aria-label="Select your Slack workspace"
+          required
+        ></select>
+
+        <h3>Template</h3>
+        <label for="templateText">Text template</label>
+        <input
+          type="text"
+          name="templateText"
+          id="templateText"
+          required
+          placeholder="On $TITLE"
+        />
+        <small
+          >Tip: <code>$TITLE</code> will be replaced with the site title</small
+        >
+      </div>
+    </main>
+  </body>
+</html>

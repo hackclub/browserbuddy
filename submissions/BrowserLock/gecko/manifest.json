@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Browser Lock Timer",
+  "version": "1.0",
+  "description": "Lock your browser for a specified duration to stay focused",
+  "permissions": [
+    "tabs",
+    "storage",
+    "alarms",
+    "webNavigation",
+    "<all_urls>"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "browser-lock@example.com",
+      "strict_min_version": "57.0"
+    }
+  }
+} 

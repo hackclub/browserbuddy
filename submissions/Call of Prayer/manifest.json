@@ -1,0 +1,23 @@
+{
+    "name": "Call of Prayer",
+    "description": "A simple prayer time finder for muslims to find time of prayer.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "alarms",
+        "notifications",
+        "storage",
+        "geolocation"
+    ],
+    "action":{
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "16": "icon/muslim.png",
+            "48": "icon/muslim (1).png",
+            "128": "icon/muslim (2).png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+      }
+}

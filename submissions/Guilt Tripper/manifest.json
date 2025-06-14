@@ -1,0 +1,34 @@
+{
+    "name": "Guilt Tripper (For Youtube Shorts)",
+    "description": "Can't stop procrastinating? In an infinite loop of Youtube Shorts? Well, get off that addicting slop with the Guilt Tripper!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "Popup/main.html",
+      "default_icon": "VisualResources/guilttripper.png"
+    },
+    "icons": {
+      "16": "VisualResources/Icons/16.png",
+      "32": "VisualResources/Icons/32.png",
+      "48": "VisualResources/Icons/48.png",
+      "128": "VisualResources/Icons/128.png"
+    },
+    "permissions": [
+      "tabs",
+      "scripting"
+    ],
+    "host_permissions": [
+      "https://www.youtube.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://www.youtube.com/*"],
+        "js": ["ContentScripts/script.js"],
+        "run_at" : "document_idle"
+        
+      }
+    ],
+    "background": {
+      "service_worker": "BackgroundScripts/URLChange.js"
+    }
+  }

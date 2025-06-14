@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+.urban-dict-bubble {
+  position: absolute;
+  z-index: 9999;
+  width: 340px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: "Inter", sans-serif;
+  display: none;
+  padding: 20px;
+  animation: fade-in 0.2s ease-out;
+  border: none;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  will-change: transform, opacity;
+  pointer-events: auto;
+  transform-origin: top left;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: contain;
+  isolation: isolate;
+}
+
+.urban-dict-bubble.urban-dark {
+  background: #121212;
+  color: #f0f0f0;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.urban-bubble-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.urban-bubble-close:hover {
+  background: #e0e0e0;
+}
+
+.urban-bubble-close:active {
+  transform: scale(0.95);
+}
+
+.urban-dict-bubble.urban-dark .urban-bubble-close {
+  background: #333;
+  color: #eee;
+}
+
+.urban-dict-bubble.urban-dark .urban-bubble-close:hover {
+  background: #444;
+}
+
+.urban-bubble-content {
+  margin-top: 6px;
+}
+
+.urban-bubble-loading {
+  text-align: center;
+  padding: 20px 12px;
+  color: #333333;
+  font-size: 14px;
+}
+
+.urban-bubble-word {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #000000;
+  padding-right: 20px;
+  word-break: break-word;
+}
+
+.urban-dict-bubble.urban-dark .urban-bubble-word {
+  color: #ffffff;
+}
+
+.urban-bubble-definition {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.urban-dict-bubble.urban-dark .urban-bubble-definition {
+  color: #f0f0f0;
+}
+
+.urban-bubble-example {
+  font-style: italic;
+  margin: 12px 0;
+  color: #333333;
+  padding-left: 12px;
+  border-left: 3px solid #276ef1;
+  font-size: 13px;
+  word-break: break-word;
+}
+
+.urban-bubble-votes {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #333333;
+  display: flex;
+  gap: 16px;
+  padding-top: 8px;
+  border-top: 1px solid #eeeeee;
+}
+
+/* i hate css so much */
+
+.urban-dict-bubble.urban-dark .urban-bubble-example {
+  color: #d0d0d0;
+  border-left-color: #3d85f6;
+}
+
+.urban-dict-bubble.urban-dark .urban-bubble-votes {
+  color: #c0c0c0;
+  border-top-color: #333333;
+}
+
+.urban-bubble-not-found,
+.urban-bubble-error {
+  text-align: center;
+  padding: 20px 12px;
+  color: #333333;
+  font-size: 14px;
+}
+
+.urban-dict-bubble.urban-dark .urban-bubble-not-found,
+.urban-dict-bubble.urban-dark .urban-bubble-error,
+.urban-dict-bubble.urban-dark .urban-bubble-loading {
+  color: #d0d0d0;
+}
+
+.urban-dict-bubble::-webkit-scrollbar {
+  width: 5px;
+}
+
+.urban-dict-bubble::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.urban-dict-bubble::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 3px;
+}
+
+.urban-dict-bubble::-webkit-scrollbar-thumb:hover {
+  background-color: #ccc;
+}
+
+.urban-dict-bubble.urban-dark::-webkit-scrollbar-thumb {
+  background-color: #444;
+}
+
+.urban-dict-bubble.urban-dark::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

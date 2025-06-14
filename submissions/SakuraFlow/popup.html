@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tab Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h3>SakuraFlow</h3>
+  
+  <!-- Input to search tabs -->
+  <input type="text" id="search" placeholder="Search tabs..." style="width: 100%; padding: 5px;"/>
+
+  <!-- Buttons -->
+
+  <button id="sort-tabs">Sort Tabs Alphabetically</button>
+  <button id="close-all-except">Close All Except Current</button>
+  <button id="close-selected">Close Selected Tabs</button>
+
+  <ul id="tabs-list"></ul>
+  
+  <!-- Mute/unmute selected tabs -->
+  <button id="mute-selected">Mute Selected Tabs</button>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

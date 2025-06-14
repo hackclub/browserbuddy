@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Urban Lookup Settings" />
+    <title>Urban Lookup Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="../css/options.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Urban Lookup Settings</h1>
+      </header>
+
+      <main class="settings-section">
+        <div class="setting-item">
+          <div class="setting-label">
+            <h3>Dark Mode</h3>
+            <p>Enable dark theme for the extension</p>
+          </div>
+          <label class="switch">
+            <input
+              type="checkbox"
+              id="darkModeToggle"
+              aria-label="Toggle dark mode"
+            />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-label">
+            <h3>Definition Bubbles</h3>
+            <p>Show definition bubbles when you double-click words</p>
+          </div>
+          <label class="switch">
+            <input
+              type="checkbox"
+              id="bubbleToggle"
+              aria-label="Toggle definition bubbles"
+            />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-label">
+            <h3>Cache Size</h3>
+            <p>Number of definitions to keep in cache (50-500)</p>
+          </div>
+          <div class="setting-control">
+            <input
+              type="range"
+              id="cacheSizeSlider"
+              min="50"
+              max="500"
+              step="50"
+              aria-label="Cache size"
+            />
+            <span id="cacheSizeValue" aria-live="polite">50</span>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-label">
+            <h3>Clear Cache</h3>
+            <p>Delete all stored definition data</p>
+          </div>
+          <button id="clearCacheBtn" class="secondary-btn">Clear</button>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-label">
+            <h3>Keyboard Shortcuts</h3>
+            <p>Press Escape key to close definition bubble</p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <button id="saveBtn">Save Settings</button>
+      </footer>
+    </div>
+    <script src="../js/options.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="popup.css">
+    <title>Ramadan Times</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Call of prayer
+        <br>
+        Prayer Time tracker
+      </h1>
+    <p class = "timessss">Fajr time today at <span id = "Suhoor"> </span> <br>
+    Duhr Time today at <span id = "Duhr"></span><br>
+    Asr Time today at <span id = "Asr"></span><br>
+    Maghrib time today at <span id = "Iftar"> </span><br>
+    Isha Time today at <span id = "Isha"></span></p>
+    <h1>Alerts for prayer
+      <br>
+    <button id = "yes">ON</button>
+    <button id="no">OFF</button>
+    <p class = status>Status <span id=status></span></p>
+    </h1>
+    <div class="GPS_Location">
+      <p>Your Location <span id = "Location"></span></p>
+      <div class="dropdown">
+        <label for="counting_method">Choose your nearest!<br>(or the one which gives the most accurate time to you)</label>
+        <br>
+        <select id = "counting_method">
+          <option value="">Select a Calculation Method</option>
+          <option value="3">Muslim World League</option>
+          <option value="2">Islamic Society of North America</option>
+          <option value="5">Egyptian General Authority of Survey</option>
+          <option value="4">Umm Al-Qura University, Makkah</option>
+          <option value="1">University of Islamic Sciences, Karachi</option>
+          <option value="7">Institute of Geophysics, University of Tehran</option>
+          <option value="0">Shia Ithna-Ashari, Leva Institute, Qum</option>
+          <option value="8">Gulf Region</option>
+          <option value="9">Kuwait</option>
+          <option value="10">Qatar</option>
+          <option value="11">Majlis Ugama Islam Singapura, Singapore</option>
+          <option value="12">Union Organization Islamic de France</option>
+          <option value="13">Turkey</option>
+          <option value="14">Spiritual Administration of Muslims of Russia</option>
+          <option value="15">Moonsighting Committee</option>
+          <option value="17">Jabatan Kemajuan Islam Malaysia (JAKIM)</option>
+          <option value="18">Tunisia</option>
+          <option value="19">Algeria</option>
+          <option value="20">Kementerian Agama Republik Indonesia</option>
+          <option value="21">Morocco</option>
+          <option value="22">Comunidate Islamica de Lisboa (Portugal)</option>
+          <option value="23">Ministry of Awqaf, Islamic Affairs and Holy Places, Jordan</option>
+        </select>
+      </div>
+      <button id="Setup_Location">Set Up Your Current Location</button>
+    <br>
+      <button id="Clear_Data">Clear Data</button>
+    </div>
+    <script src="popup.js">
+    </script>
+  </body>
+</html>

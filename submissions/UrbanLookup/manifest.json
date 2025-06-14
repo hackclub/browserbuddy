@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Urban Lookup",
+  "version": "1.0.0",
+  "description": "Quickly look up words and phrases on Urban Dictionary",
+  "permissions": ["storage", "contextMenus"],
+  "host_permissions": ["*://*.urbandictionary.com/*"],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "options_page": "html/options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content-script-loader.js", "js/content.js"],
+      "css": ["css/content.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["js/content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

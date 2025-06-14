@@ -1,0 +1,211 @@
+:root {
+  --bg-colour: #ffffff;
+  --text-colour: #24292e;
+  --border-colour: #d0d7de;
+  --input-bg: #ffffff;
+  --description-colour: #666;
+  --success-colour: #2ea44f;
+  --success-bg: #94d3a2;
+  --error-colour: #cf222e;
+  --hover-success: #2c974b;
+  --link-colour: #8ab4f8;
+  --success-text: #2ea44f;
+  --error-text: #cf222e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-colour: #292a2d;
+    --text-colour: #e8eaed;
+    --border-colour: #3c4043;
+    --input-bg: #202124;
+    --description-colour: #9aa0a6;
+    --success-bg: #81c995;
+    --success-colour: #386a20;
+    --error-colour: #f28b82;
+    --hover-success: #538d4e;
+    --link-colour: #8ab4f8;
+    --success-text: #7ee787;
+    --error-text: #ff938a;
+  }
+}
+
+body {
+  padding: 10px 20px;
+  width: 500px;
+  height: 400px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  background-color: var(--bg-colour);
+  color: var(--text-colour);
+}
+
+h2 {
+  color: var(--text-colour);
+  font-size: 20px;
+  margin: 8px 0;
+}
+
+input[type="password"] {
+  width: 90%;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: 1px solid var(--border-colour);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  background-color: var(--input-bg);
+  color: var(--text-colour);
+}
+
+input[type="password"]:focus:not(.valid):not(.invalid) {
+  outline: none;
+  border-color: var(--border-colour);
+  box-shadow: 0 0 0 3px rgba(129, 201, 149, 0.1);
+}
+
+input[type="password"].valid {
+  border-color: var(--success-colour);
+  box-shadow: 0 0 0 3px rgba(46, 164, 79, 0.2);
+}
+
+input[type="password"].invalid {
+  border-color: var(--error-colour);
+  box-shadow: 0 0 0 3px rgba(207, 34, 46, 0.2);
+}
+
+.tooltip-text {
+  text-decoration: underline dotted;
+  cursor: help;
+  color: var(--text-colour);
+}
+color #validation-message {
+  margin: 8px 0;
+  font-size: 14px;
+  height: 20px;
+  visibility: hidden;
+  margin-bottom: 8px;
+}
+
+#validation-message.visible {
+  visibility: visible;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.info-icon {
+  color: #666;
+  font-size: 16px;
+  margin-left: 8px;
+  cursor: help;
+}
+
+.save-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.save-button {
+  padding: 8px 16px;
+  background: var(--success-colour);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background: var(--hover-success);
+}
+
+.save-button:disabled {
+  background: var(--success-bg);
+  cursor: not-allowed;
+}
+
+.footer-text {
+  color: var(--description-colour);
+  font-size: 12px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.sections-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.section {
+  flex: 1;
+}
+
+select {
+  width: 200px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  cursor: pointer;
+  margin-bottom: 8px;
+  border-color: var(--border-colour);
+  color: var(--text-colour);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--success-colour);
+  box-shadow: 0 0 0 3px rgba(129, 201, 149, 0.2);
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.field-description {
+  color: var(--description-colour);
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.frequency-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.frequency-container span {
+  font-size: 14px;
+  color: var(--text-colour);
+}
+
+a {
+  color: var(--link-colour);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--link-colour);
+}
+
+a:hover {
+  text-decoration: underline;
+}

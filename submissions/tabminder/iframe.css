@@ -1,0 +1,178 @@
+:root {
+  --bg-color: #000;
+  --text-color: #fff;
+  --border-color: #fff;
+  --button-bg: #fff;
+  --button-text: #000;
+}
+
+body.light-mode {
+  --bg-color: #fff;
+  --text-color: #000;
+  --border-color: #000;
+  --button-bg: #000;
+  --button-text: #fff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  height: 100vh;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.window-title {
+  font-size: 14px;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.page-title {
+  font-size: 14px;
+  margin-right: 8px;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+#themeToggleBtn,
+#closeBtn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--button-bg);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--button-text);
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#addReminderForm {
+  width: 80%;
+  max-width: 280px;
+  margin-bottom: 15px;
+}
+
+#addReminderForm input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+#addReminderForm button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#remindersList {
+  margin-top: 20px;
+  max-height: 200px;
+  overflow-y: scroll;
+  width: 80%;
+  max-width: 280px;
+}
+
+#remindersList::-webkit-scrollbar {
+  display: none;
+}
+
+#remindersList {
+  scrollbar-width: none;
+}
+
+.reminder {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reminder span {
+  display: block;
+  font-size: 14px;
+}
+
+.reminder small {
+  display: block;
+  margin-top: 5px;
+  color: var(--text-color);
+  font-size: 12px;
+}
+
+.actions {
+  margin-top: 5px;
+  text-align: right;
+}
+
+.actions button {
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  cursor: pointer;
+  margin-left: 5px;
+}

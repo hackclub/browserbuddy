@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIT - Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>LogIT - Expense Tracker</h2>
+        <p id="dateDisplay"></p>
+        <input type="number" id="amount" placeholder="Enter amount" min="0" step="0.01">
+        <input type="text" id="description" placeholder="Enter description">
+        <input type="text" id="tags" placeholder="Enter tags (comma-separated)">
+        <input type="text" id="tagFilter" placeholder="Filter by tag">
+        <div class="button-group">
+            <button id="addExpense">➕ Add</button>
+            <button id="copyAll">📋 Copy All</button>
+            <button id="exportCSV">📄 Export CSV</button>
+            <button id="calculateTotal">💰 Total</button>
+        </div>
+        <ul id="expenseList"></ul>
+        <p id="totalAmount"></p>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/card.astro";
+import QA from "../components/qa.astro";
+---
+
+<Layout title="BrowserBuddy - Build your own Browser extension">
+  <main>
+    <div class="cta-item-container hammer">
+      <img class="cta-icons" id="hammer" src="/hammer.png" alt="hammer" />
+    </div>
+    <div class="cta-text">
+      <h1>BrowserBuddy</h1>
+      <h2>Develop a browser extension</h2>
+      <h2>Ship to the Chrome Web Store</h2>
+      <h3>Submit your project by TBD</h3>
+    </div>
+    <div class="cta-item-container cursor">
+      <img class="cta-icons" src="/click-sparkle.webp" alt="cursor-click" />
+    </div>
+    <div class="cta-actions">
+      <a
+        target="blank"
+        href="https://airtable.com/appgtKZwZBoOeFU7O/pagyeS51zr2kC1rp0/form"
+      >
+        <button>Submit your project</button>
+      </a>
+      <a target="blank" href="https://hackclub.slack.com/archives/C07MQBTNVRU">
+        <button class="join-slack">Join #browser-buddy on Slack</button>
+      </a>
+    </div>
+
+    <form>
+      <input type="email" name="email" placeholder="josias@hackclub.com" />
+      <button type="submit">Sign Up For the Grant!</button>
+    </form>
+  </main>
+
+  <div class="info">
+    <h2>How does it work?</h2>
+    <div class="info-cards">
+      <Card
+        icon="✨"
+        title="Brainstorm your idea"
+        link="/inspiration"
+        description="Come up with the funniest and quirkiest extension idea you can think of"
+        height="300px"
+      />
+      <Card
+        icon="👨🏽‍💻"
+        title="Develop and Submit"
+        link="/submit"
+        description="Develop your browser extension and submit for review"
+        height="300px"
+      />
+      <Card
+        icon="🚀"
+        title="Publish your extension"
+        link="/prizes"
+        description="Get $30 to launch your extension to Chrome Web Store plus additional goodies and special BrowerBuddy stickers"
+        height="300px"
+      />
+    </div>
+    <br />
+    <br />
+    <h2>Requirements</h2>
+    <ul class="requirements">
+      <li>The extension must be unique and solve a problem.</li>
+      <li>The extension has to use manifest v3.</li>
+      <li>The extension should make creative use of the web extensions APIs — tabs, storage, alarms, context menus, go wild!</li>
+      <li>The extension must have been tested by at least 10 users.</li>
+      <li>The extension must be able to run in both Chrome-based browsers and Firefox.</li>
+      <li>The source code of your extension must be open-source.</li>
+      <li>Spend at least 10 hours on your extension. Use hakatime to track your time(less can be negotiated).</li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+    <ul class="faq">
+      <QA
+        title="How many projects can I submit?"
+        content="We're limiting to one submission per person."
+      />
+      <QA
+        title="Who is eligible?"
+        content="You must be a teenager or still in high school."
+      />
+      <QA
+        title="I need help"
+        content=`Please reach out in the <a
+						href='https://hackclub.slack.com/archives/C07MQBTNVRU'
+						>#browser-buddy</a
+					> channel on Slack.`
+      />
+
+      <QA
+        title="How many browsers should my extension support?"
+        content=`Your extension should be able to run in both Chrome-based
+					browsers like Chrome/Edge/Brave and Firefox.`
+      />
+
+      <QA
+        title="How do I get started making an extension?"
+        content={`<a
+						href='https://developer.chrome.com/docs/extensions/get-started'
+					>
+						Googles browser extension tutorials
+					</a>
+					are a great place to start. Also read about
+					<a
+						href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Build_a_cross_browser_extension'
+					>
+						building cross-browser extension from MDN.
+					</a>`}
+      />
+
+      <QA
+        title="What do I need to build an extension?"
+        content=`All you need is a text editor and a web browser. You might
+					want to install both a chrome-based browser like
+					Chrome/Edge/Brave and Firefox to test your extension.`
+      />
+    </ul>
+  </div>
+</Layout>
+
+<script>
+  // @ts-ignore
+  import confetti from "canvas-confetti";
+
+  const form = document.getElementsByTagName("form")[0];
+  form.addEventListener("submit", async (e) => {
+    // prevent default form submission
+    e.preventDefault();
+
+    if (form.email.value.trim() === "")
+      return alert("Please enter a valid email address");
+
+    // console.log("email:", form.email.value);
+    const response = await fetch("/api/signup", {
+      method: "POST",
+      body: JSON.stringify({
+        email: form.email.value,
+      }),
+    });
+
+    const data = await response.json();
+    // console.log(data);
+    // console.log("confetti", confetti);
+    if (data.success) {
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 },
+      });
+    }
+  });
+</script>
+
+<style>
+  .info {
+    padding: 1em;
+    width: 100%;
+    font-size: 1.6rem;
+  }
+
+  .info h2 {
+    border-bottom: solid 10px var(--hc-red);
+    width: fit-content;
+  }
+
+  .info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .faq {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* list-style-type: "? - "; */
+    list-style-type: none;
+    height: 480px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .sample-cards {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .cta-actions {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    top: -4rem;
+    cursor: pointer;
+  }
+
+  .cta-actions button {
+    padding: 1.2rem 1.5rem;
+    font-size: 1.2rem;
+    background-color: var(--hc-purple);
+    border: solid 3px var(--hc-purple);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    line-height: 1.3;
+    min-height: 50px;
+  }
+
+  .requirements li {
+    margin: 1rem 0;
+    font-size: 1.3rem;
+  }
+
+  .cta-actions .join-slack {
+    background: transparent;
+    background-image: linear-gradient(white, white), linear-gradient(135deg, var(--summer-coral), var(--summer-yellow));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border: 3px solid transparent;
+    color: var(--summer-coral);
+    font-weight: bold;
+  }
+
+  .cta-actions .join-slack:hover {
+    background: linear-gradient(135deg, var(--summer-coral), var(--summer-yellow));
+    color: white;
+  }
+
+  .cta-actions button:active {
+    transform: scale(0.8);
+  }
+
+  @media screen and (max-width: 1500px) {
+    .hammer {
+      left: -6vw;
+    }
+  }
+
+  @media screen and (max-width: 1315px) {
+    .hammer {
+      left: -10vw;
+    }
+  }
+
+  @media screen and (max-width: 1560px) {
+    .faq {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 1365px) {
+    .info-cards {
+      margin-left: 0.6rem;
+      width: 98%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    main {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 120vh;
+    }
+
+    main h1 {
+      font-size: 3rem;
+    }
+
+    .cta-text h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-text h3 {
+      font-size: 1rem;
+    }
+
+    .hammer {
+      top: 7%;
+      left: -8%;
+    }
+
+    .cursor {
+      top: -15%;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .cta-actions * {
+      margin: 0.2rem 0;
+      width: 100%;
+    }
+
+    main form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    main form input,
+    main form button {
+      width: 80%;
+    }
+
+    .info {
+      padding: 0;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: flex-start;
+    }
+
+    .info h2 {
+      margin-left: 1rem;
+      text-align: start;
+    }
+
+    .faq {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      height: 80vh;
+    }
+  }
+</style>

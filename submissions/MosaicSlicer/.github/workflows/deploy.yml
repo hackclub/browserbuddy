@@ -1,0 +1,35 @@
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    permissions:
+      contents: read
+      deployments: write
+      
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      
+      # https://github.com/npm/cli/issues/4828
+      - name: build
+        run: |
+          rm -f package-lock.json
+          bash scripts/build_all.sh
+          sudo npm i -g wrangler
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: files_static
+          path: dist/
+
+      - name: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=mosaicslicer
+

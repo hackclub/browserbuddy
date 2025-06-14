@@ -1,0 +1,34 @@
+{
+	"manifest_version": 3,
+	"name": "NPC Comment Blocker",
+	"version": "0.1",
+	"description": "Blocks YouTube comments containing npc phrases and words.",
+	"permissions": ["activeTab", "scripting", "storage", "contextMenus"],
+	"icons": {
+		"16": "./icons/icon16.png",
+		"32": "./icons/icon32.png",
+		"48": "./icons/icon48.png",
+		"128": "./icons/icon128.png"
+	},
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "./icons/icon16.png",
+			"32": "./icons/icon32.png",
+			"48": "./icons/icon48.png",
+			"128": "./icons/icon128.png"
+		}
+	},
+	"content_scripts": [
+		{
+			"matches": ["*://www.youtube.com/*"],
+			"js": ["polyfill.js", "content.js"]
+		}
+	],
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "npccommentblocker@whirlxd.com",
+			"strict_min_version": "91.0"
+		}
+	}
+}

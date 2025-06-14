@@ -1,0 +1,69 @@
+@font-face{
+  font-family: Tarif;
+  src: url('Tarif.ttf');
+}
+@font-face{
+  font-family: Arabica;
+  src: url('Arabica.ttf');
+}
+
+body{
+  font-family: Arabica;
+    background-color: #001021 ;
+    background-size: cover;
+    background-position: center;
+    width: 380px;
+    height: 400px;
+    text-align: center !important;
+    color:crimson !important;
+    font-size: 15px;
+    text-decoration: none;
+}
+.header{
+    text-align: center;
+    color: #11B5E4;
+}
+.GPS_Location{
+  font-family: Tarif;
+    color: #0CAADC;
+    font-weight: bolder;
+    font-size: 15px;
+    button{
+        display: inline-block;
+        padding: 15px 32px;
+        border-radius: 3cm;
+        background-color:#11B5E4;
+        color: black;
+    }
+    button:hover{
+        background-color: #034748;
+        color: white;
+    }
+    #Setup_Location{
+        margin-top:0.5cm;
+        margin-bottom:0.5cm;
+    }
+}
+#yes{
+  background-color: green;
+  border: 2px solid black;
+  border-radius:10px;
+}
+#no{
+  background-color: red;
+  border: 2px solid black;
+  border-radius:10px;
+}
+.timessss{
+    font-size:22px;
+    
+  }
+.status{
+  font-family: Tarif;
+  margin-right:3cm;
+  margin-left:3cm;
+  border: 2px solid black;
+  border-radius:10px;
+  background-color: gold;
+  color:red;
+}

@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Snowy",
+    "version": "1.0",
+    "description": "Adds snow & lights to every webpage.",
+    "permissions": [
+      "scripting",
+      "tabs"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "css": ["snow.css"]
+      }
+    ]
+  }
+  

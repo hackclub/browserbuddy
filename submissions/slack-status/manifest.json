@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Slack Status",
+    "description": "Updates your Slack status based on your current tab",
+    "version": "1.0",
+    "action": {},
+    "background": {
+        "service_worker": "src/background.js",
+        "type": "module"
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "permissions": [
+        "background",
+        "cookies",
+        "scripting",
+        "tabs",
+        "storage"
+    ]
+}

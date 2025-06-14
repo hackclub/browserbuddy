@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RemindMe</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,400italic,800,800italic,700,700italic,900,900italic" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>RemindMe</h1>
+  </div>
+  <div class="content">
+    <input type="text" id="title" placeholder="Scholarship or College Name">
+    <textarea id="description" placeholder="Description"></textarea>
+    <input type="url" id="url" placeholder="Scholarship or College URL">
+    <input type="date" id="deadline">
+    <button id="saveBtn">Save</button>
+    <hr>
+    <h2>Upcoming Applications</h2>
+    <div id="scholarshipList" class="scrollable-list"></div>
+    <button id="checkNotification">Enable Notifications</button>
+    <button id="testNotification">Test Notification</button>
+  </div>
+  <script src="popup.js"></script>
+
+</body>
+</html>

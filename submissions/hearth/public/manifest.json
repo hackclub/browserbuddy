@@ -1,0 +1,17 @@
+{
+    "name": "Hearth Extension",
+    "description": "Build habits and watch your dragon grow!",
+    "version": "0.0.0.1",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Open the popup"
+    },
+
+    "icons": {
+        "16": "/assets/images/logos/red-egg-logo.png"
+    },
+    "permissions": [
+        "storage"
+    ]
+ }

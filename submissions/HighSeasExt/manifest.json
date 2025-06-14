@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "Ben's High Seas Extension",
+    "extension_id": "highseasext@benjs.uk",
+    "version": "1.3.0",
+    "description": "Adds a rating system to the High Seas Shipyard and more!",
+    "permissions": ["scripting", "activeTab", "storage"],
+    "host_permissions": [
+        "https://highseas.hackclub.com/*"
+    ],
+    "action": {
+        "default_title": "High Seas Extension",
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "128": "icon.png"
+    },
+    "content_scripts": [{
+        "matches": ["https://highseas.hackclub.com/*"],
+        "js": [
+            "ax.js",
+            "bp.js",
+            "content.js"
+        ]
+    }],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "highseasext@benjs.uk"
+        }
+    },
+    "background": {
+        "scripts": ["popup.js", "bp.js", "jq.js"],
+        "persistent": false,
+        "page": "popup.html",
+        "service_worker": "bp.js"
+    }
+}

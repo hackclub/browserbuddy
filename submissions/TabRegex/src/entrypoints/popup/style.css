@@ -1,0 +1,339 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #fbfbfb;
+  background-color: #161b23;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 360px;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-top: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#regex {
+  position: sticky;
+  top: 0;
+  padding: 1rem 0;
+  background-color: #161b23;
+  z-index: 1;
+}
+
+.trailing {
+  font-weight: bold;
+  padding: 0.15rem;
+  display: grid;
+  place-items: center;
+}
+
+.editor-wrapper {
+  display: flex;
+  font-family: "Droid Sans Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
+    monospace;
+  background-color: #0d1117;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 312px;
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+#editor {
+  flex: 1;
+  width: 100%;
+  text-align: left;
+  height: 3rem;
+  font-size: inherit;
+  padding: 0.7rem 0;
+  outline: none;
+  overflow-y: hidden;
+  overflow-x: auto;
+  text-overflow: initial;
+  overflow-wrap: initial !important;
+}
+
+#editor::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.tabs::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.input-group {
+  display: flex;
+}
+
+.option-group {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 12px;
+  margin-top: 1rem;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle .toggle-button {
+  position: relative;
+  border-radius: 1000px;
+}
+
+.toggle-button input,
+.tab-item input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.toggle-button input:checked ~ .thumb {
+  transform: translateX(100%);
+  background-color: #fbfbfb;
+}
+
+.toggle-button input:checked ~ .bg {
+  background-color: #535bf2;
+}
+
+.toggle-button .bg {
+  border-radius: 1000px;
+  width: 32px;
+  height: 20px;
+  background-color: #0d1117;
+  transition: background-color 100ms ease;
+}
+
+.toggle-button .thumb {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  transition: 200ms ease;
+  background-color: #fbfbfb;
+  border-radius: 100%;
+  left: 4px;
+  top: 4px;
+}
+
+.toggle .label {
+  margin-bottom: 1px;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: 500;
+  margin-left: 4px;
+  display: inline-block;
+}
+
+.execute {
+  display: flex;
+  cursor: pointer;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.8rem;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  background-color: #dc2626;
+}
+
+.execute:hover {
+  background-color: #b91c1c;
+}
+
+.execute svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.matched-tabs {
+  flex: 1;
+  height: 100%;
+}
+
+.matched-tabs h3 {
+  width: 100%;
+  text-align: left;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.tabs {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.tab-card {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: #0d1117;
+  border-radius: 0.25rem;
+  border: 1.5px solid transparent;
+  transition: border-color 200ms ease;
+  max-width: 313px;
+}
+
+.tab-card > div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: left;
+  width: 220px;
+}
+
+.tab-card .title {
+  font-size: 1rem;
+  font-weight: 500;
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab-card .url {
+  color: #cdcdcd;
+  font-size: 0.7rem;
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab-card img {
+  aspect-ratio: 1/1;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 0.25rem;
+}
+
+.tab-item input:checked ~ .tab-card {
+  border-color: #535bf2;
+}
+
+.tab-item input:checked ~ .tab-card::after {
+  content: "";
+  position: absolute;
+  height: 0.5rem;
+  width: 0.5rem;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.15rem;
+  background-color: #535bf2;
+  background-image: url("data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjRweCIgZmlsbD0iI2ZiZmJmYiI+PHBhdGggZD0ibTM4Mi0zNTQgMzM5LTMzOXExMi0xMiAyOC0xMnQyOCAxMnExMiAxMiAxMiAyOC41VDc3Ny02MzZMNDEwLTI2OHEtMTIgMTItMjggMTJ0LTI4LTEyTDE4Mi00NDBxLTEyLTEyLTExLjUtMjguNVQxODMtNDk3cTEyLTEyIDI4LjUtMTJ0MjguNSAxMmwxNDIgMTQzWiIvPjwvc3ZnPg==");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.75rem 0.75rem;
+  line-height: 0.5rem;
+}
+
+.no-tabs-found,
+.instructions {
+  padding: 2rem 1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+kbd {
+  padding: 0.05rem 0.25rem;
+  border: 1px solid #242c37;
+  box-shadow: 0 2px 0 0 #242c37;
+  transform: translateY(-1px);
+  display: inline-block;
+  background-color: rgba(43, 42, 42, 0.12);
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+.invalid {
+  color: #e94034;
+}
+
+.globe_black {
+  display: none;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #0d1117;
+    background-color: #fbfbfb;
+  }
+  .globe {
+    display: none;
+  }
+  .globe_black {
+    display: initial;
+  }
+  .invalid {
+    color: #dc2626;
+  }
+  kbd {
+    background-color: #eaeaea;
+    border-color: #cacaca;
+    box-shadow: 0 2px 0 0 #cacaca;
+  }
+  #regex {
+    background-color: #fbfbfb;
+  }
+  .toggle-button .bg {
+    background-color: #cacaca;
+  }
+  .editor-wrapper {
+    background-color: #ffffff;
+    border: 1.5px solid rgba(0, 0, 0, 0.12);
+  }
+  .execute {
+    color: #fbfbfb;
+  }
+  .tab-card {
+    background-color: #ffffff;
+    border-color: #eaeaea;
+  }
+  .tab-card .url {
+    color: #3d3d3d;
+  }
+}

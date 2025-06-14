@@ -1,0 +1,49 @@
+{
+  "name": "BrowseInsight",
+  "version": "1.0.0",
+  "description": "Privacy-focused browsing analytics that stores all data locally",
+  "manifest_version": 3,
+  "author": "JasonLovesDoggo",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "unlimitedStorage",
+    "history",
+    "idle",
+    "webNavigation",
+    "alarms"
+  ],
+  "optional_permissions": [
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "background.bundle.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["engagement.bundle.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "dashboard.html",
+    "default_icon": {
+      "128": "assets/icons/icon.png"
+    }
+  },
+  "icons": {
+    "128": "assets/icons/icon.png"
+  },
+  "options_ui": {
+    "page": "settings.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

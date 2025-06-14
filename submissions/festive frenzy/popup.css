@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 288.66px;
+  height: 369.34px;
+  background-image: url('https://cloud-c99ep0air-hack-club-bot.vercel.app/0menu.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+button {
+  background-color: #EB5747;
+  color: #1B1A18;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  width: 160px;
+  height: 37px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  margin-bottom: 4.6%;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  opacity: 1;
+}

@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"');
+@import url("https://www.nerdfonts.com/assets/css/webfont.css");
+
+body {
+  background-color: #1e1e1e;
+  color: #f7fff7;
+  text-align: center;
+  font-family: "Open Sans", "Noto Sans JP", sans-serif;
+}
+
+html, body {
+  width: 300px;
+  height: 300px;
+  margin: 0; /* Avoid default margin */
+  padding: 0; /* Avoid default padding */
+}
+
+.smallicon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+button {
+  background-color: #0a0a0a;
+  color: #f7fff7;
+  border: #000000;
+  border-radius: 10px;
+  padding: 5px 6px;
+}
+
+.platform,
+.vocalist {
+  font-weight: 5DO 00;
+  color: #6ca6c1;
+  text-decoration: none;
+}
+
+.smallinfo {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.info {
+  display: inline-block;
+  background-color: #1e1e1e;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+
+.main {
+  position: relative;
+  background-image: url("/assets/placeholder/badfon-vocaloid-hatsune-miku-3507.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+  padding: 20px 6px;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/assets/placeholder/badfon-vocaloid-hatsune-miku-3507.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.svg {
+  width: 30px;
+  height: 30px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.vocalists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.vocalist-image {
+  max-width: 90px;
+  max-height: 100px;
+  border-radius: 8px;
+}
+
+.vocalist-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.vocalist-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vocalists {
+  align-items: center;
+}
+
+.vocaltype {
+  font-weight: bold;
+  font-size: 10px;
+  border-radius: 8px;
+  padding: 2px 6px;
+  color: black;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.UTAU {
+  background-color: greenyellow;
+}
+
+.VOCALOID {
+  background-color: aquamarine;
+}
+
+.SynthesizerV {
+  background-color: deeppink;
+}
+
+.other {
+  background-color: gray;
+}
+
+.Producer {
+  background-color: #ffd310;
+}
+
+.currentlylistening {
+  font-weight: bold;
+  background-color: #000000;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 2px 6px;
+  display: inline-block;
+}
+
+h3 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  color: white;
+  font-weight: 200;
+  font-size: small;
+}

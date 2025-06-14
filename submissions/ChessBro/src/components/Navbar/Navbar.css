@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 0 5px;
+  border-bottom: 2px solid #e6e6e6;
+  width: 100%;
+}
+
+#navbar_heading {
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  color: var(--theme_2);
+  cursor: pointer;
+}
+
+#logo {
+  height: 40px;
+  margin-right: 1px;
+}

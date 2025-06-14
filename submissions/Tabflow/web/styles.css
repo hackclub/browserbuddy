@@ -1,0 +1,174 @@
+@font-face {
+  font-family: "Mont-Heavy";
+  src: url("../src/fonts/Mont-Heavy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "ZTGatha-SemiBold";
+  src: url("../src/fonts/ZTGatha-SemiBold.otf") format("opentype");
+}
+
+body {
+  margin: 0;
+  font-family: "ZTGatha-SemiBold", Arial, sans-serif;
+  background: linear-gradient(135deg, #1c1627, #1a1a1a);
+  color: #f0def7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  max-width: 890px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.header img {
+  width: 96px;
+  height: 96px;
+  margin-right: 20px;
+}
+
+h1 {
+  font-family: "Mont-Heavy", Arial, sans-serif;
+  font-size: 48px;
+  color: #bb86fc;
+  margin: 0;
+}
+
+h2 {
+  font-family: "Mont-Heavy", Arial, sans-serif;
+  font-size: 20px;
+  color: #bb86fc;
+  margin-bottom: 16px;
+}
+
+.lists {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.list {
+  background-color: rgb(18 16 25 / 78%);
+  border-radius: 12px;
+  padding: 16px;
+  width: 400px;
+  height: 425px;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar */
+ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+ul::-webkit-scrollbar-track {
+  background: #1a1522;
+  border-radius: 4px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #2f2536;
+  border-radius: 4px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: #00000000;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+li:hover {
+  background-color: #372d43;
+}
+
+li .number {
+  font-weight: bold;
+  font-size: 15px;
+  margin-right: 8px;
+  font-family: "ZTGatha-SemiBold", Arial, sans-serif;
+  text-align: left;
+}
+
+li img {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+li .title {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 13px;
+  font-family: "ZTGatha-SemiBold", Arial, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 8px;
+}
+
+/* Style for the trash button (only in "Move to this Window" list) */
+li button {
+  background: rgb(41 25 55 / 80%);
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+li button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+li button img {
+  margin: 0;
+}
+
+#move-tabs-button {
+  background-color: #bb86fc;
+  border: none;
+  color: #1a1a1a;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  font-family: "Mont-Heavy", Arial, sans-serif;
+}
+
+#move-tabs-button:hover {
+  background-color: #794baf;
+}

@@ -1,0 +1,9 @@
+.acc_rep_box {
+  margin: 25px;
+  margin-bottom: 20px;
+  background-color: rgba(169, 169, 169, 0.1);
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: min-content;
+}

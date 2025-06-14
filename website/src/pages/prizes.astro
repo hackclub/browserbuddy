@@ -1,0 +1,143 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/card.astro";
+---
+
+<Layout title="What's in it for you?">
+  <main>
+    <div class="cta-text">
+      <h1>What's in it for you?</h1>
+    </div>
+    <p class="instructions">
+      Once you've received your grant, follow instructions to get your chrome
+      developer account and publish to the chrome web store <a
+        href="https://developer.chrome.com/docs/webstore/publish">here</a
+      >.
+    </p>
+  </main>
+
+  <div class="info">
+    <ul role="list" class="link-card-grid">
+      <Card
+        title="JavaScript.Info E-Books"
+        link="https://javascript.info/ebook"
+        description="The grant allows you to get the three e-book bundle of JavaScript.info"
+        image="/screenshots/javascript-info-preview.png"
+        height="350px"
+      />
+      <Card
+        title="ChatGPT"
+        link="https://chatgpt.com/"
+        description="You can get one month of ChatGPT Plus for $20 and $5 worth of API credits or $25 worth of API credits"
+        image="/screenshots/chatgpt.png"
+        height="350px"
+      />
+      <Card
+        title="Claude"
+        link="https://claude.ai"
+        description="You can get one month of Claude Pro for $20 and $5 worth of API credits or Anthropic API credits"
+        image="/screenshots/claude.png"
+        height="350px"
+      />
+      <Card
+        title="Railway"
+        image="/screenshots/railway.png"
+        description="You can covert up to 5 months worth of Railway hosting using the Hobby plan."
+        link="https://railway.app/"
+        height="350px"
+      />
+      <Card
+        title="Hetzner"
+        image="/screenshots/hetzner.jpeg"
+        description="The $25 enables you to cover the cost of Hetzner Cloud, Storage Share or Storage Boxes."
+        link="https://www.hetzner.com/"
+        height="350px"
+      />
+      <Card
+        title="Namecheap"
+        image="/screenshots/namecheap.png"
+        description="You can get a domain name that costs up to $25 on Namecheap"
+        link="https://www.namecheap.com/"
+        height="350px"
+      />
+      <Card
+        title="Google Play Console"
+        image="/screenshots/google-play.png"
+        description="If you have ever wanted to publish your Android application on the Google Play Store, now is the time for that."
+        link="https://play.google.com/console/"
+        height="350px"
+      />
+      <Card
+        title="Procreate"
+        image="/screenshots/procreate.png"
+        description="Interested in digital art? You can get Procreate for iPadOS or iOS."
+        link="https://apps.apple.com/app/apple-store/id425073498?pt=345446&ct=procreate.com&mt=8"
+        height="350px"
+      />
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .instructions {
+    margin: 0 1em;
+    font-size: 1.5rem;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+    display: inline-block;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .info {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .info .link-card-grid {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    main {
+      height: 20vh;
+      margin-top: 8rem;
+      width: 100%;
+    }
+
+    .cta-text {
+      width: 100%;
+    }
+
+    .cta-text h2 {
+      font-size: 1.6rem;
+      width: 100%;
+    }
+
+    .link-card-grid {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .info {
+      margin: 2rem 0;
+      width: 100%;
+    }
+  }
+</style>

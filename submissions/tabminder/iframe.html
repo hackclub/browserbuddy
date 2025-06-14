@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TabMinder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="iframe.css">
+</head>
+
+<body class="dark-mode">
+  <div class="header">
+    <div class="window-title">TabMinder</div>
+    <div class="controls">
+      <div class="page-title" id="pageTitle"></div>
+      <div class="btn-group">
+        <button id="themeToggleBtn" title="Toggle Theme">🌙</button>
+        <button id="closeBtn" title="Close">X</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <form id="addReminderForm">
+      <input type="text" id="reminderText" placeholder="Reminder Text" required>
+      <button type="submit">Add Reminder</button>
+    </form>
+    <div id="remindersList">
+      <!-- reminders will be inserted here dynamically -->
+    </div>
+  </div>
+  <script src="interface.js"></script>
+</body>
+
+</html>

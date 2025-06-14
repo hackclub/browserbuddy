@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Expense Tracker",
+  "version": "1.0",
+  "description": "Quickly log your expenses and copy or export them.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

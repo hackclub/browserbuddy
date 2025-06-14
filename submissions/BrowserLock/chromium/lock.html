@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Browser Locked</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+    }
+    .container {
+      text-align: center;
+      padding: 40px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #1a73e8;
+      margin-bottom: 20px;
+    }
+    #timer {
+      font-size: 48px;
+      font-weight: bold;
+      color: #333;
+      margin: 20px 0;
+    }
+    .message {
+      color: #666;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Browser Locked</h1>
+    <div id="timer">00:00:00</div>
+    <p class="message">Stay focused! Your browser will unlock when the timer reaches zero.</p>
+  </div>
+  <script src="lock.js"></script>
+</body>
+</html> 

@@ -1,0 +1,18 @@
+.report-card {
+  height: max-content;
+  overflow: hidden;
+  padding: 7px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: top;
+  background-color: darkslategray;
+  width: max-content;
+  justify-self: center;
+}
+.move_quality_list {
+  align-self: flex-start;
+  justify-content: start;
+  list-style: none;
+}

@@ -1,0 +1,79 @@
+.domain-spotlight {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.domain-spotlight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.domain-spotlight-header h3 {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.domain-category {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.domain-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.domain-stat-card {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.domain-stat-card h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0 0 8px 0;
+}
+
+.domain-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.domain-chart-container {
+  margin-top: 24px;
+}
+
+.domain-chart-container h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+
+.domain-chart {
+  height: 300px;
+  width: 100%;
+}
+
+.domain-spotlight.loading,
+.domain-spotlight.error {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-secondary);
+}

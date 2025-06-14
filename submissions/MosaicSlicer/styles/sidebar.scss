@@ -1,0 +1,150 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+#sidebar-container {
+  height: 100%;
+  width: var(--sidebar-width);
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar {
+  flex-grow: 1;
+  width: 100%;
+  height: calc(100vh - var(--tab-height));
+  padding: 0.5rem;
+  gap: 0.5rem;
+
+  background-color: var(--background-2);
+  border-left: 1px solid var(--grey-2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  & > * {
+    width: 100%;
+  }
+
+  h3 {
+    margin: 0.5rem;
+  }
+
+  #profile-selector-div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #profile-selector-span {
+    flex-grow: 1;
+    max-width: unset;
+    min-width: unset;
+  }
+
+  #searchbar {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  #sections {
+    display: flex;
+    flex-grow: 1;
+
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}
+
+.section {
+  border-top: 0.5px solid var(--grey);
+  margin-right: 0.25rem;
+
+  .section-title-container {
+    font-size: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.4rem;
+    user-select: none;
+    cursor: pointer;
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      font-weight: 500;
+
+      cura-icon {
+        transition: 0.1s ease-in-out;
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+
+      cura-icon {
+        transition: 0.1s ease-in-out;
+        margin: 0.25rem;
+        height: 1rem;
+        width: 1rem;
+      }
+    }
+
+    &:hover {
+      background-color: var(--grey-2);
+    }
+  }
+
+  & > .settings-group {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.section[data-closed="true"] {
+  .settings-group {
+    display: none;
+  }
+
+  .section-title-container {
+    .right {
+      cura-icon {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+.section[data-should_show="false"] {
+  display: none;
+}
+.section[data-is_enabled="false"] {
+  display: none;
+}

@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Web Highlighter & Summarizer",
+  "version": "1.0",
+  "description": "Automatically highlights key points in articles and provides a summary.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["*://*/*"],
+  "web_accessible_resources": [{
+      "resources": ["popup.html"],
+      "matches": ["<all_urls>"]
+  }],
+  "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+  }]
+}

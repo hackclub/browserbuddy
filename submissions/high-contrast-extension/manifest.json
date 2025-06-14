@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "High Contrast Mode",
+  "version": "1.0",
+  "description": "Applies high contrast styling to websites for improved readability",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["contrast.css"],
+      "run_at": "document_end"
+    }
+  ]
+}

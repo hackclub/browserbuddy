@@ -1,0 +1,28 @@
+.donut-chart {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #4caf50 0% 75%,  /* Green part (adjust percentage) */
+      #ddd 75% 100%    /* Grey remaining part */
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+    position: relative;
+  }
+  
+  .donut-chart-inner {
+    width: 60%;
+    height: 60%;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 25px;
+  }
+  

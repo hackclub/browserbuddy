@@ -1,0 +1,90 @@
+<style>
+    body {
+        padding: 20px;
+        min-width: 400px;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #0078d4;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+
+    button.secondary {
+        background-color: #000000;
+        color: #fff;
+    }
+
+    button.secondary:hover {
+        background-color: #eaeaea;
+        color: #000000;
+    }
+
+    button:hover {
+        background-color: #005a9e;
+    }
+
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    #rulesContainer {
+        margin-top: 20px;
+    }
+
+    .rule {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .rule span {
+        margin-top: 10px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .rule select {
+        width: 150px;
+    }
+
+    .rule button {
+        margin-top: 0px;
+    }
+
+    .rule button {
+        padding: 5px;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+
+    .rule button:hover {
+        background-color: #ff3333;
+    }
+</style>
+
+<body>
+    <h1>Customize Conversion Preferences</h1>
+    <h3 id="status"></h3>
+    
+    <div id="rulesContainer">
+    </div>
+    
+    <div style="display: flex; gap: 4px">
+        <button id="saveBtn">Save</button>
+        <button id="addRuleBtn" class="secondary">Add rule</button>
+    </div>
+
+    <script src="/popup.js"></script>
+</body>

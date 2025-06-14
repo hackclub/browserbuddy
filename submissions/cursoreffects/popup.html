@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cursor Effects</title>
+  <style>
+    body {
+      width: 250px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .control-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    select, input {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .toggle input {
+      width: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Cursor Effects</h2>
+  
+  <div class="control-group toggle">
+    <label for="cursor-enabled">Enable Cursor Effects:</label>
+    <input type="checkbox" id="cursor-enabled" checked>
+  </div>
+  
+  <div class="control-group">
+    <label for="cursor-type">Cursor Effect Type:</label>
+    <select id="cursor-type">
+      <option value="trail">Trailing Dots</option>
+      <option value="glow">Glowing Effect</option>
+      <option value="sparkle">Sparkle Effect</option>
+      <option value="replace">Replace Cursor</option>
+    </select>
+  </div>
+  
+  <div class="control-group">
+    <label for="cursor-color">Cursor Color:</label>
+    <input type="color" id="cursor-color" value="#FF5733">
+  </div>
+  
+  <div class="control-group">
+    <label for="cursor-size">Cursor Size:</label>
+    <input type="range" id="cursor-size" min="5" max="30" value="10">
+    <span id="size-value">10px</span>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

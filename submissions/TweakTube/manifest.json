@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "TweakTube",
+    "version": "1.0.0",
+    "description": "Helps to tweak youtube to make it minimalistic",
+    "permissions": ["activeTab","scripting","storage"],
+    "icons": {
+        "16": "assets/logo_16.png",
+        "32": "assets/logo_32.png",
+        "48": "assets/logo_48.png",
+        "128": "assets/logo_128.png"
+    },
+    "host_permissions":["https://*.youtube.com/*"],
+    "background": {
+    "service_worker": "background.js"
+  },
+    "content_scripts": [
+        {
+          "js": ["scripts/content.js"],
+          "matches": [
+            "https://*.youtube.com/*",
+            "https://youtube.com/*"
+          ]
+        }
+      ],
+    "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "assets/logo_128.png"
+    }
+  }

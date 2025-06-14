@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Visual Timer",
+  "version": "1.4.4",
+  "description": "A visual timer that changes color over time to help track time visually, with adjustable opacity",
+  "permissions": [
+    "storage", 
+    "alarms", 
+    "idle", 
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["overlay.css"],
+      "js": ["content-script.js"],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon128.png"
+  }
+}
