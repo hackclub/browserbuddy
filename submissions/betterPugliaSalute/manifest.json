@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "betterPugliaSalute",
+  "version": "0.1.0",
+  "description": "An extension that enhances the Apulian Sanity website.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "default_locale": "it",
+  "host_permissions": [
+    "https://www.sanita.puglia.it/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/pugliasalute-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.sanita.puglia.it/*"
+      ],
+      "js": [
+        "scripts/content.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "assets/pugliasalute-16.png",
+    "48": "assets/pugliasalute-48.png",
+    "128": "assets/pugliasalute-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "betterpugliasalute@crookedog.it"
+    }
+  }
+}
