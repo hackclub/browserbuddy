@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Starlapse",
+  "version": "1.0.0",
+  "description": "Watch a black hole suck in your webpage and invert it into light/dark mode!",
+  "author": "Raghav Karn",
+
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Starlapse"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
