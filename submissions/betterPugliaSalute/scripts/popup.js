@@ -20,7 +20,27 @@ document.querySelectorAll('[data-i18n]').forEach(el => {
     if (msg) el.textContent = msg;
 });
 
-async function loadFormData() {
+function formDataToObject(formData) {
+    const data = {};
+    for (const [key, value] of formData.entries()) {
+        data[key] = value;
+    }
+    return data;
+}
+
+document.getElementById('rd-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    try {
+        const data = formDataToObject(formData);
+        await browser.storage.local.set({ [STORAGE_KEY]: data });
+    } catch (e) {
+        console.error('Error saving form data:', e);
+    }
+});
+
+(async () => {
     try {
         const result = await browser.storage.local.get(STORAGE_KEY);
         const data = result[STORAGE_KEY] || {};
@@ -35,29 +55,4 @@ async function loadFormData() {
     } catch (e) {
         console.error('Error loading form data:', e);
     }
-}
-
-function formDataToObject(formData) {
-    const data = {};
-    for (const [key, value] of formData.entries()) {
-        data[key] = value;
-    }
-    return data;
-}
-
-async function saveFormData(formData) {
-    try {
-        const data = formDataToObject(formData);
-        await browser.storage.local.set({ [STORAGE_KEY]: data });
-    } catch (e) {
-        console.error('Error saving form data:', e);
-    }
-}
-
-document.getElementById('rd-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    await saveFormData(formData);
-});
-
-loadFormData();
+})();
