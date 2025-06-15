@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  height: 450px;
+  background: radial-gradient(circle at center, #0f0f23, #000000);
+  color: #ffffff;
+  font-family: 'Courier New', 'doto';
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.5" fill="white" opacity="0.8"/><circle cx="15" cy="8" r="0.3" fill="white" opacity="0.6"/><circle cx="8" cy="15" r="0.4" fill="white" opacity="0.7"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+  opacity: 0.3;
+  animation: starfield 20s linear infinite;
+}
+
+small {
+  font-size: 14px;
+  font-family: 'major mono display';
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+@keyframes starfield {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+.container {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 24px;
+  font-family: 'major mono display';
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #8a2be2;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.black-hole-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 30px;
+}
+
+.black-hole {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 30%, #1a1a2e 35%, #16213e 45%, #0f0f23 60%, #000000 100%);
+  animation: rotate 3s linear infinite;
+}
+
+.event-horizon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  background: #000000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+    0 0 20px #8a2be2,
+    inset 0 0 20px #4a0e4e;
+}
+
+.accretion-disk {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 0deg,
+    #ff6b35 0deg,
+    #f7931e 60deg,
+    #8a2be2 120deg,
+    #3a86ff 180deg,
+    #06ffa5 240deg,
+    #ff6b35 300deg,
+    #ff6b35 360deg
+  );
+  animation: accretion-spin 2s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes accretion-spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.particle:nth-child(1) {
+  top: 20%;
+  left: 80%;
+  animation: spiral-in 3s ease-in-out infinite;
+}
+
+.particle:nth-child(2) {
+  top: 80%;
+  left: 20%;
+  animation: spiral-in 3s ease-in-out infinite 0.5s;
+}
+
+.particle:nth-child(3) {
+  top: 50%;
+  left: 90%;
+  animation: spiral-in 3s ease-in-out infinite 1s;
+}
+
+.particle:nth-child(4) {
+  top: 10%;
+  left: 40%;
+  animation: spiral-in 3s ease-in-out infinite 1.5s;
+}
+
+.particle:nth-child(5) {
+  top: 90%;
+  left: 60%;
+  animation: spiral-in 3s ease-in-out infinite 2s;
+}
+
+.particle:nth-child(6) {
+  top: 30%;
+  left: 10%;
+  animation: spiral-in 3s ease-in-out infinite 2.5s;
+}
+
+.particle:nth-child(7) {
+  top: 70%;
+  left: 90%;
+  animation: spiral-in 3s ease-in-out infinite 0.8s;
+}
+
+.particle:nth-child(8) {
+  top: 40%;
+  left: 85%;
+  animation: spiral-in 3s ease-in-out infinite 1.3s;
+}
+
+@keyframes spiral-in {
+  0% {
+    transform: rotate(0deg) translateX(60px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateX(0px) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+.suction-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  border: 2px solid rgba(138, 43, 226, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: suction-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes suction-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.1;
+  }
+}
+
+.controls {
+  margin: 20px 0;
+}
+
+.cosmic-btn {
+  background: linear-gradient(45deg, #8a2be2, #4a0e4e);
+  border: 2px solid #8a2be2;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cosmic-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cosmic-btn:hover::before {
+  left: 100%;
+}
+
+.cosmic-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+}
+
+.cosmic-btn.deactivate {
+  background: linear-gradient(45deg, #ff4757, #c44569);
+  border-color: #ff4757;
+}
+
+.cosmic-btn.active {
+  animation: button-pulse 1s ease-in-out infinite;
+}
+
+@keyframes button-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.status {
+  font-size: 12px;
+  margin: 15px 0;
+  color: #8a2be2;
+  font-style: italic;
+}
+
+.info {
+  margin-top: 15px;
+  font-size: 10px;
+  color: #666;
+}
+
+.black-hole.active {
+  animation: rotate 0.5s linear infinite, grow 2s ease-in-out;
+}
+
+.black-hole.active .suction-effect {
+  animation: suction-pulse 0.3s ease-in-out infinite;
+}
+
+@keyframes grow {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
