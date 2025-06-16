@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "betterSummerHC",
+  "version": "0.1.0",
+  "description": "An extension that makes the Summer HackClub experience better with new features!",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://summer.hackclub.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/favicon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://summer.hackclub.com/*"
+      ],
+      "js": [
+        "scripts/browser-polyfill.min.js",
+        "scripts/content.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://summer.hackclub.com/shop"
+      ],
+      "js": [
+        "scripts/browser-polyfill.min.js",
+        "scripts/shop.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "assets/favicon16.png",
+    "48": "assets/favicon48.png",
+    "128": "assets/favicon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "bettersummerhc@paoloo.it"
+    }
+  }
+}

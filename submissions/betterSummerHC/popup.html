@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="styles/popup.css">
+  <script defer src="scripts/browser-polyfill.min.js"></script>
+  <script src="popup.js" defer></script>
+</head>
+
+<body>
+  <div class="tabs">
+    <button data-tab="shop" data-url="/shop" class="active">Shop</button>
+    <button data-tab="new">New Features</button>
+  </div>
+
+  <div class="content active" id="shop">
+    <div class="hidden">
+
+      <p>Hidden items</p>
+      <div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content" id="new">
+    <h2>New Features</h2>
+    <p>Stay tuned for more updates!</p>
+  </div>
+</body>
+
+</html>
