@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Cartoonify",
+  "version": "1.0",
+  "description": "A Chrome extension that cartoonifies web pages",
+  "icons": {
+    "128": "media/icon.jpg"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "media/icon.jpg"
+  },
+  "web_accessible_resources": [{
+  "resources": ["media/doodles.jpg", "media/turtle.gif", "media/Boing.mp3", "media/Resonance.mp3", "media/kachow.mp3", "media/Boom.mp3", "media/Pow.mp3" , "media/Zap.mp3", "media/Chill.mp3", "media/spongebob.png", "media/pig.png", "media/icon.jpg", "media/mousecursor.png", "media/mouseclicker.png", "media/cat.png", "media/chillguy.png"], 
+  "matches": ["<all_urls>"]
+    
+  }]
+}
