@@ -165,7 +165,7 @@ function applyStyles() {
   
   styleEl.textContent = `
   * {
-      font-family: 'Bangers', cursive !important;
+      font-family: 'Bangers', 'Comic Sans MS', cursive, sans-serif !important;
       color: ${mainColor};
       font-weight: bold;
       cursor: url('${cursorURL}') 16 16, auto !important;
@@ -293,11 +293,17 @@ function applyStyles() {
   
   document.head.appendChild(styleEl);
 
-  
-  const fontLink = document.createElement('link');
-  fontLink.href = 'https://fonts.googleapis.com/css2?family=Bangers&display=swap';
-  fontLink.rel = 'stylesheet';
-  document.head.appendChild(fontLink);
+  try {
+    const fontLink = document.createElement('link');
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Bangers&display=swap';
+    fontLink.rel = 'stylesheet';
+    fontLink.onerror = () => {
+      console.log('Cartoonify: Google Fonts blocked by CSP, using fallback fonts');
+    };
+    document.head.appendChild(fontLink);
+  } catch (error) {
+    console.log('Cartoonify: Could not load Google Fonts, using fallback fonts');
+  }
   
   
   document.addEventListener('click', function(e) {
