@@ -1,4 +1,33 @@
-document.querySelectorAll('.tabs button').forEach(bt => {
+const tabsBtns = document.querySelectorAll('.tabs button');
+
+function toggleTab(tabName) {
+    tabsBtns.forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.content').forEach(tab => tab.classList.remove('active'));
+
+    const bt = document.querySelector(`button[data-tab="${tabName}"]`);
+    if (!bt) {
+        console.error(`Button for tab '${tabName}' not found.`);
+        return;
+    }
+    bt.classList.add('active');
+    document.querySelector(`#${bt.dataset.tab}`).classList.add('active');
+}
+
+tabsBtns.forEach(bt => {
+    if (bt.dataset.url != undefined) {
+        const url = `https://summer.hackclub.com${bt.dataset.url}`;
+
+        browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
+            const currentTab = tabs[0];
+            if (currentTab.url === url) {
+                console.log(`Current tab URL matches: ${url}`);
+                toggleTab(bt.dataset.tab);
+            } else {
+                console.log(`Current tab URL does not match: ${currentTab.url}`);
+            }
+        }).catch(err => console.error('Error querying tabs:', err));
+    }
+
     bt.addEventListener('click', () => {
         if (bt.dataset.url != undefined) {
             const url = `https://summer.hackclub.com${bt.dataset.url}`;
@@ -13,11 +42,7 @@ document.querySelectorAll('.tabs button').forEach(bt => {
                 }
             }).catch(err => console.error('Error querying tabs:', err));
         }
-
-        document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
-        document.querySelectorAll('.content').forEach(tab => tab.classList.remove('active'));
-        bt.classList.add('active');
-        document.querySelector(`#${bt.dataset.tab}`).classList.add('active');
+        toggleTab(bt.dataset.tab);
     });
 });
 
