@@ -1,17 +1,18 @@
 {
   "manifest_version": 3,
   "name": "Starlapse",
-  "version": "1.0.0",
-  "description": "Watch a black hole suck in your webpage and invert it into light/dark mode!",
+  "version": "2.0.0",
+  "description": "The ultimate galactic reading experience! Transform any webpage into an interactive galactic journey with multiple galaxies, cosmic events, planetary systems!",
   "author": "Raghav Karn",
 
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "scripting"
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Starlapse"
+    "default_title": "Starlapse - Galactic Reader"
   },
   "content_scripts": [
     {
