@@ -9,7 +9,6 @@ const shopFn = async (loc = window.location) => {
     // made with AI because it's too hard. sorry :(
     await (
         new Promise(resolve => {
-            console.log("Waiting for shop items to load...");
             const checkExist = setInterval(() => {
                 if (document.querySelector('.card-with-gradient[data-padding="md"]')) {
                     clearInterval(checkExist);
@@ -61,7 +60,6 @@ const shopFn = async (loc = window.location) => {
 
                 await browser.storage.sync.set({ shopHidden });
                 card.style.display = "none";
-                console.log(`Item with ID '${ID}' hidden.`);
             }
         });
 
@@ -70,9 +68,7 @@ const shopFn = async (loc = window.location) => {
 
     const result = await browser.storage.sync.get(["shopHidden"]);
     if (!result) {
-        browser.storage.sync.set({ shopHidden: [] }, () => {
-            console.log("No hidden items found. Creating new list.");
-        });
+        browser.storage.sync.set({ shopHidden: [] }, () => {});
     }
 
     const shopHidden = result.shopHidden || [];
@@ -84,11 +80,10 @@ const shopFn = async (loc = window.location) => {
             item.style.display = "none";
         }
     });
-    console.log("Hide buttons set up for shop items.");
-    console.log("Shop items hidden based on stored preferences.");
+    console.info("Hide buttons set up for shop items.");
+    console.info("Shop items hidden based on stored preferences.");
 
     browser.runtime.onMessage.addListener((message) => {
-        console.log("Received message:", message);
         if (message.action === 'unhide') {
             const id = message.id.split(".")[0].trim();
             const item = Array.from(cards)[id];
@@ -98,9 +93,7 @@ const shopFn = async (loc = window.location) => {
             item.style.display = 'block';
             browser.storage.sync.get(["shopHidden"]).then(res => {
                 const updated = res.shopHidden.filter(i => i !== id);
-                browser.storage.sync.set({ shopHidden: updated }).then(() => {
-                    console.log(`Item with ID '${id}' unhidden.`);
-                });
+                browser.storage.sync.set({ shopHidden: updated })
             });
         }
     });
@@ -111,7 +104,6 @@ const shopFn = async (loc = window.location) => {
  * https://stackoverflow.com/a/52809105
  */
 window.navigation.addEventListener("navigate", (event) => {
-    console.log("Navigation event detected. Current URL:", event.destination.url);
     shopFn(event.destination);
 });
 shopFn();

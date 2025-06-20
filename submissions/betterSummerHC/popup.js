@@ -20,10 +20,7 @@ tabsBtns.forEach(bt => {
         browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
             const currentTab = tabs[0];
             if (currentTab.url === url) {
-                console.log(`Current tab URL matches: ${url}`);
                 toggleTab(bt.dataset.tab);
-            } else {
-                console.log(`Current tab URL does not match: ${currentTab.url}`);
             }
         }).catch(err => console.error('Error querying tabs:', err));
     }
@@ -31,13 +28,10 @@ tabsBtns.forEach(bt => {
     bt.addEventListener('click', () => {
         if (bt.dataset.url != undefined) {
             const url = `https://summer.hackclub.com${bt.dataset.url}`;
-            console.log(`Opening URL: ${url}`);
 
             browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
                 const currentTab = tabs[0];
-                if (currentTab.url === url) {
-                    console.log('URL is already open in the current tab.');
-                } else {
+                if (!currentTab.url === url) {
                     browser.tabs.update(currentTab.id, { url: url });
                 }
             }).catch(err => console.error('Error querying tabs:', err));
@@ -50,13 +44,12 @@ tabsBtns.forEach(bt => {
     const result = await browser.storage.sync.get(["shopHidden"]);
     if (!result) {
         browser.storage.sync.set({ shopHidden: [] }, () => {
-            console.log("No hidden items found. Creating new list.");
+            console.warn("No hidden items found. Creating new list.");
         });
         return;
     }
 
     const shopHidden = result.shopHidden || [];
-    console.log("Loaded hidden items:", shopHidden);
 
     const hideDiv = document.querySelector('.hidden > div');
     hideDiv.innerHTML = '';
@@ -71,7 +64,6 @@ tabsBtns.forEach(bt => {
                 const updated = res.shopHidden.filter(i => i !== item);
                 browser.storage.sync.set({ shopHidden: updated }).then(() => {
                     itemElement.remove();
-                    console.log(`Item '${item}' unhidden.`);
                 });
 
                 browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
