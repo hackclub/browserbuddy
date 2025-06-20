@@ -2,6 +2,21 @@ function getID(card, index) {
     return index + ". " + card.querySelector(".flex-grow h3.font-bold").textContent.trim();
 }
 
+function listenerFn(message) {
+    if (message.action === 'unhide') {
+        const id = message.id.split(".")[0].trim();
+        const item = Array.from(cards)[id];
+
+        if (!item) return;
+
+        item.style.display = 'block';
+        browser.storage.sync.get(["shopHidden"]).then(res => {
+            const updated = res.shopHidden.filter(i => i !== id);
+            browser.storage.sync.set({ shopHidden: updated })
+        });
+    }
+}
+
 const shopFn = async (loc = window.location) => {
     if (!(loc.url || loc.href).includes("shop"))
         return;
@@ -18,7 +33,7 @@ const shopFn = async (loc = window.location) => {
         })
     )
 
-    const cards = document.querySelectorAll('.card-with-gradient[data-padding="md"]');
+    const cards = document.querySelectorAll('.my-6 .flex.flex-col .card-with-gradient[data-padding="md"]');
 
     cards.forEach((card, index) => {
         const ID = getID(card, index);
@@ -83,20 +98,10 @@ const shopFn = async (loc = window.location) => {
     console.info("Hide buttons set up for shop items.");
     console.info("Shop items hidden based on stored preferences.");
 
-    browser.runtime.onMessage.addListener((message) => {
-        if (message.action === 'unhide') {
-            const id = message.id.split(".")[0].trim();
-            const item = Array.from(cards)[id];
-
-            if (!item) return;
-
-            item.style.display = 'block';
-            browser.storage.sync.get(["shopHidden"]).then(res => {
-                const updated = res.shopHidden.filter(i => i !== id);
-                browser.storage.sync.set({ shopHidden: updated })
-            });
-        }
-    });
+    try {
+        browser.runtime.onMessage.removeListener(listenerFn);
+    } catch (e) { } 
+    browser.runtime.onMessage.addListener(listenerFn);
 };
 
 /**

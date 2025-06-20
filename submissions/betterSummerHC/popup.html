@@ -9,8 +9,20 @@
 
 <body>
   <div class="tabs">
+    <button data-tab="general">General</button>
     <button data-tab="shop" data-url="/shop" >Shop</button>
     <button data-tab="new" class="active">New Features</button>
+  </div>
+
+  <div class="content" id="general">
+    <h2>General Settings</h2>
+
+    <div class="settings">
+      <label class="checkbox">
+        Hide Info buttons
+        <input type="checkbox" id="hide-info">
+      </label>
+    </div>
   </div>
 
   <div class="content" id="shop">

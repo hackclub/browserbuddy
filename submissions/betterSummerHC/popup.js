@@ -31,7 +31,7 @@ tabsBtns.forEach(bt => {
 
             browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
                 const currentTab = tabs[0];
-                if (!currentTab.url === url) {
+                if (!(currentTab.url === url)) {
                     browser.tabs.update(currentTab.id, { url: url });
                 }
             }).catch(err => console.error('Error querying tabs:', err));
@@ -80,3 +80,29 @@ tabsBtns.forEach(bt => {
 
     document.querySelector('.hidden').style.display = shopHidden.length > 0 ? 'block' : 'none';
 })().catch(err => console.error('Error loading hidden items:', err));
+
+// General
+const infoButton = document.querySelector("input#hide-info");
+
+if (infoButton) {
+    infoButton.addEventListener("change", async (e) => {
+        const hideInfoBanner = e.target.checked;
+        console.info("Setting hideInfoBanner to:", hideInfoBanner);
+
+        await browser.storage.sync.set({ hideInfoBanner });
+        console.info("hideInfoBanner updated in storage.");
+
+        browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
+            const activeTab = tabs[0];
+            browser.tabs.sendMessage(activeTab.id, { action: 'hideInfoBanner', force: hideInfoBanner })
+                .catch(err => console.warn('Content script may not be loaded in this tab:', err));
+        });
+    });
+
+    (async () => {
+        const result = await browser.storage.sync.get(["hideInfoBanner"]);
+        console.log(result)
+
+        infoButton.checked = result.hideInfoBanner || false;
+    })();
+}
