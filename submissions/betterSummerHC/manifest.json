@@ -24,6 +24,15 @@
         "scripts/content.js",
         "scripts/shop.js"
       ]
+    },
+    {
+      "matches": [
+        "https://summer.hackclub.com/*"
+      ],
+      "js": [
+        "scripts/firefoxfix.js"
+      ],
+      "world": "MAIN"
     }
   ],
   "icons": {

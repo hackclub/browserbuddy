@@ -103,8 +103,12 @@ const shopFn = async (loc = window.location) => {
  * Me del futuro: questo controlla se l'url è cambiato e esegue il codice
  * https://stackoverflow.com/a/52809105
  */
-window.navigation.addEventListener("navigate", (event) => {
-    shopFn(event.destination);
+// window.navigation.addEventListener("navigate", (event) => {
+//     shopFn(event.destination);
+// });
+// FIx for firefox from chatgpt 
+window.addEventListener("custom:navigation", (e) => {
+    shopFn(new URL(e.detail.url));
 });
 shopFn();
 
