@@ -85,7 +85,11 @@ div.title>button {
 
 #shop>.hidden {
     display: none;
+
     &>div {
+        overflow-y: auto;
+        max-height: 300px;
+        
         display: flex;
         flex-direction: column;
         gap: 4px;
