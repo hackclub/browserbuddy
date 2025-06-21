@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TraceChain — Daily Report</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            margin: 0;
+            padding: 24px;
+            color: #111;
+            background: #fafafa
+        }
+
+        h1 {
+            margin: 0 0 16px;
+            font-size: 24px
+        }
+
+        .section {
+            margin-bottom: 24px
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 12px;
+            background: #fff
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px
+        }
+
+        th,
+        td {
+            padding: 4px 6px;
+            border-bottom: 1px solid #eee;
+            text-align: left
+        }
+
+        tfoot td {
+            border-bottom: none
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 8px
+        }
+
+        .stat {
+            background: #f5f7ff;
+            border: 1px solid #dbe4ff;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 12px
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 2px;
+            color: #2f53ff
+        }
+
+        svg {
+            width: 100%;
+            max-height: 420px;
+            margin-top: 16px;
+            border: 1px solid #eee;
+            border-radius: 4px
+        }
+
+        @media print {
+            body {
+                padding: 0
+            }
+
+            h1 {
+                font-size: 22px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TraceChain — <span id="date"></span></h1>
+
+    <div id="timelineSec" class="section card">
+        <h2>Timeline</h2>
+        <table id="timelineTbl">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Domain</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="statsSec" class="section card">
+        <h2>Stats</h2>
+        <div id="statsGrid" class="stats-grid"></div>
+    </div>
+
+    <div id="graphSec" class="section card">
+        <h2>Journey Graph</h2>
+        <svg id="g" viewBox="0 0 800 450"></svg>
+    </div>
+    <script src="polyfill.js"></script>
+    <script src="graph-core.js"></script>
+    <script src="print.js"></script>
+</body>
+
+</html>
