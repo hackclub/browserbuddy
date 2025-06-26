@@ -36,17 +36,74 @@ h1 {
     justify-content: space-between;
 }
 
-.options {
-    display: flex;
-    flex-direction: column;
+.effects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 8px;
+    margin: 10px 0;
 }
 
-.options label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.effect-btn {
+    background-color: #ffd54f;
+    color: #333;
+    border: 3px solid #333;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: 'Bangers', cursive;
+    font-size: 14px;
     cursor: pointer;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.effect-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+    background-color: #ffecb3;
+}
+
+.effect-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.effect-btn.active {
+    background-color: #4caf50;
+    color: white;
+    text-shadow: 1px 1px 0 #333;
+}
+
+.effect-btn.active:hover {
+    background-color: #66bb6a;
+}
+
+.effect-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff9800, #ffc107, #ffeb3b, #8bc34a, #4caf50, #2196f3, #9c27b0, #e91e63);
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.effect-btn.active::before {
+    opacity: 0.3;
+    animation: rainbow-border 2s linear infinite;
+}
+
+@keyframes rainbow-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 button {
@@ -80,4 +137,22 @@ button:active {
 
 #outputText {
     margin: 0;
+}
+
+.peppa-section {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.peppa-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #ef5350;
+    box-shadow: 2px 2px 0 #333;
+    transition: transform 0.3s ease;
+}
+
+.peppa-img:hover {
+    transform: rotate(10deg) scale(1.1);
 }

@@ -2,18 +2,11 @@
 
 Transform any boring webpage into a comic book adventure with animations, games, and fun interactive elements!
 
-<div align="center">
-  <img src="media/chillguy.png" alt="Cartoonify Banner" width="400"/>
-</div>
-
+![Cartoonify Banner](media/chillguy.png)
 
 ## Description
 
 Cartoonify is a Chrome extension that adds comic book styling and fun interactive elements to any webpage. Turn your mundane web browsing into an exciting, cartoon-like experience complete with custom fonts, sound effects, animations, and mini-games.
-
-## Demo
-
-https://github.com/user-attachments/assets/b271ff2e-835b-4d6d-90ae-abfb96835ae9
 
 ## Features
 

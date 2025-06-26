@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="container">
+        <div class="peppa-section">
+            <img src="media/peppapig.png" alt="Peppa Pig" class="peppa-img">
+        </div>
         <h1>Cartoonify</h1>
         <div class="color-section">
             <div class="color-picker">
@@ -17,15 +20,15 @@
             </div>
             <div class="color-presets" id="presetColors"></div>
         </div>
-        <div class="options">
-            <label><input type="checkbox" id="enableSoundEffects" checked> Sound Effects</label>
-            <label><input type="checkbox" id="enableSpeechBubbles" checked> Speech Bubbles</label>
-            <label><input type="checkbox" id="enableTurtle" checked> Moving Turtle</label>
-            <label><input type="checkbox" id="enablePong" checked> Pong Game</label>
-            <label><input type="checkbox" id="enableinvert" checked> Invert Color</label>
-            <label><input type="checkbox" id="enablePigRoaster" checked> Pig Roaster</label>
-            <label><input type="checkbox" id="enableNerdSummarizer" checked> Nerd Summarizer</label>
-            <label><input type="checkbox" id="enableRGB" checked> RGB</label>
+        <div class="effects-grid">
+            <button class="effect-btn active" data-effect="enableSoundEffects">🔊 Sound Effects</button>
+            <button class="effect-btn active" data-effect="enableSpeechBubbles">💭 Speech Bubbles</button>
+            <button class="effect-btn active" data-effect="enableTurtle">🐢 Moving Turtle</button>
+            <button class="effect-btn active" data-effect="enablePong">🏓 Pong Game</button>
+            <button class="effect-btn active" data-effect="enableinvert">🔄 Invert Color</button>
+            <button class="effect-btn active" data-effect="enablePigRoaster">🐷 Pig Roaster</button>
+            <button class="effect-btn active" data-effect="enableNerdSummarizer">🤓 Nerd Summarizer</button>
+            <button class="effect-btn active" data-effect="enableRGB">🌈 RGB</button>
         </div>
         <button id="applyStyles" class="main-button">Toggle Comic Mode</button>
         <div class="status">

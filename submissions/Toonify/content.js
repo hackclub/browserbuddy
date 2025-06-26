@@ -298,11 +298,11 @@ function applyStyles() {
     fontLink.href = 'https://fonts.googleapis.com/css2?family=Bangers&display=swap';
     fontLink.rel = 'stylesheet';
     fontLink.onerror = () => {
-      console.log('Cartoonify: Google Fonts blocked by CSP, using fallback fonts');
+      console.log('Google Fonts blocked by CSP');
     };
     document.head.appendChild(fontLink);
   } catch (error) {
-    console.log('Cartoonify: Could not load Google Fonts, using fallback fonts');
+    console.log('Could not load Google Fonts');
   }
   
   

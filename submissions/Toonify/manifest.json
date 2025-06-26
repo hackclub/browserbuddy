@@ -1,10 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Cartoonify",
+  "name": "Toonify",
   "version": "1.0",
   "description": "A Chrome extension that cartoonifies web pages",
   "icons": {
-    "128": "media/icon.jpg"
+    "16": "media/icon16.jpg",
+    "48": "media/icon48.jpg",
+    "128": "media/icon128.jpg"
   },
   "permissions": [
     "activeTab",
@@ -18,10 +20,14 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "media/icon.jpg"
+    "default_icon": {
+      "16": "media/icon16.jpg",
+      "48": "media/icon48.jpg",
+      "128": "media/icon128.jpg"
+    }
   },
   "web_accessible_resources": [{
-  "resources": ["media/doodles.jpg", "media/turtle.gif", "media/Boing.mp3", "media/Resonance.mp3", "media/kachow.mp3", "media/Boom.mp3", "media/Pow.mp3" , "media/Zap.mp3", "media/Chill.mp3", "media/spongebob.png", "media/pig.png", "media/icon.jpg", "media/mousecursor.png", "media/mouseclicker.png", "media/cat.png", "media/chillguy.png"], 
+  "resources": ["media/doodles.jpg", "media/turtle.gif", "media/Boing.mp3", "media/Resonance.mp3", "media/kachow.mp3", "media/Boom.mp3", "media/Pow.mp3" , "media/Zap.mp3", "media/Chill.mp3", "media/spongebob.png", "media/pig.png", "media/icon.jpg", "media/mousecursor.png", "media/mouseclicker.png", "media/cat.png", "media/chillguy.png", "media/peppapig.png"], 
   "matches": ["<all_urls>"]
     
   }]
