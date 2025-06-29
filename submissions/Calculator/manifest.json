@@ -1,16 +1,43 @@
 {
   "manifest_version": 3,
-  "name": "CALCULATOR",
+  "name": "Smart Tab Organizer",
   "version": "1.0",
-  "description": "A brutalist-style calculator extension",
+  "description": "Organize tabs into groups with time tracking and productivity modes",
+  
+  "permissions": [
+    "tabs",
+    "tabGroups",
+    "storage",
+    "activeTab"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
   "action": {
     "default_popup": "popup.html",
-    "default_title": "CALCULATOR"
+    "default_title": "Smart Tab Organizer",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon128.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  },
-  "permissions": []
+    "16": "icons/icon16.png",
+    "32": "icons/icon128.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }

@@ -1,47 +1,341 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CALCULATOR</title>
-    <link rel="stylesheet" href="popup.css">
+    <title>Smart Tab Organizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 420px;
+            min-height: 520px;
+            font-family: 'Courier New', monospace;
+            background: #000000;
+            color: #ffffff;
+            border: 4px solid #ffffff;
+        }
+
+        .header {
+            padding: 24px;
+            text-align: left;
+            background: #ffffff;
+            color: #000000;
+            border-bottom: 4px solid #000000;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .modes-section {
+            padding: 20px;
+            background: #000000;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 8px;
+        }
+
+        .modes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .mode-btn {
+            padding: 16px;
+            border: 3px solid #ffffff;
+            border-radius: 0;
+            background: #000000;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            font-size: 14px;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'Courier New', monospace;
+        }
+
+        .mode-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #ffffff;
+        }
+
+        .mode-btn.active {
+            background: #ffffff;
+            color: #000000;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #cccccc;
+        }
+
+        .groups-section {
+            padding: 0 20px;
+            max-height: 280px;
+            overflow-y: auto;
+        }
+
+        .group-item {
+            background: #000000;
+            border: 3px solid #ffffff;
+            border-radius: 0;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.1s ease;
+        }
+
+        .group-item:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #ffffff;
+        }
+
+        .group-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .group-name {
+            font-weight: 900;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .group-stats {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .group-time {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .tab-count {
+            font-size: 12px;
+            background: #ffffff;
+            color: #000000;
+            padding: 4px 8px;
+            border: 2px solid #000000;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .group-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .action-btn {
+            padding: 8px 12px;
+            border: 2px solid #ffffff;
+            border-radius: 0;
+            background: #000000;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-family: 'Courier New', monospace;
+            transition: all 0.1s ease;
+        }
+
+        .action-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translate(-1px, -1px);
+            box-shadow: 2px 2px 0px #ffffff;
+        }
+
+        .action-btn.delete {
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        .action-btn.delete:hover {
+            background: #ff0000;
+            color: #ffffff;
+            box-shadow: 2px 2px 0px #ff0000;
+        }
+
+        .add-group-section {
+            padding: 20px;
+            border-top: 4px solid #ffffff;
+            background: #000000;
+        }
+
+        .add-group-input {
+            width: 100%;
+            padding: 12px;
+            border: 3px solid #ffffff;
+            border-radius: 0;
+            background: #000000;
+            color: #ffffff;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .add-group-input::placeholder {
+            color: #cccccc;
+            text-transform: uppercase;
+        }
+
+        .add-group-input:focus {
+            outline: none;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #ffffff;
+        }
+
+        .add-group-btn {
+            width: 100%;
+            padding: 16px;
+            border: 3px solid #ffffff;
+            border-radius: 0;
+            background: #000000;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: 900;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-family: 'Courier New', monospace;
+            transition: all 0.1s ease;
+        }
+
+        .add-group-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #ffffff;
+        }
+
+        .drop-zone {
+            min-height: 48px;
+            border: 3px dashed #ffffff;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 8px;
+            transition: all 0.1s ease;
+            text-transform: uppercase;
+        }
+
+        .drop-zone.drag-over {
+            border-color: #ffffff;
+            background: #ffffff;
+            color: #000000;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #ffffff;
+        }
+
+        .stats-bar {
+            padding: 16px 20px;
+            background: #ffffff;
+            color: #000000;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-top: 4px solid #000000;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+            border: 2px solid #ffffff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ffffff;
+            border: 1px solid #000000;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cccccc;
+        }
+    </style>
 </head>
 <body>
-    <div class="window">
-        <div class="title-bar">
-            <span>CALCULATOR</span>
-        </div>
-        <div class="content">
-            <div class="memory-display" id="memory"></div>
-            <div class="display" id="display">0</div>
-            <div class="buttons">
-                <button class="btn clear" data-action="clear-all">C</button>
-                <button class="btn clear" data-action="clear-entry">CE</button>
-                <button class="btn operator" data-action="operator" data-value="/">/</button>
-                <button class="btn operator" data-action="operator" data-value="*">*</button>
-                
-                <button class="btn number" data-action="number" data-value="7">7</button>
-                <button class="btn number" data-action="number" data-value="8">8</button>
-                <button class="btn number" data-action="number" data-value="9">9</button>
-                <button class="btn operator" data-action="operator" data-value="-">-</button>
-                
-                <button class="btn number" data-action="number" data-value="4">4</button>
-                <button class="btn number" data-action="number" data-value="5">5</button>
-                <button class="btn number" data-action="number" data-value="6">6</button>
-                <button class="btn operator" data-action="operator" data-value="+">+</button>
-                
-                <button class="btn number" data-action="number" data-value="1">1</button>
-                <button class="btn number" data-action="number" data-value="2">2</button>
-                <button class="btn number" data-action="number" data-value="3">3</button>
-                <button class="btn equals" data-action="equals">=</button>
-                
-                <button class="btn number zero" data-action="number" data-value="0">0</button>
-                <button class="btn" data-action="decimal">.</button>
-            </div>
+    <div class="header">
+        <h1>TAB ORGANIZER</h1>
+        <p>ORGANIZE • TRACK • FOCUS</p>
+    </div>
+
+    <div class="modes-section">
+        <div class="section-title">MODES</div>
+        <div class="modes-grid">
+            <button class="mode-btn" data-mode="work">
+                WORK<br>
+                <small id="work-time">0M</small>
+            </button>
+            <button class="mode-btn" data-mode="code">
+                CODE<br>
+                <small id="code-time">0M</small>
+            </button>
+            <button class="mode-btn" data-mode="creativity">
+                CREATIVE<br>
+                <small id="creativity-time">0M</small>
+            </button>
+            <button class="mode-btn" data-mode="fun">
+                FUN<br>
+                <small id="fun-time">0M</small>
+            </button>
         </div>
     </div>
+
+    <div class="groups-section">
+        <div class="section-title">GROUPS</div>
+        <div id="groups-container">
+            <!-- Groups will be populated here -->
+        </div>
+    </div>
+
+    <div class="add-group-section">
+        <input type="text" class="add-group-input" id="new-group-name" placeholder="GROUP NAME">
+        <button class="add-group-btn" id="add-group-btn">+ CREATE GROUP</button>
+    </div>
+
+    <div class="stats-bar">
+        <div id="total-stats">TODAY: <span id="total-time">0M</span> • TABS: <span id="active-tabs">0</span></div>
+    </div>
+
     <script src="popup.js"></script>
 </body>
 </html>
-
