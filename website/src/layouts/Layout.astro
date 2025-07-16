@@ -98,9 +98,9 @@ const { title } = Astro.props;
     <div class="page-content">
       <div id="particles-js"></div>
       <slot />
-      <div id="blinking-tree">
+      <div id="summer-vibes">
         <img
-          src="https://media.tenor.com/Sog3qstYZPgAAAAj/christmas-tree-christmas-lights.gif"
+          src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHZ4dHMxcmFlcGttMndxeHh1YmRleDNkY3A2MW83czZna2diYWQyaSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o6Ztm02ySaucdHEg8/giphy.gif"
         />
       </div>
     </div>
@@ -119,7 +119,7 @@ const { title } = Astro.props;
         },
       },
       color: {
-        value: "#d7d7d9",
+        value: ["#40E0D0", "#FFD700", "#FF6B47", "#87CEEB", "#FFA500"],
       },
       shape: {
         type: "circle",
@@ -140,19 +140,19 @@ const { title } = Astro.props;
         value: 0.5,
         random: true,
         anim: {
-          enable: false,
+          enable: true,
           speed: 1,
-          opacity_min: 0.1,
+          opacity_min: 0.3,
           sync: false,
         },
       },
       size: {
-        value: 10,
+        value: 8,
         random: true,
         anim: {
-          enable: false,
-          speed: 40,
-          size_min: 0.1,
+          enable: true,
+          speed: 20,
+          size_min: 2,
           sync: false,
         },
       },
@@ -165,12 +165,12 @@ const { title } = Astro.props;
       },
       move: {
         enable: true,
-        speed: 6,
-        direction: "bottom",
-        random: false,
+        speed: 2,
+        direction: "top",
+        random: true,
         straight: false,
         out_mode: "out",
-        bounce: false,
+        bounce: true,
         attract: {
           enable: false,
           rotateX: 600,
@@ -200,9 +200,9 @@ const { title } = Astro.props;
         },
         bubble: {
           distance: 400,
-          size: 4,
+          size: 12,
           duration: 0.3,
-          opacity: 1,
+          opacity: 0.8,
           speed: 3,
         },
         repulse: {
@@ -224,8 +224,8 @@ const { title } = Astro.props;
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === "childList") {
-          const blinkingTreeEl = document.getElementById("blinking-tree");
-          if (blinkingTreeEl) {
+          const summerVibesEl = document.getElementById("summer-vibes");
+          if (summerVibesEl) {
             document.addEventListener("scroll", () => {
               const scrollTop =
                 document.documentElement.scrollTop || document.body.scrollTop;
@@ -234,7 +234,7 @@ const { title } = Astro.props;
                 document.documentElement.clientHeight;
               const opacity = 1 - scrollTop / maxScroll;
               // @ts-ignore
-              blinkingTreeEl.style.opacity = opacity;
+              summerVibesEl.style.opacity = opacity;
             });
             observer.disconnect(); // Stop observing once the element is found
           }
@@ -270,9 +270,13 @@ const { title } = Astro.props;
       rgb(var(--accent-light)) 30%,
       white 60%
     );
-    --hc-red: #f2485f;
-    --hc-green: #33d6a6;
-    --hc-purple: #a633d6;
+    --summer-coral: #FF6B47;
+    --summer-turquoise: #40E0D0;
+    --summer-yellow: #FFD700;
+    /* legacy variables for compatibility */
+    --hc-red: #FF6B47;
+    --hc-green: #40E0D0;
+    --hc-purple: #FFD700;
   }
 
   * {
@@ -305,8 +309,8 @@ const { title } = Astro.props;
           transparent
         )
         25px 25px,
-      linear-gradient(#ec37504a 2px, transparent 2px) 0 -1px,
-      linear-gradient(90deg, #ec37504a 2px, white 2px) -1px 0;
+      linear-gradient(#40E0D04a 2px, transparent 2px) 0 -1px,
+      linear-gradient(90deg, #40E0D04a 2px, white 2px) -1px 0;
     background-size:
       50px 50px,
       50px 50px,
@@ -389,7 +393,7 @@ const { title } = Astro.props;
     height: 100vh;
   }
 
-  #blinking-tree {
+  #summer-vibes {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -400,9 +404,11 @@ const { title } = Astro.props;
     justify-content: flex-end;
   }
 
-  #blinking-tree img {
+  #summer-vibes img {
     align-self: flex-end;
     width: 70px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
   }
 
   .cta-text {
@@ -419,7 +425,7 @@ const { title } = Astro.props;
     padding: 0.2rem 1.5rem;
     transform: rotate(-4deg);
     margin: 0;
-    background-color: var(--hc-green);
+    background-color: var(--summer-turquoise);
     z-index: 1;
   }
 
@@ -429,7 +435,7 @@ const { title } = Astro.props;
     padding: 0.5rem 1.6rem;
     /* transform: rotate(3deg); */
     margin: 0;
-    background-color: var(--hc-purple);
+    background-color: var(--summer-yellow);
     z-index: 1;
   }
 
@@ -443,7 +449,7 @@ const { title } = Astro.props;
     padding: 0.2rem 1.5rem;
     transform: rotate(5deg);
     margin: 0 0 2rem 0;
-    background-color: #ec3750;
+    background-color: var(--summer-coral);
     z-index: 2;
   }
 
@@ -527,7 +533,7 @@ const { title } = Astro.props;
     font-weight: bold;
     background: transparent;
     border-radius: 0.5rem;
-    border: 3px solid var(--hc-red);
+    border: 3px solid var(--summer-turquoise);
     width: 60%;
     font-size: 1;
   }
@@ -552,10 +558,17 @@ const { title } = Astro.props;
   button {
     color: white;
     border-radius: 0.5rem;
-    border: 2px solid var(--hc-red);
+    border: 2px solid var(--summer-coral);
     font-size: 1;
-    background-color: var(--hc-red);
+    background: linear-gradient(135deg, var(--summer-coral), var(--summer-yellow));
     font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, var(--summer-yellow), var(--summer-coral));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 71, 0.4);
   }
 
   .cta {
@@ -607,12 +620,13 @@ const { title } = Astro.props;
   }
 
   .suggestion {
-    background-color: var(--hc-red);
+    background: linear-gradient(135deg, var(--summer-coral), var(--summer-turquoise));
     border-radius: 20px;
     color: white;
     padding: 2rem;
     font-size: 1.3rem;
     width: 350px;
+    box-shadow: 0 8px 25px rgba(64, 224, 208, 0.3);
   }
 
   .chevron-down {
