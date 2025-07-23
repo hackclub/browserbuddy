@@ -50,7 +50,7 @@ export const projects: Array<Project> = [
    },
    {
       name: "Slang Translator",
-      description: "Evere found yourself on Twitter or an article not understanding a word people are saying? What does 'yap' mean or what does it mean to 'unalive' someone? no fear fr",
+      description: "Every found yourself on Twitter or an article not understanding a word people are saying? What does 'yap' mean or what does it mean to 'unalive' someone? no fear fr",
       bannerImage: "banners/slangtranslator-banner.gif",
       authorName: "Aaradhya Panda",
       pullRequest: "https://github.com/hackclub/browserbuddy/pull/48",
