@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Track Listened Items</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Track Listened Items</h1>
+    <div class="controls">
+      <button id="mark-as-listened">Mark Current Tab as Listened</button>
+      <input type="text" id="search" placeholder="Search...">
+      <select id="category">
+        <option value="">All Categories</option>
+        <option value="Music">Music</option>
+        <option value="Podcast">Podcast</option>
+        <option value="YouTube">YouTube</option>
+      </select>
+    </div>
+    <ul id="listened-items"></ul>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
