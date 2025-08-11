@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Multi Tab Opener",
+  "version": "1.0",
+  "description": "Open multiple tabs with one click",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Open Multiple Tabs"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "scripts": ["background-firefox.js"],
+    "persistent": false
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "multi-tab-opener@example.com",
+      "strict_min_version": "57.0"
+    }
+  }
+}
