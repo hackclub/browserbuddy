@@ -1,0 +1,44 @@
+body {
+  width: 300px;
+  font-family: sans-serif;
+  padding: 10px;
+  background: #f4fff4;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#daily-tip {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+li {
+  padding: 5px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li.fav {
+  background: #e0ffe0;
+}
