@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Homework Tracker</h1>
+        </header>
+
+        <div class="add-form">
+            <input type="text" id="assignmentTitle" placeholder="Assignment title" maxlength="100">
+            <input type="text" id="assignmentSubject" placeholder="Subject" maxlength="50">
+            <input type="date" id="assignmentDate">
+            <textarea id="assignmentDescription" placeholder="Description (optional)" maxlength="200"></textarea>
+            <button id="addBtn">Add Assignment</button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div class="assignments-container">
+            <div id="assignmentsList"></div>
+            <div id="emptyState" class="empty-state">
+                <p>No assignments yet. Add one above!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
