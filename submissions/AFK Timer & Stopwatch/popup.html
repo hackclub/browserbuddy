@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AFK Timer & Stopwatch</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">AFK Timer & Stopwatch</h1>
+    
+    <div class="tabs">
+      <button class="tab-btn active" id="stopwatch-tab">Stopwatch</button>
+      <button class="tab-btn" id="timer-tab">Timer</button>
+    </div>
+    
+    <div id="stopwatch-section" class="section active">
+      <div class="display" id="stopwatch-display">00:00:00</div>
+      <div class="controls">
+        <button id="stopwatch-start">Start</button>
+        <button id="stopwatch-pause" disabled>Pause</button>
+        <button id="stopwatch-reset">Reset</button>
+      </div>
+    </div>
+    
+    <div id="timer-section" class="section">
+      <div class="input-group">
+        <input type="number" id="hours" min="0" max="23" value="0">
+        <span>:</span>
+        <input type="number" id="minutes" min="0" max="59" value="0">
+        <span>:</span>
+        <input type="number" id="seconds" min="0" max="59" value="0">
+      </div>
+      <div class="display" id="timer-display">00:00:00</div>
+      <div class="controls">
+        <button id="timer-start">Start</button>
+        <button id="timer-pause" disabled>Pause</button>
+        <button id="timer-reset">Reset</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
+
+<!-- Icon Source: Timer icons created by fjstudio - Flaticon -->
