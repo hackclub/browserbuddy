@@ -1,0 +1,158 @@
+body {
+    font-family: 'Bangers', cursive;
+    background-color: #ffd54f;
+    width: 300px;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #333;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="%23ffd54f"/><circle cx="10" cy="10" r="2" fill="%23ff9800"/><circle cx="30" cy="10" r="2" fill="%23ff9800"/><circle cx="50" cy="10" r="2" fill="%23ff9800"/><circle cx="70" cy="10" r="2" fill="%23ff9800"/><circle cx="90" cy="10" r="2" fill="%23ff9800"/><circle cx="10" cy="30" r="2" fill="%23ff9800"/><circle cx="30" cy="30" r="2" fill="%23ff9800"/><circle cx="50" cy="30" r="2" fill="%23ff9800"/><circle cx="70" cy="30" r="2" fill="%23ff9800"/><circle cx="90" cy="30" r="2" fill="%23ff9800"/><circle cx="10" cy="50" r="2" fill="%23ff9800"/><circle cx="30" cy="50" r="2" fill="%23ff9800"/><circle cx="50" cy="50" r="2" fill="%23ff9800"/><circle cx="70" cy="50" r="2" fill="%23ff9800"/><circle cx="90" cy="50" r="2" fill="%23ff9800"/><circle cx="10" cy="70" r="2" fill="%23ff9800"/><circle cx="30" cy="70" r="2" fill="%23ff9800"/><circle cx="50" cy="70" r="2" fill="%23ff9800"/><circle cx="70" cy="70" r="2" fill="%23ff9800"/><circle cx="90" cy="70" r="2" fill="%23ff9800"/><circle cx="10" cy="90" r="2" fill="%23ff9800"/><circle cx="30" cy="90" r="2" fill="%23ff9800"/><circle cx="50" cy="90" r="2" fill="%23ff9800"/><circle cx="70" cy="90" r="2" fill="%23ff9800"/><circle cx="90" cy="90" r="2" fill="%23ff9800"/></svg>');
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid #333;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    color: #ef5350;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0 #333;
+    font-size: 32px;
+    transform: rotate(-2deg);
+}
+
+.color-picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.effects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.effect-btn {
+    background-color: #ffd54f;
+    color: #333;
+    border: 3px solid #333;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: 'Bangers', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.effect-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+    background-color: #ffecb3;
+}
+
+.effect-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.effect-btn.active {
+    background-color: #4caf50;
+    color: white;
+    text-shadow: 1px 1px 0 #333;
+}
+
+.effect-btn.active:hover {
+    background-color: #66bb6a;
+}
+
+.effect-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff9800, #ffc107, #ffeb3b, #8bc34a, #4caf50, #2196f3, #9c27b0, #e91e63);
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.effect-btn.active::before {
+    opacity: 0.3;
+    animation: rainbow-border 2s linear infinite;
+}
+
+@keyframes rainbow-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+button {
+    background-color: #ef5350;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Bangers', cursive;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #333;
+    transition: transform 0.1s, box-shadow 0.1s;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 #333;
+}
+
+button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 #333;
+}
+
+.status {
+    text-align: center;
+    font-style: italic;
+}
+
+#outputText {
+    margin: 0;
+}
+
+.peppa-section {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.peppa-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #ef5350;
+    box-shadow: 2px 2px 0 #333;
+    transition: transform 0.3s ease;
+}
+
+.peppa-img:hover {
+    transform: rotate(10deg) scale(1.1);
+}
