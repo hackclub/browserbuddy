@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "TecnoMap Extension",
+  "version": "1.0.0",
+  "description": "An extension that redirects some BlueMap requests to your game to display your personal data.",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://mappa.tecnocraft.net/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/tecnomap-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mappa.tecnocraft.net/*"
+      ],
+      "js": [
+        "scripts/content.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ],
+  "icons": {
+    "16": "assets/tecnomap-16.png",
+    "48": "assets/tecnomap-48.png",
+    "128": "assets/tecnomap-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tecnomap@reloia.it"
+    }
+  }
+}
