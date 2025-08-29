@@ -1,0 +1,17 @@
+body {
+	margin: 0;
+	font: 14px / 1.3 sans-serif;
+	background: #111;
+	color: #ddd;
+	text-align: center;
+}
+h1 {
+	margin: 8px 0 4px;
+	font-size: 18px;
+}
+svg {
+	border: 1px solid #333;
+	background: #000;
+	margin: auto;
+	display: block;
+}

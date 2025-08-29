@@ -1,0 +1,31 @@
+{
+	"manifest_version": 3,
+	"name": "TraceChain",
+	"description": "Visualise your daily web journey and get AI-powered summaries – all locally.",
+	"version": "0.1.1",
+	"permissions": [
+		"storage",
+		"tabs",
+		"history",
+		"webNavigation",
+		"activeTab",
+		"idle",
+		"alarms",
+		"notifications"
+	],
+	"host_permissions": ["*://*/*", "https://ai.hackclub.com/*"],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"action": {
+		"default_title": "TraceChain",
+		"default_popup": "popup.html"
+	},
+	"commands": {
+		"_execute_action": { "suggested_key": { "default": "Ctrl+Shift+K" } }
+	},
+
+	"web_accessible_resources": [
+		{ "resources": ["print.html", "graph.html"], "matches": ["<all_urls>"] }
+	]
+}
