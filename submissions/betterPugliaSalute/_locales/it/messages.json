@@ -1,0 +1,38 @@
+{
+    "tab_rd": {
+        "message": "RD"
+    },
+    "future_feature_tab": {
+        "message": "Prossimamente"
+    },
+    "rd_title": {
+        "message": "Ricetta Dematerializzata"
+    },
+    "open": {
+        "message": "Apri"
+    },
+    "rd_description": {
+        "message": "Riempi automaticamente i campi del sito per risparmiare tempo"
+    },
+    "cf_label": {
+        "message": "Codice Fiscale"
+    },
+    "cfid_label": {
+        "message": "ID Tessera Sanitaria"
+    },
+    "phone_label": {
+        "message": "Numero di Telefono"
+    },
+    "email_label": {
+        "message": "Email"
+    },
+    "save_button": {
+        "message": "Salva"
+    },
+    "coming_soon_title": {
+        "message": "In arrivo"
+    },
+    "coming_soon_text": {
+        "message": "Funzionalità futura in fase di sviluppo."
+    }
+}

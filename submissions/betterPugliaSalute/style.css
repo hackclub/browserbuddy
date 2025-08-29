@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 300px;
+    padding: 10px;
+
+    --main-c: #dd628d;
+    --main-c-light: #f0b2d1;
+    --main-c-dark: #a74c6b;
+    --main-c-text: #ffffff;
+    --main-c-text-light: #f0f0f0;
+    --main-c-text-dark: #000000;
+
+    --background: #ffdddd;
+    --background-text: #423838;
+
+    background-color: var(--background);
+    color: var(--background-text);
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tabs>button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background-color: var(--main-c-light);
+    cursor: pointer;
+
+    transition: all .4s;
+
+    &:first-of-type {
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+    }
+
+    &:last-of-type {
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+
+    &:hover {
+        background-color: var(--main-c-dark);
+        color: white;
+    }
+
+    &.active {
+        background-color: var(--main-c);
+        color: white;
+    }
+}
+
+div.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    text-align: center;
+}
+
+div.title>button {
+    padding: 4px 12px;
+    background-color: var(--main-c);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--main-c-dark);
+        transition: all .4s;
+    }
+}
+
+.tab-content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+#rd > p {
+    margin: 0;
+    padding: 0;
+    color: var(--main-c-text-dark);
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+form > .value {
+    display: flex;
+    flex-direction: column;
+}
+
+form > .value label {
+    margin-bottom: -1px;
+    margin-left: 6px;
+    font-weight: bold;
+}
+form > .value input {
+    padding: 4px 6px; 
+    border: 1px solid var(--main-c);
+    border-radius: 8px;
+    background-color: var(--main-c-light);
+    color: var(--main-c-text-dark);
+
+    transition: all .4s;
+
+    &:focus {
+        border-color: var(--main-c-dark);
+        outline: none;
+        background-color: var(--main-c-text-light);
+        color: var(--main-c-text-dark);
+    }
+    &::placeholder {
+        color: var(--main-c-text-dark);
+    }
+}
+
+form > button {
+    padding-block: 6px;
+    background-color: var(--main-c);
+    color: var(--main-c-text);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+
+    max-width: fit-content;
+    padding-inline: 48px;
+
+    transition: all .4s;
+
+    margin-inline: auto;
+
+    &:hover {
+        background-color: var(--main-c-dark);
+        color: var(--main-c-text-light);
+    }
+}

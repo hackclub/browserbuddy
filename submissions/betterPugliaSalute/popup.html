@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puglia Salute</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="scripts/browser-polyfill.min.js"></script>
+    <script defer src="scripts/popup.js"></script>
+</head>
+
+<body>
+    <div class="tabs">
+        <button data-tab="rd" data-i18n="tab_rd" class="active"></button>
+        <button data-tab="future" data-i18n="future_feature_tab"></button>
+    </div>
+
+    <div class="tab-content active" id="rd">
+        <div class="title">
+            <h3 data-i18n="rd_title"></h3>
+            <button data-i18n="open" id="open-rd"></button>
+        </div>
+        <p data-i18n="rd_description"></p>
+        <form id="rd-form">
+            <div class="value">
+                <label data-i18n="cf_label"></label>
+                <input type="text" name="cf" />
+            </div>
+            <div class="value">
+                <label data-i18n="cfid_label"></label>
+                <input type="text" name="cfid" />
+            </div>
+            <div class="value">
+                <label data-i18n="phone_label"></label>
+                <input type="text" name="phone" />
+            </div>
+            <div class="value">
+                <label data-i18n="email_label"></label>
+                <input type="email" name="email" />
+            </div>
+            <button type="submit" data-i18n="save_button"></button>
+        </form>
+    </div>
+
+    <div class="tab-content" id="future">
+        <h3 data-i18n="coming_soon_title"></h3>
+        <p data-i18n="coming_soon_text"></p>
+    </div>
+
+</body>
+
+</html>
