@@ -1,0 +1,48 @@
+{
+   "action": {
+      "default_popup": "popup.html"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "chrome_url_overrides": {
+      "newtab": "homepage.html"
+   },
+   "content_scripts": [ {
+      "js": [ "content.js" ],
+      "matches": [ "<all_urls>" ]
+   }, {
+      "js": [ "content.js" ],
+      "matches": [ "*://*.cosmixcom.repl.co/*" ]
+   }, {
+      "js": [ "js/func/replit.js" ],
+      "matches": [ "*://*.replit.com/*" ]
+   }, {
+      "js": [ "js/func/gpt.js" ],
+      "matches": [ "*://*.openai.com/*" ]
+   }, {
+      "js": [ "js/func/zymono.js" ],
+      "matches": [ "*://*.zymono.com/*" ]
+   } ],
+   "description": "A portal into a developers dream.",
+   "icons": {
+      "128": "images/icon128.png",
+      "48": "images/icon48.png",
+      "500": "images/DevPortal.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiJZGXj3NTU0qcCVoa0kJbIVeQzp6iyrcQLDl6P9vRAcD1TLfE5R+FW67veHElwMnQN2K/3yOSS0okgtOc4QnuhPkvYLT0WCuQ5UBug0JWGEMS9D+MdxPuRxH3Mt+q1HTxV3oZmI0ntraiUiuaXjObUJj9R+7VidQLjBKrQHTYf5qQffxGd9CbLTYezT7CM7uIDoPpPhPUSFUmE0MVl27d/enxPfg8otoIiYGVrTojqLP66D3eMY9+Drn+H8HQqmpKUHLbTKKAqOPyuLCFpX3jXk5UigX8rhMILkkCMGwn/4sL0QqOWbtHYqtLvUj6SRQBSyh52LhZ8nx4lOhwgtjIwIDAQAB",
+   "manifest_version": 3,
+   "name": "Toggled Dev",
+   "options_ui": {
+      "page": "options.html"
+   },
+   "permissions": ["storage", "clipboardRead" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.1",
+   "web_accessible_resources": [
+      {
+        "resources": ["sandbox.html"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+}
