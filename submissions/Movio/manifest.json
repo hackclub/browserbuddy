@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Movio",
+  "version": "1.9",
+  "description": "Search movies using the OMDb API",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Movie Search"
+  },
+  "permissions": [],
+  "icons": {
+    "128": "icon.png"
+  }
+}
