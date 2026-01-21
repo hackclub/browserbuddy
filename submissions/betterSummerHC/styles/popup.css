@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 300px;
+    padding: 10px;
+
+    --main-c: #4a2d24;
+    --main-c-light: #d0b194;
+    --main-c-dark: #ca8862dc;
+    --main-c-text: #ffffff;
+    --main-c-text-light: #f0f0f0;
+    --main-c-text-dark: #000000;
+
+    --background: #f1d9bb;
+    --background-text: #423838;
+
+    background-color: var(--background);
+    color: var(--background-text);
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tabs>button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background-color: var(--main-c-light);
+    cursor: pointer;
+
+    transition: all .4s;
+
+    &:first-of-type {
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+    }
+
+    &:last-of-type {
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+
+    &:hover {
+        background-color: var(--main-c-dark);
+        color: white;
+    }
+
+    &.active {
+        background-color: var(--main-c);
+        color: white;
+    }
+}
+
+div.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    text-align: center;
+}
+
+div.title>button {
+    padding: 4px 12px;
+    background-color: var(--main-c);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--main-c-dark);
+        transition: all .4s;
+    }
+}
+
+.content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+#general>.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &>label {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 4px;
+
+        padding: 10px 8px;
+        background-color: var(--main-c-dark);
+        color: var(--main-c-text-light);
+        border-radius: 12px;
+        
+        &.checkbox {
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+
+            &>input {
+                all: unset;
+                width: 20px;
+                height: 20px;
+                border-radius: 4px;
+                background-color: var(--main-c-light);
+                border: 1px solid var(--main-c);
+                cursor: pointer;
+                position: relative;
+                transition: all .4s;
+
+                &:checked {
+                    background-color: var(--main-c);
+                }
+                &:checked::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 10px;
+                    height: 10px;
+                    background-color: var(--main-c-text);
+                    border-radius: 2px;
+                }
+                &:hover {
+                    background-color: var(--main-c-dark);
+                    transition: all .4s;
+                }
+            }
+        }
+
+        &>input {
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--main-c-light);
+            background-color: var(--main-c-light);
+            color: var(--main-c-text-dark);
+        }
+    }
+}
+
+#shop>.hidden {
+    display: none;
+
+    &>div {
+        overflow-y: auto;
+        max-height: 300px;
+        
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        &>div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px;
+            background-color: var(--main-c-light);
+            border-radius: 8px;
+
+            & > button {
+                padding: 2px 8px;
+                background-color: var(--main-c);
+                color: var(--main-c-text);
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: .8rem;
+
+                &:hover {
+                    background-color: var(--main-c-dark);
+                    transition: all .4s;
+                }
+            }
+        }
+    }
+}
