@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toonify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="peppa-section">
+            <img src="media/peppapig.png" alt="Peppa Pig" class="peppa-img">
+        </div>
+        <h1>Cartoonify</h1>
+        <div class="color-section">
+            <div class="color-picker">
+                <label for="mainColor">Main Color:</label>
+                <input type="color" id="mainColor" value="#ef5350">
+            </div>
+            <div class="color-presets" id="presetColors"></div>
+        </div>
+        <div class="effects-grid">
+            <button class="effect-btn active" data-effect="enableSoundEffects">🔊 Sound Effects</button>
+            <button class="effect-btn active" data-effect="enableSpeechBubbles">💭 Speech Bubbles</button>
+            <button class="effect-btn active" data-effect="enableTurtle">🐢 Moving Turtle</button>
+            <button class="effect-btn active" data-effect="enablePong">🏓 Pong Game</button>
+            <button class="effect-btn active" data-effect="enableinvert">🔄 Invert Color</button>
+            <button class="effect-btn active" data-effect="enablePigRoaster">🐷 Pig Roaster</button>
+            <button class="effect-btn active" data-effect="enableNerdSummarizer">🤓 Nerd Summarizer</button>
+            <button class="effect-btn active" data-effect="enableRGB">🌈 RGB</button>
+        </div>
+        <button id="applyStyles" class="main-button">Toggle Comic Mode</button>
+        <div class="status">
+            <p id="outputText">Ready to cartoonify!</p>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
