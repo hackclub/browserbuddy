@@ -1,0 +1,38 @@
+{
+    "tab_rd": {
+        "message": "RD"
+    },
+    "future_feature_tab": {
+        "message": "Coming Soon"
+    },
+    "rd_title": {
+        "message": "Dematerialized Prescription"
+    },
+    "open": {
+        "message": "Open"
+    },
+    "rd_description": {
+        "message": "Automatically fill in the site fields to save time"
+    },
+    "cf_label": {
+        "message": "Tax Code"
+    },
+    "cfid_label": {
+        "message": "Health Card ID"
+    },
+    "phone_label": {
+        "message": "Phone Number"
+    },
+    "email_label": {
+        "message": "Email"
+    },
+    "save_button": {
+        "message": "Save"
+    },
+    "coming_soon_title": {
+        "message": "Coming Soon"
+    },
+    "coming_soon_text": {
+        "message": "Future feature under development."
+    }
+}
