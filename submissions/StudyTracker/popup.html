@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Study Tracker</title>
+    <script defer src="face-api.min.js"></script>
+    <script defer src="popup.js"></script>
+    <!-- <script src="/tailwind.js"></script> Tailwind CSS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> Tailwind CSS -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a202c;
+            /* Dark background */
+            font-family: fantasy;
+            width: 47rem;
+        }
+
+        canvas {
+            position: absolute;
+        }
+
+        /* Glassmorphism background */
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            /* Lighter transparency for glass effect */
+            backdrop-filter: blur(12px);
+            /* Increased blur for sharper glass effect */
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 1.25rem 2rem;
+            width: 100%;
+            max-width: 500px;
+            /* Control max width for better layout */
+            text-align: center;
+            opacity: 0.85;
+            margin-top: 1rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .pulse-text {
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Custom text styles */
+        .status-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .study-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .study-time span {
+            color: #fbbf24;
+            /* Yellow */
+        }
+
+        .history {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .history .font-bold {
+            color: #fbbf24;
+            /* Yellow */
+        }
+
+        /* Title */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Video Feed */
+        #video {
+            width: 720px;
+            height: 560px;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Container with Gradient Background and Modern Style -->
+    <div class="container">
+
+        <!-- Title -->
+        <h1 class="fade-in">Study Tracker</h1>
+
+        <!-- Video Feed -->
+        <div class="relative">
+            <video id="video" width="720" height="560" autoplay muted class="rounded-3xl shadow-xl"></video>
+            <canvas id="canvas" class="absolute top-0 left-0 h-full"></canvas>
+        </div>
+
+        <!-- Status Display -->
+        <div id="status" class="glass status-text fade-in">
+            <span class="pulse-text">Looking for face...</span>
+        </div>
+
+        <!-- Study Time Display -->
+        <div id="study-time" class="glass study-time fade-in">
+            Total Study Time: <span>0 mins</span>
+        </div>
+
+        <!-- Button to Toggle Landmarks -->
+        <button id="toggleLandmarks" style="color: aliceblue; font-size: x-large; font-family: fantasy;"
+            class="glass !text-white px-6 py-2 mt-4 text-xl font-semibold text-white bg-purple-500 hover:bg-purple-700 rounded-lg">
+            Toggle Landmarks
+        </button>
+
+        <!-- 7-Day History -->
+        <div id="history" class="glass history fade-in !mb-4">
+            <div class="font-bold">7-Day Study History</div>
+            <div class="text-sm">N/A</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

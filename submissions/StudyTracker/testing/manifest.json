@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Study Time Tracker",
+    "version": "1.0",
+    "description": "Controls YouTube video playback based on study time",
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.youtube.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ]
+  }
+  
