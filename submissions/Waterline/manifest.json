@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Water Intake Logger",
+  "version": "1.0",
+  "description": "Track your daily water intake",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
