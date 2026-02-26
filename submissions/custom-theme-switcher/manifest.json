@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Custom Browser Theme",
+  "version": "1.0",
+  "description": "A simple browser theme customizer",
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["theme.css"],
+      "run_at": "document_end"
+    }
+  ]
+}

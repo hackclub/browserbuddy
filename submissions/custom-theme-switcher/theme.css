@@ -1,0 +1,19 @@
+/* This is a base stylesheet that gets overridden by the dynamic theme */
+/* It ensures basic functionality if the JavaScript doesn't load properly */
+
+/* Reset some basic elements */
+body.theme-reset {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-family: Arial, sans-serif !important;
+  font-size: medium !important;
+}
+
+body.theme-reset a {
+  color: #0000ff !important;
+}
+
+/* Add transition for smoother theme changes */
+body, a, p, span, div, h1, h2, h3, h4, h5, h6, li, td, th {
+  transition: color 0.3s ease, background-color 0.3s ease, font-family 0.3s ease;
+}
