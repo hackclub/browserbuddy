@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ice Drop Effects</title>
+  <style>
+    body {
+      width: 250px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+    }
+    h3 {
+      color: #0077cc;
+      margin-top: 0;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+    .value-display {
+      text-align: center;
+      font-weight: bold;
+      color: #0077cc;
+      margin-top: 5px;
+    }
+    button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .toggle-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #0077cc;
+    }
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  </style>
+</head>
+<body>
+  <h3>Ice Drop Effects</h3>
+  
+  <div class="toggle-container">
+    <span>Enable Effects:</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="enableEffects" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+  
+  <div class="form-group">
+    <label for="interval">Drop Interval (seconds):</label>
+    <input type="range" id="interval" min="1" max="10" step="0.5" value="3">
+    <div class="value-display" id="intervalValue">3 seconds</div>
+  </div>
+  
+  <div class="form-group">
+    <label for="size">Ice Size:</label>
+    <input type="range" id="size" min="1" max="5" step="0.5" value="2">
+    <div class="value-display" id="sizeValue">2x</div>
+  </div>
+  
+  <div class="form-group">
+    <label for="density">Ice Density:</label>
+    <input type="range" id="density" min="1" max="10" step="1" value="3">
+    <div class="value-display" id="densityValue">3 drops</div>
+  </div>
+  
+  <button id="saveSettings">Save Settings</button>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
