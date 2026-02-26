@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Motivational Quotes</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 16px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+    #status {
+      margin-top: 10px;
+      font-style: italic;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Motivational Quotes</h2>
+    <div>
+      <button id="startBtn">Start Quotes</button>
+      <button id="stopBtn">Stop Quotes</button>
+    </div>
+    <div id="status">Status: Inactive</div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
