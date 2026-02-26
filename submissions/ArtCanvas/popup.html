@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Canvas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Art Canvas</h1>
+    <div class="canvas-container">
+      <canvas id="drawingCanvas" width="500" height="400"></canvas>
+    </div>
+    <div class="controls">
+      <div class="color-picker">
+        <label for="colorPicker">Color:</label>
+        <input type="color" id="colorPicker" value="#000000">
+      </div>
+      <div class="brush-size">
+        <label for="brushSize">Size:</label>
+        <input type="range" id="brushSize" min="1" max="50" value="5">
+      </div>
+      <div class="buttons">
+        <button id="clearBtn">Clear Canvas</button>
+        <button id="saveBtn">Save Artwork</button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

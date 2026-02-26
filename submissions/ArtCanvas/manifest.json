@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Art Canvas",
+  "description": "A simple drawing canvas for when you're bored",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Open Art Canvas"
+  },
+  "permissions": []
+}
