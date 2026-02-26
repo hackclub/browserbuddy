@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tab Counter & Code Tracker</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      padding: 10px;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stat-box {
+      padding: 12px;
+      border-radius: 4px;
+      background-color: #f5f5f5;
+      border-left: 4px solid #4285f4;
+    }
+    .title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .value {
+      font-size: 20px;
+      font-weight: bold;
+      color: #4285f4;
+    }
+    .subtitle {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 15px 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      color: #333;
+    }
+    #longest-tab {
+      border-left-color: #ea4335;
+    }
+    #longest-tab .value {
+      color: #ea4335;
+      font-size: 14px;
+      word-break: break-all;
+    }
+    #code-files {
+      border-left-color: #34a853;
+    }
+    #code-files .value {
+      color: #34a853;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tab Counter & Code Tracker</h1>
+  <div class="container">
+    <div class="stat-box">
+      <div class="title">Open Tabs</div>
+      <div class="value" id="tab-count">-</div>
+    </div>
+    
+    <div class="stat-box" id="code-files">
+      <div class="title">Code Files</div>
+      <div class="value" id="code-count">-</div>
+      <div class="subtitle">Files with code extensions</div>
+    </div>
+    
+    <div class="stat-box">
+      <div class="title">Average Tab Age</div>
+      <div class="value" id="avg-time">-</div>
+      <div class="subtitle">How long tabs have been open on average</div>
+    </div>
+    
+    <div class="stat-box" id="longest-tab">
+      <div class="title">Longest Open Tab</div>
+      <div class="value" id="longest-tab-info">-</div>
+      <div class="subtitle" id="longest-tab-time">-</div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
